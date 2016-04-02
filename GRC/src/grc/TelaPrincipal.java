@@ -6,7 +6,9 @@
 package grc;
 
 import java.awt.Container;
+import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -26,11 +28,29 @@ public class TelaPrincipal  extends JFrame{
     private JMenuItem cadProduto;
     private JMenuItem cadGrupoPro;
     private Container c;
+    
+    private JDesktopPane deskPane;
+    private JInternalFrame cadastroCliente;
+    private JInternalFrame cadastroProduto;
+    private JInternalFrame cadastrarGrupoProd;
+    private JInternalFrame login;
+    private JInternalFrame procurarCliente;
+    private JInternalFrame procurarProduto;
+    private JInternalFrame relizarVenda;
+
 
     public TelaPrincipal(){
         super("GRC");
         c = getContentPane();
         
+        cadastroCliente = new CadastroCliente();
+        cadastroProduto = new CadastroProduto();
+        cadastrarGrupoProd = new Login();
+        procurarCliente = new ProcurarCliente();
+        procurarProduto = new ProcurarProduto();
+        relizarVenda = new RealizarVenda();
+        
+        login = new Login();
         menuBar = new JMenuBar();
         
         cadastrarMenu = new JMenu("Cadastrar");
@@ -52,6 +72,11 @@ public class TelaPrincipal  extends JFrame{
         menuBar.add(sobreMenu);
         
         super.setJMenuBar(menuBar); 
+        
+        deskPane = new JDesktopPane();
+        deskPane.add(login);
+        login.setVisible(true);
+        add(deskPane);
 
     }
     
