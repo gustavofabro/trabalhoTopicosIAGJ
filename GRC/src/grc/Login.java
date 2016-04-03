@@ -76,6 +76,8 @@ public class Login extends JFrame {
                 validarLogin(entradaLogin.getText(), entradaSenha.getPassword());
             }
         });
+
+        getRootPane().setDefaultButton(btnEntrar); 
         
     }
     

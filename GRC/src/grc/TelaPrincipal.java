@@ -14,7 +14,7 @@ import javax.swing.JInternalFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.WindowConstants;
+import javax.swing.JOptionPane;
 
 /**
  *
