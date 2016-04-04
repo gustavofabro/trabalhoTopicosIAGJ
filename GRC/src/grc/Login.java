@@ -83,7 +83,7 @@ public class Login extends JFrame {
     
     public void validarLogin(String usuarioEntrada, char[] senhaEntrada) {
         if (usuarioEntrada.equals(usuario) && Arrays.equals(senhaEntrada, senha)) {
-            warning.setVisible(false); //se travar pra abrir o sistema, pelo menos vai ser o aviso 
+            warning.setVisible(false); //se travar pra abrir o sistema, pelo menos vai sumir o aviso 
             carregarSistema();
             this.dispose();            
         } else {
