@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  * @author gustavo
  */
 public class TelaPrincipal extends JFrame implements ActionListener {
-
+    private String sobreInfo;
     private JMenuBar menuBar;
 
     private JMenu cadastrarMenu;
@@ -51,6 +51,8 @@ public class TelaPrincipal extends JFrame implements ActionListener {
     public TelaPrincipal() {
         super("GRC");
         c = getContentPane();
+        
+        sobreInfo = "GRC - Tópicos I";
 
         //JInternals Frames
         cadClienteIFrame = new CadastroCliente();
@@ -133,6 +135,7 @@ public class TelaPrincipal extends JFrame implements ActionListener {
             case "Procurar Produtos": procurarProduto.setVisible(true);break;
             case "Aniversários":      aniversario.setVisible(true);break;
             case "Data compra":       dataCompra.setVisible(true); break;
+            case "Sobre":             JOptionPane.showMessageDialog(null, sobreInfo);
         }
     }
 }
