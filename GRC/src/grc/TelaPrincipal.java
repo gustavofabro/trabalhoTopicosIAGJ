@@ -8,6 +8,9 @@ package grc;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyVetoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
@@ -81,7 +84,12 @@ public class TelaPrincipal extends JFrame implements ActionListener {
         dataCompra = new JMenuItem("Data compra");
 
         //adiciona um listener único para todos os botões
-        cadCliente.addActionListener(this);
+        /*aqui se usa this? acho que se usa this
+        só se tivesse construtor nessa classe*/
+        cadCliente.addActionListener((ActionEvent e) -> {
+            JDesktopPane.putLayer(cadClienteIFrame, 120);
+            cadClienteIFrame.setVisible(true);
+        });
         cadProduto.addActionListener(this);
         cadGrupoPro.addActionListener(this);
         realizarVenda.addActionListener(this);
