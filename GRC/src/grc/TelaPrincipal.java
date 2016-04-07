@@ -68,7 +68,7 @@ public class TelaPrincipal extends JFrame implements ActionListener {
         cadastrarMenu = new JMenu("Cadastrar");
         vendasMenu = new JMenu("Venda");
         relatorioMenu = new JMenu("Relatórios");
-        sobreMenu = new JMenu("Sobre");
+        sobreMenu = new JMenu("Ajuda");
 
         //itens de menu
         cadCliente = new JMenuItem("Clientes");
@@ -83,10 +83,12 @@ public class TelaPrincipal extends JFrame implements ActionListener {
         //adiciona um listener único para todos os botões
         /*aqui se usa this? acho que se usa this
         só se tivesse construtor nessa classe*/
-        cadCliente.addActionListener((ActionEvent e) -> {
+       /*  cadCliente.addActionListener((ActionEvent e) -> {
             JDesktopPane.putLayer(cadClienteIFrame, 120);
-            cadClienteIFrame.setVisible(true);
-        });
+           cadClienteIFrame.setVisible(true);
+        */
+       
+        cadCliente.addActionListener(this); 
         cadProduto.addActionListener(this);
         cadGrupoPro.addActionListener(this);
         realizarVenda.addActionListener(this);
