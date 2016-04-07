@@ -8,6 +8,9 @@ package grc;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyVetoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
@@ -21,7 +24,7 @@ import javax.swing.JOptionPane;
  * @author gustavo
  */
 public class TelaPrincipal extends JFrame implements ActionListener {
-
+    private String sobreInfo;
     private JMenuBar menuBar;
 
     private JMenu cadastrarMenu;
@@ -51,6 +54,8 @@ public class TelaPrincipal extends JFrame implements ActionListener {
     public TelaPrincipal() {
         super("GRC");
         c = getContentPane();
+        
+        sobreInfo = "GRC - Tópicos I";
 
         //JInternals Frames
         cadClienteIFrame = new CadastroCliente();
@@ -79,7 +84,12 @@ public class TelaPrincipal extends JFrame implements ActionListener {
         dataCompra = new JMenuItem("Data compra");
 
         //adiciona um listener único para todos os botões
-        cadCliente.addActionListener(this);
+        /*aqui se usa this? acho que se usa this
+        só se tivesse construtor nessa classe*/
+        cadCliente.addActionListener((ActionEvent e) -> {
+            JDesktopPane.putLayer(cadClienteIFrame, 120);
+            cadClienteIFrame.setVisible(true);
+        });
         cadProduto.addActionListener(this);
         cadGrupoPro.addActionListener(this);
         realizarVenda.addActionListener(this);
@@ -135,6 +145,7 @@ public class TelaPrincipal extends JFrame implements ActionListener {
             case "Procurar Produtos": procurarProdutoIFrame.setVisible(true);break;
             case "Aniversários":      aniversario.setVisible(true);break;
             case "Data compra":       dataCompra.setVisible(true); break;
+            case "Sobre":             JOptionPane.showMessageDialog(null, sobreInfo);
         }
     }
 }
