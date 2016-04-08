@@ -37,8 +37,7 @@ public class Login extends JFrame {
     
     public Login() {
         super("GRC Login (BETA)");
-        c = getContentPane();
-        c.setLayout(null);
+     
         entradaLogin = new JTextField();
         entradaSenha = new JPasswordField();
         usuarioLabel = new JLabel("Usuário");
@@ -60,6 +59,9 @@ public class Login extends JFrame {
         btnAjuda.setBounds(155, 200, 135, 30);
 
         warning.setVisible(false);
+        
+           c = getContentPane();
+        c.setLayout(null);
         
         c.add(usuarioLabel);
         c.add(entradaLogin);
