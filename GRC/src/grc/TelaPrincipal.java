@@ -8,9 +8,6 @@ package grc;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.beans.PropertyVetoException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
@@ -120,9 +117,11 @@ public class TelaPrincipal extends JFrame implements ActionListener {
         deskPane.add(cadClienteIFrame);
         deskPane.add(cadProdutoIFrame);
         deskPane.add(cadGrupoProdIFrame);
+        deskPane.add(vendaIFrame);
         deskPane.add(procurarClienteIFrame);
         deskPane.add(procurarProdutoIFrame);
-        deskPane.add(vendaIFrame);
+        deskPane.add(aniversario);
+        deskPane.add(dataCompra);
 
         //adiciona o DeskPane ao frame base
         add(deskPane);
@@ -135,12 +134,12 @@ public class TelaPrincipal extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         switch (e.getActionCommand()) {
-            case "Clientes":          cadCliente.setVisible(true);break;
-            case "Produtos":          cadProduto.setVisible(true);break;
-            case "Grupo de produtos": cadGrupoPro.setVisible(true);break;
-            case "Realizar venda":    realizarVenda.setVisible(true);break;
-            case "Procurar Clientes": procurarCliente.setVisible(true);break;
-            case "Procurar Produtos": procurarProduto.setVisible(true);break;
+            case "Clientes":          cadClienteIFrame.setVisible(true);break;
+            case "Produtos":          cadProdutoIFrame.setVisible(true);break;
+            case "Grupo de produtos": cadGrupoProdIFrame.setVisible(true);break;
+            case "Realizar venda":    vendaIFrame.setVisible(true);break;
+            case "Procurar Clientes": procurarClienteIFrame.setVisible(true);break;
+            case "Procurar Produtos": procurarProdutoIFrame.setVisible(true);break;
             case "Aniversários":      aniversario.setVisible(true);break;
             case "Data compra":       dataCompra.setVisible(true); break;
             case "Sobre":             JOptionPane.showMessageDialog(null, sobreInfo);

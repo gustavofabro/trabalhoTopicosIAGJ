@@ -10,12 +10,12 @@ package grc;
  * @author gustavo
  */
 public class Cliente {
-
-    private String cpf;
+    
     private String nome;
+    private String cpf;
     private String sexo;
     private int idade;
-    private String dataNascimento;
+    private String nascimento;
     private String rua;
     private String bairro;
     private String cidade;
@@ -23,13 +23,6 @@ public class Cliente {
     private String pais;
     private String cep;
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
 
     public String getNome() {
         return nome;
@@ -37,6 +30,15 @@ public class Cliente {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+    
+    
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getSexo() {
@@ -56,11 +58,11 @@ public class Cliente {
     }
 
     public String getDataNascimento() {
-        return dataNascimento;
+        return nascimento;
     }
 
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setDataNascimento(String nascimento) {
+        this.nascimento = nascimento;
     }
 
     public String getRua() {
