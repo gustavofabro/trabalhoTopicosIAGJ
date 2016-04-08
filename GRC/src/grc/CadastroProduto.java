@@ -3,7 +3,8 @@ package grc;
 
 
 public class CadastroProduto extends javax.swing.JInternalFrame {
-
+    
+    private JInternalListeners jInternalListeners;
     public CadastroProduto() {
         initComponents();
     }
@@ -27,8 +28,8 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
         jTextFieldDescricao = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextFieldCor = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonCancelarProduto = new javax.swing.JButton();
+        jButtonSalvarProduto = new javax.swing.JButton();
 
         jLabel1.setText("CADASTRO DE PRODUTO");
 
@@ -46,9 +47,13 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
 
         jLabelGrupo.setText("Grupo do produto:");
 
-        jButton1.setText("Cancelar");
+        jButtonCancelarProduto.setText("Cancelar");
+        jButtonCancelarProduto.addActionListener(jInternalListeners);
+        jButtonCancelarProduto.setActionCommand("CadastroProduto");
 
-        jButton2.setText("Salvar");
+        jButtonSalvarProduto.setText("Salvar");
+        jButtonSalvarProduto.addActionListener(jInternalListeners);
+        jButtonSalvarProduto.setActionCommand("SalvarProduto");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -89,9 +94,9 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
                                     .addComponent(jTextFieldCor))))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonSalvarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(jButton1)))
+                            .addComponent(jButtonCancelarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelGrupo)
@@ -126,10 +131,10 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelGrupo)
                     .addComponent(jComboBoxGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButtonCancelarProduto)
+                    .addComponent(jButtonSalvarProduto))
                 .addGap(28, 28, 28))
         );
 
@@ -138,8 +143,8 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonCancelarProduto;
+    private javax.swing.JButton jButtonSalvarProduto;
     private javax.swing.JComboBox<String> jComboBoxGrupo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;

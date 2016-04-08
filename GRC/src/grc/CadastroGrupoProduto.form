@@ -22,11 +22,11 @@
           <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="80" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" pref="83" max="-2" attributes="0"/>
+                      <Component id="jButtonSalvarGrupo" min="-2" pref="89" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jButtonCancelarGrupo" min="-2" pref="86" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -59,8 +59,8 @@
               </Group>
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonCancelarGrupo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonSalvarGrupo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="27" max="32767" attributes="0"/>
           </Group>
@@ -82,15 +82,21 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldGrupo">
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="jButtonSalvarGrupo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salvar"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jButtonSalvarGrupo.addActionListener(jInternalListeners);&#xa;jButtonSalvarGrupo.setActionCommand(&quot;SalvarGrupo&quot;);"/>
+      </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="jButtonCancelarGrupo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jButtonCancelarGrupo.addActionListener(jInternalListeners);&#xa;jButtonCancelarGrupo.setActionCommand(&quot;CancelarGrupo&quot;);"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
