@@ -37,6 +37,7 @@ public class TelaPrincipal extends JFrame implements ActionListener {
     private JMenuItem procurarProduto;
     private JMenuItem aniversario;
     private JMenuItem dataCompra;
+    private JMenuItem sobre;
 
     private Container c;
 
@@ -47,7 +48,10 @@ public class TelaPrincipal extends JFrame implements ActionListener {
     private JInternalFrame procurarClienteIFrame;
     private JInternalFrame procurarProdutoIFrame;
     private JInternalFrame vendaIFrame;
+    private JInternalFrame aniversarioIFrame;
+    private JInternalFrame dataCompraIFrame;
 
+    
     public TelaPrincipal() {
         super("GRC");
         c = getContentPane();
@@ -61,7 +65,9 @@ public class TelaPrincipal extends JFrame implements ActionListener {
         procurarClienteIFrame = new ProcurarCliente();
         procurarProdutoIFrame = new ProcurarProduto();
         vendaIFrame = new RealizarVenda();
-
+        aniversarioIFrame = new Aniversario();
+        dataCompraIFrame = new DataCompra();
+        
         menuBar = new JMenuBar();
 
         //menus
@@ -79,15 +85,8 @@ public class TelaPrincipal extends JFrame implements ActionListener {
         procurarProduto = new JMenuItem("Procurar Produtos");
         aniversario = new JMenuItem("Aniversários");
         dataCompra = new JMenuItem("Data compra");
+        sobre = new JMenuItem("Sobre");
 
-        //adiciona um listener único para todos os botões
-        /*aqui se usa this? acho que se usa this
-        só se tivesse construtor nessa classe*/
-       /*  cadCliente.addActionListener((ActionEvent e) -> {
-            JDesktopPane.putLayer(cadClienteIFrame, 120);
-           cadClienteIFrame.setVisible(true);
-        */
-       
         cadCliente.addActionListener(this); 
         cadProduto.addActionListener(this);
         cadGrupoPro.addActionListener(this);
@@ -106,6 +105,7 @@ public class TelaPrincipal extends JFrame implements ActionListener {
         relatorioMenu.add(procurarProduto);
         relatorioMenu.add(aniversario);
         relatorioMenu.add(dataCompra);
+        sobreMenu.add(sobre);
 
         menuBar.add(cadastrarMenu);
         menuBar.add(vendasMenu);
@@ -122,8 +122,8 @@ public class TelaPrincipal extends JFrame implements ActionListener {
         deskPane.add(vendaIFrame);
         deskPane.add(procurarClienteIFrame);
         deskPane.add(procurarProdutoIFrame);
-        deskPane.add(aniversario);
-        deskPane.add(dataCompra);
+        deskPane.add(aniversarioIFrame);
+        deskPane.add(dataCompraIFrame);
 
         //adiciona o DeskPane ao frame base
         add(deskPane);
