@@ -60,7 +60,7 @@ public class Login extends JFrame {
 
         warning.setVisible(false);
         
-           c = getContentPane();
+        c = getContentPane();
         c.setLayout(null);
         
         c.add(usuarioLabel);

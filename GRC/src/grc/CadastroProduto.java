@@ -1,11 +1,19 @@
 
 package grc;
 
+import java.text.ParseException;
+import javax.swing.text.MaskFormatter;
+
 
 public class CadastroProduto extends javax.swing.JInternalFrame {
-    
     private JInternalListeners jInternalListeners;
-    public CadastroProduto() {
+    private MaskFormatter valorFormatter;
+   
+    
+    public CadastroProduto() throws ParseException {
+        valorFormatter = new MaskFormatter("**********");
+        valorFormatter.setValidCharacters("[123456789].");
+        
         initComponents();
     }
 
@@ -24,12 +32,12 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
         jLabelCor = new javax.swing.JLabel();
         jLabelGrupo = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jTextFieldValor = new javax.swing.JTextField();
         jTextFieldDescricao = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextFieldCor = new javax.swing.JTextField();
         jButtonCancelarProduto = new javax.swing.JButton();
         jButtonSalvarProduto = new javax.swing.JButton();
+        jFormattedTextField1 = new javax.swing.JFormattedTextField(valorFormatter);
 
         jLabel1.setText("CADASTRO DE PRODUTO");
 
@@ -54,6 +62,12 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
         jButtonSalvarProduto.setText("Salvar");
         jButtonSalvarProduto.addActionListener(jInternalListeners);
         jButtonSalvarProduto.setActionCommand("SalvarProduto");
+
+        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextField1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,13 +99,13 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabelCor)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextFieldCor))))
+                                    .addComponent(jTextFieldCor, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jFormattedTextField1))))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(jButtonSalvarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -102,7 +116,7 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
                         .addComponent(jLabelGrupo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBoxGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,7 +130,7 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
                     .addComponent(jLabelReferencia)
                     .addComponent(jLabel4)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelDescricao)
@@ -131,7 +145,7 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelGrupo)
                     .addComponent(jComboBoxGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancelarProduto)
                     .addComponent(jButtonSalvarProduto))
@@ -141,11 +155,16 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelarProduto;
     private javax.swing.JButton jButtonSalvarProduto;
     private javax.swing.JComboBox<String> jComboBoxGrupo;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelCor;
@@ -158,6 +177,5 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextFieldCor;
     private javax.swing.JTextField jTextFieldDescricao;
-    private javax.swing.JTextField jTextFieldValor;
     // End of variables declaration//GEN-END:variables
 }

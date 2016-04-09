@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  *
  * @author gustavo
  */
-public class TelaPrincipal extends JFrame implements ActionListener {
+public class TelaPrincipal extends JFrame implements ActionListener { 
     private String sobreInfo;
     private JMenuBar menuBar;
 
