@@ -129,9 +129,6 @@ public class TelaPrincipal extends JFrame implements ActionListener {
         add(deskPane);
     }
 
-    //Implementei Action Listener aqui para servir somente pros MenuItens, e 
-    //pensei em deixar a classe JInternalListeners para os eventos dos JInterNalFrames.
-    //Não sei se pode ser assim
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -142,8 +139,8 @@ public class TelaPrincipal extends JFrame implements ActionListener {
             case "Realizar venda":    vendaIFrame.setVisible(true);break;
             case "Procurar Clientes": procurarClienteIFrame.setVisible(true);break;
             case "Procurar Produtos": procurarProdutoIFrame.setVisible(true);break;
-            case "Aniversários":      aniversario.setVisible(true);break;
-            case "Data compra":       dataCompra.setVisible(true); break;
+            case "Aniversários":      aniversarioIFrame.setVisible(true);break;
+            case "Data compra":       dataCompraIFrame.setVisible(true); break;
             case "Sobre":             JOptionPane.showMessageDialog(null, sobreInfo);
         }
     }
