@@ -12,9 +12,9 @@ package grc;
 public class Cliente {
     
     private String nome;
+    private String sobreNome;
     private String cpf;
     private String sexo;
-    private int idade;
     private String nascimento;
     private String rua;
     private String bairro;
@@ -22,6 +22,16 @@ public class Cliente {
     private String estado;
     private String pais;
     private String cep;
+    private String numCasa;
+
+
+    public String getNumCasa() {
+        return numCasa;
+    }
+
+    public void setNumCasa(String numCasa) {
+        this.numCasa = numCasa;
+    }
 
 
     public String getNome() {
@@ -47,14 +57,6 @@ public class Cliente {
 
     public void setSexo(String sexo) {
         this.sexo = sexo;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
     }
 
     public String getDataNascimento() {
@@ -111,6 +113,22 @@ public class Cliente {
 
     public void setCep(String cep) {
         this.cep = cep;
+    }
+    
+     public String getSobreNome() {
+        return sobreNome;
+    }
+
+    public void setSobreNome(String sobreNome) {
+        this.sobreNome = sobreNome;
+    }
+
+    public String getNascimento() {
+        return nascimento;
+    }
+
+    public void setNascimento(String nascimento) {
+        this.nascimento = nascimento;
     }
 
 }
