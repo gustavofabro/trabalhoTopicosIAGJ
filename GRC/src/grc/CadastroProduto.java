@@ -256,13 +256,7 @@ public class CadastroProduto extends javax.swing.JInternalFrame implements Focus
     @Override
     public void focusLost(FocusEvent e) {
 
-      // if(((javax.swing.JTextField) e.getSource()).get)
-      //      ((javax.swing.JTextField) e.getSource()).setForeground(Color.red);
-     
-            /*
-            if(!textFieldAtual.getText().equals("")){
-            System.out.println("asd");
-            textFieldAtual.setForeground(Color.BLACK);*/
+      
         
     } 
 
