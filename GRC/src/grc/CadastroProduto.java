@@ -6,12 +6,14 @@ import javax.swing.text.MaskFormatter;
 
 
 public class CadastroProduto extends javax.swing.JInternalFrame {
-    private JInternalListeners jInternalListeners;
+    private JInternalListeners jInternalListeners = new JInternalListeners(this);
     private MaskFormatter valorFormatter;
    
     
-    public CadastroProduto() throws ParseException {
-        valorFormatter = new MaskFormatter("**********");
+    public CadastroProduto(){
+        try {
+            valorFormatter = new MaskFormatter("**********");
+        } catch (ParseException ex) {}
         valorFormatter.setValidCharacters("[123456789].");
         
         initComponents();
@@ -31,19 +33,24 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
         jLabelTamanho = new javax.swing.JLabel();
         jLabelCor = new javax.swing.JLabel();
         jLabelGrupo = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldReferencia = new javax.swing.JTextField();
         jTextFieldDescricao = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        jTextFieldTamanho = new javax.swing.JTextField();
         jTextFieldCor = new javax.swing.JTextField();
         jButtonCancelarProduto = new javax.swing.JButton();
         jButtonSalvarProduto = new javax.swing.JButton();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField(valorFormatter);
+        jFormattedTextFieldValor = new javax.swing.JFormattedTextField(valorFormatter);
 
         jLabel1.setText("CADASTRO DE PRODUTO");
 
         jLabelReferencia.setText("Referência:");
 
         jComboBoxGrupo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxGrupo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxGrupoActionPerformed(evt);
+            }
+        });
 
         jLabelDescricao.setText("Descrição:");
 
@@ -63,9 +70,9 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
         jButtonSalvarProduto.addActionListener(jInternalListeners);
         jButtonSalvarProduto.setActionCommand("SalvarProduto");
 
-        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jFormattedTextFieldValor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField1ActionPerformed(evt);
+                jFormattedTextFieldValorActionPerformed(evt);
             }
         });
 
@@ -91,11 +98,11 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabelTamanho)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextField4))
+                                    .addComponent(jTextFieldTamanho))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabelReferencia)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jTextFieldReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
@@ -105,7 +112,7 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel4)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jFormattedTextField1))))
+                                    .addComponent(jFormattedTextFieldValor))))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(jButtonSalvarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -129,8 +136,8 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelReferencia)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jFormattedTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelDescricao)
@@ -139,7 +146,7 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelTamanho)
                     .addComponent(jLabelCor)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -155,16 +162,39 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
+     public Produto getDadosProduto(){
+        Produto produto = new Produto();
+        
+        validarCampos();
+        
+        produto.setReferencia(jTextFieldReferencia.getText());
+        produto.setValor(Double.parseDouble(jFormattedTextFieldValor.getText()));
+        produto.setDescricao(jTextFieldDescricao.getText());
+        produto.setTamanho(jTextFieldTamanho.getText());
+        produto.setCor(jTextFieldCor.getText());
+        //produto.setGrupo(jComboBoxGrupo.getItemAt(jComboBoxGrupo.getSelectedIndex())); 
+       
+        return produto;
+    }
+
+     public void validarCampos(){
+     
+     }
+    
+    private void jFormattedTextFieldValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldValorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
+    }//GEN-LAST:event_jFormattedTextFieldValorActionPerformed
+
+    private void jComboBoxGrupoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxGrupoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxGrupoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelarProduto;
     private javax.swing.JButton jButtonSalvarProduto;
     private javax.swing.JComboBox<String> jComboBoxGrupo;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JFormattedTextField jFormattedTextFieldValor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelCor;
@@ -173,9 +203,9 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabelReferencia;
     private javax.swing.JLabel jLabelTamanho;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextFieldCor;
     private javax.swing.JTextField jTextFieldDescricao;
+    private javax.swing.JTextField jTextFieldReferencia;
+    private javax.swing.JTextField jTextFieldTamanho;
     // End of variables declaration//GEN-END:variables
 }

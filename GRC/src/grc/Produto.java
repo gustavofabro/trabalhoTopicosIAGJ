@@ -15,7 +15,7 @@ public class Produto {
      private String referencia;
      private String descricao;
      private double valor;
-     private double tamanho;
+     private String tamanho;
      private String cor;
 
     public String getReferencia() {
@@ -42,11 +42,11 @@ public class Produto {
         this.valor = valor;
     }
 
-    public double getTamanho() {
+    public String getTamanho() {
         return tamanho;
     }
 
-    public void setTamanho(double tamanho) {
+    public void setTamanho(String tamanho) {
         this.tamanho = tamanho;
     }
 

@@ -39,12 +39,12 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabelTamanho" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jTextField4" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldTamanho" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabelReferencia" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextField1" min="-2" pref="147" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldReferencia" min="-2" pref="147" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -57,7 +57,7 @@
                               <Group type="102" attributes="0">
                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jFormattedTextField1" max="32767" attributes="0"/>
+                                  <Component id="jFormattedTextFieldValor" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -90,8 +90,8 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelReferencia" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jFormattedTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldReferencia" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jFormattedTextFieldValor" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -102,7 +102,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelTamanho" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelCor" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldTamanho" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextFieldCor" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -144,6 +144,9 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxGrupoActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -173,11 +176,11 @@
         <Property name="text" type="java.lang.String" value="Grupo do produto:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="jTextFieldReferencia">
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldDescricao">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField4">
+    <Component class="javax.swing.JTextField" name="jTextFieldTamanho">
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldCor">
     </Component>
@@ -197,9 +200,9 @@
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jButtonSalvarProduto.addActionListener(jInternalListeners);&#xa;jButtonSalvarProduto.setActionCommand(&quot;SalvarProduto&quot;);"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField1">
+    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldValor">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextField1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextFieldValorActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(valorFormatter)"/>

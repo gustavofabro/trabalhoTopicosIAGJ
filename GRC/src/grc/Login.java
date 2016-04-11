@@ -10,7 +10,10 @@ import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -83,7 +86,7 @@ public class Login extends JFrame {
         
     }
     
-    public void validarLogin(String usuarioEntrada, char[] senhaEntrada) {
+    public void validarLogin(String usuarioEntrada, char[] senhaEntrada){
         if (usuarioEntrada.equals(usuario) && Arrays.equals(senhaEntrada, senha)) {
             warning.setVisible(false); //se travar pra abrir o sistema, pelo menos vai sumir o aviso 
             carregarSistema();

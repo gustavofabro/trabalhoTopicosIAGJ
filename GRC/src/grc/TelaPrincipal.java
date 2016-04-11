@@ -52,7 +52,7 @@ public class TelaPrincipal extends JFrame implements ActionListener {
     private JInternalFrame dataCompraIFrame;
 
     
-    public TelaPrincipal() {
+    public TelaPrincipal(){
         super("GRC");
         c = getContentPane();
         
