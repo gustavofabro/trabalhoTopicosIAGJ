@@ -26,7 +26,7 @@ public class JInternalListeners implements ActionListener {
              case "cancelarCliente": break;
              case "salvarNGrupo" : break;
              case "cancelarNGrupo": break;
-             case "salvarProduto": break;
+             case "salvarProduto": cadProduto.getDadosProduto();break;
              case "cancelarProduto": break;
          }
     }
