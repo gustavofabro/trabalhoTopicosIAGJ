@@ -11,8 +11,7 @@ import javax.swing.text.MaskFormatter;
 public class CadastroProduto extends javax.swing.JInternalFrame implements FocusListener{
     private JInternalListeners jInternalListeners = new JInternalListeners(this);
     private MaskFormatter valorFormatter;
-    private boolean camposValidos = false;
-   
+    private boolean camposValidos = true;
     
     public CadastroProduto(){
       /*  try {
@@ -46,11 +45,14 @@ public class CadastroProduto extends javax.swing.JInternalFrame implements Focus
         jFormattedTextFieldValor = new javax.swing.JFormattedTextField(valorFormatter);
         jLabelAviso = new javax.swing.JLabel();
 
+        setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.black));
+
         jLabel1.setText("CADASTRO DE PRODUTO");
 
         jLabelReferencia.setText("Referência:");
 
         jComboBoxGrupo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxGrupo.setSelectedIndex(-1);
 
         jLabelDescricao.setText("Descrição:");
 
@@ -64,6 +66,12 @@ public class CadastroProduto extends javax.swing.JInternalFrame implements Focus
 
         jTextFieldReferencia.addFocusListener(this);
 
+        jTextFieldDescricao.addFocusListener(this);
+
+        jTextFieldTamanho.addFocusListener(this);
+
+        jTextFieldCor.addFocusListener(this);
+
         jButtonCancelarProduto.setText("Cancelar");
         jButtonCancelarProduto.addActionListener(jInternalListeners);
         jButtonCancelarProduto.setActionCommand("cadastroProduto");
@@ -71,6 +79,8 @@ public class CadastroProduto extends javax.swing.JInternalFrame implements Focus
         jButtonSalvarProduto.setText("Salvar");
         jButtonSalvarProduto.addActionListener(jInternalListeners);
         jButtonSalvarProduto.setActionCommand("salvarProduto");
+
+        jFormattedTextFieldValor.addFocusListener(this);
 
         jLabelAviso.setForeground(new java.awt.Color(255, 0, 0));
         jLabelAviso.setText("*Preencha todos os campos ");
@@ -82,55 +92,53 @@ public class CadastroProduto extends javax.swing.JInternalFrame implements Focus
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(121, 121, 121)
-                                .addComponent(jLabel1))
+                                .addGap(81, 81, 81)
+                                .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(81, 81, 81)
-                                        .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabelTamanho)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jTextFieldTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabelReferencia)
-                                                .addGap(3, 3, 3)
-                                                .addComponent(jTextFieldReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jLabelTamanho)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabelValor)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jFormattedTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabelCor)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jTextFieldCor, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
+                                        .addComponent(jTextFieldTamanho, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabelReferencia)
+                                        .addGap(3, 3, 3)
+                                        .addComponent(jTextFieldReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabelGrupo)
+                                        .addComponent(jLabelValor)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jComboBoxGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabelDescricao))))
-                        .addGap(78, 78, 78))
+                                        .addComponent(jFormattedTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabelCor)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextFieldCor, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabelAviso)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonSalvarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonCancelarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelGrupo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBoxGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelDescricao))))
+                .addContainerGap(97, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelAviso)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonSalvarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonCancelarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,37 +167,34 @@ public class CadastroProduto extends javax.swing.JInternalFrame implements Focus
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelGrupo)
                     .addComponent(jComboBoxGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonCancelarProduto)
-                            .addComponent(jButtonSalvarProduto))
-                        .addGap(28, 28, 28))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabelAviso)
-                        .addGap(42, 42, 42))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonCancelarProduto)
+                    .addComponent(jButtonSalvarProduto)
+                    .addComponent(jLabelAviso))
+                .addGap(28, 28, 28))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
      public Produto getDadosProduto(){
-        Produto produto = new Produto();
-        
-        validarCampos();
-        
-        produto.setReferencia(jTextFieldReferencia.getText());
-       // produto.setValor(Double.parseDouble(jFormattedTextFieldValor.getText()));
-        produto.setDescricao(jTextFieldDescricao.getText());
-        produto.setTamanho(jTextFieldTamanho.getText());
-        produto.setCor(jTextFieldCor.getText());
-        //produto.setGrupo(jComboBoxGrupo.getItemAt(jComboBoxGrupo.getSelectedIndex())); 
-       
-        return produto;
+        if(validarCampos()){
+            Produto produto = new Produto();
+
+            produto.setReferencia(jTextFieldReferencia.getText());
+            // produto.setValor(Double.parseDouble(jFormattedTextFieldValor.getText()));
+            produto.setDescricao(jTextFieldDescricao.getText());
+            produto.setTamanho(jTextFieldTamanho.getText());
+            produto.setCor(jTextFieldCor.getText());
+            //produto.setGrupo(jComboBoxGrupo.getItemAt(jComboBoxGrupo.getSelectedIndex())); 
+
+            return produto;
+        }else
+            return null;
     }
 
-     public void validarCampos(){
+    public boolean validarCampos(){
          camposValidos = true;
          
          if(jTextFieldReferencia.getText().equals("")){
@@ -198,7 +203,7 @@ public class CadastroProduto extends javax.swing.JInternalFrame implements Focus
          }else
              jLabelReferencia.setForeground(Color.black); 
 
-         if(jFormattedTextFieldValor.getText().equals("")){
+         if(jFormattedTextFieldValor.getValue()==null){
              jLabelValor.setForeground(Color.red); 
              camposValidos = false;             
          }else
@@ -222,11 +227,20 @@ public class CadastroProduto extends javax.swing.JInternalFrame implements Focus
          }else
              jLabelCor.setForeground(Color.black);
          
+         if(jComboBoxGrupo.getSelectedIndex() == -1){
+             jLabelGrupo.setForeground(Color.red);
+             camposValidos = false;
+         }else
+             jLabelGrupo.setForeground(Color.black);
+
+         
          if(!camposValidos){
              jLabelAviso.setVisible(true);
-         }
-             
-     }
+         }else
+             jLabelAviso.setVisible(false);
+         
+         return camposValidos;        
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -255,8 +269,8 @@ public class CadastroProduto extends javax.swing.JInternalFrame implements Focus
 
     @Override
     public void focusLost(FocusEvent e) {
-
-      
+        if(!camposValidos)
+            validarCampos();
         
     } 
 

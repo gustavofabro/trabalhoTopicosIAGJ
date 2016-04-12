@@ -21,14 +21,27 @@ public class JInternalListeners implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-         switch(e.getActionCommand()){
-             case "salvarCliente": break;
-             case "cancelarCliente": break;
-             case "salvarNGrupo" : break;
-             case "cancelarNGrupo": break;
-             case "salvarProduto": cadProduto.getDadosProduto();break;
-             case "cancelarProduto": break;
-         }
+        switch (e.getActionCommand()) {
+            case "salvarCliente":
+                if (cadCliente.getDadosCliente() != null) {
+                    //mandar banco 
+                }
+
+                break;
+            case "cancelarCliente":
+                break;
+            case "salvarNGrupo":
+                break;
+            case "cancelarNGrupo":
+                break;
+            case "salvarProduto":
+                if (cadProduto.getDadosProduto() != null) {
+                    //mandar banco
+                }
+                break;
+            case "cancelarProduto":
+                break;
+        }
     }
 
 }
