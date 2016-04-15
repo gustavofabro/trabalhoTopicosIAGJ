@@ -5,8 +5,8 @@
  */
 package grc;
 
-import java.awt.event.ActionListener;
-import javafx.event.ActionEvent;
+import java.text.ParseException;
+import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -16,18 +16,38 @@ import javafx.event.ActionEvent;
  */
 public class ProcurarCliente extends javax.swing.JInternalFrame {
     
-    JInternalListeners listener = new JInternalListeners();
+    // Formatador
+    private MaskFormatter cpfFormat;
     
+    // Listener
+    private JInternalListeners listener = new JInternalListeners(this);
+    
+    private Cliente cliente;
+        
     private void ProcurarNomeCliente(){
-        campoNome.addActionListener(listener);
-        campoNome.setActionCommand("campoNome");
+        
+    }
+    
+    private void ProcurarCPFCliente(){
+	
     }
 
     /**
      * Creates new form ProcurarCliente
      */
     public ProcurarCliente() {
+	try {
+	    cpfFormat = new MaskFormatter("###.###.###-##");
+	    cpfFormat.setPlaceholderCharacter('_');
+	}
+	catch(ParseException ex) {
+	    //throw();
+	}
+	
         initComponents();
+	
+	campoNome.setActionCommand("campoNome");
+	campoNome.addActionListener(listener);
     }
 
     /**

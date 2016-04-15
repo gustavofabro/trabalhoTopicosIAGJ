@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 public class JInternalListeners implements ActionListener {
     Cliente cliente;
     Produto produto;
+    private ProcurarCliente procurarCliente;
+    private ProcurarProduto procurarProduto;
     private CadastroCliente cadCliente;
     private CadastroProduto cadProduto;
    
@@ -18,6 +20,13 @@ public class JInternalListeners implements ActionListener {
         this.cadProduto = cadProduto;
     }
     
+    public JInternalListeners(ProcurarCliente procurarCliente){
+	this.procurarCliente = procurarCliente;
+    }
+    
+    public JInternalListeners(ProcurarProduto procurarProduto){
+	this.procurarProduto = procurarProduto;
+    }
     
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -41,6 +50,9 @@ public class JInternalListeners implements ActionListener {
                 break;
             case "cancelarProduto":
                 break;
+		
+	    case "campoNome":
+		//if ()
         }
     }
 
