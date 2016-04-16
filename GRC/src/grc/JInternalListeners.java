@@ -9,6 +9,8 @@ public class JInternalListeners implements ActionListener {
     Produto produto;
     GrupoProduto grupoProduto;
 
+    private ProcurarCliente procurarCliente;
+    private ProcurarProduto procurarProduto;
     private CadastroCliente cadCliente;
     private CadastroProduto cadProduto;
     private CadastroGrupoProduto cadGrupoProduto;
@@ -25,6 +27,14 @@ public class JInternalListeners implements ActionListener {
         this.cadGrupoProduto = cadGrupoProduto;
     }
 
+    public JInternalListeners(ProcurarCliente procurarCliente){
+	this.procurarCliente = procurarCliente;
+    }
+    
+    public JInternalListeners(ProcurarProduto procurarProduto){
+	this.procurarProduto = procurarProduto;
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
