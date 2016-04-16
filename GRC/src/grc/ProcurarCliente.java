@@ -18,14 +18,15 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
     
     // Formatador
     private MaskFormatter cpfFormat;
-    
     // Listener
     private JInternalListeners listener = new JInternalListeners(this);
-    
     private Cliente cliente;
+    private String nome;
         
     private void ProcurarNomeCliente(){
-        
+        if(cliente.getNome().compareTo(nome) == 0){
+	    //listaNomes.setListData(cliente.getNome());
+	}
     }
     
     private void ProcurarCPFCliente(){
@@ -38,16 +39,20 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
     public ProcurarCliente() {
 	try {
 	    cpfFormat = new MaskFormatter("###.###.###-##");
-	    cpfFormat.setPlaceholderCharacter('_');
+	    cpfFormat.setPlaceholderCharacter('2');
 	}
 	catch(ParseException ex) {
-	    //throw();
+	    System.out.println(ex);
 	}
 	
         initComponents();
 	
 	campoNome.setActionCommand("campoNome");
 	campoNome.addActionListener(listener);
+    }
+    
+    public void erro() throws ParseException {
+	System.out.println("Erro durante o parse da máscara em ProcurarCliente");
     }
 
     /**
@@ -67,7 +72,7 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
         campoNome = new javax.swing.JTextField();
         labelCPF = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        listaNomes = new javax.swing.JList();
         jFormattedTextField1 = new javax.swing.JFormattedTextField(cpfFormat);
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
@@ -103,7 +108,7 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
 
         labelCPF.setText("CPF :");
 
-        jScrollPane2.setViewportView(jList1);
+        jScrollPane2.setViewportView(listaNomes);
 
         jLabel1.setText("PROCURAR CLIENTE");
 
@@ -181,7 +186,6 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JList jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
@@ -191,5 +195,6 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel labelCPF;
     private javax.swing.JLabel labelNome;
+    private javax.swing.JList listaNomes;
     // End of variables declaration//GEN-END:variables
 }
