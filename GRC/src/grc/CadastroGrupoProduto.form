@@ -87,7 +87,7 @@
         <Property name="text" type="java.lang.String" value="Salvar"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jButtonSalvarGrupo.addActionListener(jInternalListeners);&#xa;jButtonSalvarGrupo.setActionCommand(&quot;SalvarGrupo&quot;);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jButtonSalvarGrupo.addActionListener(jInternalListeners);&#xa;jButtonSalvarGrupo.setActionCommand(&quot;salvarNGrupo&quot;);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonCancelarGrupo">
@@ -95,7 +95,7 @@
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jButtonCancelarGrupo.addActionListener(jInternalListeners);&#xa;jButtonCancelarGrupo.setActionCommand(&quot;CancelarGrupo&quot;);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jButtonCancelarGrupo.addActionListener(jInternalListeners);&#xa;jButtonCancelarGrupo.setActionCommand(&quot;cancelarNGrupo&quot;);"/>
       </AuxValues>
     </Component>
   </SubComponents>

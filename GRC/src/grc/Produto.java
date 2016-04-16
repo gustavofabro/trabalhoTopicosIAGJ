@@ -10,7 +10,11 @@ package grc;
  * @author gustavo
  */
 public class Produto {
-     private GrupoProduto grupo;
+     private String grupo;
+
+    public void setGrupo(String grupo) {
+        this.grupo = grupo;
+    }
 
      private String referencia;
      private String descricao;

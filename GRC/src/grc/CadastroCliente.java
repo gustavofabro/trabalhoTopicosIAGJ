@@ -27,7 +27,7 @@ public class CadastroCliente extends javax.swing.JInternalFrame implements Focus
             numFormatter = new MaskFormatter("#########");
             cepFormatter = new MaskFormatter("#####-###");
             cepFormatter.setPlaceholderCharacter('_');
-
+            
         } catch (ParseException ex) {}
         
         
@@ -77,9 +77,9 @@ public class CadastroCliente extends javax.swing.JInternalFrame implements Focus
         radioButtonFeminino = new javax.swing.JRadioButton();
         radioButtonMasculino = new javax.swing.JRadioButton();
         jFormattedTextFieldCPF = new javax.swing.JFormattedTextField(cpfFormatter);
-        jFormattedTextFieldNum = new javax.swing.JFormattedTextField(numFormatter);
         jFormattedTextFieldCEP = new javax.swing.JFormattedTextField(cepFormatter);
         jLabelAviso = new javax.swing.JLabel();
+        jTextFieldNum = new javax.swing.JTextField();
 
         jPasswordField1.setText("jPasswordField1");
 
@@ -87,7 +87,8 @@ public class CadastroCliente extends javax.swing.JInternalFrame implements Focus
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(80, 80, 80), new java.awt.Color(1, 1, 1)));
 
-        jLabel15.setText("CADASTRO CLIENTE");
+        jLabel15.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jLabel15.setText("Cadastro Cliente");
 
         jLabelNome.setText("Nome:");
 
@@ -155,8 +156,6 @@ public class CadastroCliente extends javax.swing.JInternalFrame implements Focus
 
         jFormattedTextFieldCPF.addFocusListener(this);
 
-        jFormattedTextFieldNum.addFocusListener(this);
-
         jFormattedTextFieldCEP.addFocusListener(this);
 
         jLabelAviso.setForeground(new java.awt.Color(255, 0, 0));
@@ -199,13 +198,13 @@ public class CadastroCliente extends javax.swing.JInternalFrame implements Focus
                                     .addComponent(jLabelRua))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldRua)
+                                    .addComponent(jTextFieldRua, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabelNumero)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jFormattedTextFieldNum, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(jTextFieldNum))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabelCidade)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -242,7 +241,7 @@ public class CadastroCliente extends javax.swing.JInternalFrame implements Focus
                                         .addComponent(cancelarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(172, 172, 172)
+                .addGap(210, 210, 210)
                 .addComponent(jLabel15)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -287,7 +286,7 @@ public class CadastroCliente extends javax.swing.JInternalFrame implements Focus
                     .addComponent(jLabelBairro)
                     .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelNumero)
-                    .addComponent(jFormattedTextFieldNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelCidade)
@@ -325,7 +324,7 @@ public class CadastroCliente extends javax.swing.JInternalFrame implements Focus
             cliente.setSexo(sexo);
             cliente.setRua(jTextFieldRua.getText());
             cliente.setBairro(jTextFieldBairro.getText());
-            cliente.setNumCasa(jFormattedTextFieldNum.getText());
+            cliente.setNumCasa(jTextFieldNum.getText());
             cliente.setCidade(jTextFieldCidade.getText());
             cliente.setEstado(jTextFieldEstado.getText());
             cliente.setPais(jTextFieldPais.getText());
@@ -379,12 +378,12 @@ public class CadastroCliente extends javax.swing.JInternalFrame implements Focus
         
         if(jTextFieldBairro.getText().equals("")){
             jLabelBairro.setForeground(Color.red);
-            camposValidos = false;
+            camposValidos = false; 
         }else
             jLabelBairro.setForeground(Color.black);
         
         
-        if(jFormattedTextFieldNum.getValue()==null){
+        if(jTextFieldNum.getText().equals("")){
             jLabelNumero.setForeground(Color.red);
             camposValidos = false;
         }else
@@ -450,7 +449,6 @@ public class CadastroCliente extends javax.swing.JInternalFrame implements Focus
     private javax.swing.JFormattedTextField jFormattedTextFieldCEP;
     private javax.swing.JFormattedTextField jFormattedTextFieldCPF;
     private javax.swing.JFormattedTextField jFormattedTextFieldNasc;
-    private javax.swing.JFormattedTextField jFormattedTextFieldNum;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabelAviso;
     private javax.swing.JLabel jLabelBairro;
@@ -474,6 +472,7 @@ public class CadastroCliente extends javax.swing.JInternalFrame implements Focus
     private javax.swing.JTextField jTextFieldCidade;
     private javax.swing.JTextField jTextFieldEstado;
     private javax.swing.JTextField jTextFieldNome;
+    private javax.swing.JTextField jTextFieldNum;
     private javax.swing.JTextField jTextFieldPais;
     private javax.swing.JTextField jTextFieldRua;
     private javax.swing.JTextField jTextFieldSobrenome;

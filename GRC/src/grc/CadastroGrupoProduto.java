@@ -1,13 +1,16 @@
 package grc;
 
+import java.awt.Color;
+
 public class CadastroGrupoProduto extends javax.swing.JInternalFrame {
-    
-    private JInternalListeners jInternalListeners;
+
+    private boolean camposValidos = true;
+    private JInternalListeners jInternalListeners = new JInternalListeners(this);
+
     public CadastroGrupoProduto() {
         initComponents();
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -25,11 +28,11 @@ public class CadastroGrupoProduto extends javax.swing.JInternalFrame {
 
         jButtonSalvarGrupo.setText("Salvar");
         jButtonSalvarGrupo.addActionListener(jInternalListeners);
-        jButtonSalvarGrupo.setActionCommand("SalvarGrupo");
+        jButtonSalvarGrupo.setActionCommand("salvarNGrupo");
 
         jButtonCancelarGrupo.setText("Cancelar");
         jButtonCancelarGrupo.addActionListener(jInternalListeners);
-        jButtonCancelarGrupo.setActionCommand("CancelarGrupo");
+        jButtonCancelarGrupo.setActionCommand("cancelarNGrupo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,6 +78,28 @@ public class CadastroGrupoProduto extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public GrupoProduto getDadoGrupoProduto() {
+        if (validarCampos()) {
+            GrupoProduto grupoProduto = new GrupoProduto();
+            grupoProduto.setNome(jTextFieldGrupo.getText());
+
+            return grupoProduto;
+        }
+
+        return null;
+    }
+
+    public boolean validarCampos() {
+        camposValidos = true;
+
+        if (jTextFieldGrupo.getText().equals("")) {
+            jLabelGrupo.setForeground(Color.red);
+            camposValidos = false;
+
+        }
+        return camposValidos;
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelarGrupo;

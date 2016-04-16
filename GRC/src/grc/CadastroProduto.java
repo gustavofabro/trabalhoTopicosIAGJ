@@ -42,8 +42,8 @@ public class CadastroProduto extends javax.swing.JInternalFrame implements Focus
         jTextFieldCor = new javax.swing.JTextField();
         jButtonCancelarProduto = new javax.swing.JButton();
         jButtonSalvarProduto = new javax.swing.JButton();
-        jFormattedTextFieldValor = new javax.swing.JFormattedTextField(valorFormatter);
         jLabelAviso = new javax.swing.JLabel();
+        jTextFieldValor = new javax.swing.JTextField();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.black));
 
@@ -74,13 +74,11 @@ public class CadastroProduto extends javax.swing.JInternalFrame implements Focus
 
         jButtonCancelarProduto.setText("Cancelar");
         jButtonCancelarProduto.addActionListener(jInternalListeners);
-        jButtonCancelarProduto.setActionCommand("cadastroProduto");
+        jButtonCancelarProduto.setActionCommand("cancelarProduto");
 
         jButtonSalvarProduto.setText("Salvar");
         jButtonSalvarProduto.addActionListener(jInternalListeners);
         jButtonSalvarProduto.setActionCommand("salvarProduto");
-
-        jFormattedTextFieldValor.addFocusListener(this);
 
         jLabelAviso.setForeground(new java.awt.Color(255, 0, 0));
         jLabelAviso.setText("*Preencha todos os campos ");
@@ -116,8 +114,8 @@ public class CadastroProduto extends javax.swing.JInternalFrame implements Focus
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabelValor)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jFormattedTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(4, 4, 4)
+                                        .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabelCor)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -152,7 +150,7 @@ public class CadastroProduto extends javax.swing.JInternalFrame implements Focus
                     .addComponent(jLabelReferencia)
                     .addComponent(jLabelValor)
                     .addComponent(jTextFieldReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelDescricao)
@@ -167,7 +165,7 @@ public class CadastroProduto extends javax.swing.JInternalFrame implements Focus
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelGrupo)
                     .addComponent(jComboBoxGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancelarProduto)
                     .addComponent(jButtonSalvarProduto)
@@ -183,11 +181,11 @@ public class CadastroProduto extends javax.swing.JInternalFrame implements Focus
             Produto produto = new Produto();
 
             produto.setReferencia(jTextFieldReferencia.getText());
-            // produto.setValor(Double.parseDouble(jFormattedTextFieldValor.getText()));
+            produto.setValor(Double.parseDouble(jTextFieldValor.getText()));
             produto.setDescricao(jTextFieldDescricao.getText());
             produto.setTamanho(jTextFieldTamanho.getText());
             produto.setCor(jTextFieldCor.getText());
-            //produto.setGrupo(jComboBoxGrupo.getItemAt(jComboBoxGrupo.getSelectedIndex())); 
+            produto.setGrupo(jComboBoxGrupo.getItemAt(jComboBoxGrupo.getSelectedIndex())); 
 
             return produto;
         }else
@@ -203,10 +201,10 @@ public class CadastroProduto extends javax.swing.JInternalFrame implements Focus
          }else
              jLabelReferencia.setForeground(Color.black); 
 
-         if(jFormattedTextFieldValor.getValue()==null){
+         if(jTextFieldValor.getText().equals("")){
              jLabelValor.setForeground(Color.red); 
              camposValidos = false;             
-         }else
+         }else 
              jLabelValor.setForeground(Color.black); 
 
          if(jTextFieldDescricao.getText().equals("")){
@@ -247,7 +245,6 @@ public class CadastroProduto extends javax.swing.JInternalFrame implements Focus
     private javax.swing.JButton jButtonCancelarProduto;
     private javax.swing.JButton jButtonSalvarProduto;
     private javax.swing.JComboBox<String> jComboBoxGrupo;
-    private javax.swing.JFormattedTextField jFormattedTextFieldValor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelAviso;
     private javax.swing.JLabel jLabelCor;
@@ -261,6 +258,7 @@ public class CadastroProduto extends javax.swing.JInternalFrame implements Focus
     private javax.swing.JTextField jTextFieldDescricao;
     private javax.swing.JTextField jTextFieldReferencia;
     private javax.swing.JTextField jTextFieldTamanho;
+    private javax.swing.JTextField jTextFieldValor;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -271,7 +269,6 @@ public class CadastroProduto extends javax.swing.JInternalFrame implements Focus
     public void focusLost(FocusEvent e) {
         if(!camposValidos)
             validarCampos();
-        
     } 
 
 }
