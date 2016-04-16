@@ -70,6 +70,9 @@ public class JInternalListeners implements ActionListener {
             case "cancelarProduto":
                 cadProduto.setVisible(false);
                 break;
+		
+	    case "campoNome":
+		//if ()
         }
     }
 
