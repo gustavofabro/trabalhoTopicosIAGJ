@@ -14,6 +14,8 @@ public class JInternalListeners implements ActionListener {
 
     private ProcurarCliente procurarCliente;
     private ProcurarProduto procurarProduto;
+    private Aniversario aniversario;
+    private DataCompra dataCompra;
     private CadastroCliente cadCliente;
     private CadastroProduto cadProduto;
     private CadastroGrupoProduto cadGrupoProduto;
@@ -36,6 +38,14 @@ public class JInternalListeners implements ActionListener {
     
     public JInternalListeners(ProcurarProduto procurarProduto){
 	this.procurarProduto = procurarProduto;
+    }
+    
+    public JInternalListeners(Aniversario aniversario){
+	this.aniversario = aniversario;
+    }
+    
+    public JInternalListeners(DataCompra dataCompra){
+	this.dataCompra = dataCompra;
     }
     
     @Override
@@ -90,6 +100,52 @@ public class JInternalListeners implements ActionListener {
 		
 	    case "cancelarProcurarCliente":
 		procurarCliente.setVisible(false);
+		procurarCliente.apagarCampos();
+		break;
+		
+	    case "campoReferencia":
+		procurarProduto.ProcurarReferencia();
+		break;
+		
+	    case "copiarProcurarProduto":
+		if(!procurarProduto.getReferencia().isEmpty()){
+		    copy(procurarProduto.getReferencia());
+		}
+		break;
+		
+	    case "cancelarProcurarProduto":
+		procurarProduto.setVisible(false);
+		procurarProduto.apagarCampos();
+		break;
+		
+	    case "campoAniversario":
+		aniversario.procurarAniversario();
+		break;
+		
+	    case "copiarPesquisaAniversario":
+		if(!aniversario.getAniversario().isEmpty()){
+		    copy(aniversario.getAniversario());
+		}
+		break;
+		
+	    case "cancelarPesquisaAniversario":
+		aniversario.setVisible(false);
+		aniversario.apagarCampos();
+		break;
+		
+	    case "campoData":
+		dataCompra.procurarDataCompra();
+		break;
+		
+	    case "copiarDataCompra":
+		if(!dataCompra.getCompra().isEmpty()){
+		    copy(dataCompra.getCompra());
+		}
+		break;
+		
+	    case "cancelarDataCompra":
+		dataCompra.setVisible(false);
+		dataCompra.apagarCampos();
 		break;
         }
     }

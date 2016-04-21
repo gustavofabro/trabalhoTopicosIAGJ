@@ -5,17 +5,61 @@
  */
 package grc;
 
+import java.util.Vector;
+
 /**
  *
  * @author gustavo
  */
 public class ProcurarProduto extends javax.swing.JInternalFrame {
+    
+    private JInternalListeners listener;
+    
+    private TesteObjetos testeProduto;
+    private Produto produto;
+    private String auxReferencia;
+    private Vector listReferencias;
+    
+    public void apagarCampos(){
+	campoReferencia.setText("");
+	listaReferencias.removeAll();
+    }
+    
+    public String getReferencia(){
+	String selection;
+	selection = listaReferencias.getSelectedValue().toString();
+	
+	return (selection);
+    }
+    
+    public void ProcurarReferencia(){
+	listaReferencias.removeAll();
+	listReferencias.clear();
+	
+	auxReferencia = campoReferencia.getText();
+	for (int i = 0; i < 10; i++) {
+	    if(produto.getReferencia().contains(auxReferencia)){
+		listReferencias.add(produto.getReferencia());
+	    }
+	}
+	
+	listaReferencias.setListData(listReferencias);
+    }
 
     /**
      * Creates new form ProcurarProduto
      */
     public ProcurarProduto() {
+	listener = new JInternalListeners(this);
+	
         initComponents();
+	
+	campoReferencia.setActionCommand("campoReferencia");
+	copiarProcurarProduto.setActionCommand("copiarProcurarProduto");
+	cancelarProcurarProduto.setActionCommand("cancelarProcurarProduto");
+	campoReferencia.addActionListener(listener);
+	copiarProcurarProduto.addActionListener(listener);
+	cancelarProcurarProduto.addActionListener(listener);
     }
 
     /**
@@ -34,8 +78,8 @@ public class ProcurarProduto extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        copiarProcurarProduto = new javax.swing.JButton();
+        cancelarProcurarProduto = new javax.swing.JButton();
 
         labelReferencia.setText("Referência :");
 
@@ -43,9 +87,9 @@ public class ProcurarProduto extends javax.swing.JInternalFrame {
 
         jLabel1.setText("PROCURAR PRODUTO");
 
-        jButton1.setText("Copiar");
+        copiarProcurarProduto.setText("Copiar");
 
-        jButton2.setText("Cancelar");
+        cancelarProcurarProduto.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -67,8 +111,8 @@ public class ProcurarProduto extends javax.swing.JInternalFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(cancelarProcurarProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(copiarProcurarProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(121, 121, 121)
@@ -92,9 +136,9 @@ public class ProcurarProduto extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(copiarProcurarProduto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
+                        .addComponent(cancelarProcurarProduto)))
                 .addContainerGap())
         );
 
@@ -104,8 +148,8 @@ public class ProcurarProduto extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField campoReferencia;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton cancelarProcurarProduto;
+    private javax.swing.JButton copiarProcurarProduto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;

@@ -5,8 +5,6 @@
  */
 package grc;
 
-import java.awt.List;
-import java.awt.datatransfer.StringSelection;
 import java.text.ParseException;
 import java.util.Vector;
 import javax.swing.text.MaskFormatter;
@@ -20,7 +18,7 @@ import javax.swing.text.MaskFormatter;
 public class ProcurarCliente extends javax.swing.JInternalFrame {
     
     private MaskFormatter cpfFormat;
-    private JInternalListeners listener = new JInternalListeners(this);
+    private JInternalListeners listener;
     
     private Cliente cliente;
     private Vector listNome;
@@ -29,7 +27,12 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
     private String auxNome;
     private String auxCPF;
     private String auxCampo;
-    //private CharSequence characs;
+    
+    public void apagarCampos(){
+	campoCPF.setText("");
+	campoNome.setText("");
+	listaNomes.removeAll();
+    }
     
     public String getNome(){
 	String selection;
@@ -39,6 +42,8 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
     }
         
     public void ProcurarNomeCliente(){
+	listNome.clear();
+	
         auxNome = cliente.getNome();
 	auxCampo = campoNome.getText();
 	
@@ -50,6 +55,8 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
     }
     
     public void ProcurarCPFCliente(){
+	listCPF.clear();
+	
 	auxCPF = cliente.getCpf();
 	auxCampo = campoCPF.getText();
 	
@@ -61,6 +68,9 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
     }
     
     private void addLista(){
+	listAux.clear();
+	listaNomes.removeAll();
+	
 	int maxSize = (listCPF.size() > listNome.size())
 		    ? listCPF.size()
 		    : listNome.size();
@@ -90,6 +100,8 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
      * Creates new form ProcurarCliente
      */
     public ProcurarCliente() {
+	listener = new JInternalListeners(this);
+	
 	try {
 	    cpfFormat = new MaskFormatter("###.###.###-##");
 	    cpfFormat.setPlaceholderCharacter('_');
