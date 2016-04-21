@@ -1,5 +1,8 @@
 package grc;
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -72,8 +75,39 @@ public class JInternalListeners implements ActionListener {
                 break;
 		
 	    case "campoNome":
-		//if ()
+		procurarCliente.ProcurarNomeCliente();
+		break;
+		
+	    case "campoCPF":
+		procurarCliente.ProcurarCPFCliente();
+		break;
+		
+	    case "copiarProcurarCliente":
+		if(!procurarCliente.getNome().isEmpty()){
+		    copy(procurarCliente.getNome());
+		}
+		break;
+		
+	    case "cancelarProcurarCliente":
+		procurarCliente.setVisible(false);
+		break;
         }
+    }
+    
+    //Métodos para área de transferencia
+    //Ainda em teste
+    private void copy(String cpy){
+	Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+	StringSelection selection = new StringSelection(cpy);
+	clipboard.setContents(selection, null);
+    }
+    
+    private String paste(){
+	Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+	StringSelection selection = new StringSelection(null);
+	clipboard.getContents(selection);
+	
+	return (selection.toString());
     }
 
 }

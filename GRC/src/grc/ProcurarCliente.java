@@ -5,7 +5,10 @@
  */
 package grc;
 
+import java.awt.List;
+import java.awt.datatransfer.StringSelection;
 import java.text.ParseException;
+import java.util.Vector;
 import javax.swing.text.MaskFormatter;
 
 /**
@@ -16,21 +19,71 @@ import javax.swing.text.MaskFormatter;
  */
 public class ProcurarCliente extends javax.swing.JInternalFrame {
     
-    // Formatador
     private MaskFormatter cpfFormat;
-    // Listener
     private JInternalListeners listener = new JInternalListeners(this);
+    
     private Cliente cliente;
-    private String nome;
+    private Vector listNome;
+    private Vector listCPF;
+    private Vector listAux;
+    private String auxNome;
+    private String auxCPF;
+    private String auxCampo;
+    //private CharSequence characs;
+    
+    public String getNome(){
+	String selection;
+	selection = listaNomes.getSelectedValue().toString();
+	
+	return (selection);
+    }
         
-    private void ProcurarNomeCliente(){
-        if(cliente.getNome().compareTo(nome) == 0){
-	    //listaNomes.setListData(cliente.getNome());
+    public void ProcurarNomeCliente(){
+        auxNome = cliente.getNome();
+	auxCampo = campoNome.getText();
+	
+	if(auxNome.contains(auxCampo)){
+	    listNome.add(auxNome);
 	}
+	
+	addLista();
     }
     
-    private void ProcurarCPFCliente(){
+    public void ProcurarCPFCliente(){
+	auxCPF = cliente.getCpf();
+	auxCampo = campoCPF.getText();
 	
+	if(auxCPF.contains(auxCampo)){
+	    listCPF.add(auxNome);
+	}
+	
+	addLista();
+    }
+    
+    private void addLista(){
+	int maxSize = (listCPF.size() > listNome.size())
+		    ? listCPF.size()
+		    : listNome.size();
+	
+	if(listCPF.isEmpty()){
+	    listAux = listNome;
+	}
+	else if(listNome.isEmpty()){
+	    listAux = listCPF;
+	}
+	else{
+	    for (int i = 0; i < maxSize; i++) {
+		if(listAux.get(i) == null || listNome.get(i) == null){
+		    break;
+		}
+		
+		if(listAux.get(i).equals(listNome.get(i))){
+		    listAux.add(listNome.get(i));
+		}
+	    }
+	}
+	
+	listaNomes.setListData(listAux);
     }
 
     /**
@@ -39,7 +92,7 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
     public ProcurarCliente() {
 	try {
 	    cpfFormat = new MaskFormatter("###.###.###-##");
-	    cpfFormat.setPlaceholderCharacter('2');
+	    cpfFormat.setPlaceholderCharacter('_');
 	}
 	catch(ParseException ex) {
 	    System.out.println(ex);
@@ -48,12 +101,19 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
         initComponents();
 	
 	campoNome.setActionCommand("campoNome");
+	campoCPF.setActionCommand("campoCPF");
+	copiarProcurarCliente.setActionCommand("copiarProcurarCliente");
+	cancelarProcurarCliente.setActionCommand("cancelarProcurarCliente");
 	campoNome.addActionListener(listener);
+	campoCPF.addActionListener(listener);
+	copiarProcurarCliente.addActionListener(listener);
+	cancelarProcurarCliente.addActionListener(listener);
     }
     
-    public void erro() throws ParseException {
+    //Tentativa de implementação do método de tratamento de erro
+    /*private void erro() throws ParseException {
 	System.out.println("Erro durante o parse da máscara em ProcurarCliente");
-    }
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -73,12 +133,12 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
         labelCPF = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         listaNomes = new javax.swing.JList();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField(cpfFormat);
+        campoCPF = new javax.swing.JFormattedTextField(cpfFormat);
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        copiarProcurarCliente = new javax.swing.JButton();
+        cancelarProcurarCliente = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -112,9 +172,9 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
 
         jLabel1.setText("PROCURAR CLIENTE");
 
-        jButton1.setText("Copiar");
+        copiarProcurarCliente.setText("Copiar");
 
-        jButton2.setText("Cancelar");
+        cancelarProcurarCliente.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -131,7 +191,7 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(labelCPF)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(campoCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(labelNome)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -141,8 +201,8 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(cancelarProcurarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(copiarProcurarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(117, 117, 117)
@@ -163,16 +223,16 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelCPF)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(copiarProcurarCliente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
+                        .addComponent(cancelarProcurarCliente)))
                 .addContainerGap())
         );
 
@@ -181,10 +241,10 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFormattedTextField campoCPF;
     private javax.swing.JTextField campoNome;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JButton cancelarProcurarCliente;
+    private javax.swing.JButton copiarProcurarCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
