@@ -20,6 +20,8 @@ public class JInternalListeners implements ActionListener {
     private CadastroProduto cadProduto;
     private CadastroGrupoProduto cadGrupoProduto;
     
+    private Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+    
     public JInternalListeners(CadastroCliente cadCliente) {
         this.cadCliente = cadCliente;
     }
@@ -153,13 +155,11 @@ public class JInternalListeners implements ActionListener {
     //Métodos para área de transferencia
     //Ainda em teste
     private void copy(String cpy){
-	Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 	StringSelection selection = new StringSelection(cpy);
 	clipboard.setContents(selection, null);
     }
     
     private String paste(){
-	Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 	StringSelection selection = new StringSelection(null);
 	clipboard.getContents(selection);
 	

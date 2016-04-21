@@ -35,10 +35,12 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
     }
     
     public String getNome(){
-	String selection;
-	selection = listaNomes.getSelectedValue().toString();
+	String selection = "Vazio";
+	if(listaNomes.getMaxSelectionIndex() > -1){
+	    selection = listaNomes.getSelectedValue().toString();
+	}
 	
-	return (selection);
+	return selection;
     }
         
     public void ProcurarNomeCliente(){

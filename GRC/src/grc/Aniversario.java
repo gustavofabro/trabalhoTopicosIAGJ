@@ -28,8 +28,10 @@ public class Aniversario extends javax.swing.JInternalFrame {
     }
     
     public String getAniversario(){
-	String selection;
-	selection = listaAniversarios.getSelectedValue().toString();
+	String selection = "Vazio";
+	if(listaAniversarios.getMaxSelectionIndex() > -1){
+	    selection = listaAniversarios.getSelectedValue().toString();
+	}
 	
 	return (selection);
     }

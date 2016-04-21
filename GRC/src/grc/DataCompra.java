@@ -28,8 +28,10 @@ public class DataCompra extends javax.swing.JInternalFrame {
     }
     
     public String getCompra(){
-	String selection;
-	selection = listaDatas.getSelectedValue().toString();
+	String selection = "Vazio";
+	if(listaDatas.getMaxSelectionIndex() > -1){
+	    selection = listaDatas.getSelectedValue().toString();
+	}
 	
 	return (selection);
     }

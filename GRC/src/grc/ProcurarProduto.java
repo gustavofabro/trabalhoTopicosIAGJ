@@ -26,8 +26,10 @@ public class ProcurarProduto extends javax.swing.JInternalFrame {
     }
     
     public String getReferencia(){
-	String selection;
-	selection = listaReferencias.getSelectedValue().toString();
+	String selection = "Vazio";
+	if(listaReferencias.getMaxSelectionIndex() > -1){
+	    selection = listaReferencias.getSelectedValue().toString();
+	}
 	
 	return (selection);
     }
