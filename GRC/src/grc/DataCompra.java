@@ -41,6 +41,7 @@ public class DataCompra extends javax.swing.JInternalFrame {
 	listData.clear();
 	
 	//if()
+	//falta implementar a parte de realização de compra
     }
 
     /**
