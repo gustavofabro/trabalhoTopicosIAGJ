@@ -6,7 +6,7 @@
 package grc;
 
 import java.text.ParseException;
-import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 
 /**
@@ -21,9 +21,9 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
     private JInternalListeners listener;
     
     private Cliente cliente;
-    private Vector listNome;
-    private Vector listCPF;
-    private Vector listAux;
+    private String[] listNome;
+    private String[] listCPF;
+    private String[] listAux;
     private String auxNome;
     private String auxCPF;
     private String auxCampo;
@@ -44,53 +44,48 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
     }
         
     public void ProcurarNomeCliente(){
-	listNome.clear();
-	
         auxNome = cliente.getNome();
 	auxCampo = campoNome.getText();
 	
 	if(auxNome.contains(auxCampo)){
-	    listNome.add(auxNome);
+	    listNome[listNome.length] = auxNome;
 	}
 	
 	addLista();
     }
     
     public void ProcurarCPFCliente(){
-	listCPF.clear();
-	
 	auxCPF = cliente.getCpf();
 	auxCampo = campoCPF.getText();
 	
 	if(auxCPF.contains(auxCampo)){
-	    listCPF.add(auxNome);
+	    listCPF[listCPF.length] = auxNome;
 	}
 	
 	addLista();
     }
     
     private void addLista(){
-	listAux.clear();
 	listaNomes.removeAll();
 	
-	int maxSize = (listCPF.size() > listNome.size())
-		    ? listCPF.size()
-		    : listNome.size();
+	int maxSize = (listCPF.length > listNome.length)
+		    ? listCPF.length
+		    : listNome.length;
 	
-	if(listCPF.isEmpty()){
+	if(listCPF.length == 0){
 	    listAux = listNome;
 	}
-	else if(listNome.isEmpty()){
+	else if(listNome.length == 0){
 	    listAux = listCPF;
 	}
 	else{
 	    for (int i = 0; i < maxSize; i++) {
-		if(listAux.get(i) == null || listNome.get(i) == null){
+		if(listAux[i] == null || listNome[i] == null){
 		    break;
 		}
 		
-		if(listAux.get(i).equals(listNome.get(i))){
-		    listAux.add(listNome.get(i));
+		if(listAux[i].equals(listNome[i])){
+		    listAux[i] = listNome[i];
 		}
 	    }
 	}
@@ -109,7 +104,7 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
 	    cpfFormat.setPlaceholderCharacter('_');
 	}
 	catch(ParseException ex) {
-	    System.out.println(ex);
+	    JOptionPane.showMessageDialog(super.rootPane, ex.getMessage());
 	}
 	
         initComponents();

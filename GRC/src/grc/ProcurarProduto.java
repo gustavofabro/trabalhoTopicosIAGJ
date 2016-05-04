@@ -5,8 +5,6 @@
  */
 package grc;
 
-import java.util.Vector;
-
 /**
  *
  * @author gustavo
@@ -15,10 +13,9 @@ public class ProcurarProduto extends javax.swing.JInternalFrame {
     
     private JInternalListeners listener;
     
-    private TesteObjetos testeProduto;
     private Produto produto;
     private String auxReferencia;
-    private Vector listReferencias;
+    private String[] listReferencias;
     
     public void apagarCampos(){
 	campoReferencia.setText("");
@@ -36,12 +33,11 @@ public class ProcurarProduto extends javax.swing.JInternalFrame {
     
     public void ProcurarReferencia(){
 	listaReferencias.removeAll();
-	listReferencias.clear();
 	
 	auxReferencia = campoReferencia.getText();
 	for (int i = 0; i < 10; i++) {
 	    if(produto.getReferencia().contains(auxReferencia)){
-		listReferencias.add(produto.getReferencia());
+		listReferencias[i] = produto.getReferencia();
 	    }
 	}
 	

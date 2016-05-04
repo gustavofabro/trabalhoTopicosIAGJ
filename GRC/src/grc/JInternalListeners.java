@@ -20,7 +20,11 @@ public class JInternalListeners implements ActionListener {
     private CadastroProduto cadProduto;
     private CadastroGrupoProduto cadGrupoProduto;
     
-    private Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+    private Clipboard clipboard;
+    
+    public JInternalListeners(){
+	clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+    }
     
     public JInternalListeners(CadastroCliente cadCliente) {
         this.cadCliente = cadCliente;
@@ -30,7 +34,7 @@ public class JInternalListeners implements ActionListener {
         this.cadProduto = cadProduto;
     }
     
-     public JInternalListeners(CadastroGrupoProduto cadGrupoProduto) {
+    public JInternalListeners(CadastroGrupoProduto cadGrupoProduto) {
         this.cadGrupoProduto = cadGrupoProduto;
     }
 
@@ -103,6 +107,7 @@ public class JInternalListeners implements ActionListener {
 	    case "cancelarProcurarCliente":
 		procurarCliente.setVisible(false);
 		procurarCliente.apagarCampos();
+		//System.out.println(e.paramString().substring(e.paramString().indexOf("cmd=")+4, e.paramString().indexOf(",when=")));
 		break;
 		
 	    case "campoReferencia":

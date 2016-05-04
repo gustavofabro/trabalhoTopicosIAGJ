@@ -11,16 +11,17 @@ import javax.swing.text.MaskFormatter;
 
 /**
  *
- * @author gustavo
+ * @author juanvmr
+ * @version 0.2.5
  */
 public class DataCompra extends javax.swing.JInternalFrame {
     
     private JInternalListeners listener;
     private MaskFormatter formater;
 
-    private RealizarVenda venda;
-    private String auxData;
-    private Vector listData;
+    //private RealizarVenda venda;  ainda não implementado
+    //private String auxData;		    ||
+    private String[] listData;
     
     public void apagarCampos(){
 	campoData.setText("");
@@ -31,6 +32,7 @@ public class DataCompra extends javax.swing.JInternalFrame {
 	String selection = "Vazio";
 	if(listaDatas.getMaxSelectionIndex() > -1){
 	    selection = listaDatas.getSelectedValue().toString();
+	    
 	}
 	
 	return (selection);
@@ -38,7 +40,6 @@ public class DataCompra extends javax.swing.JInternalFrame {
     
     public void procurarDataCompra(){
 	listaDatas.removeAll();
-	listData.clear();
 	
 	//if()
 	//falta implementar a parte de realização de compra
