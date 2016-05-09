@@ -1,9 +1,10 @@
-
 package grc;
 
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.text.ParseException;
 import javax.swing.text.MaskFormatter;
 
@@ -14,26 +15,24 @@ public class CadastroCliente extends javax.swing.JInternalFrame implements Focus
     
     private MaskFormatter cpfFormatter;
     private MaskFormatter dataFormatter;
-    private MaskFormatter numFormatter;
     private MaskFormatter cepFormatter; 
     
-    public CadastroCliente(){
+    public CadastroCliente() {
         
         try {
             cpfFormatter = new MaskFormatter("###.###.###-##"); // o # representa qualquer número
             cpfFormatter.setPlaceholderCharacter('_');
             dataFormatter = new MaskFormatter("##/##/####");
             dataFormatter.setPlaceholderCharacter('_');
-            numFormatter = new MaskFormatter("#########");
             cepFormatter = new MaskFormatter("#####-###");
-            cepFormatter.setPlaceholderCharacter('_');
-            
+            cepFormatter.setPlaceholderCharacter('_');            
         } catch (ParseException ex) {}
         
         
         initComponents();
         
         jTextFieldBairro.addFocusListener(this);
+        jTextFieldNum.addFocusListener(this); 
         jTextFieldCidade.addFocusListener(this);
         jTextFieldEstado.addFocusListener(this);
         jTextFieldNome.addFocusListener(this);
@@ -79,7 +78,7 @@ public class CadastroCliente extends javax.swing.JInternalFrame implements Focus
         jFormattedTextFieldCPF = new javax.swing.JFormattedTextField(cpfFormatter);
         jFormattedTextFieldCEP = new javax.swing.JFormattedTextField(cepFormatter);
         jLabelAviso = new javax.swing.JLabel();
-        jTextFieldNum = new javax.swing.JTextField();
+        jTextFieldNum = new FormattedTextFields();
 
         jPasswordField1.setText("jPasswordField1");
 

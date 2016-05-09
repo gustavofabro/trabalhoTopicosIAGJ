@@ -12,13 +12,8 @@ public class CadastroProduto extends javax.swing.JInternalFrame implements Focus
     private JInternalListeners jInternalListeners = new JInternalListeners(this);
     private MaskFormatter valorFormatter;
     private boolean camposValidos = true;
-    
-    public CadastroProduto(){
-      /*  try {
-            valorFormatter = new MaskFormatter("##########");
-        } catch (ParseException ex) {}
-        valorFormatter.setValidCharacters("123456789.");*/
 
+    public CadastroProduto(){
         initComponents();
     }
 
@@ -43,7 +38,8 @@ public class CadastroProduto extends javax.swing.JInternalFrame implements Focus
         jButtonCancelarProduto = new javax.swing.JButton();
         jButtonSalvarProduto = new javax.swing.JButton();
         jLabelAviso = new javax.swing.JLabel();
-        jTextFieldValor = new javax.swing.JTextField();
+        jTextFieldValor = new FormattedTextFields();
+        ;
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.black));
 

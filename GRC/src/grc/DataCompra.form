@@ -87,6 +87,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="campoData">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(dataFormatter)"/>
+      </AuxValues>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>

@@ -241,6 +241,9 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldValor">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new FormattedTextFields();&#xa;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

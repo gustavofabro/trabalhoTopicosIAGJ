@@ -1,15 +1,51 @@
-
 package grc;
 
-import javax.swing.JButton;
+import java.awt.Color;
+import java.text.ParseException;
+import javax.swing.text.MaskFormatter;
 
 
 public class RealizarVenda extends javax.swing.JInternalFrame {
+    private boolean camposValidos;
+    private MaskFormatter cpfFormatter; 
 
-    private JInternalListeners jInternalListeners;
-    
+    private JInternalListeners jInternalListeners = new JInternalListeners(this);
+   
     public RealizarVenda() {
-        initComponents();
+        try {
+            cpfFormatter = new MaskFormatter("###.###.###-##"); // o # representa qualquer número
+            cpfFormatter.setPlaceholderCharacter('_');
+        } catch (ParseException ex) {}
+         initComponents();
+    }
+
+    public RealizarVenda getDadoVenda() {
+        if (validarCampos()) {
+           /* GrupoProduto grupoProduto = new GrupoProduto();
+            grupoProduto.setNome(jTextFieldGrupo.getText());
+
+            return grupoProduto;*/
+        }
+
+        return null;
+    }
+    
+     public boolean validarCampos() {
+        camposValidos = true;
+
+        if (jTextFieldReferencia.getText().equals("")) {
+            jLabelReferencia.setForeground(Color.red);
+            camposValidos = false;
+
+        }
+        if (jFormattedTextFieldCPF.getText().equals("")) {
+            jLabelCPF.setForeground(Color.red);
+            camposValidos = false;
+
+        }
+         System.out.println(jFormattedTextFieldCPF.getText());
+        return camposValidos;
+
     }
 
    
@@ -22,19 +58,19 @@ public class RealizarVenda extends javax.swing.JInternalFrame {
         jLabelReferencia = new javax.swing.JLabel();
         jLabelCPF = new javax.swing.JLabel();
         jTextFieldReferencia = new javax.swing.JTextField();
-        jTextFieldCPF = new javax.swing.JTextField();
         jButtonCancelarVenda = new javax.swing.JButton();
         jButtonSalvarVenda = new javax.swing.JButton();
+        jFormattedTextFieldCPF = new javax.swing.JFormattedTextField(cpfFormatter);
 
         jLabel1.setText("REALIZAR VENDA");
 
         jLabelReferencia.setText("Referência:");
 
-        jLabelCPF.setText("CPF cliente:");
+        jLabelCPF.setText("CPF Cliente:");
 
         jButtonCancelarVenda.setText("Cancelar");
         jButtonCancelarVenda.addActionListener(jInternalListeners);
-        jButtonCancelarVenda.setActionCommand("CancelarVenda");
+        jButtonCancelarVenda.setActionCommand("cancelarVenda");
 
         jButtonSalvarVenda.setText("Salvar");
         jButtonSalvarVenda.addActionListener(jInternalListeners);
@@ -48,8 +84,8 @@ public class RealizarVenda extends javax.swing.JInternalFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButtonSalvarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonCancelarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
+                .addComponent(jButtonCancelarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -63,8 +99,8 @@ public class RealizarVenda extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabelCPF)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextFieldCPF))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jFormattedTextFieldCPF))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabelReferencia)
                                 .addGap(18, 18, 18)
@@ -85,12 +121,12 @@ public class RealizarVenda extends javax.swing.JInternalFrame {
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelCPF)
-                    .addComponent(jTextFieldCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFormattedTextFieldCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancelarVenda)
                     .addComponent(jButtonSalvarVenda))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
@@ -100,11 +136,11 @@ public class RealizarVenda extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelarVenda;
     private javax.swing.JButton jButtonSalvarVenda;
+    private javax.swing.JFormattedTextField jFormattedTextFieldCPF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelCPF;
     private javax.swing.JLabel jLabelReferencia;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextFieldCPF;
     private javax.swing.JTextField jTextFieldReferencia;
     // End of variables declaration//GEN-END:variables
 }

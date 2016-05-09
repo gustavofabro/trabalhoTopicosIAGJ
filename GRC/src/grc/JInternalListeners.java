@@ -16,12 +16,14 @@ public class JInternalListeners implements ActionListener {
     private ProcurarProduto procurarProduto;
     private Aniversario aniversario;
     private DataCompra dataCompra;
+    private RealizarVenda realizarVenda;
     private CadastroCliente cadCliente;
     private CadastroProduto cadProduto;
     private CadastroGrupoProduto cadGrupoProduto;
     
     private Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
     
+    //quero deixa só um construtor com todos, vou ver ainda.
     public JInternalListeners(CadastroCliente cadCliente) {
         this.cadCliente = cadCliente;
     }
@@ -30,10 +32,14 @@ public class JInternalListeners implements ActionListener {
         this.cadProduto = cadProduto;
     }
     
-     public JInternalListeners(CadastroGrupoProduto cadGrupoProduto) {
+    public JInternalListeners(CadastroGrupoProduto cadGrupoProduto) {
         this.cadGrupoProduto = cadGrupoProduto;
     }
 
+    public JInternalListeners(RealizarVenda realizarVenda) {
+        this.realizarVenda = realizarVenda;
+    }
+    
     public JInternalListeners(ProcurarCliente procurarCliente){
 	this.procurarCliente = procurarCliente;
     }
@@ -73,7 +79,7 @@ public class JInternalListeners implements ActionListener {
                 break;
             case "cancelarNGrupo":
                   cadGrupoProduto.setVisible(false); 
-
+                 
                 break;
             case "salvarProduto":
                 if (cadProduto.getDadosProduto() != null) {
@@ -85,6 +91,16 @@ public class JInternalListeners implements ActionListener {
             case "cancelarProduto":
                 cadProduto.setVisible(false);
                 break;
+                
+            case "salvarVenda":
+                if(realizarVenda.getDadoVenda() != null){
+                    realizarVenda.setVisible(false); 
+                }
+                break;
+            case "cancelarVenda":
+                realizarVenda.setVisible(false);
+                break;
+		
 		
 	    case "campoNome":
 		procurarCliente.ProcurarNomeCliente();

@@ -15,8 +15,8 @@ import javax.swing.text.MaskFormatter;
  */
 public class DataCompra extends javax.swing.JInternalFrame {
     
-    private JInternalListeners listener;
-    private MaskFormatter formater;
+    private JInternalListeners listener = new JInternalListeners(this);;
+    private MaskFormatter dataFormatter;
 
     private RealizarVenda venda;
     private String auxData;
@@ -47,18 +47,14 @@ public class DataCompra extends javax.swing.JInternalFrame {
      * Creates new form DataCompra
      */
     public DataCompra() {
-	listener = new JInternalListeners(this);
-	
+
 	try{
-	    formater = new MaskFormatter("##/##/##");
-	    formater.setPlaceholderCharacter('_');
-	}
-	catch(ParseException ex){
-	    
-	}
+	    dataFormatter = new MaskFormatter("##/##/##");
+	    dataFormatter.setPlaceholderCharacter('_');
+	} catch(ParseException ex){}
 	
         initComponents();
-	
+
 	campoData.setActionCommand("campoData");
 	copiarDataCompra.setActionCommand("copiarDataCompra");
 	cancelarDataCompra.setActionCommand("cancelarDataCompra");
@@ -77,7 +73,7 @@ public class DataCompra extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        campoData = new javax.swing.JFormattedTextField();
+        campoData = new javax.swing.JFormattedTextField(dataFormatter);
         jScrollPane1 = new javax.swing.JScrollPane();
         listaDatas = new javax.swing.JList();
         jSeparator1 = new javax.swing.JSeparator();

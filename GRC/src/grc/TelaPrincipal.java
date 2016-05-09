@@ -5,16 +5,25 @@
  */
 package grc;
 
+import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Image;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -50,14 +59,18 @@ public class TelaPrincipal extends JFrame implements ActionListener {
     private JInternalFrame vendaIFrame;
     private JInternalFrame aniversarioIFrame;
     private JInternalFrame dataCompraIFrame;
-
     
+   // private JPanel logoPanel;
+   // private final ImageIcon logoGRC;
+   
     public TelaPrincipal(){
+        
         super("GRC");
         c = getContentPane();
+        deskPane = new JDesktopPane();
         
         sobreInfo = "GRC - Tópicos I";
-
+                      
         //JInternals Frames
         cadClienteIFrame = new CadastroCliente();
         cadProdutoIFrame = new CadastroProduto();
@@ -115,7 +128,6 @@ public class TelaPrincipal extends JFrame implements ActionListener {
         super.setJMenuBar(menuBar);
 
         //adiciona os Internals Frames ao DeskPane mas não os exibe 
-        deskPane = new JDesktopPane();
         deskPane.add(cadClienteIFrame);
         deskPane.add(cadProdutoIFrame);
         deskPane.add(cadGrupoProdIFrame);
@@ -124,8 +136,7 @@ public class TelaPrincipal extends JFrame implements ActionListener {
         deskPane.add(procurarProdutoIFrame);
         deskPane.add(aniversarioIFrame);
         deskPane.add(dataCompraIFrame);
-
-        //adiciona o DeskPane ao frame base
+                
         add(deskPane);
     }
 
@@ -144,4 +155,6 @@ public class TelaPrincipal extends JFrame implements ActionListener {
             case "Sobre":             JOptionPane.showMessageDialog(null, sobreInfo);
         }
     }
+    
+    
 }
