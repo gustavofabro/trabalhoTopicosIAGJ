@@ -6,7 +6,6 @@
 package grc;
 
 import java.text.ParseException;
-import java.util.Vector;
 import javax.swing.text.MaskFormatter;
 
 /**
@@ -20,7 +19,7 @@ public class Aniversario extends javax.swing.JInternalFrame {
     
     private Cliente cliente;
     private String auxAniversario;
-    private Vector listAniversario;
+    private String[] listAniversario;
     
     public void apagarCampos(){
 	campoAniversario.setText("");
@@ -38,11 +37,10 @@ public class Aniversario extends javax.swing.JInternalFrame {
     
     public void procurarAniversario(){
 	listaAniversarios.removeAll();
-	listAniversario.clear();
 	
 	auxAniversario = campoAniversario.getText();
 	if(cliente.getDataNascimento().contains(auxAniversario)){
-	    listAniversario.add(cliente.getNome());
+	    listAniversario[listAniversario.length] = cliente.getNome();
 	}
 	
 	listaAniversarios.setListData(listAniversario);
