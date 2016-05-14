@@ -6,7 +6,6 @@
 package grc;
 
 import java.text.ParseException;
-import java.util.Vector;
 import javax.swing.text.MaskFormatter;
 
 /**
