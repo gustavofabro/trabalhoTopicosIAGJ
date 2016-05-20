@@ -22,6 +22,7 @@ public class FormattedTextFields extends JTextField {
                 if (!("" + e.getKeyChar()).matches("[0-9]")) {
                     e.consume();
                 }
+                
             }
 
             @Override
