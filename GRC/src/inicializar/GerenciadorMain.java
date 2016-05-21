@@ -1,12 +1,9 @@
-package grc;
+package inicializar;
 
 import javax.swing.JFrame;
+import view.Login;
 
-/**
- *
- * @author gustavo
- */
-public class GerenciadorTest {
+public class GerenciadorMain {
 
     public static void main(String[] args) {
         Login telalogin = new Login();

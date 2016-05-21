@@ -1,6 +1,7 @@
 
-package grc;
+package view;
 
+import bean.Produto;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -8,12 +9,12 @@ import java.text.ParseException;
 import javax.swing.text.MaskFormatter;
 
 
-public class CadastroProduto extends javax.swing.JInternalFrame implements FocusListener{
+public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements FocusListener{
     private JInternalListeners jInternalListeners = new JInternalListeners(this);
     private MaskFormatter valorFormatter;
     private boolean camposValidos = true;
 
-    public CadastroProduto(){
+    public CadastroProdutoJIF(){
         initComponents();
     }
 

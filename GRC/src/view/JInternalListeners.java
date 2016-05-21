@@ -1,5 +1,8 @@
-package grc;
+package view;
 
+import bean.GrupoProduto;
+import bean.Produto;
+import bean.Cliente;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
@@ -12,14 +15,14 @@ public class JInternalListeners implements ActionListener {
     Produto produto;
     GrupoProduto grupoProduto;
 
-    private ProcurarCliente procurarCliente;
-    private ProcurarProduto procurarProduto;
-    private Aniversario aniversario;
-    private DataCompra dataCompra;
-    private RealizarVenda realizarVenda;
-    private CadastroCliente cadCliente;
-    private CadastroProduto cadProduto;
-    private CadastroGrupoProduto cadGrupoProduto;
+    private ProcurarClienteJIF procurarCliente;
+    private ProcurarProdutoJIF procurarProduto;
+    private AniversarioJIF aniversario;
+    private DataCompraJIF dataCompra;
+    private RealizarVendaJIF realizarVenda;
+    private CadastroClienteJIF cadCliente;
+    private CadastroProdutoJIF cadProduto;
+    private CadastroGrupoProdutoJIF cadGrupoProduto;
     
     private Clipboard clipboard;
     
@@ -27,36 +30,35 @@ public class JInternalListeners implements ActionListener {
 	clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
     }
     
-    //quero deixa só um construtor com todos, vou ver ainda.
-    public JInternalListeners(CadastroCliente cadCliente) {
+    public JInternalListeners(CadastroClienteJIF cadCliente) {
         this.cadCliente = cadCliente;
     }
 
-    public JInternalListeners(CadastroProduto cadProduto) {
+    public JInternalListeners(CadastroProdutoJIF cadProduto) {
         this.cadProduto = cadProduto;
     }
     
-    public JInternalListeners(CadastroGrupoProduto cadGrupoProduto) {
+    public JInternalListeners(CadastroGrupoProdutoJIF cadGrupoProduto) {
         this.cadGrupoProduto = cadGrupoProduto;
     }
 
-    public JInternalListeners(RealizarVenda realizarVenda) {
+    public JInternalListeners(RealizarVendaJIF realizarVenda) {
         this.realizarVenda = realizarVenda;
     }
     
-    public JInternalListeners(ProcurarCliente procurarCliente){
+    public JInternalListeners(ProcurarClienteJIF procurarCliente){
 	this.procurarCliente = procurarCliente;
     }
     
-    public JInternalListeners(ProcurarProduto procurarProduto){
+    public JInternalListeners(ProcurarProdutoJIF procurarProduto){
 	this.procurarProduto = procurarProduto;
     }
     
-    public JInternalListeners(Aniversario aniversario){
+    public JInternalListeners(AniversarioJIF aniversario){
 	this.aniversario = aniversario;
     }
     
-    public JInternalListeners(DataCompra dataCompra){
+    public JInternalListeners(DataCompraJIF dataCompra){
 	this.dataCompra = dataCompra;
     }
     
@@ -64,6 +66,7 @@ public class JInternalListeners implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "salvarCliente":
+                //obs CLiente c = cadCliente.getDadosCliente(); para usar dps
                 if (cadCliente.getDadosCliente() != null) {
                     //mandar banco 
                     

@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package grc;
+package view;
+
+import bean.Produto;
 
 /**
  *
  * @author gustavo
  */
-public class ProcurarProduto extends javax.swing.JInternalFrame {
+public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
     
     private JInternalListeners listener;
     
@@ -47,7 +49,7 @@ public class ProcurarProduto extends javax.swing.JInternalFrame {
     /**
      * Creates new form ProcurarProduto
      */
-    public ProcurarProduto() {
+    public ProcurarProdutoJIF() {
 	listener = new JInternalListeners(this);
 	
         initComponents();

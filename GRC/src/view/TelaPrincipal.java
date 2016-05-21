@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package grc;
+package view;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -72,14 +72,14 @@ public class TelaPrincipal extends JFrame implements ActionListener {
         sobreInfo = "GRC - Tópicos I";
                       
         //JInternals Frames
-        cadClienteIFrame = new CadastroCliente();
-        cadProdutoIFrame = new CadastroProduto();
-        cadGrupoProdIFrame = new CadastroGrupoProduto();
-        procurarClienteIFrame = new ProcurarCliente();
-        procurarProdutoIFrame = new ProcurarProduto();
-        vendaIFrame = new RealizarVenda();
-        aniversarioIFrame = new Aniversario();
-        dataCompraIFrame = new DataCompra();
+        cadClienteIFrame = new CadastroClienteJIF();
+        cadProdutoIFrame = new CadastroProdutoJIF();
+        cadGrupoProdIFrame = new CadastroGrupoProdutoJIF();
+        procurarClienteIFrame = new ProcurarClienteJIF();
+        procurarProdutoIFrame = new ProcurarProdutoJIF();
+        vendaIFrame = new RealizarVendaJIF();
+        aniversarioIFrame = new AniversarioJIF();
+        dataCompraIFrame = new DataCompraJIF();
         
         menuBar = new JMenuBar();
 

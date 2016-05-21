@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package grc;
+package view;
 
 import java.text.ParseException;
 import javax.swing.text.MaskFormatter;
@@ -13,7 +13,7 @@ import javax.swing.text.MaskFormatter;
  * @author juanvmr
  * @version 0.2.5
  */
-public class DataCompra extends javax.swing.JInternalFrame {
+public class DataCompraJIF extends javax.swing.JInternalFrame {
     
     private JInternalListeners listener = new JInternalListeners(this);;
     private MaskFormatter dataFormatter;
@@ -47,7 +47,7 @@ public class DataCompra extends javax.swing.JInternalFrame {
     /**
      * Creates new form DataCompra
      */
-    public DataCompra() {
+    public DataCompraJIF() {
 
 	try{
 	    dataFormatter = new MaskFormatter("##/##/##");

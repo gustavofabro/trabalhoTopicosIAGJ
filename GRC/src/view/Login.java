@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package grc;
+package view;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -78,7 +78,8 @@ public class Login extends JFrame {
         btnEntrar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                validarLogin(entradaLogin.getText(), entradaSenha.getPassword());
+                carregarSistema();
+                //validarLogin(entradaLogin.getText(), entradaSenha.getPassword());
             }
         });
 
@@ -86,7 +87,7 @@ public class Login extends JFrame {
         
     }
     
-    public void validarLogin(String usuarioEntrada, char[] senhaEntrada){
+    /*public void validarLogin(String usuarioEntrada, char[] senhaEntrada){
         if (usuarioEntrada.equals(usuario) && Arrays.equals(senhaEntrada, senha)) {
             warning.setVisible(false); //se travar pra abrir o sistema, pelo menos vai sumir o aviso 
             carregarSistema();
@@ -94,7 +95,7 @@ public class Login extends JFrame {
         } else {
             warning.setVisible(true);
         }
-    }
+    }*/
     
     public void carregarSistema(){
         TelaPrincipal grcTela = new TelaPrincipal();
@@ -102,4 +103,5 @@ public class Login extends JFrame {
         grcTela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         grcTela.setVisible(true);
     }
+    
 }

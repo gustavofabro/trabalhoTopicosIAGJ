@@ -1,5 +1,6 @@
-package grc;
+package view;
 
+import bean.Cliente;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -7,9 +8,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.text.ParseException;
 import javax.swing.text.MaskFormatter;
+import listener.CadastroClienteListener;
 
-public class CadastroCliente extends javax.swing.JInternalFrame implements FocusListener{
-    private JInternalListeners jInternalListeners = new JInternalListeners(this);
+public class CadastroClienteJIF extends javax.swing.JInternalFrame implements FocusListener{
+    private CadastroClienteListener jInternalListeners = new CadastroClienteListener(this);
     private String sexo = "";
     private boolean camposValidos = true;
     
@@ -17,7 +19,7 @@ public class CadastroCliente extends javax.swing.JInternalFrame implements Focus
     private MaskFormatter dataFormatter;
     private MaskFormatter cepFormatter; 
     
-    public CadastroCliente() {
+    public CadastroClienteJIF() {
         
         try {
             cpfFormatter = new MaskFormatter("###.###.###-##"); // o # representa qualquer número

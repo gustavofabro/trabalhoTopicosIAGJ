@@ -1,5 +1,7 @@
-package grc;
+package view;
 
+import bean.Produto;
+import bean.Cliente;
 import java.util.Vector;
 
 /**

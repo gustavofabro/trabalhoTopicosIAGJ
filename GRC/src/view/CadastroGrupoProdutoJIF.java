@@ -1,13 +1,14 @@
-package grc;
+package view;
 
+import bean.GrupoProduto;
 import java.awt.Color;
 
-public class CadastroGrupoProduto extends javax.swing.JInternalFrame {
+public class CadastroGrupoProdutoJIF extends javax.swing.JInternalFrame {
 
     private boolean camposValidos = true;
     private JInternalListeners jInternalListeners = new JInternalListeners(this);
 
-    public CadastroGrupoProduto() {
+    public CadastroGrupoProdutoJIF() {
         initComponents();
     }
 

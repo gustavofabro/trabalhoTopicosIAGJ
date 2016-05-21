@@ -3,18 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package grc;
+package view;
 
+import bean.Cliente;
 import java.text.ParseException;
 import javax.swing.text.MaskFormatter;
+import listener.AniversarioListener;
 
 /**
  *
  * @author gustavo
  */
-public class Aniversario extends javax.swing.JInternalFrame {
+public class AniversarioJIF extends javax.swing.JInternalFrame {
     
-    private JInternalListeners listener;
+    private AniversarioListener listener;
     private MaskFormatter formater;
     
     private Cliente cliente;
@@ -49,8 +51,8 @@ public class Aniversario extends javax.swing.JInternalFrame {
     /**
      * Creates new form Aniversario
      */
-    public Aniversario() {
-	listener = new JInternalListeners(this);
+    public AniversarioJIF() {
+	listener = new AniversarioListener(this);
 	
 	try{
 	    formater = new MaskFormatter("##/##/##");

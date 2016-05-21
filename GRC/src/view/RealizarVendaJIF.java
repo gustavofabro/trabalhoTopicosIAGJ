@@ -1,17 +1,17 @@
-package grc;
+package view;
 
 import java.awt.Color;
 import java.text.ParseException;
 import javax.swing.text.MaskFormatter;
 
 
-public class RealizarVenda extends javax.swing.JInternalFrame {
+public class RealizarVendaJIF extends javax.swing.JInternalFrame {
     private boolean camposValidos;
     private MaskFormatter cpfFormatter; 
 
     private JInternalListeners jInternalListeners = new JInternalListeners(this);
    
-    public RealizarVenda() {
+    public RealizarVendaJIF() {
         try {
             cpfFormatter = new MaskFormatter("###.###.###-##"); // o # representa qualquer número
             cpfFormatter.setPlaceholderCharacter('_');
@@ -19,7 +19,7 @@ public class RealizarVenda extends javax.swing.JInternalFrame {
          initComponents();
     }
 
-    public RealizarVenda getDadoVenda() {
+    public RealizarVendaJIF getDadoVenda() {
         if (validarCampos()) {
            /* GrupoProduto grupoProduto = new GrupoProduto();
             grupoProduto.setNome(jTextFieldGrupo.getText());

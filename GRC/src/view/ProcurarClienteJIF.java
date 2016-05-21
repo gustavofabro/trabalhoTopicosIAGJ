@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package grc;
+package view;
 
+import bean.Cliente;
 import java.text.ParseException;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
@@ -15,7 +16,7 @@ import javax.swing.text.MaskFormatter;
  * @mod juanvmr
  * @implementation juanvmr
  */
-public class ProcurarCliente extends javax.swing.JInternalFrame {
+public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
     
     private MaskFormatter cpfFormat;
     private JInternalListeners listener;
@@ -96,7 +97,7 @@ public class ProcurarCliente extends javax.swing.JInternalFrame {
     /**
      * Creates new form ProcurarCliente
      */
-    public ProcurarCliente() {
+    public ProcurarClienteJIF() {
 	listener = new JInternalListeners(this);
 	
 	try {
