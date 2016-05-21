@@ -3,9 +3,9 @@ package view;
 import bean.GrupoProduto;
 import bean.Produto;
 import bean.Cliente;
-import java.awt.Toolkit;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
+//import java.awt.Toolkit;
+//import java.awt.datatransfer.AreaTransferencia;
+//import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -24,11 +24,11 @@ public class JInternalListeners implements ActionListener {
     private CadastroProdutoJIF cadProduto;
     private CadastroGrupoProdutoJIF cadGrupoProduto;
     
-    private Clipboard clipboard;
+    private AreaTransferencia clipboard;
     
-    public JInternalListeners(){
-	clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-    }
+//    public JInternalListeners(){
+//	clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+//    }
     
     public JInternalListeners(CadastroClienteJIF cadCliente) {
         this.cadCliente = cadCliente;
@@ -178,16 +178,16 @@ public class JInternalListeners implements ActionListener {
     
     //Métodos para área de transferencia
     //Ainda em teste
-    private void copy(String cpy){
-	StringSelection selection = new StringSelection(cpy);
-	clipboard.setContents(selection, null);
-    }
-    
-    private String paste(){
-	StringSelection selection = new StringSelection(null);
-	clipboard.getContents(selection);
-	
-	return (selection.toString());
-    }
+//    private void copy(String cpy){
+//	StringSelection selection = new StringSelection(cpy);
+//	clipboard.setContents(selection, null);
+//    }
+//    
+//    private String paste(){
+//	StringSelection selection = new StringSelection(null);
+//	clipboard.getContents(selection);
+//	
+//	return (selection.toString());
+//    }
 
 }

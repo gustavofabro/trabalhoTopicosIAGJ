@@ -1,15 +1,14 @@
 package listener;
 
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import view.AreaTransferencia;
 import view.ProcurarProdutoJIF;
 
 public class ProcurarProdutoListener implements ActionListener {
 
     private ProcurarProdutoJIF procurarProduto;
-    private Clipboard clipboard;
+    private AreaTransferencia clipboard;
 
     public ProcurarProdutoListener(ProcurarProdutoJIF procurarProduto) {
         this.procurarProduto = procurarProduto;
@@ -24,7 +23,7 @@ public class ProcurarProdutoListener implements ActionListener {
 
             case "copiarProcurarProduto":
                 if (!procurarProduto.getReferencia().isEmpty()) {
-                    copy(procurarProduto.getReferencia());
+                    clipboard.copy(procurarProduto.getReferencia());
                 }
                 break;
 
@@ -34,18 +33,5 @@ public class ProcurarProdutoListener implements ActionListener {
                 break;
 
         }
-    }
-       //Métodos para área de transferencia
-    //Ainda em teste
-    private void copy(String cpy){
-	StringSelection selection = new StringSelection(cpy);
-	clipboard.setContents(selection, null);
-    }
-    
-    private String paste(){
-	StringSelection selection = new StringSelection(null);
-	clipboard.getContents(selection);
-	
-	return (selection.toString());
     }
 }
