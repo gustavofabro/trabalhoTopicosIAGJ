@@ -9,6 +9,7 @@ import bean.Cliente;
 import java.text.ParseException;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
+import listener.ProcurarClienteListener;
 
 /**
  *
@@ -19,7 +20,7 @@ import javax.swing.text.MaskFormatter;
 public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
     
     private MaskFormatter cpfFormat;
-    private JInternalListeners listener;
+    private ProcurarClienteListener listener;
     
     private Cliente cliente;
     private String[] listNome;
@@ -98,7 +99,7 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
      * Creates new form ProcurarCliente
      */
     public ProcurarClienteJIF() {
-	listener = new JInternalListeners(this);
+	listener = new ProcurarClienteListener(this);
 	
 	try {
 	    cpfFormat = new MaskFormatter("###.###.###-##");

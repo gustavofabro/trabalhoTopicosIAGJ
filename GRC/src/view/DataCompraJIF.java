@@ -7,6 +7,7 @@ package view;
 
 import java.text.ParseException;
 import javax.swing.text.MaskFormatter;
+import listener.DataCompraListener;
 
 /**
  *
@@ -15,7 +16,7 @@ import javax.swing.text.MaskFormatter;
  */
 public class DataCompraJIF extends javax.swing.JInternalFrame {
     
-    private JInternalListeners listener = new JInternalListeners(this);;
+    private DataCompraListener listener = new DataCompraListener(this);;
     private MaskFormatter dataFormatter;
 
     //private RealizarVenda venda;  ainda não implementado

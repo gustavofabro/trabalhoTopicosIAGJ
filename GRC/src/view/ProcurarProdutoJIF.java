@@ -6,6 +6,7 @@
 package view;
 
 import bean.Produto;
+import listener.ProcurarProdutoListener;
 
 /**
  *
@@ -13,7 +14,7 @@ import bean.Produto;
  */
 public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
     
-    private JInternalListeners listener;
+    private ProcurarProdutoListener listener;
     
     private Produto produto;
     private String auxReferencia;
@@ -50,7 +51,7 @@ public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
      * Creates new form ProcurarProduto
      */
     public ProcurarProdutoJIF() {
-	listener = new JInternalListeners(this);
+	listener = new ProcurarProdutoListener(this);
 	
         initComponents();
 	

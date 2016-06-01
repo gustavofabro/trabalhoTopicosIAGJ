@@ -3,13 +3,14 @@ package view;
 import java.awt.Color;
 import java.text.ParseException;
 import javax.swing.text.MaskFormatter;
+import listener.RealizarVendaListener;
 
 
 public class RealizarVendaJIF extends javax.swing.JInternalFrame {
     private boolean camposValidos;
     private MaskFormatter cpfFormatter; 
 
-    private JInternalListeners jInternalListeners = new JInternalListeners(this);
+    private RealizarVendaListener jInternalListeners = new RealizarVendaListener(this);
    
     public RealizarVendaJIF() {
         try {

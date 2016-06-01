@@ -2,11 +2,12 @@ package view;
 
 import bean.GrupoProduto;
 import java.awt.Color;
+import listener.CadastroGrupoProdutoListener;
 
 public class CadastroGrupoProdutoJIF extends javax.swing.JInternalFrame {
 
     private boolean camposValidos = true;
-    private JInternalListeners jInternalListeners = new JInternalListeners(this);
+    private CadastroGrupoProdutoListener jInternalListeners = new CadastroGrupoProdutoListener(this);
 
     public CadastroGrupoProdutoJIF() {
         initComponents();
