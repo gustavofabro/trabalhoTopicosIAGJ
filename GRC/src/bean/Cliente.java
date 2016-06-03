@@ -14,6 +14,8 @@ public class Cliente {
     private String pais;
     private String cep;
     private String numCasa;
+    private String telefone;
+
 
 
     public String getNumCasa() {
@@ -23,7 +25,6 @@ public class Cliente {
     public void setNumCasa(String numCasa) {
         this.numCasa = numCasa;
     }
-
 
     public String getNome() {
         return nome;
@@ -120,6 +121,14 @@ public class Cliente {
 
     public void setNascimento(String nascimento) {
         this.nascimento = nascimento;
+    }
+    
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
 }

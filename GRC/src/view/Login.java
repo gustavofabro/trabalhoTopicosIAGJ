@@ -8,12 +8,14 @@ package view;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -37,10 +39,17 @@ public class Login extends JFrame {
     private Font font;
     private String usuario = "admin";
     private char[] senha = {'1', '2', '3'};
+   //  private JLabel background;
+   // private ImageIcon logoImg;
     
     public Login() {
         super("GRC Login (BETA)");
      
+      /*  logoImg = new ImageIcon(getClass().getResource("/dados/logo2.jpg"));
+        background = new JLabel(); 
+        background.setIcon(new ImageIcon(logoImg.getImage()
+               .getScaledInstance(200, 125, Image.SCALE_AREA_AVERAGING)));
+      */  
         entradaLogin = new JTextField();
         entradaSenha = new JPasswordField();
         usuarioLabel = new JLabel("Usuário");
@@ -60,7 +69,7 @@ public class Login extends JFrame {
         warning.setBounds(10, 165, 280, 30);
         btnEntrar.setBounds(10, 200, 135, 30);
         btnAjuda.setBounds(155, 200, 135, 30);
-
+      //  background.setBounds(30, 250, 200, 100);
         warning.setVisible(false);
         
         c = getContentPane();
@@ -73,6 +82,7 @@ public class Login extends JFrame {
         c.add(warning);
         c.add(btnEntrar);
         c.add(btnAjuda);
+       // c.add(background);
         
         //listeners
         btnEntrar.addActionListener(new ActionListener(){

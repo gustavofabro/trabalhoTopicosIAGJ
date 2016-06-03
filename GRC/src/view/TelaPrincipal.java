@@ -5,7 +5,6 @@
  */
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
@@ -25,52 +24,48 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-/**
- *
- * @author gustavo
- */
-public class TelaPrincipal extends JFrame implements ActionListener { 
-    private String sobreInfo;
-    private JMenuBar menuBar;
+public class TelaPrincipal extends JFrame implements ActionListener {
 
-    private JMenu cadastrarMenu;
-    private JMenu vendasMenu;
-    private JMenu relatorioMenu;
-    private JMenu sobreMenu;
+    private final String sobreInfo;
+    private final JMenuBar menuBar;
 
-    private JMenuItem cadCliente;
-    private JMenuItem cadProduto;
-    private JMenuItem cadGrupoPro;
-    private JMenuItem realizarVenda;
-    private JMenuItem procurarCliente;
-    private JMenuItem procurarProduto;
-    private JMenuItem aniversario;
-    private JMenuItem dataCompra;
-    private JMenuItem sobre;
+    private final JMenu cadastrarMenu;
+    private final JMenu vendasMenu;
+    private final JMenu relatorioMenu;
+    private final JMenu sobreMenu;
+
+    private final JMenuItem cadCliente;
+    private final JMenuItem cadProduto;
+    private final JMenuItem cadGrupoPro;
+    private final JMenuItem realizarVenda;
+    private final JMenuItem procurarCliente;
+    private final JMenuItem procurarProduto;
+    private final JMenuItem aniversario;
+    private final JMenuItem dataCompra;
+    private final JMenuItem sobre;
 
     private Container c;
 
-    private JDesktopPane deskPane;
-    private JInternalFrame cadClienteIFrame;
-    private JInternalFrame cadProdutoIFrame;
-    private JInternalFrame cadGrupoProdIFrame;
-    private JInternalFrame procurarClienteIFrame;
-    private JInternalFrame procurarProdutoIFrame;
-    private JInternalFrame vendaIFrame;
-    private JInternalFrame aniversarioIFrame;
-    private JInternalFrame dataCompraIFrame;
-    
-   // private JPanel logoPanel;
-   // private final ImageIcon logoGRC;
+    private final JDesktopPane deskPane;
+    private final JInternalFrame cadClienteIFrame;
+    private final JInternalFrame cadProdutoIFrame;
+    private final JInternalFrame cadGrupoProdIFrame;
+    private final JInternalFrame procurarClienteIFrame;
+    private final JInternalFrame procurarProdutoIFrame;
+    private final JInternalFrame vendaIFrame;
+    private final JInternalFrame aniversarioIFrame;
+    private final JInternalFrame dataCompraIFrame;
    
-    public TelaPrincipal(){
-        
+
+    // private JPanel logoPanel;
+    // private final ImageIcon logoGRC;
+    public TelaPrincipal() {
+
         super("GRC");
         c = getContentPane();
         deskPane = new JDesktopPane();
-        
         sobreInfo = "GRC - Tópicos I";
-                      
+               
         //JInternals Frames
         cadClienteIFrame = new CadastroClienteJIF();
         cadProdutoIFrame = new CadastroProdutoJIF();
@@ -80,7 +75,7 @@ public class TelaPrincipal extends JFrame implements ActionListener {
         vendaIFrame = new RealizarVendaJIF();
         aniversarioIFrame = new AniversarioJIF();
         dataCompraIFrame = new DataCompraJIF();
-        
+
         menuBar = new JMenuBar();
 
         //menus
@@ -100,7 +95,7 @@ public class TelaPrincipal extends JFrame implements ActionListener {
         dataCompra = new JMenuItem("Data compra");
         sobre = new JMenuItem("Sobre");
 
-        cadCliente.addActionListener(this); 
+        cadCliente.addActionListener(this);
         cadProduto.addActionListener(this);
         cadGrupoPro.addActionListener(this);
         realizarVenda.addActionListener(this);
@@ -120,9 +115,9 @@ public class TelaPrincipal extends JFrame implements ActionListener {
         relatorioMenu.add(dataCompra);
         sobreMenu.add(sobre);
 
-        menuBar.add(cadastrarMenu);
-        menuBar.add(vendasMenu);
         menuBar.add(relatorioMenu);
+        menuBar.add(vendasMenu);
+        menuBar.add(cadastrarMenu);
         menuBar.add(sobreMenu);
 
         super.setJMenuBar(menuBar);
@@ -136,25 +131,42 @@ public class TelaPrincipal extends JFrame implements ActionListener {
         deskPane.add(procurarProdutoIFrame);
         deskPane.add(aniversarioIFrame);
         deskPane.add(dataCompraIFrame);
-                
+        
         add(deskPane);
+       
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
         switch (e.getActionCommand()) {
-            case "Clientes":          cadClienteIFrame.setVisible(true);break;
-            case "Produtos":          cadProdutoIFrame.setVisible(true);break;
-            case "Grupo de produtos": cadGrupoProdIFrame.setVisible(true);break;
-            case "Realizar venda":    vendaIFrame.setVisible(true);break;
-            case "Procurar Clientes": procurarClienteIFrame.setVisible(true);break;
-            case "Procurar Produtos": procurarProdutoIFrame.setVisible(true);break;
-            case "Aniversários":      aniversarioIFrame.setVisible(true);break;
-            case "Data compra":       dataCompraIFrame.setVisible(true); break;
-            case "Sobre":             JOptionPane.showMessageDialog(null, sobreInfo);
+            case "Clientes":
+                cadClienteIFrame.setVisible(true);
+                break;
+            case "Produtos":
+                cadProdutoIFrame.setVisible(true);
+                break;
+            case "Grupo de produtos":
+                cadGrupoProdIFrame.setVisible(true);
+                break;
+            case "Realizar venda":
+                vendaIFrame.setVisible(true);
+                break;
+            case "Procurar Clientes":
+                procurarClienteIFrame.setVisible(true);
+                break;
+            case "Procurar Produtos":
+                procurarProdutoIFrame.setVisible(true);
+                break;
+            case "Aniversários":
+                aniversarioIFrame.setVisible(true);
+                break;
+            case "Data compra":
+                dataCompraIFrame.setVisible(true);
+                break;
+            case "Sobre":
+                JOptionPane.showMessageDialog(null, sobreInfo);
         }
     }
-    
-    
+
 }
