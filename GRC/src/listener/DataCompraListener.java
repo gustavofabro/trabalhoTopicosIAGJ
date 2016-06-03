@@ -1,11 +1,13 @@
 package listener;
 
+import bean.LogEvents;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import view.AreaTransferencia;
 import view.DataCompraJIF;
 
 public class DataCompraListener implements ActionListener {
+    private LogEvents logEvents = new LogEvents();
 
     private DataCompraJIF dataCompra;
     private AreaTransferencia clipboard;

@@ -5,6 +5,7 @@
  */
 package view;
 
+import bean.LogEvents;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
@@ -27,7 +28,7 @@ import javax.swing.JTextField;
  * @author gustavo
  */
 public class Login extends JFrame {
-
+    private LogEvents logEvents = new LogEvents();
     private JTextField entradaLogin;
     private JPasswordField entradaSenha;
     private JLabel usuarioLabel;
@@ -89,6 +90,9 @@ public class Login extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 carregarSistema();
+                logEvents.gravarLog("log.txt", "Login realizado pelo usuario: " 
+                        + entradaLogin.getText());
+                dispose();
                 //validarLogin(entradaLogin.getText(), entradaSenha.getPassword());
             }
         });

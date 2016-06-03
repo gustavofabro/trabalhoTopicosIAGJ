@@ -1,11 +1,13 @@
 package listener;
 
+import bean.LogEvents;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import view.AreaTransferencia;
 import view.ProcurarProdutoJIF;
 
 public class ProcurarProdutoListener implements ActionListener {
+    private LogEvents logEvents = new LogEvents();
 
     private ProcurarProdutoJIF procurarProduto;
     private AreaTransferencia clipboard;

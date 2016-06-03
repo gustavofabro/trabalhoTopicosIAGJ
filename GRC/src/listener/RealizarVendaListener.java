@@ -1,10 +1,13 @@
 package listener;
 
+import bean.LogEvents;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import view.RealizarVendaJIF;
 
 public class RealizarVendaListener implements ActionListener{
+    private LogEvents logEvents = new LogEvents();
+   
     private RealizarVendaJIF realizarVenda;
 
     public RealizarVendaListener(RealizarVendaJIF realizarVenda) {
@@ -17,6 +20,7 @@ public class RealizarVendaListener implements ActionListener{
                    
             case "salvarVenda":
                 if(realizarVenda.getDadoVenda() != null){
+                    logEvents.gravarLog("log.txt", "Venda realizada");
                     realizarVenda.setVisible(false); 
                 }
                 break;

@@ -1,12 +1,13 @@
 package listener;
 
 import bean.Cliente;
+import bean.LogEvents;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import view.CadastroClienteJIF;
 
 public class CadastroClienteListener implements ActionListener {
-
+    private LogEvents logEvents = new LogEvents();
     private CadastroClienteJIF cadCliente;
     private Cliente cliente;
 
@@ -22,7 +23,13 @@ public class CadastroClienteListener implements ActionListener {
                 if (cliente != null) {
                     //mandar banco 
 
-                    cadCliente.setVisible(false);
+                    //if (salvo com sucesso no banco)
+                    logEvents.gravarLog("log.txt", "Cadastrado Cliente: " 
+                            + cliente.getNome());
+                    //else
+                    // logEvents.gravarLog("log.txt", "Erro ao cadastrar Cliente: " 
+                    //+ cliente.getNome());  
+                 cadCliente.setVisible(false);
                 }
 
                 break;
