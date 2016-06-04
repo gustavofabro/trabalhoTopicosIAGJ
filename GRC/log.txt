@@ -1,0 +1,34 @@
+[2016-06-03 20:06:46] Login realizado pelo usuario: 
+[2016-06-03 20:06:47] Cadastrado Cliente: asd
+[2016-06-03 20:07:13] Login realizado pelo usuario: 
+[2016-06-03 20:07:35] Produto salvo: aaa
+[2016-06-03 20:09:44] Login realizado pelo usuario: 
+[2016-06-03 20:17:42] Login realizado pelo usuario: 
+[2016-06-03 20:33:21] Login realizado pelo usuario: 
+[2016-06-03 20:34:02] Login realizado pelo usuario: 
+[2016-06-03 20:34:19] Venda realizada: null
+[2016-06-03 20:36:38] Login realizado pelo usuario: 
+[2016-06-03 20:39:47] Login realizado pelo usuario: 
+[2016-06-03 20:41:05] Login realizado pelo usuario: 
+[2016-06-03 20:41:07] Venda realizada: asd
+[2016-06-03 20:43:39] Login realizado pelo usuario: 
+[2016-06-03 20:43:41] Venda realizada: asd
+[2016-06-03 20:48:04] Login realizado pelo usuario: 
+[2016-06-03 20:48:09] Venda realizada: asda
+[2016-06-03 20:48:51] Login realizado pelo usuario: 
+[2016-06-03 20:49:16] Login realizado pelo usuario: 
+[2016-06-03 20:50:48] Login realizado pelo usuario: 
+[2016-06-03 20:51:29] Login realizado pelo usuario: 
+[2016-06-03 20:51:33] Venda realizada: asdaasd
+[2016-06-03 20:53:17] Login realizado pelo usuario: 
+[2016-06-03 20:56:30] Login realizado pelo usuario: 
+[2016-06-03 20:59:20] Login realizado pelo usuario: 
+[2016-06-03 20:59:25] Venda realizada: s
+[2016-06-03 21:00:52] Login realizado pelo usuario: 
+[2016-06-03 21:16:46] Login realizado pelo usuario: João
+[2016-06-03 21:17:32] Login realizado pelo usuario: João
+[2016-06-03 21:18:41] Login realizado pelo usuario: João
+[2016-06-03 21:18:52] Login realizado pelo usuario: João
+[2016-06-03 21:21:18] Login realizado pelo usuario: João
+[2016-06-03 21:21:42] Login realizado pelo usuario: João
+[2016-06-03 21:23:19] Login realizado pelo usuario: João

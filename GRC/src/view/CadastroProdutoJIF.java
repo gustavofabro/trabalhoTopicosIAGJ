@@ -1,6 +1,7 @@
 
 package view;
 
+import util.FormattedTextFields;
 import bean.Produto;
 import java.awt.Color;
 import java.awt.event.FocusEvent;

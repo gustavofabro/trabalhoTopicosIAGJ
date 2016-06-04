@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package bean;
+package util;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -13,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class LogEvents {
-    private static String log = "";
+    private String log = "";
     
     Date date = new Date();
     DateFormat formattedDate = new SimpleDateFormat("[YYYY-MM-dd HH:mm:ss] ");
@@ -21,7 +16,6 @@ public class LogEvents {
     public void gravarLog(String nomeArquivo, String log) {
         this.log = (formattedDate.format(date) + log + "\n");
         
-        System.out.println(formattedDate.format(date));
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
 

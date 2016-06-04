@@ -1,6 +1,8 @@
 package view;
 
+import util.FormattedTextFields;
 import bean.Cliente;
+import util.LogEvents;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -11,6 +13,8 @@ import javax.swing.text.MaskFormatter;
 import listener.CadastroClienteListener;
 
 public class CadastroClienteJIF extends javax.swing.JInternalFrame implements FocusListener{
+    private LogEvents logEvents = new LogEvents();
+
     private CadastroClienteListener jInternalListeners = new CadastroClienteListener(this);
     private String sexo = "";
     private boolean camposValidos = true;
@@ -28,7 +32,9 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
             dataFormatter.setPlaceholderCharacter('_');
             cepFormatter = new MaskFormatter("#####-###");
             cepFormatter.setPlaceholderCharacter('_');            
-        } catch (ParseException ex) {}
+        } catch (ParseException ex) {
+            logEvents.gravarLog("log.txt", ex.getMessage() + "\n");
+        }
         
         
         initComponents();

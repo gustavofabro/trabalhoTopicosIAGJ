@@ -1,55 +1,77 @@
 package view;
 
+import bean.Venda;
 import java.awt.Color;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.text.MaskFormatter;
 import listener.RealizarVendaListener;
+import util.LogEvents;
 
+public class RealizarVendaJIF extends javax.swing.JInternalFrame implements FocusListener {
+    private LogEvents logEvents = new LogEvents();
 
-public class RealizarVendaJIF extends javax.swing.JInternalFrame {
-    private boolean camposValidos;
-    private MaskFormatter cpfFormatter; 
-
+    private MaskFormatter cpfFormatter;
+    private boolean camposValidos = true;
     private RealizarVendaListener jInternalListeners = new RealizarVendaListener(this);
-   
+
+    Date date = new Date();
+    DateFormat formattedDate = new SimpleDateFormat("[YYYY-MM-dd HH:mm:ss] ");
+
     public RealizarVendaJIF() {
         try {
             cpfFormatter = new MaskFormatter("###.###.###-##"); // o # representa qualquer número
             cpfFormatter.setPlaceholderCharacter('_');
-        } catch (ParseException ex) {}
-         initComponents();
+        } catch (ParseException ex) {
+            logEvents.gravarLog("log.txt", ex.getMessage());
+        }
+        initComponents();
+
+        jTextFieldReferencia.addFocusListener(this);
+        jFormattedTextFieldCPF.addFocusListener(this);
     }
 
-    public RealizarVendaJIF getDadoVenda() {
-        if (validarCampos()) {
-           /* GrupoProduto grupoProduto = new GrupoProduto();
-            grupoProduto.setNome(jTextFieldGrupo.getText());
+    public Venda getDadoVenda() {
 
-            return grupoProduto;*/
+        if (validarCampos()) {
+            Venda venda = new Venda();
+
+            venda.setCpf(jFormattedTextFieldCPF.getText());
+            venda.setReferencia(jTextFieldReferencia.getText());
+            venda.setDate(formattedDate.format(date));
+
+            return venda;
+        } else {
+            return null;
         }
 
-        return null;
     }
-    
-     public boolean validarCampos() {
+
+    public boolean validarCampos() {
         camposValidos = true;
 
         if (jTextFieldReferencia.getText().equals("")) {
             jLabelReferencia.setForeground(Color.red);
             camposValidos = false;
-
+        } else {
+            jLabelReferencia.setForeground(Color.black);
         }
-        if (jFormattedTextFieldCPF.getText().equals("")) {
+
+        if (jFormattedTextFieldCPF.getValue() == null) {
             jLabelCPF.setForeground(Color.red);
             camposValidos = false;
-
+        } else {
+            jLabelCPF.setForeground(Color.black);
         }
-         System.out.println(jFormattedTextFieldCPF.getText());
+
         return camposValidos;
 
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -149,4 +171,17 @@ public class RealizarVendaJIF extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextFieldReferencia;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void focusGained(FocusEvent e) {
+        System.out.println(jFormattedTextFieldCPF.getValue());
+        if (!camposValidos) {
+            validarCampos();
+        }
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
+
+    }
 }

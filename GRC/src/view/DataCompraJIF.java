@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import java.text.ParseException;
 import javax.swing.text.MaskFormatter;
 import listener.DataCompraListener;
+import util.LogEvents;
 
 /**
  *
@@ -15,8 +11,8 @@ import listener.DataCompraListener;
  * @version 0.2.5
  */
 public class DataCompraJIF extends javax.swing.JInternalFrame {
-    
-    private DataCompraListener listener = new DataCompraListener(this);;
+    private LogEvents logEvents = new LogEvents();
+    private DataCompraListener listener = new DataCompraListener(this);
     private MaskFormatter dataFormatter;
 
     //private RealizarVenda venda;  ainda não implementado
@@ -53,7 +49,9 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
 	try{
 	    dataFormatter = new MaskFormatter("##/##/##");
 	    dataFormatter.setPlaceholderCharacter('_');
-	} catch(ParseException ex){}
+	} catch(ParseException ex){
+            logEvents.gravarLog("log.txt", ex.getMessage() + "\n");
+        }
 	
         initComponents();
 

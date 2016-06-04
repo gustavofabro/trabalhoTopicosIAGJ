@@ -1,7 +1,7 @@
 package listener;
 
 import bean.Cliente;
-import bean.LogEvents;
+import util.LogEvents;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import view.CadastroClienteJIF;

@@ -16,7 +16,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
-public class TelaPrincipal extends JFrame implements ActionListener{
+public class TelaPrincipal extends JFrame implements ActionListener {
 
     private final String sobreInfo;
     private final JMenuBar menuBar;
@@ -47,7 +47,6 @@ public class TelaPrincipal extends JFrame implements ActionListener{
     private final JInternalFrame vendaIFrame;
     private final JInternalFrame aniversarioIFrame;
     private final JInternalFrame dataCompraIFrame;
-   
 
     // private JPanel logoPanel;
     // private final ImageIcon logoGRC;
@@ -57,7 +56,7 @@ public class TelaPrincipal extends JFrame implements ActionListener{
         c = getContentPane();
         deskPane = new JDesktopPane();
         sobreInfo = "GRC - Tópicos I";
-               
+
         //JInternals Frames
         cadClienteIFrame = new CadastroClienteJIF();
         cadProdutoIFrame = new CadastroProdutoJIF();
@@ -95,7 +94,8 @@ public class TelaPrincipal extends JFrame implements ActionListener{
         procurarProduto.addActionListener(this);
         aniversario.addActionListener(this);
         dataCompra.addActionListener(this);
-
+        sobre.addActionListener(this);
+        
         //adicionando itens de menu nos menus
         cadastrarMenu.add(cadCliente);
         cadastrarMenu.add(cadProduto);
@@ -123,9 +123,9 @@ public class TelaPrincipal extends JFrame implements ActionListener{
         deskPane.add(procurarProdutoIFrame);
         deskPane.add(aniversarioIFrame);
         deskPane.add(dataCompraIFrame);
-        
+
         add(deskPane);
-       
+
     }
 
     @Override
@@ -157,7 +157,8 @@ public class TelaPrincipal extends JFrame implements ActionListener{
                 dataCompraIFrame.setVisible(true);
                 break;
             case "Sobre":
-                JOptionPane.showMessageDialog(null, sobreInfo);
+
+                JOptionPane.showMessageDialog(this, sobreInfo);
         }
     }
 

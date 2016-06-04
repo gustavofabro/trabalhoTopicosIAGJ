@@ -7,9 +7,9 @@ package view;
 
 import bean.Cliente;
 import java.text.ParseException;
-import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 import listener.ProcurarClienteListener;
+import util.LogEvents;
 
 /**
  *
@@ -18,7 +18,8 @@ import listener.ProcurarClienteListener;
  * @implementation juanvmr
  */
 public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
-    
+    private LogEvents logEvents = new LogEvents();
+
     private MaskFormatter cpfFormat;
     private ProcurarClienteListener listener;
     
@@ -106,7 +107,7 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
 	    cpfFormat.setPlaceholderCharacter('_');
 	}
 	catch(ParseException ex) {
-	    JOptionPane.showMessageDialog(super.rootPane, ex.getMessage());
+	    logEvents.gravarLog("log.txt", ex.getMessage());
 	}
 	
         initComponents();
@@ -121,11 +122,6 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
 	cancelarProcurarCliente.addActionListener(listener);
     }
     
-    //Tentativa de implementação do método de tratamento de erro
-    /*private void erro() throws ParseException {
-	System.out.println("Erro durante o parse da máscara em ProcurarCliente");
-    }*/
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

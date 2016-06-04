@@ -9,67 +9,67 @@ import bean.Cliente;
 import java.text.ParseException;
 import javax.swing.text.MaskFormatter;
 import listener.AniversarioListener;
+import util.LogEvents;
 
 /**
  *
  * @author gustavo
  */
 public class AniversarioJIF extends javax.swing.JInternalFrame {
-    
+    private LogEvents logEvents = new LogEvents();
     private AniversarioListener listener;
     private MaskFormatter formater;
-    
+
     private Cliente cliente;
     private String auxAniversario;
     private String[] listAniversario;
-    
-    public void apagarCampos(){
-	campoAniversario.setText("");
-	listaAniversarios.removeAll();
+
+    public void apagarCampos() {
+        campoAniversario.setText("");
+        listaAniversarios.removeAll();
     }
-    
-    public String getAniversario(){
-	String selection = "Vazio";
-	if(listaAniversarios.getMaxSelectionIndex() > -1){
-	    selection = listaAniversarios.getSelectedValue().toString();
-	}
-	
-	return (selection);
+
+    public String getAniversario() {
+        String selection = "Vazio";
+        if (listaAniversarios.getMaxSelectionIndex() > -1) {
+            selection = listaAniversarios.getSelectedValue().toString();
+        }
+
+        return (selection);
     }
-    
-    public void procurarAniversario(){
-	listaAniversarios.removeAll();
-	
-	auxAniversario = campoAniversario.getText();
-	if(cliente.getDataNascimento().contains(auxAniversario)){
-	    listAniversario[listAniversario.length] = cliente.getNome();
-	}
-	
-	listaAniversarios.setListData(listAniversario);
+
+    public void procurarAniversario() {
+        listaAniversarios.removeAll();
+
+        auxAniversario = campoAniversario.getText();
+        if (cliente.getDataNascimento().contains(auxAniversario)) {
+            listAniversario[listAniversario.length] = cliente.getNome();
+        }
+
+        listaAniversarios.setListData(listAniversario);
     }
 
     /**
      * Creates new form Aniversario
      */
     public AniversarioJIF() {
-	listener = new AniversarioListener(this);
-	
-	try{
-	    formater = new MaskFormatter("##/##/##");
-	    formater.setPlaceholderCharacter('_');
-	}
-	catch(ParseException ex){
-	    
-	}
-	
+        listener = new AniversarioListener(this);
+
+        try {
+            formater = new MaskFormatter("##/##/##");
+            formater.setPlaceholderCharacter('_');
+        } catch (ParseException ex) {
+            logEvents.gravarLog("log.txt", ex.getMessage() + "\n");
+        }
+
         initComponents();
-	
-	campoAniversario.setActionCommand("campoAniversario");
-	copiarPesquisaAniversario.setActionCommand("copiarPesquisaAniversario");
-	cancelarPesquisaAniversario.setActionCommand("cancelarPesquisaAniversario");
-	campoAniversario.addActionListener(listener);
-	copiarPesquisaAniversario.addActionListener(listener);
-	cancelarPesquisaAniversario.addActionListener(listener);
+
+        campoAniversario.setActionCommand("campoAniversario");
+        copiarPesquisaAniversario.setActionCommand("copiarPesquisaAniversario");
+        cancelarPesquisaAniversario.setActionCommand("cancelarPesquisaAniversario");
+        campoAniversario.addActionListener(listener);
+        copiarPesquisaAniversario.addActionListener(listener);
+        cancelarPesquisaAniversario.addActionListener(listener);
     }
 
     /**

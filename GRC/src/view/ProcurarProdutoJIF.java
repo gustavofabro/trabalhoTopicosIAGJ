@@ -1,66 +1,56 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import bean.Produto;
 import listener.ProcurarProdutoListener;
 
-/**
- *
- * @author gustavo
- */
 public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
-    
     private ProcurarProdutoListener listener;
-    
+
     private Produto produto;
     private String auxReferencia;
     private String[] listReferencias;
-    
-    public void apagarCampos(){
-	campoReferencia.setText("");
-	listaReferencias.removeAll();
+
+    public void apagarCampos() {
+        campoReferencia.setText("");
+        listaReferencias.removeAll();
     }
-    
-    public String getReferencia(){
-	String selection = "Vazio";
-	if(listaReferencias.getMaxSelectionIndex() > -1){
-	    selection = listaReferencias.getSelectedValue().toString();
-	}
-	
-	return (selection);
+
+    public String getReferencia() {
+        String selection = "Vazio";
+        if (listaReferencias.getMaxSelectionIndex() > -1) {
+            selection = listaReferencias.getSelectedValue().toString();
+        }
+
+        return (selection);
     }
-    
-    public void ProcurarReferencia(){
-	listaReferencias.removeAll();
-	
-	auxReferencia = campoReferencia.getText();
-	for (int i = 0; i < 10; i++) {
-	    if(produto.getReferencia().contains(auxReferencia)){
-		listReferencias[i] = produto.getReferencia();
-	    }
-	}
-	
-	listaReferencias.setListData(listReferencias);
+
+    public void ProcurarReferencia() {
+        listaReferencias.removeAll();
+
+        auxReferencia = campoReferencia.getText();
+        for (int i = 0; i < 10; i++) {
+            if (produto.getReferencia().contains(auxReferencia)) {
+                listReferencias[i] = produto.getReferencia();
+            }
+        }
+
+        listaReferencias.setListData(listReferencias);
     }
 
     /**
      * Creates new form ProcurarProduto
      */
     public ProcurarProdutoJIF() {
-	listener = new ProcurarProdutoListener(this);
-	
+        listener = new ProcurarProdutoListener(this);
+
         initComponents();
-	
-	campoReferencia.setActionCommand("campoReferencia");
-	copiarProcurarProduto.setActionCommand("copiarProcurarProduto");
-	cancelarProcurarProduto.setActionCommand("cancelarProcurarProduto");
-	campoReferencia.addActionListener(listener);
-	copiarProcurarProduto.addActionListener(listener);
-	cancelarProcurarProduto.addActionListener(listener);
+
+        campoReferencia.setActionCommand("campoReferencia");
+        copiarProcurarProduto.setActionCommand("copiarProcurarProduto");
+        cancelarProcurarProduto.setActionCommand("cancelarProcurarProduto");
+        campoReferencia.addActionListener(listener);
+        copiarProcurarProduto.addActionListener(listener);
+        cancelarProcurarProduto.addActionListener(listener);
     }
 
     /**

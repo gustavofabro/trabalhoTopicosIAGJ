@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
+import util.LogEvents;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
@@ -12,38 +8,28 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.ParseException;
-import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-/**
- *
- * @author gustavo
- */
 public class Login extends JFrame {
 
+    private LogEvents logEvents = new LogEvents();
     private JTextField entradaLogin;
-    private JPasswordField entradaSenha;
-    private JLabel usuarioLabel;
-    private JLabel senhaLabel;
-    private JLabel warning;
-    private JButton btnEntrar;
-    private JButton btnAjuda;
-    private Container c;
-    private Font font;
-    private String usuario = "admin";
-    private char[] senha = {'1', '2', '3'};
+    private final JPasswordField entradaSenha;
+    private final JLabel usuarioLabel;
+    private final JLabel senhaLabel;
+    private final JLabel warning;
+    private final JButton btnEntrar;
+    private final JButton btnAjuda;
+    private final Container c;
+    private final String usuario = "admin";
+    private final char[] senha = {'1', '2', '3'};
 
     public Login() {
         super("GRC Login (BETA)");
@@ -80,14 +66,17 @@ public class Login extends JFrame {
         c.add(warning);
         c.add(btnEntrar);
         c.add(btnAjuda);
-        entradaLogin.setText(learquivo());
+        entradaLogin.setText(lerUsuario());
 
         //listeners
         btnEntrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 carregarSistema();
-                gravaarquivo(entradaLogin.getText());
+                gravaUsuario(entradaLogin.getText());
+                logEvents.gravarLog("log.txt", "Login realizado pelo usuario: " 
+                        + entradaLogin.getText());
+                dispose();
                 //validarLogin(entradaLogin.getText(), entradaSenha.getPassword());
             }
         });
@@ -105,6 +94,43 @@ public class Login extends JFrame {
             warning.setVisible(true);
         }
     }*/
+    public void gravaUsuario(String usuario) {
+        FileWriter fileWriter = null;
+        BufferedWriter bufferedWriter = null;
+
+        try {
+            fileWriter = new FileWriter("lastuser.txt", false);
+            bufferedWriter = new BufferedWriter(fileWriter);;
+
+            bufferedWriter.write(usuario);
+            bufferedWriter.newLine();
+            bufferedWriter.close();
+            fileWriter.close();
+        } catch (IOException ex) {
+            logEvents.gravarLog("log.txt", ex.getMessage() + "\n");
+        }
+    }
+
+    public String lerUsuario() {
+        String linha = "";
+        try {
+            FileReader fr = new FileReader("lastuser.txt");
+            BufferedReader br = new BufferedReader(fr);
+
+            while (br.ready()) {
+                linha = br.readLine();
+            }
+
+            br.close();
+            fr.close();
+
+        } catch (IOException ex) {
+            gravaUsuario("");
+        }
+
+        return linha;
+    }
+
     public void carregarSistema() {
         TelaPrincipal grcTela = new TelaPrincipal();
         grcTela.setSize(1024, 700);
@@ -112,39 +138,4 @@ public class Login extends JFrame {
         grcTela.setVisible(true);
     }
 
-    public static void gravaarquivo(String usuario) {
-        try {
-            File arquivo = new File(new File("").getAbsolutePath(), "arquivo.txt");
-            if (!arquivo.exists()) {
-                arquivo.createNewFile();
-            }
-            FileWriter fw = new FileWriter(arquivo, true);
-            BufferedWriter bw = new BufferedWriter(fw);;
-            bw.write(usuario);
-            bw.newLine();
-            bw.close();
-            fw.close();
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-        }
-    }
-    
-    public String learquivo() {
-        String linha = "";
-        try {
-            File arquivo = new File(new File("").getAbsolutePath(), "arquivo.txt");
-            FileReader fr = new FileReader(arquivo);
-            BufferedReader br = new BufferedReader(fr);
-            
-            while (br.ready()) {
-              linha = br.readLine();               
-            }
-
-            br.close();
-            fr.close();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        return linha;
-    }
 }
