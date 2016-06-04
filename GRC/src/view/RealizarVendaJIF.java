@@ -176,7 +176,6 @@ public class RealizarVendaJIF extends javax.swing.JInternalFrame implements Focu
 
     @Override
     public void focusGained(FocusEvent e) {
-        System.out.println(jFormattedTextFieldCPF.getValue());
         if (!camposValidos) {
             validarCampos();
         }
