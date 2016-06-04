@@ -128,9 +128,9 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(80, 80, 80), new java.awt.Color(1, 1, 1)));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
-        jLabel15.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel15.setText("Cadastro Cliente");
 
         jLabelNome.setText("Nome:");
@@ -301,7 +301,7 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
                     .addComponent(jLabel15)
                     .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelNome)
                     .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -359,7 +359,7 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabelAviso)))
-                .addGap(20, 20, 20))
+                .addGap(5, 5, 5))
         );
 
         pack();

@@ -44,7 +44,7 @@ public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements Fo
         ;
         jSeparator2 = new javax.swing.JSeparator();
 
-        setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.black));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Cadastro de Produto");
@@ -166,12 +166,12 @@ public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements Fo
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelGrupo)
                     .addComponent(jComboBoxGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancelarProduto)
                     .addComponent(jButtonSalvarProduto)
                     .addComponent(jLabelAviso))
-                .addGap(28, 28, 28))
+                .addGap(5, 5, 5))
         );
 
         pack();
