@@ -32,3 +32,4 @@
 [2016-06-03 21:21:18] Login realizado pelo usuario: João
 [2016-06-03 21:21:42] Login realizado pelo usuario: João
 [2016-06-03 21:23:19] Login realizado pelo usuario: João
+[2016-06-03 21:27:10] Login realizado pelo usuario: João

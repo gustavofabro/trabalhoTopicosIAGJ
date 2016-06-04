@@ -86,6 +86,8 @@ public class RealizarVendaJIF extends javax.swing.JInternalFrame implements Focu
         jFormattedTextFieldCPF = new javax.swing.JFormattedTextField(cpfFormatter);
         jSeparator2 = new javax.swing.JSeparator();
 
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Realizar Vendas");
 
@@ -136,7 +138,7 @@ public class RealizarVendaJIF extends javax.swing.JInternalFrame implements Focu
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
+                .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
