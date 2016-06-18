@@ -7,7 +7,9 @@ package view;
 
 import bean.Cliente;
 import java.text.ParseException;
+import javax.swing.text.Document;
 import javax.swing.text.MaskFormatter;
+import listener.ProcurarClienteDocumentListener;
 import listener.ProcurarClienteListener;
 import util.LogEvents;
 
@@ -22,6 +24,7 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
 
     private MaskFormatter cpfFormat;
     private ProcurarClienteListener listener;
+    private ProcurarClienteDocumentListener documentListener;
     
     private Cliente cliente;
     private String[] listNome;
@@ -101,6 +104,7 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
      */
     public ProcurarClienteJIF() {
 	listener = new ProcurarClienteListener(this);
+        documentListener = new ProcurarClienteDocumentListener(this);
 	
 	try {
 	    cpfFormat = new MaskFormatter("###.###.###-##");
@@ -112,13 +116,13 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
 	
         initComponents();
 	
-	campoNome.setActionCommand("campoNome");
-	campoCPF.setActionCommand("campoCPF");
-	copiarProcurarCliente.setActionCommand("copiarProcurarCliente");
+	campoNome.getDocument().putProperty(Document.TitleProperty,"campoNome");
+	campoCPF.getDocument().putProperty(Document.TitleProperty,"campoCPF");
+	consultarProcurarCliente.setActionCommand("copiarProcurarCliente");
 	cancelarProcurarCliente.setActionCommand("cancelarProcurarCliente");
-	campoNome.addActionListener(listener);
-	campoCPF.addActionListener(listener);
-	copiarProcurarCliente.addActionListener(listener);
+	campoNome.getDocument().addDocumentListener(documentListener);
+	campoCPF.getDocument().addDocumentListener(documentListener);
+	consultarProcurarCliente.addActionListener(listener);
 	cancelarProcurarCliente.addActionListener(listener);
     }
     
@@ -144,7 +148,7 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        copiarProcurarCliente = new javax.swing.JButton();
+        consultarProcurarCliente = new javax.swing.JButton();
         cancelarProcurarCliente = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
@@ -184,7 +188,7 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Procurar Cliente");
 
-        copiarProcurarCliente.setText("Copiar");
+        consultarProcurarCliente.setText("Consultar");
 
         cancelarProcurarCliente.setText("Cancelar");
 
@@ -205,10 +209,10 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
+                                            .addGap(14, 14, 14)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(copiarProcurarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(cancelarProcurarCliente)))
+                                                .addComponent(cancelarProcurarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(consultarProcurarCliente)))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                                 .addComponent(labelCPF)
@@ -253,7 +257,7 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(copiarProcurarCliente)
+                        .addComponent(consultarProcurarCliente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cancelarProcurarCliente)))
                 .addGap(5, 5, 5))
@@ -267,7 +271,7 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField campoCPF;
     private javax.swing.JTextField campoNome;
     private javax.swing.JButton cancelarProcurarCliente;
-    private javax.swing.JButton copiarProcurarCliente;
+    private javax.swing.JButton consultarProcurarCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
