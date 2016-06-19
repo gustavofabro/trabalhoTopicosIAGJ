@@ -2,14 +2,14 @@ package listener;
 
 import util.LogEvents;
 import bean.Produto;
+import dao.ProdutoDao;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import view.CadastroProdutoJIF;
 
 public class CadastroProdutoListener implements ActionListener {
-    private LogEvents logEvents = new LogEvents();
-
     private CadastroProdutoJIF cadProduto;
+    private ProdutoDao dao = new ProdutoDao();
     private Produto produto;
     
     public CadastroProdutoListener(CadastroProdutoJIF cadProduto) {
@@ -22,15 +22,10 @@ public class CadastroProdutoListener implements ActionListener {
              case "salvarProduto":
                 produto = cadProduto.getDadosProduto();
                 if (produto != null) {
-                    //mandar banco
+                    produto.setId_produto(dao.getId());
                     
-                    //if(salvo com sucesso no banco)
-                    logEvents.gravarLog("log.txt", "Produto salvo: "
-                            + produto.getReferencia());
-                    //else
-                    //   logEvents.gravarLog("log.txt", "Erro ao salvar Produto: "
-                    //        + produto.getReferencia());
-                    
+                    dao.insert(produto); 
+
                     cadProduto.setVisible(false);
                 }
 

@@ -59,7 +59,7 @@ public class AniversarioJIF extends javax.swing.JInternalFrame {
             formater = new MaskFormatter("##/##/##");
             formater.setPlaceholderCharacter('_');
         } catch (ParseException ex) {
-            logEvents.gravarLog("log.txt", ex.getMessage() + "\n");
+            logEvents.gravarLog(ex.getMessage() + "\n");
         }
 
         initComponents();

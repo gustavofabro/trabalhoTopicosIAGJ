@@ -1,10 +1,11 @@
 package bean;
 
 public class Cliente {
-    
+    private int id_cliente;
     private String nome;
     private String sobreNome;
     private String cpf;
+    private String email;
     private String sexo;
     private String nascimento;
     private String rua;
@@ -16,8 +17,14 @@ public class Cliente {
     private String numCasa;
     private String telefone;
 
+    public int getId_cliente() {
+        return id_cliente;
+    }
 
-
+    public void setId_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
+    }
+   
     public String getNumCasa() {
         return numCasa;
     }
@@ -33,10 +40,17 @@ public class Cliente {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    
+
     public String getCpf() {
         return cpf;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setCpf(String cpf) {
@@ -106,8 +120,8 @@ public class Cliente {
     public void setCep(String cep) {
         this.cep = cep;
     }
-    
-     public String getSobreNome() {
+
+    public String getSobreNome() {
         return sobreNome;
     }
 
@@ -122,7 +136,7 @@ public class Cliente {
     public void setNascimento(String nascimento) {
         this.nascimento = nascimento;
     }
-    
+
     public String getTelefone() {
         return telefone;
     }

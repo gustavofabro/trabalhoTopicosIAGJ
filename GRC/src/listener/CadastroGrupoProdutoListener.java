@@ -25,7 +25,7 @@ public class CadastroGrupoProdutoListener implements ActionListener {
                     //mandar banco
                     
                     //if(salvo com sucesso no banco)
-                    logEvents.gravarLog("log.txt", "Salvo Grupo de Produtos: " 
+                    logEvents.gravarLog("Salvo Grupo de Produtos: " 
                             + grupoProduto.getNome());
                     //else
                     //  logEvents.gravarLog("log.txt", "Erro ao salvar Grupo de Produtos: " 

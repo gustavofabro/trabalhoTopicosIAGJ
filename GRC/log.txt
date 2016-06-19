@@ -33,3 +33,56 @@
 [2016-06-03 21:21:42] Login realizado pelo usuario: João
 [2016-06-03 21:23:19] Login realizado pelo usuario: João
 [2016-06-03 21:27:10] Login realizado pelo usuario: João
+[2016-06-03 21:33:04] Login realizado pelo usuario: João
+[2016-06-17 19:36:58] Login realizado pelo usuario: João
+[2016-06-17 19:50:32] Login realizado pelo usuario: João
+[2016-06-17 19:50:34] Cadastrado Cliente: asd
+[2016-06-17 20:36:28] Login realizado pelo usuario: João
+[2016-06-17 20:42:31] Login realizado pelo usuario: João
+[2016-06-17 20:46:53] Login realizado pelo usuario: João
+[2016-06-17 20:59:36] Login realizado pelo usuario: João
+[2016-06-17 21:05:20] Login realizado pelo usuario: João
+[2016-06-17 21:05:21] Cadastrado Cliente: Gustavo
+[2016-06-17 21:09:50] Login realizado pelo usuario: João
+[2016-06-17 21:09:54] Cadastrado Cliente: Gustavo
+[2016-06-17 21:09:54] Cadastrado Cliente: Gustavo
+[2016-06-17 21:15:22] Login realizado pelo usuario: João
+[2016-06-17 21:15:23] Cadastrado Cliente: GUstavi
+[2016-06-17 21:18:12] Login realizado pelo usuario: João
+[2016-06-17 21:18:13] Cadastrado Cliente: G
+[2016-06-17 21:19:12] Login realizado pelo usuario: João
+[2016-06-17 21:19:13] Cadastrado Cliente: G
+[2016-06-17 21:19:13] Cadastrado Cliente: Ana
+[2016-06-17 21:33:21] Login realizado pelo usuario: João
+[2016-06-17 21:33:26] Produto salvo: Sapatão
+[2016-06-17 21:33:26] Produto salvo: Sapatãoasd
+[2016-06-17 21:36:46] Login realizado pelo usuario: João
+[2016-06-17 21:36:48] Produto salvo: Bala
+[2016-06-17 21:39:53] Login realizado pelo usuario: João
+[2016-06-17 21:39:56] Produto salvo: Sapato
+[2016-06-17 21:41:29] Login realizado pelo usuario: João
+[2016-06-19 11:17:13] Login realizado pelo usuario: João
+[2016-06-19 11:17:24] Cadastrado Cliente: Gustavo
+[2016-06-19 16:45:36] Login realizado pelo usuario: João
+[2016-06-19 16:45:59] Login realizado pelo usuario: João
+[2016-06-19 16:46:14] Login realizado pelo usuario: Loja A
+[2016-06-19 16:46:36] Login realizado pelo usuario: Loja A
+[2016-06-19 16:52:26] Login realizado pelo usuario: Loja A
+[2016-06-19 17:04:32] Login realizado pelo usuario: Loja A
+[2016-06-19 17:06:42] Login realizado pelo usuario: Loja A
+[2016-06-19 17:06:57] Login realizado pelo usuario: Loja A
+[2016-06-19 17:12:33] Login realizado pelo usuario: Loja A
+[2016-06-19 17:13:48] Login realizado pelo usuario: Loja A
+[2016-06-19 17:13:53] Login realizado pelo usuario: Loja A
+[2016-06-19 17:14:28] Login realizado pelo usuario: Loja A
+[2016-06-19 17:14:55] Login realizado pelo usuario: Loja A
+[2016-06-19 17:18:43] Login realizado pelo usuario: Loja A
+[2016-06-19 17:18:49] Login realizado pelo usuario: Loja A
+[2016-06-19 17:18:56] Login realizado pelo usuario: Loja A
+[2016-06-19 17:19:09] Login realizado pelo usuario: Loja A
+[2016-06-19 17:20:31] Login realizado pelo usuario: Loja A
+[2016-06-19 17:21:13] Login realizado pelo usuario: Loja A
+[2016-06-19 17:21:51] Login realizado pelo usuario: Loja A
+[2016-06-19 17:25:39] Login realizado pelo usuario: Loja A
+[2016-06-19 17:27:52] Login realizado pelo usuario: Loja B
+[2016-06-19 17:28:36] Login realizado pelo usuario: Loja B

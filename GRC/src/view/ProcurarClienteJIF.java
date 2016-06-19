@@ -107,7 +107,7 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
 	    cpfFormat.setPlaceholderCharacter('_');
 	}
 	catch(ParseException ex) {
-	    logEvents.gravarLog("log.txt", ex.getMessage());
+	    logEvents.gravarLog(ex.getMessage());
 	}
 	
         initComponents();

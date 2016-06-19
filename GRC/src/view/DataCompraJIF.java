@@ -50,7 +50,7 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
 	    dataFormatter = new MaskFormatter("##/##/##");
 	    dataFormatter.setPlaceholderCharacter('_');
 	} catch(ParseException ex){
-            logEvents.gravarLog("log.txt", ex.getMessage() + "\n");
+            logEvents.gravarLog(ex.getMessage() + "\n");
         }
 	
         initComponents();

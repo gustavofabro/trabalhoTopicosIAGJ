@@ -13,14 +13,14 @@ public class LogEvents {
     Date date = new Date();
     DateFormat formattedDate = new SimpleDateFormat("[YYYY-MM-dd HH:mm:ss] ");
     
-    public void gravarLog(String nomeArquivo, String log) {
+    public void gravarLog(String log) {
         this.log = (formattedDate.format(date) + log + "\n");
         
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
 
         try {
-            fileWriter = new FileWriter(nomeArquivo, true);
+            fileWriter = new FileWriter("log.txt", true);
             bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.write(this.log);
             bufferedWriter.flush();

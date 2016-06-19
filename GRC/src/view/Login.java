@@ -1,5 +1,6 @@
 package view;
 
+import dao.LoginDao;
 import util.LogEvents;
 import java.awt.Color;
 import java.awt.Container;
@@ -11,6 +12,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,6 +21,7 @@ import javax.swing.JTextField;
 
 public class Login extends JFrame {
 
+    private LoginDao dao = new LoginDao();
     private LogEvents logEvents = new LogEvents();
     private JTextField entradaLogin;
     private final JPasswordField entradaSenha;
@@ -28,8 +31,6 @@ public class Login extends JFrame {
     private final JButton btnEntrar;
     private final JButton btnAjuda;
     private final Container c;
-    private final String usuario = "admin";
-    private final char[] senha = {'1', '2', '3'};
 
     public Login() {
         super("GRC Login (BETA)");
@@ -72,12 +73,7 @@ public class Login extends JFrame {
         btnEntrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carregarSistema();
-                gravaUsuario(entradaLogin.getText());
-                logEvents.gravarLog("log.txt", "Login realizado pelo usuario: " 
-                        + entradaLogin.getText());
-                dispose();
-                //validarLogin(entradaLogin.getText(), entradaSenha.getPassword());
+                validarLogin(entradaLogin.getText(), entradaSenha.getPassword());
             }
         });
 
@@ -85,15 +81,24 @@ public class Login extends JFrame {
 
     }
 
-    /*public void validarLogin(String usuarioEntrada, char[] senhaEntrada){
-        if (usuarioEntrada.equals(usuario) && Arrays.equals(senhaEntrada, senha)) {
-            warning.setVisible(false); //se travar pra abrir o sistema, pelo menos vai sumir o aviso 
+    public void validarLogin(String usuarioEntrada, char[] senhaEntrada) {
+        boolean a  = dao.select(usuarioEntrada, new String(senhaEntrada));
+        
+        System.out.println(a);
+        if (a) {
+            warning.setVisible(false); 
             carregarSistema();
-            this.dispose();            
+            this.dispose();
+
+            gravaUsuario(entradaLogin.getText());
+
+            logEvents.gravarLog("Login realizado pelo usuario: "
+                    + entradaLogin.getText());
         } else {
             warning.setVisible(true);
         }
-    }*/
+    }
+
     public void gravaUsuario(String usuario) {
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
@@ -107,7 +112,7 @@ public class Login extends JFrame {
             bufferedWriter.close();
             fileWriter.close();
         } catch (IOException ex) {
-            logEvents.gravarLog("log.txt", ex.getMessage() + "\n");
+            logEvents.gravarLog(ex.getMessage() + "\n");
         }
     }
 
