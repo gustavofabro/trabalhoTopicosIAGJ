@@ -3,14 +3,12 @@ package listener;
 import util.LogEvents;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import view.AreaTransferencia;
 import view.ProcurarProdutoJIF;
 
 public class ProcurarProdutoListener implements ActionListener {
     private LogEvents logEvents = new LogEvents();
 
     private ProcurarProdutoJIF procurarProduto;
-    private AreaTransferencia clipboard;
 
     public ProcurarProdutoListener(ProcurarProdutoJIF procurarProduto) {
         this.procurarProduto = procurarProduto;
@@ -25,7 +23,6 @@ public class ProcurarProdutoListener implements ActionListener {
 
             case "copiarProcurarProduto":
                 if (!procurarProduto.getReferencia().isEmpty()) {
-                    clipboard.copy(procurarProduto.getReferencia());
                 }
                 break;
 

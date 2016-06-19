@@ -7,7 +7,9 @@ package view;
 
 import bean.Cliente;
 import java.text.ParseException;
+import javax.swing.text.Document;
 import javax.swing.text.MaskFormatter;
+import listener.AniversarioDocumentListener;
 import listener.AniversarioListener;
 import util.LogEvents;
 
@@ -18,6 +20,8 @@ import util.LogEvents;
 public class AniversarioJIF extends javax.swing.JInternalFrame {
     private LogEvents logEvents = new LogEvents();
     private AniversarioListener listener;
+    private AniversarioDocumentListener documentListener;
+    private RelatorioJIF relatorio;
     private MaskFormatter formater;
 
     private Cliente cliente;
@@ -54,6 +58,10 @@ public class AniversarioJIF extends javax.swing.JInternalFrame {
      */
     public AniversarioJIF() {
         listener = new AniversarioListener(this);
+        documentListener = new AniversarioDocumentListener(this);
+        relatorio = new RelatorioJIF();
+        
+        relatorio.setVisible(false);
 
         try {
             formater = new MaskFormatter("##/##/##");
@@ -64,11 +72,11 @@ public class AniversarioJIF extends javax.swing.JInternalFrame {
 
         initComponents();
 
-        campoAniversario.setActionCommand("campoAniversario");
-        copiarPesquisaAniversario.setActionCommand("copiarPesquisaAniversario");
+        campoAniversario.getDocument().putProperty(Document.TitleProperty, "campoAniversario");
+        consultarPesquisaAniversario.setActionCommand("consultarPesquisaAniversario");
         cancelarPesquisaAniversario.setActionCommand("cancelarPesquisaAniversario");
-        campoAniversario.addActionListener(listener);
-        copiarPesquisaAniversario.addActionListener(listener);
+        campoAniversario.getDocument().addDocumentListener(documentListener);
+        consultarPesquisaAniversario.addActionListener(listener);
         cancelarPesquisaAniversario.addActionListener(listener);
     }
 
@@ -88,7 +96,7 @@ public class AniversarioJIF extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
-        copiarPesquisaAniversario = new javax.swing.JButton();
+        consultarPesquisaAniversario = new javax.swing.JButton();
         cancelarPesquisaAniversario = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
 
@@ -101,7 +109,7 @@ public class AniversarioJIF extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Pesquisa Aniversário");
 
-        copiarPesquisaAniversario.setText("Copiar");
+        consultarPesquisaAniversario.setText("Consultar");
 
         cancelarPesquisaAniversario.setText("Cancelar");
 
@@ -116,10 +124,10 @@ public class AniversarioJIF extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(cancelarPesquisaAniversario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(copiarPesquisaAniversario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(consultarPesquisaAniversario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -152,7 +160,7 @@ public class AniversarioJIF extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(copiarPesquisaAniversario)
+                        .addComponent(consultarPesquisaAniversario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cancelarPesquisaAniversario)))
                 .addGap(5, 5, 5))
@@ -165,7 +173,7 @@ public class AniversarioJIF extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField campoAniversario;
     private javax.swing.JButton cancelarPesquisaAniversario;
-    private javax.swing.JButton copiarPesquisaAniversario;
+    private javax.swing.JButton consultarPesquisaAniversario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

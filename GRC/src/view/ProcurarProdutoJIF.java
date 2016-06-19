@@ -1,10 +1,13 @@
 package view;
 
 import bean.Produto;
+import javax.swing.text.Document;
+import listener.ProcurarProdutoDocumentListener;
 import listener.ProcurarProdutoListener;
 
 public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
     private ProcurarProdutoListener listener;
+    private ProcurarProdutoDocumentListener documentListener;
 
     private Produto produto;
     private String auxReferencia;
@@ -42,14 +45,15 @@ public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
      */
     public ProcurarProdutoJIF() {
         listener = new ProcurarProdutoListener(this);
+        documentListener = new ProcurarProdutoDocumentListener(this);
 
         initComponents();
 
-        campoReferencia.setActionCommand("campoReferencia");
-        copiarProcurarProduto.setActionCommand("copiarProcurarProduto");
+        campoReferencia.getDocument().putProperty(Document.TitleProperty, "campoReferencia");
+        consultarProcurarProduto.setActionCommand("copiarProcurarProduto");
         cancelarProcurarProduto.setActionCommand("cancelarProcurarProduto");
-        campoReferencia.addActionListener(listener);
-        copiarProcurarProduto.addActionListener(listener);
+        campoReferencia.getDocument().addDocumentListener(documentListener);
+        consultarProcurarProduto.addActionListener(listener);
         cancelarProcurarProduto.addActionListener(listener);
     }
 
@@ -69,7 +73,7 @@ public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        copiarProcurarProduto = new javax.swing.JButton();
+        consultarProcurarProduto = new javax.swing.JButton();
         cancelarProcurarProduto = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
 
@@ -82,10 +86,10 @@ public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Procurar Produto");
 
-        copiarProcurarProduto.setText("Copiar");
-        copiarProcurarProduto.addActionListener(new java.awt.event.ActionListener() {
+        consultarProcurarProduto.setText("Consultar");
+        consultarProcurarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                copiarProcurarProdutoActionPerformed(evt);
+                consultarProcurarProdutoActionPerformed(evt);
             }
         });
 
@@ -101,10 +105,10 @@ public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(26, 26, 26)
+                            .addGap(22, 22, 22)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(copiarProcurarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cancelarProcurarProduto)))
+                                .addComponent(cancelarProcurarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(consultarProcurarProduto)))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(labelReferencia)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -126,7 +130,7 @@ public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelReferencia)
                     .addComponent(campoReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -136,7 +140,7 @@ public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(copiarProcurarProduto)
+                        .addComponent(consultarProcurarProduto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cancelarProcurarProduto)))
                 .addGap(5, 5, 5))
@@ -145,15 +149,15 @@ public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void copiarProcurarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copiarProcurarProdutoActionPerformed
+    private void consultarProcurarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarProcurarProdutoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_copiarProcurarProdutoActionPerformed
+    }//GEN-LAST:event_consultarProcurarProdutoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField campoReferencia;
     private javax.swing.JButton cancelarProcurarProduto;
-    private javax.swing.JButton copiarProcurarProduto;
+    private javax.swing.JButton consultarProcurarProduto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;

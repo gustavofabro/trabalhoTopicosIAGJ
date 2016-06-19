@@ -33,10 +33,10 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jScrollPane1" min="-2" pref="206" max="-2" attributes="0"/>
-                              <EmptySpace pref="28" max="32767" attributes="0"/>
+                              <EmptySpace pref="24" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="cancelarDataCompra" max="32767" attributes="0"/>
-                                  <Component id="copiarDataCompra" max="32767" attributes="0"/>
+                                  <Component id="consultarDataCompra" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -80,7 +80,7 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jScrollPane1" min="-2" pref="142" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="copiarDataCompra" min="-2" max="-2" attributes="0"/>
+                      <Component id="consultarDataCompra" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="cancelarDataCompra" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -129,9 +129,9 @@
         <Property name="text" type="java.lang.String" value="Pesquisa Data Compra"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="copiarDataCompra">
+    <Component class="javax.swing.JButton" name="consultarDataCompra">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Copiar"/>
+        <Property name="text" type="java.lang.String" value="Consultar"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="cancelarDataCompra">

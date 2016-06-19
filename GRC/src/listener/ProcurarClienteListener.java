@@ -3,14 +3,12 @@ package listener;
 import util.LogEvents;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import view.AreaTransferencia;
 import view.ProcurarClienteJIF;
 
 public class ProcurarClienteListener implements ActionListener {
     private LogEvents logEvents = new LogEvents();
 
     private ProcurarClienteJIF procurarCliente;
-    private AreaTransferencia clipboard;
 
     public ProcurarClienteListener(ProcurarClienteJIF procurarCliente) {
         this.procurarCliente = procurarCliente;
@@ -31,7 +29,6 @@ public class ProcurarClienteListener implements ActionListener {
 
             case "copiarProcurarCliente":
                 if (!procurarCliente.getNome().isEmpty()) {
-                    clipboard.copy(procurarCliente.getNome());
                 }
                 break;
 

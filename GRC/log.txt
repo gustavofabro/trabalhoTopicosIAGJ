@@ -33,6 +33,9 @@
 [2016-06-03 21:21:42] Login realizado pelo usuario: João
 [2016-06-03 21:23:19] Login realizado pelo usuario: João
 [2016-06-03 21:27:10] Login realizado pelo usuario: João
+[2016-06-10 20:03:50] Login realizado pelo usuario: João
+[2016-06-10 21:07:34] Login realizado pelo usuario: João
+[2016-06-18 19:14:12] Login realizado pelo usuario: João
 [2016-06-03 21:33:04] Login realizado pelo usuario: João
 [2016-06-17 19:36:58] Login realizado pelo usuario: João
 [2016-06-17 19:50:32] Login realizado pelo usuario: João
@@ -86,3 +89,6 @@
 [2016-06-19 17:25:39] Login realizado pelo usuario: Loja A
 [2016-06-19 17:27:52] Login realizado pelo usuario: Loja B
 [2016-06-19 17:28:36] Login realizado pelo usuario: Loja B
+[2016-06-19 18:09:10] Login realizado pelo usuario: Loja A
+[2016-06-19 18:17:10] Login realizado pelo usuario: Loja B
+[2016-06-19 18:17:19] Cadastrado Cliente: Gilda
