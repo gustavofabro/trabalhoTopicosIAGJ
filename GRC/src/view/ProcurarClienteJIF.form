@@ -79,10 +79,10 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jScrollPane2" min="-2" pref="230" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="cancelarProcurarCliente" min="-2" pref="79" max="-2" attributes="0"/>
-                                              <Component id="consultarProcurarCliente" min="-2" max="-2" attributes="0"/>
+                                              <Component id="copiarProcurarCliente" min="-2" pref="75" max="-2" attributes="0"/>
+                                              <Component id="cancelarProcurarCliente" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
@@ -144,7 +144,7 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jScrollPane2" min="-2" pref="114" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="consultarProcurarCliente" min="-2" max="-2" attributes="0"/>
+                      <Component id="copiarProcurarCliente" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="cancelarProcurarCliente" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -201,9 +201,9 @@
         <Property name="text" type="java.lang.String" value="Procurar Cliente"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="consultarProcurarCliente">
+    <Component class="javax.swing.JButton" name="copiarProcurarCliente">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Consultar"/>
+        <Property name="text" type="java.lang.String" value="Copiar"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="cancelarProcurarCliente">

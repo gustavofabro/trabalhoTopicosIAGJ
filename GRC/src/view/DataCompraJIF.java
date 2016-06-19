@@ -1,9 +1,7 @@
 package view;
 
 import java.text.ParseException;
-import javax.swing.text.Document;
 import javax.swing.text.MaskFormatter;
-import listener.DataCompraDocumentListener;
 import listener.DataCompraListener;
 import util.LogEvents;
 
@@ -14,9 +12,7 @@ import util.LogEvents;
  */
 public class DataCompraJIF extends javax.swing.JInternalFrame {
     private LogEvents logEvents = new LogEvents();
-    private RelatorioJIF relatorio;
-    private DataCompraListener listener;
-    private DataCompraDocumentListener documentListener;
+    private DataCompraListener listener = new DataCompraListener(this);
     private MaskFormatter dataFormatter;
 
     //private RealizarVenda venda;  ainda não implementado
@@ -49,11 +45,6 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
      * Creates new form DataCompra
      */
     public DataCompraJIF() {
-        listener = new DataCompraListener(this);
-        documentListener = new DataCompraDocumentListener(this);
-        relatorio = new RelatorioJIF();
-        
-        relatorio.setVisible(false);
 
 	try{
 	    dataFormatter = new MaskFormatter("##/##/##");
@@ -64,11 +55,11 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
 	
         initComponents();
 
-	campoData.getDocument().putProperty(Document.TitleProperty,"campoData");
-	consultarDataCompra.setActionCommand("copiarDataCompra");
+	campoData.setActionCommand("campoData");
+	copiarDataCompra.setActionCommand("copiarDataCompra");
 	cancelarDataCompra.setActionCommand("cancelarDataCompra");
-	campoData.getDocument().addDocumentListener(documentListener);
-	consultarDataCompra.addActionListener(listener);
+	campoData.addActionListener(listener);
+	copiarDataCompra.addActionListener(listener);
 	cancelarDataCompra.addActionListener(listener);
     }
 
@@ -88,7 +79,7 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
-        consultarDataCompra = new javax.swing.JButton();
+        copiarDataCompra = new javax.swing.JButton();
         cancelarDataCompra = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
 
@@ -101,7 +92,7 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Pesquisa Data Compra");
 
-        consultarDataCompra.setText("Consultar");
+        copiarDataCompra.setText("Copiar");
 
         cancelarDataCompra.setText("Cancelar");
 
@@ -116,10 +107,10 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(cancelarDataCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(consultarDataCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(copiarDataCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -152,7 +143,7 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(consultarDataCompra)
+                        .addComponent(copiarDataCompra)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cancelarDataCompra)))
                 .addContainerGap())
@@ -165,7 +156,7 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField campoData;
     private javax.swing.JButton cancelarDataCompra;
-    private javax.swing.JButton consultarDataCompra;
+    private javax.swing.JButton copiarDataCompra;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

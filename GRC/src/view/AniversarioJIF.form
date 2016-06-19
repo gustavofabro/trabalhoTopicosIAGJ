@@ -33,10 +33,10 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jScrollPane1" min="-2" pref="246" max="-2" attributes="0"/>
-                              <EmptySpace pref="20" max="32767" attributes="0"/>
+                              <EmptySpace pref="24" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="cancelarPesquisaAniversario" max="32767" attributes="0"/>
-                                  <Component id="consultarPesquisaAniversario" max="32767" attributes="0"/>
+                                  <Component id="copiarPesquisaAniversario" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -80,7 +80,7 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="consultarPesquisaAniversario" min="-2" max="-2" attributes="0"/>
+                      <Component id="copiarPesquisaAniversario" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="cancelarPesquisaAniversario" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -129,9 +129,9 @@
         <Property name="text" type="java.lang.String" value="Pesquisa Anivers&#xe1;rio"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="consultarPesquisaAniversario">
+    <Component class="javax.swing.JButton" name="copiarPesquisaAniversario">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Consultar"/>
+        <Property name="text" type="java.lang.String" value="Copiar"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="cancelarPesquisaAniversario">
