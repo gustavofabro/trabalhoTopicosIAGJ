@@ -10,42 +10,42 @@ import java.text.ParseException;
 import javax.swing.text.MaskFormatter;
 import listener.CadastroClienteListener;
 
-public class CadastroClienteJIF extends javax.swing.JInternalFrame implements FocusListener{
+public class CadastroClienteJIF extends javax.swing.JInternalFrame implements FocusListener {
+
     private LogEvents logEvents = new LogEvents();
 
     private CadastroClienteListener jInternalListeners = new CadastroClienteListener(this);
     private String sexo = "";
     private boolean camposValidos = true;
-    
+
     private MaskFormatter cpfFormatter;
     private MaskFormatter dataFormatter;
-    private MaskFormatter cepFormatter; 
-    
+    private MaskFormatter cepFormatter;
+
     public CadastroClienteJIF() {
-        
+
         try {
             cpfFormatter = new MaskFormatter("###.###.###-##"); // o # representa qualquer número
             cpfFormatter.setPlaceholderCharacter('_');
             dataFormatter = new MaskFormatter("##/##/####");
             dataFormatter.setPlaceholderCharacter('_');
             cepFormatter = new MaskFormatter("#####-###");
-            cepFormatter.setPlaceholderCharacter('_');            
+            cepFormatter.setPlaceholderCharacter('_');
         } catch (ParseException ex) {
             logEvents.gravarLog(ex.getMessage() + "\n");
         }
-        
-        
+
         initComponents();
-        
+
         jTextFieldBairro.addFocusListener(this);
-        jTextFieldNum.addFocusListener(this); 
+        jTextFieldNum.addFocusListener(this);
         jTextFieldCidade.addFocusListener(this);
         jTextFieldEstado.addFocusListener(this);
         jTextFieldNome.addFocusListener(this);
         jTextFieldPais.addFocusListener(this);
         jTextFieldRua.addFocusListener(this);
         jTextFieldSobrenome.addFocusListener(this);
-        jTextFieldEmail.addFocusListener(this); 
+        jTextFieldEmail.addFocusListener(this);
     }
 
     @SuppressWarnings("unchecked")
@@ -382,18 +382,18 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public Cliente getDadosCliente(){
-         
-        if(validarCampos()){
+    public Cliente getDadosCliente() {
+
+        if (validarCampos()) {
             Cliente cliente = new Cliente();
 
             cliente.setNome(jTextFieldNome.getText());
             cliente.setSobreNome(jTextFieldSobrenome.getText());
             cliente.setCpf(jFormattedTextFieldCPF.getText());
             cliente.setDataNascimento(jFormattedTextFieldNasc.getText());
-            cliente.setEmail(jTextFieldEmail.getText()); 
-            cliente.setTelefone(jTextFieldTel.getText());  
-            cliente.setSexo(radioButtonFeminino.isSelected()? "F" : "M");
+            cliente.setEmail(jTextFieldEmail.getText());
+            cliente.setTelefone(jTextFieldTel.getText());
+            cliente.setSexo(radioButtonFeminino.isSelected() ? "F" : "M");
             cliente.setRua(jTextFieldRua.getText());
             cliente.setBairro(jTextFieldBairro.getText());
             cliente.setNumCasa(jTextFieldNum.getText());
@@ -403,113 +403,127 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
             cliente.setCep(jFormattedTextFieldCEP.getText());
 
             return cliente;
-        }else
+        } else {
             return null;
+        }
     }
-    
-    public boolean validarCampos(){ 
+
+    public boolean validarCampos() {
         camposValidos = true;
-  
-        if( jTextFieldNome.getText().equals("") ){
-            jLabelNome.setForeground(Color.red); 
+
+        if (jTextFieldNome.getText().equals("")) {
+            jLabelNome.setForeground(Color.red);
             camposValidos = false;
-        }else
-            jLabelNome.setForeground(Color.black); 
-        
-        if(jTextFieldSobrenome.getText().equals("")){
+        } else {
+            jLabelNome.setForeground(Color.black);
+        }
+
+        if (jTextFieldSobrenome.getText().equals("")) {
             jLabelSobrenome.setForeground(Color.red);
             camposValidos = false;
-        }else 
+        } else {
             jLabelSobrenome.setForeground(Color.black);
-        
-        if(jFormattedTextFieldCPF.getValue()==null){
-            jLabelCPF.setForeground(Color.red); 
+        }
+
+        if (jFormattedTextFieldCPF.getValue() == null) {
+            jLabelCPF.setForeground(Color.red);
             camposValidos = false;
-        }else {
+        } else {
             jLabelCPF.setForeground(Color.black);
         }
-        
-        if(jLabelEmail.getText().equals("")){
+
+        if (jLabelEmail.getText().equals("")) {
             jLabelEmail.setForeground(Color.red);
             camposValidos = false;
-        }else 
+        } else {
             jLabelEmail.setForeground(Color.black);
+        }
 
-        if(jFormattedTextFieldNasc.getValue()==null){
+        if (jFormattedTextFieldNasc.getValue() == null) {
             jLabelNasc.setForeground(Color.red);
             camposValidos = false;
-        }else
+        } else {
             jLabelNasc.setForeground(Color.black);
-        
-        if(jTextFieldTel.getText().equals("")){
+        }
+
+        if (jTextFieldTel.getText().equals("")) {
             jLabelTel.setForeground(Color.red);
             camposValidos = false;
-        }else
-            jLabelTel.setForeground(Color.black); 
+        } else {
+            jLabelTel.setForeground(Color.black);
+        }
 
-        if(!radioButtonFeminino.isSelected() 
-                && !radioButtonMasculino.isSelected()){
+        if (!radioButtonFeminino.isSelected()
+                && !radioButtonMasculino.isSelected()) {
             jLabelSexo.setForeground(Color.red);
             camposValidos = false;
-        }else
+        } else {
             jLabelSexo.setForeground(Color.black);
+        }
 
-        if(jTextFieldRua.getText().equals("")){
+        if (jTextFieldRua.getText().equals("")) {
             jLabelRua.setForeground(Color.red);
             camposValidos = false;
-        }else
+        } else {
             jLabelRua.setForeground(Color.black);
-        
-        if(jTextFieldBairro.getText().equals("")){
+        }
+
+        if (jTextFieldBairro.getText().equals("")) {
             jLabelBairro.setForeground(Color.red);
-            camposValidos = false; 
-        }else
+            camposValidos = false;
+        } else {
             jLabelBairro.setForeground(Color.black);
-        
-        
-        if(jTextFieldNum.getText().equals("")){
+        }
+
+        if (jTextFieldNum.getText().equals("")) {
             jLabelNumero.setForeground(Color.red);
             camposValidos = false;
-        }else
+        } else {
             jLabelNumero.setForeground(Color.black);
-        
-        if(jTextFieldCidade.getText().equals("")){
+        }
+
+        if (jTextFieldCidade.getText().equals("")) {
             jLabelCidade.setForeground(Color.red);
             camposValidos = false;
-        }else
+        } else {
             jLabelCidade.setForeground(Color.black);
-        
-        if(jTextFieldEstado.getText().equals("")){
+        }
+
+        if (jTextFieldEstado.getText().equals("")) {
             jLabelEstado.setForeground(Color.red);
             camposValidos = false;
-        }else
+        } else {
             jLabelEstado.setForeground(Color.black);
-      
-        if(jTextFieldPais.getText().equals("")){
+        }
+
+        if (jTextFieldPais.getText().equals("")) {
             jLabelPais.setForeground(Color.red);
             camposValidos = false;
-        }else
+        } else {
             jLabelPais.setForeground(Color.black);
-        
-        if(jFormattedTextFieldCEP.getValue()==null){
+        }
+
+        if (jFormattedTextFieldCEP.getValue() == null) {
             jLabelCep.setForeground(Color.red);
             camposValidos = false;
-        }else
+        } else {
             jLabelCep.setForeground(Color.black);
-        
-        if(!camposValidos){
-             jLabelAviso.setVisible(true);
-        }else
-             jLabelAviso.setVisible(false);
-        
+        }
+
+        if (!camposValidos) {
+            jLabelAviso.setVisible(true);
+        } else {
+            jLabelAviso.setVisible(false);
+        }
+
         return camposValidos;
     }
-    
-      
+
+
     private void radioButtonFemininoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioButtonFemininoActionPerformed
         radioButtonMasculino.setSelected(false);
         sexo = "Feminino";
-        
+
     }//GEN-LAST:event_radioButtonFemininoActionPerformed
 
     private void radioButtonMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioButtonMasculinoActionPerformed
@@ -517,13 +531,35 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
         sexo = "Masculino";
     }//GEN-LAST:event_radioButtonMasculinoActionPerformed
 
+    public void limparCampos() {
+        jTextFieldNome.setText("");
+        jTextFieldSobrenome.setText("");
+        jFormattedTextFieldCPF.setText("");
+        jFormattedTextFieldNasc.setText("");
+        jTextFieldEmail.setText("");
+        jTextFieldTel.setText("");
+        radioButtonFeminino.setSelected(false);
+        radioButtonMasculino.setSelected(false);
+        jTextFieldRua.setText("");
+        jTextFieldBairro.setText("");
+        jTextFieldNum.setText("");
+        jTextFieldCidade.setText("");
+        jTextFieldEstado.setText("");
+        jTextFieldPais.setText("");
+        jFormattedTextFieldCEP.setText("");
+
+    }
+
     @Override
     public void focusGained(FocusEvent e) {
-        if (!camposValidos) 
+        if (!camposValidos) {
             validarCampos();
+        }
     }
+
     @Override
-    public void focusLost(FocusEvent e) {}
+    public void focusLost(FocusEvent e) {
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelarCliente;

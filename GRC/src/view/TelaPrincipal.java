@@ -39,7 +39,7 @@ public class TelaPrincipal extends JFrame implements ActionListener {
     private Container c;
 
     private final JDesktopPane deskPane;
-    private final JInternalFrame cadClienteIFrame;
+    private static JInternalFrame cadClienteIFrame;
     private final JInternalFrame cadProdutoIFrame;
     private final JInternalFrame cadGrupoProdIFrame;
     private final JInternalFrame procurarClienteIFrame;
@@ -95,7 +95,7 @@ public class TelaPrincipal extends JFrame implements ActionListener {
         aniversario.addActionListener(this);
         dataCompra.addActionListener(this);
         sobre.addActionListener(this);
-        
+
         //adicionando itens de menu nos menus
         cadastrarMenu.add(cadCliente);
         cadastrarMenu.add(cadProduto);
@@ -160,6 +160,10 @@ public class TelaPrincipal extends JFrame implements ActionListener {
 
                 JOptionPane.showMessageDialog(this, sobreInfo);
         }
+    }
+
+    public static void novoCadastro() {
+        cadClienteIFrame.setVisible(true);
     }
 
 }

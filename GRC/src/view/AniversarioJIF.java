@@ -1,63 +1,39 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import bean.Cliente;
+import dao.ClienteDao;
 import java.text.ParseException;
+import java.util.List;
+import java.util.Vector;
 import javax.swing.text.MaskFormatter;
 import listener.AniversarioListener;
 import util.LogEvents;
 
-/**
- *
- * @author gustavo
- */
 public class AniversarioJIF extends javax.swing.JInternalFrame {
+
     private LogEvents logEvents = new LogEvents();
-    private AniversarioListener listener;
-    private MaskFormatter formater;
+    private AniversarioListener jInternalListeners = new AniversarioListener(this);
+    private MaskFormatter dataFormatter;
+    private ClienteDao dao = new ClienteDao();
 
     private Cliente cliente;
     private String auxAniversario;
     private String[] listAniversario;
 
-    public void apagarCampos() {
-        campoAniversario.setText("");
-        listaAniversarios.removeAll();
-    }
-
-    public String getAniversario() {
+    /* public String getAniversario() {
         String selection = "Vazio";
         if (listaAniversarios.getMaxSelectionIndex() > -1) {
             selection = listaAniversarios.getSelectedValue().toString();
         }
 
         return (selection);
-    }
-
-    public void procurarAniversario() {
-        listaAniversarios.removeAll();
-
-        auxAniversario = campoAniversario.getText();
-        if (cliente.getDataNascimento().contains(auxAniversario)) {
-            listAniversario[listAniversario.length] = cliente.getNome();
-        }
-
-        listaAniversarios.setListData(listAniversario);
-    }
-
-    /**
-     * Creates new form Aniversario
-     */
+    }*/
+     
     public AniversarioJIF() {
-        listener = new AniversarioListener(this);
 
         try {
-            formater = new MaskFormatter("##/##/##");
-            formater.setPlaceholderCharacter('_');
+            dataFormatter = new MaskFormatter("##/##/####");
+            dataFormatter.setPlaceholderCharacter('_');
         } catch (ParseException ex) {
             logEvents.gravarLog(ex.getMessage() + "\n");
         }
@@ -65,11 +41,24 @@ public class AniversarioJIF extends javax.swing.JInternalFrame {
         initComponents();
 
         campoAniversario.setActionCommand("campoAniversario");
-        copiarPesquisaAniversario.setActionCommand("copiarPesquisaAniversario");
         cancelarPesquisaAniversario.setActionCommand("cancelarPesquisaAniversario");
-        campoAniversario.addActionListener(listener);
-        copiarPesquisaAniversario.addActionListener(listener);
-        cancelarPesquisaAniversario.addActionListener(listener);
+
+    }
+
+    public void setListaAniversariantes(List<Cliente> lista) {
+        listaAniversarios.removeAll();
+
+        listaAniversarios.setListData(
+                new Vector(new Vector(lista)));
+    }
+
+    public String getAniversario() {
+        return campoAniversario.getText();
+    }
+    
+    public void limparCampos() {
+        campoAniversario.setText("");
+        listaAniversarios.removeAll();
     }
 
     /**
@@ -82,13 +71,13 @@ public class AniversarioJIF extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        campoAniversario = new javax.swing.JFormattedTextField(formater);
+        campoAniversario = new javax.swing.JFormattedTextField(dataFormatter);
         jScrollPane1 = new javax.swing.JScrollPane();
         listaAniversarios = new javax.swing.JList();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
-        copiarPesquisaAniversario = new javax.swing.JButton();
+        btnProcurar = new javax.swing.JButton();
         cancelarPesquisaAniversario = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
 
@@ -101,9 +90,12 @@ public class AniversarioJIF extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Pesquisa Aniversário");
 
-        copiarPesquisaAniversario.setText("Copiar");
+        btnProcurar.setText("Procurar");
+        btnProcurar.setActionCommand("procurar");
+        btnProcurar.addActionListener(jInternalListeners);
 
         cancelarPesquisaAniversario.setText("Cancelar");
+        cancelarPesquisaAniversario.setActionCommand("cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,7 +111,7 @@ public class AniversarioJIF extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(cancelarPesquisaAniversario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(copiarPesquisaAniversario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(btnProcurar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -152,7 +144,7 @@ public class AniversarioJIF extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(copiarPesquisaAniversario)
+                        .addComponent(btnProcurar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cancelarPesquisaAniversario)))
                 .addGap(5, 5, 5))
@@ -161,11 +153,10 @@ public class AniversarioJIF extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnProcurar;
     private javax.swing.JFormattedTextField campoAniversario;
     private javax.swing.JButton cancelarPesquisaAniversario;
-    private javax.swing.JButton copiarPesquisaAniversario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import util.LogEvents;
 
 public class ProdutoDao {
@@ -38,18 +39,20 @@ public class ProdutoDao {
             logEvents.gravarLog("Produto salvo: "
                     + produto.getReferencia());
 
+            JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
+
         } catch (SQLException e) {
             System.out.println("ERRO: " + e.getMessage());
-           
+
             logEvents.gravarLog("Erro ao salvar Produto: "
                     + produto.getReferencia() + "\nErro: "
-                + e.getMessage());
+                    + e.getMessage());
 
             if (conn != null) {
                 try {
                     conn.rollback();
                 } catch (SQLException ex) {
-                    System.out.println("ERRO: " + ex.getMessage());
+                    logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
 
@@ -126,21 +129,25 @@ public class ProdutoDao {
 
             ps.execute();
 
+            logEvents.gravarLog("Dados do produto " + produto.getReferencia()
+                    + " atualizados");
+
         } catch (SQLException ex) {
+            logEvents.gravarLog("Erro: " + ex.getMessage());
 
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (SQLException ex) {
-                    System.out.println("ERRO: " + ex.getMessage());
+                    logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
             if (conn != null) {
                 try {
                     conn.close();
                 } catch (SQLException ex) {
-                    System.out.println("ERRO: " + ex.getMessage());
+                    logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
         }
@@ -149,7 +156,7 @@ public class ProdutoDao {
     public int getId() {
         Connection conn = null;
         PreparedStatement ps = null;
-       
+
         int id = 0;
 
         conn = Conexao.getConnection();

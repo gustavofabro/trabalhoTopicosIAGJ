@@ -1,6 +1,7 @@
 package view;
 
 import bean.Venda;
+import dao.VendaDao;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -14,7 +15,7 @@ import util.LogEvents;
 
 public class RealizarVendaJIF extends javax.swing.JInternalFrame implements FocusListener {
     private LogEvents logEvents = new LogEvents();
-
+    private VendaDao dao = new VendaDao();
     private MaskFormatter cpfFormatter;
     private boolean camposValidos = true;
     private RealizarVendaListener jInternalListeners = new RealizarVendaListener(this);
@@ -82,9 +83,9 @@ public class RealizarVendaJIF extends javax.swing.JInternalFrame implements Focu
         jLabelCPF = new javax.swing.JLabel();
         jTextFieldReferencia = new javax.swing.JTextField();
         jButtonCancelarVenda = new javax.swing.JButton();
-        jButtonSalvarVenda = new javax.swing.JButton();
         jFormattedTextFieldCPF = new javax.swing.JFormattedTextField(cpfFormatter);
         jSeparator2 = new javax.swing.JSeparator();
+        jButtonSalvarVenda = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
@@ -109,7 +110,7 @@ public class RealizarVendaJIF extends javax.swing.JInternalFrame implements Focu
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButtonSalvarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonSalvarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonCancelarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
@@ -122,14 +123,14 @@ public class RealizarVendaJIF extends javax.swing.JInternalFrame implements Focu
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabelCPF)
-                                .addGap(18, 18, 18))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabelReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(21, 21, 21)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabelCPF))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(jLabelReferencia)))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jFormattedTextFieldCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -155,7 +156,7 @@ public class RealizarVendaJIF extends javax.swing.JInternalFrame implements Focu
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancelarVenda)
                     .addComponent(jButtonSalvarVenda))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();

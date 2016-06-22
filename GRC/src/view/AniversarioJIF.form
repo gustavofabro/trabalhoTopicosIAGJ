@@ -36,7 +36,7 @@
                               <EmptySpace pref="24" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="cancelarPesquisaAniversario" max="32767" attributes="0"/>
-                                  <Component id="copiarPesquisaAniversario" max="32767" attributes="0"/>
+                                  <Component id="btnProcurar" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -80,7 +80,7 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="copiarPesquisaAniversario" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnProcurar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="cancelarPesquisaAniversario" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -98,7 +98,7 @@
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="campoAniversario">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(formater);"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(dataFormatter)"/>
       </AuxValues>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -129,15 +129,21 @@
         <Property name="text" type="java.lang.String" value="Pesquisa Anivers&#xe1;rio"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="copiarPesquisaAniversario">
+    <Component class="javax.swing.JButton" name="btnProcurar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Copiar"/>
+        <Property name="text" type="java.lang.String" value="Procurar"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnProcurar.setActionCommand(&quot;procurar&quot;);&#xa;btnProcurar.addActionListener(jInternalListeners);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="cancelarPesquisaAniversario">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="cancelarPesquisaAniversario.setActionCommand(&quot;cancelar&quot;);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator3">
     </Component>

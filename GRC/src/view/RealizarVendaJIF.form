@@ -28,7 +28,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="jButtonSalvarVenda" min="-2" pref="86" max="-2" attributes="0"/>
+              <Component id="jButtonSalvarVenda" min="-2" pref="97" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jButtonCancelarVenda" min="-2" pref="97" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
@@ -43,17 +43,17 @@
                       <Component id="jSeparator2" min="-2" pref="129" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabelCPF" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabelReferencia" min="-2" pref="56" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                              <Component id="jLabelReferencia" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jTextFieldReferencia" min="-2" pref="285" max="-2" attributes="0"/>
                           <Component id="jFormattedTextFieldCPF" min="-2" pref="282" max="-2" attributes="0"/>
@@ -88,7 +88,7 @@
                   <Component id="jButtonCancelarVenda" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonSalvarVenda" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="14" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -124,6 +124,13 @@
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jButtonCancelarVenda.addActionListener(jInternalListeners);&#xa;jButtonCancelarVenda.setActionCommand(&quot;cancelarVenda&quot;);"/>
       </AuxValues>
     </Component>
+    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldCPF">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(cpfFormatter)"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JSeparator" name="jSeparator2">
+    </Component>
     <Component class="javax.swing.JButton" name="jButtonSalvarVenda">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salvar"/>
@@ -131,13 +138,6 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jButtonSalvarVenda.addActionListener(jInternalListeners);&#xa;jButtonSalvarVenda.setActionCommand(&quot;salvarVenda&quot;);"/>
       </AuxValues>
-    </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldCPF">
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(cpfFormatter)"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JSeparator" name="jSeparator2">
     </Component>
   </SubComponents>
 </Form>

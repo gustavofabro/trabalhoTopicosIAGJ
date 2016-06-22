@@ -22,19 +22,22 @@ public class CadastroClienteListener implements ActionListener {
         switch (e.getActionCommand()) {
             case "salvarCliente":
                 cliente = cadCliente.getDadosCliente();
+
                 if (cliente != null) {
-                    
-                    cliente.setId_cliente(dao.getId()); 
-                    
-                    dao.insert(cliente); 
-                    
-  
+
+                    cliente.setId_cliente(dao.getId());
+
+                    dao.insert(cliente);
+
                     cadCliente.setVisible(false);
+                    cadCliente.limparCampos();
+
                 }
 
                 break;
             case "cancelarCliente":
                 cadCliente.setVisible(false);
+                cadCliente.limparCampos();
                 break;
         }
     }

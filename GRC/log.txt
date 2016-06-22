@@ -92,3 +92,55 @@
 [2016-06-19 18:09:10] Login realizado pelo usuario: Loja A
 [2016-06-19 18:17:10] Login realizado pelo usuario: Loja B
 [2016-06-19 18:17:19] Cadastrado Cliente: Gilda
+[2016-06-20 00:00:18] Problemas ao conectar no banco de dadossocket creation error
+[2016-06-20 00:05:42] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-20 00:08:45] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-20 00:08:45] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-20 00:09:23] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-20 00:09:23] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-20 00:09:23] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-20 00:09:23] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-20 00:09:22] Login realizado pelo usuario: Loja B
+[2016-06-20 00:25:33] Login realizado pelo usuario: Loja B
+[2016-06-20 00:27:52] Login realizado pelo usuario: Loja B
+[2016-06-20 00:29:30] Login realizado pelo usuario: Loja B
+[2016-06-20 16:02:01] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-20 16:02:01] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-20 16:02:01] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-20 16:01:57] Login realizado pelo usuario: Loja B
+[2016-06-20 16:18:25] Login realizado pelo usuario: Loja B
+[2016-06-20 16:18:40] Cadastrado Cliente: Claudete
+[2016-06-20 16:22:27] Login realizado pelo usuario: Loja B
+[2016-06-20 16:22:33] Cadastrado Cliente: João
+[2016-06-20 16:24:25] Login realizado pelo usuario: Loja B
+[2016-06-20 16:38:22] Login realizado pelo usuario: Loja B
+[2016-06-20 16:38:28] Erro ao realizar vendaTable not found in statement [insert into vendas (referencia, cpf, datetamanho, cor) values(?,?,?,?,?)]
+[2016-06-20 16:52:29] Login realizado pelo usuario: Loja B
+[2016-06-20 16:53:31] Login realizado pelo usuario: Loja B
+[2016-06-20 16:56:14] Login realizado pelo usuario: Loja B
+[2016-06-20 16:56:20] Erro ao realizar venda 
+Table not found in statement [insert into vendas (referencia, cpf, datetamanho, cor) values(?,?,?,?,?)]
+[2016-06-20 16:58:15] Login realizado pelo usuario: Loja B
+[2016-06-20 16:59:34] Login realizado pelo usuario: Loja B
+[2016-06-21 15:32:38] Login realizado pelo usuario: Loja B
+[2016-06-21 15:40:26] Login realizado pelo usuario: Loja B
+[2016-06-21 15:40:36] Erro ao realizar venda
+[2016-06-21 15:46:16] Login realizado pelo usuario: Loja B
+[2016-06-21 16:00:36] Login realizado pelo usuario: Loja B
+[2016-06-21 16:00:40] Cadastrado Cliente: Joao
+[2016-06-21 16:01:59] Login realizado pelo usuario: Loja B
+[2016-06-21 16:02:03] Cadastrado Cliente: Carlos
+[2016-06-22 08:03:28] Login realizado pelo usuario: Loja B
+[2016-06-22 08:03:33] Cadastrado Cliente: Maria
+[2016-06-22 11:45:16] Login realizado pelo usuario: Loja B
+[2016-06-22 11:45:30] Cadastrado Cliente: Antônio
