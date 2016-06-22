@@ -144,3 +144,66 @@ Table not found in statement [insert into vendas (referencia, cpf, datetamanho, 
 [2016-06-22 08:03:33] Cadastrado Cliente: Maria
 [2016-06-22 11:45:16] Login realizado pelo usuario: Loja B
 [2016-06-22 11:45:30] Cadastrado Cliente: Antônio
+[2016-06-22 15:09:58] Login realizado pelo usuario: Loja B
+[2016-06-22 15:20:12] Login realizado pelo usuario: Loja B
+[2016-06-22 15:20:15] Erro ao realizar venda
+[2016-06-22 15:20:15] Erro ao realizar venda
+[2016-06-22 15:37:19] Login realizado pelo usuario: Loja B
+[2016-06-22 15:37:22] Erro ao realizar venda 
+Table not found in statement [insert into vendas (referencia, cpf, datetamanho, cor) values(?,?,?,?,?)]
+[2016-06-22 15:39:00] Login realizado pelo usuario: Loja B
+[2016-06-22 15:39:03] Erro ao realizar venda 
+Table not found in statement [insert into vendas (referencia, cpf, datetamanho, cor) values(?,?,?,?,?)]
+[2016-06-22 18:40:27] Login realizado pelo usuario: Loja B
+[2016-06-22 18:40:33] Cadastrado Cliente: Gustavo
+[2016-06-22 18:40:34] Erro ao realizar venda 
+Table not found in statement [insert into vendas (id_venda, referencia, cpf, datetamanho, cor) values(?,?,?,?,?)]
+[2016-06-22 18:47:10] Login realizado pelo usuario: Loja B
+[2016-06-22 18:47:18] Erro ao realizar venda 
+Table not found in statement [insert into vendas (id_venda, referencia, cpf, date) values(?,?,?,?)]
+[2016-06-22 18:48:09] Login realizado pelo usuario: Loja B
+[2016-06-22 18:48:17] Erro ao realizar venda 
+Column not found: DATE in statement [insert into venda (id_venda, referencia, cpf, date) values(?,?,?,?)]
+[2016-06-22 18:50:53] Login realizado pelo usuario: Loja B
+[2016-06-22 18:50:57] Venda realizada: Carro
+[2016-06-22 18:55:18] Login realizado pelo usuario: Loja B
+[2016-06-22 18:55:22] Venda realizada: Gravata
+[2016-06-22 18:59:57] Login realizado pelo usuario: Loja B
+[2016-06-22 19:00:01] Venda realizada: Chinelo
+[2016-06-22 19:01:30] Login realizado pelo usuario: Loja B
+[2016-06-22 19:02:05] Login realizado pelo usuario: Loja B
+[2016-06-22 19:03:21] Login realizado pelo usuario: Loja B
+[2016-06-22 19:05:24] Login realizado pelo usuario: Loja B
+[2016-06-22 19:06:58] Login realizado pelo usuario: Loja B
+[2016-06-22 19:11:47] Login realizado pelo usuario: Loja B
+[2016-06-22 19:13:35] Login realizado pelo usuario: Loja B
+[2016-06-22 19:13:39] Erro ao procurar data compra:
+ Column not found: DATE in statement [select * from venda where date between (?) and (?)]
+[2016-06-22 19:14:43] Login realizado pelo usuario: Loja B
+[2016-06-22 19:15:39] Login realizado pelo usuario: Loja B
+[2016-06-22 19:16:06] Login realizado pelo usuario: Loja B
+[2016-06-22 19:21:12] Login realizado pelo usuario: Loja B
+[2016-06-22 19:22:07] Login realizado pelo usuario: Loja B
+[2016-06-22 19:22:34] Login realizado pelo usuario: Loja B
+[2016-06-22 19:28:08] Login realizado pelo usuario: Loja B
+[2016-06-22 19:33:00] Login realizado pelo usuario: Loja B
+[2016-06-22 20:08:44] Login realizado pelo usuario: Loja B
+[2016-06-22 20:08:49] Produto salvo: Carro
+[2016-06-22 20:10:42] Login realizado pelo usuario: Loja B
+[2016-06-22 20:12:41] Erro ao recuperar produtos do banco: 
+Table not found in statement [select * from produtos]
+[2016-06-22 20:12:38] Login realizado pelo usuario: Loja B
+[2016-06-22 20:13:19] Login realizado pelo usuario: Loja B
+[2016-06-22 20:14:20] Login realizado pelo usuario: Loja B
+[2016-06-22 20:14:24] Produto salvo: Calça
+[2016-06-22 20:14:54] Login realizado pelo usuario: Loja B
+[2016-06-22 20:14:58] Erro ao realizar venda
+[2016-06-22 20:17:15] Login realizado pelo usuario: Loja B
+[2016-06-22 20:18:52] Login realizado pelo usuario: Loja B
+[2016-06-22 20:18:56] Erro ao realizar venda 
+Attempt to insert null into a non-nullable column: column: REFERENCIA table: VENDA in statement [insert into venda (id_venda, referencia, cpf, data) values(?,?,?,?)]
+[2016-06-22 20:22:05] Login realizado pelo usuario: Loja B
+[2016-06-22 20:22:09] Erro ao realizar venda
+[2016-06-22 20:22:09] Venda realizada:  Sapato
+[2016-06-22 20:23:59] Login realizado pelo usuario: Loja B
+[2016-06-22 20:24:02] Erro ao realizar venda

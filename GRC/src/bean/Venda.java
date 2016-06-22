@@ -1,15 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bean;
 
 public class Venda {
+
+    private int id_venda;
     private String referencia;
     private String cpf;
-    private String date;
-
+    private String data;
+   
     public String getReferencia() {
         return referencia;
     }
@@ -27,12 +24,27 @@ public class Venda {
     }
 
     public String getDate() {
-        return date;
+        return data;
     }
 
     public void setDate(String date) {
-        this.date = date;
+        this.data = date;
+    }    
+    
+    public int getIdVenda() {
+        return id_venda;
+    }
+
+    public void setIdVenda(int venda) {
+        this.id_venda = venda;
+    }
+
+    @Override
+    public String toString() {
+        return referencia + " - " + convertData(data.split("-"));
     }
     
-    
+    public String convertData(String[] data){
+        return data[2] + "/" + data[1] + "/" + data[0];
+    }
 }

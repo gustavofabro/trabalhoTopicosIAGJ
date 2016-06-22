@@ -110,8 +110,12 @@ public class CadastroGrupoProdutoJIF extends javax.swing.JInternalFrame {
 
         }
         return camposValidos;
-
     }
+    
+    public void limparCampos() {
+       jTextFieldGrupo.setText(""); 
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelarGrupo;

@@ -29,10 +29,13 @@ public class RealizarVendaListener implements ActionListener {
                 venda = realizarVenda.getDadoVenda();
                 if (venda != null) {
                     if (dao.cpfIsValido(venda.getCpf())) {
+                        venda.setIdVenda(dao.getId()); 
+                        
                         dao.insert(venda);
+                        
                         realizarVenda.setVisible(false);
                     } else {
-
+                        System.out.println("ASD");
                         int opt = JOptionPane.showConfirmDialog(null,
                                 "Ciente não cadastrado no sistema."
                                 + "Cadastrar novo cliente?",
@@ -47,6 +50,9 @@ public class RealizarVendaListener implements ActionListener {
                 }
 
                 break;
+                
+            case "novoProduto":
+                TelaPrincipal.novoProduto();
             case "cancelarVenda":
                 realizarVenda.setVisible(false);
                 break;

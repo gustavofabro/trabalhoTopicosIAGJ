@@ -166,6 +166,7 @@
         <Property name="text" type="java.lang.String" value="Procurar"/>
       </Properties>
       <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnProcurar.addActionListener(listener);"/>
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="btnProcurar.setActionCommand(&quot;procurarDataCompra&quot;);"/>
       </AuxValues>
     </Component>

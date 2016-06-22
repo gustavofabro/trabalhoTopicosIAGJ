@@ -1,4 +1,3 @@
-
 package view;
 
 import util.FormattedTextFields;
@@ -10,17 +9,16 @@ import java.text.ParseException;
 import javax.swing.text.MaskFormatter;
 import listener.CadastroProdutoListener;
 
+public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements FocusListener {
 
-public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements FocusListener{
     private CadastroProdutoListener jInternalListeners = new CadastroProdutoListener(this);
     private MaskFormatter valorFormatter;
     private boolean camposValidos = true;
 
-    public CadastroProdutoJIF(){
+    public CadastroProdutoJIF() {
         initComponents();
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -178,8 +176,8 @@ public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements Fo
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-     public Produto getDadosProduto(){
-        if(validarCampos()){
+    public Produto getDadosProduto() {
+        if (validarCampos()) {
             Produto produto = new Produto();
 
             produto.setReferencia(jTextFieldReferencia.getText());
@@ -187,62 +185,75 @@ public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements Fo
             produto.setDescricao(jTextFieldDescricao.getText());
             produto.setTamanho(jTextFieldTamanho.getText());
             produto.setCor(jTextFieldCor.getText());
-            produto.setGrupo(jComboBoxGrupo.getItemAt(jComboBoxGrupo.getSelectedIndex())); 
+            produto.setGrupo(jComboBoxGrupo.getItemAt(jComboBoxGrupo.getSelectedIndex()));
 
             return produto;
-        }else
+        } else {
             return null;
+        }
     }
 
-    public boolean validarCampos(){
-         camposValidos = true;
-         
-         if(jTextFieldReferencia.getText().equals("")){
-             jLabelReferencia.setForeground(Color.red); 
-             camposValidos = false;
-         }else
-             jLabelReferencia.setForeground(Color.black); 
+    public boolean validarCampos() {
+        camposValidos = true;
 
-         if(jTextFieldValor.getText().equals("")){
-             jLabelValor.setForeground(Color.red); 
-             camposValidos = false;             
-         }else 
-             jLabelValor.setForeground(Color.black); 
+        if (jTextFieldReferencia.getText().equals("")) {
+            jLabelReferencia.setForeground(Color.red);
+            camposValidos = false;
+        } else {
+            jLabelReferencia.setForeground(Color.black);
+        }
 
-         if(jTextFieldDescricao.getText().equals("")){
-             jLabelDescricao.setForeground(Color.red); 
-             camposValidos = false;
-         }else
-             jLabelDescricao.setForeground(Color.black);
-         
-         if(jTextFieldTamanho.getText().equals("")){
-             jLabelTamanho.setForeground(Color.red); 
-             camposValidos = false;
-         }else
-             jLabelTamanho.setForeground(Color.black);
+        if (jTextFieldValor.getText().equals("")) {
+            jLabelValor.setForeground(Color.red);
+            camposValidos = false;
+        } else {
+            jLabelValor.setForeground(Color.black);
+        }
 
-         if(jTextFieldCor.getText().equals("")){
-             jLabelCor.setForeground(Color.red); 
-             camposValidos = false;
-         }else
-             jLabelCor.setForeground(Color.black);
-         
-         if(jComboBoxGrupo.getSelectedIndex() == -1){
-             jLabelGrupo.setForeground(Color.red);
-             camposValidos = false;
-         }else
-             jLabelGrupo.setForeground(Color.black);
+        if (jTextFieldDescricao.getText().equals("")) {
+            jLabelDescricao.setForeground(Color.red);
+            camposValidos = false;
+        } else {
+            jLabelDescricao.setForeground(Color.black);
+        }
 
-         
-         if(!camposValidos){
-             jLabelAviso.setVisible(true);
-         }else
-             jLabelAviso.setVisible(false);
-         
-         return camposValidos;        
+        if (jTextFieldTamanho.getText().equals("")) {
+            jLabelTamanho.setForeground(Color.red);
+            camposValidos = false;
+        } else {
+            jLabelTamanho.setForeground(Color.black);
+        }
+
+        if (jTextFieldCor.getText().equals("")) {
+            jLabelCor.setForeground(Color.red);
+            camposValidos = false;
+        } else {
+            jLabelCor.setForeground(Color.black);
+        }
+
+        if (jComboBoxGrupo.getSelectedIndex() == -1) {
+            jLabelGrupo.setForeground(Color.red);
+            camposValidos = false;
+        } else {
+            jLabelGrupo.setForeground(Color.black);
+        }
+
+        if (!camposValidos) {
+            jLabelAviso.setVisible(true);
+        } else {
+            jLabelAviso.setVisible(false);
+        }
+
+        return camposValidos;
     }
-    
 
+    public void limparCampos() {
+        jTextFieldReferencia.setText("");
+        jTextFieldValor.setText("");
+        jTextFieldDescricao.setText("");
+        jTextFieldTamanho.setText("");
+        jTextFieldCor.setText("");
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelarProduto;
     private javax.swing.JButton jButtonSalvarProduto;
@@ -270,8 +281,9 @@ public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements Fo
 
     @Override
     public void focusLost(FocusEvent e) {
-        if(!camposValidos)
+        if (!camposValidos) {
             validarCampos();
-    } 
+        }
+    }
 
 }

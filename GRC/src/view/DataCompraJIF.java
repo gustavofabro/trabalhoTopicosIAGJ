@@ -1,6 +1,10 @@
 package view;
 
+import bean.Cliente;
+import bean.Venda;
 import java.text.ParseException;
+import java.util.List;
+import java.util.Vector;
 import javax.swing.text.MaskFormatter;
 import listener.DataCompraListener;
 import util.LogEvents;
@@ -18,11 +22,11 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
     private String[] listData;
 
     public String getDataInicial() {
-        return dataInicial;
+        return convertDate(campoDataInicial.getText().split("/"));
     }
 
     public String getDataFinal() {
-        return dataFinal;
+        return convertDate(campoDataFinal.getText().split("/"));
     }
 
     public void apagarCampos() {
@@ -46,20 +50,22 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
     public DataCompraJIF() {
 
         try {
-            dataFormatter = new MaskFormatter("##/##/##");
+            dataFormatter = new MaskFormatter("##/##/####");
             dataFormatter.setPlaceholderCharacter('_');
         } catch (ParseException ex) {
             logEvents.gravarLog(ex.getMessage() + "\n");
         }
 
         initComponents();
-
+        
         campoDataInicial.setActionCommand("campoData");
 //        copiarDataCompra.setActionCommand("copiarDataCompra");
         cancelarDataCompra.setActionCommand("cancelarDataCompra");
         campoDataInicial.addActionListener(listener);
         //      copiarDataCompra.addActionListener(listener);
         cancelarDataCompra.addActionListener(listener);
+        
+        
     }
 
     /**
@@ -99,6 +105,7 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
 
         btnProcurar.setActionCommand("procurarDataCompra");
         btnProcurar.setText("Procurar");
+        btnProcurar.addActionListener(listener);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -168,9 +175,11 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void setIntervalo() {
-        dataInicial = convertDate(campoDataInicial.getText().split("/"));
-        dataFinal = convertDate(campoDataFinal.getText().split("/"));
+    public void setListaDataCompras(List<Venda> lista) {
+        listaDatas.removeAll();
+
+        listaDatas.setListData(
+                new Vector(new Vector(lista)));
     }
 
     public String convertDate(String date[]) {

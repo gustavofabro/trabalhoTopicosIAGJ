@@ -6,6 +6,7 @@ import dao.ProdutoDao;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import view.CadastroProdutoJIF;
+import view.RealizarVendaJIF;
 
 public class CadastroProdutoListener implements ActionListener {
     private CadastroProdutoJIF cadProduto;

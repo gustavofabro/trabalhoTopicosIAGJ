@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import java.awt.Container;
@@ -40,7 +35,7 @@ public class TelaPrincipal extends JFrame implements ActionListener {
 
     private final JDesktopPane deskPane;
     private static JInternalFrame cadClienteIFrame;
-    private final JInternalFrame cadProdutoIFrame;
+    private static JInternalFrame cadProdutoIFrame;
     private final JInternalFrame cadGrupoProdIFrame;
     private final JInternalFrame procurarClienteIFrame;
     private final JInternalFrame procurarProdutoIFrame;
@@ -166,4 +161,7 @@ public class TelaPrincipal extends JFrame implements ActionListener {
         cadClienteIFrame.setVisible(true);
     }
 
+    public static void novoProduto() {
+        cadProdutoIFrame.setVisible(true);
+    }
 }

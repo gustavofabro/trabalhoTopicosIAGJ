@@ -24,14 +24,15 @@ public class VendaDao {
 
         conn = Conexao.getConnection();
 
-        String sql = "insert into vendas (referencia, cpf, date"
-                + "tamanho, cor) values(?,?,?,?,?)";
+        String sql = "insert into venda (id_venda, referencia, cpf, data) "
+                + "values(?,?,?,?)";
 
         try {
             ps = conn.prepareStatement(sql);
-            ps.setString(1, venda.getReferencia());
-            ps.setString(2, venda.getCpf());
-            ps.setString(3, venda.getDate());
+            ps.setInt(1, venda.getIdVenda());
+            ps.setString(2, venda.getReferencia());
+            ps.setString(3, venda.getCpf());
+            ps.setString(4, venda.getDate());
 
             ps.execute();
 
@@ -45,6 +46,9 @@ public class VendaDao {
         } catch (SQLException ex) {
             logEvents.gravarLog("Erro ao realizar venda \n"
                     + ex.getMessage());
+            JOptionPane.showMessageDialog(null,"",
+                    "Erro ao realizar venda", JOptionPane.ERROR_MESSAGE);
+
         } finally {
             if (ps != null) {
                 try {
@@ -112,27 +116,54 @@ public class VendaDao {
         conn = Conexao.getConnection();
 
         try {
-            String sql = "select * from venda where date between (?) and (?)";
+            String sql = "select * from venda where data between ? and ?";
             ps = conn.prepareStatement(sql);
 
             ps.setString(1, dataInicial);
-            ps.setString(1, dataFinal);
+            ps.setString(2, dataFinal);
 
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 Venda venda = new Venda();
-                venda.setReferencia(rs.getString(1));
-                venda.setCpf(rs.getString(2));
-                venda.setDate(rs.getString(3));
-               
+                venda.setIdVenda(rs.getInt(1));
+                venda.setReferencia(rs.getString(2));
+                venda.setCpf(rs.getString(3));
+                venda.setDate(rs.getString(4));
                 lista.add(venda);
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
+            logEvents.gravarLog("Erro ao procurar data compra:\n "
+                    + ex.getMessage());
         }
-        
+
         return lista;
     }
+
+    public int getId() {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        int id = 0;
+
+        conn = Conexao.getConnection();
+
+        try {
+            String sql = "select max(id_venda) from venda";
+
+            ps = conn.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                id = rs.getInt(1);
+            }
+
+        } catch (SQLException ex) {
+            logEvents.gravarLog("Erro: " + ex.getMessage());
+        }
+
+        return id + 1;
+    }
+
 }

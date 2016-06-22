@@ -36,7 +36,7 @@ public class CadastroGrupoProdutoListener implements ActionListener {
                 break;
             case "cancelarNGrupo":
                 cadGrupoProd.setVisible(false);
-
+                cadGrupoProd.limparCampos();
         }
     }
 
