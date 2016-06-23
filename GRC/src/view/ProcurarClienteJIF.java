@@ -18,11 +18,12 @@ import util.LogEvents;
  * @implementation juanvmr
  */
 public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
+
     private LogEvents logEvents = new LogEvents();
 
     private MaskFormatter cpfFormat;
     private ProcurarClienteListener listener;
-    
+
     private Cliente cliente;
     private String[] listNome;
     private String[] listCPF;
@@ -30,98 +31,95 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
     private String auxNome;
     private String auxCPF;
     private String auxCampo;
-    
-    public void apagarCampos(){
-	campoCPF.setText("");
-	campoNome.setText("");
-	listaNomes.removeAll();
-    }
-    
-    public String getNome(){
-	String selection = "Vazio";
-	if(listaNomes.getMaxSelectionIndex() > -1){
-	    selection = listaNomes.getSelectedValue().toString();
-	}
-	
-	return selection;
-    }
-        
-    public void ProcurarNomeCliente(){
-        auxNome = cliente.getNome();
-	auxCampo = campoNome.getText();
-	
-	if(auxNome.contains(auxCampo)){
-	    listNome[listNome.length] = auxNome;
-	}
-	
-	addLista();
-    }
-    
-    public void ProcurarCPFCliente(){
-	auxCPF = cliente.getCpf();
-	auxCampo = campoCPF.getText();
-	
-	if(auxCPF.contains(auxCampo)){
-	    listCPF[listCPF.length] = auxNome;
-	}
-	
-	addLista();
-    }
-    
-    private void addLista(){
-	listaNomes.removeAll();
-	
-	int maxSize = (listCPF.length > listNome.length)
-		    ? listCPF.length
-		    : listNome.length;
-	
-	if(listCPF.length == 0){
-	    listAux = listNome;
-	}
-	else if(listNome.length == 0){
-	    listAux = listCPF;
-	}
-	else{
-	    for (int i = 0; i < maxSize; i++) {
-		if(listAux[i] == null || listNome[i] == null){
-		    break;
-		}
-		
-		if(listAux[i].equals(listNome[i])){
-		    listAux[i] = listNome[i];
-		}
-	    }
-	}
-	
-	listaNomes.setListData(listAux);
-    }
 
     /**
      * Creates new form ProcurarCliente
      */
     public ProcurarClienteJIF() {
-	listener = new ProcurarClienteListener(this);
-	
-	try {
-	    cpfFormat = new MaskFormatter("###.###.###-##");
-	    cpfFormat.setPlaceholderCharacter('_');
-	}
-	catch(ParseException ex) {
-	    logEvents.gravarLog(ex.getMessage());
-	}
-	
+        listener = new ProcurarClienteListener(this);
+
+        try {
+            cpfFormat = new MaskFormatter("###.###.###-##");
+            cpfFormat.setPlaceholderCharacter('_');
+        } catch (ParseException ex) {
+            logEvents.gravarLog(ex.getMessage());
+        }
+
         initComponents();
-	
-	campoNome.setActionCommand("campoNome");
-	campoCPF.setActionCommand("campoCPF");
-	copiarProcurarCliente.setActionCommand("copiarProcurarCliente");
-	cancelarProcurarCliente.setActionCommand("cancelarProcurarCliente");
-	campoNome.addActionListener(listener);
-	campoCPF.addActionListener(listener);
-	copiarProcurarCliente.addActionListener(listener);
-	cancelarProcurarCliente.addActionListener(listener);
+
+        campoNome.setActionCommand("campoNome");
+        campoCPF.setActionCommand("campoCPF");
+        copiarProcurarCliente.setActionCommand("copiarProcurarCliente");
+        cancelarProcurarCliente.setActionCommand("cancelarProcurarCliente");
+        campoNome.addActionListener(listener);
+        campoCPF.addActionListener(listener);
+        copiarProcurarCliente.addActionListener(listener);
+        cancelarProcurarCliente.addActionListener(listener);
     }
-    
+
+    public void limparCampos() {
+        campoCPF.setText("");
+        campoNome.setText("");
+        listaNomes.removeAll();
+    }
+
+    public String getNome() {
+        String selection = "Vazio";
+        if (listaNomes.getMaxSelectionIndex() > -1) {
+            selection = listaNomes.getSelectedValue().toString();
+        }
+
+        return selection;
+    }
+
+    public void ProcurarNomeCliente() {
+        auxNome = cliente.getNome();
+        auxCampo = campoNome.getText();
+
+        if (auxNome.contains(auxCampo)) {
+            listNome[listNome.length] = auxNome;
+        }
+
+        addLista();
+    }
+
+    public void ProcurarCPFCliente() {
+        auxCPF = cliente.getCpf();
+        auxCampo = campoCPF.getText();
+
+        if (auxCPF.contains(auxCampo)) {
+            listCPF[listCPF.length] = auxNome;
+        }
+
+        addLista();
+    }
+
+    private void addLista() {
+        listaNomes.removeAll();
+
+        int maxSize = (listCPF.length > listNome.length)
+                ? listCPF.length
+                : listNome.length;
+
+        if (listCPF.length == 0) {
+            listAux = listNome;
+        } else if (listNome.length == 0) {
+            listAux = listCPF;
+        } else {
+            for (int i = 0; i < maxSize; i++) {
+                if (listAux[i] == null || listNome[i] == null) {
+                    break;
+                }
+
+                if (listAux[i].equals(listNome[i])) {
+                    listAux[i] = listNome[i];
+                }
+            }
+        }
+
+        listaNomes.setListData(listAux);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -174,6 +172,13 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
         jTextField4.setText("jTextField4");
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                formComponentHidden(evt);
+            }
+        });
 
         labelNome.setText("Nome :");
 
@@ -261,6 +266,10 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
+        limparCampos();
+    }//GEN-LAST:event_formComponentHidden
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

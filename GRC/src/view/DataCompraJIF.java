@@ -57,15 +57,14 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
         }
 
         initComponents();
-        
+
         campoDataInicial.setActionCommand("campoData");
 //        copiarDataCompra.setActionCommand("copiarDataCompra");
         cancelarDataCompra.setActionCommand("cancelarDataCompra");
         campoDataInicial.addActionListener(listener);
         //      copiarDataCompra.addActionListener(listener);
         cancelarDataCompra.addActionListener(listener);
-        
-        
+
     }
 
     /**
@@ -91,6 +90,13 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
         btnProcurar = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                formComponentHidden(evt);
+            }
+        });
 
         jLabel1.setText("Data início :");
 
@@ -174,6 +180,16 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
+        limparCampos();
+    }//GEN-LAST:event_formComponentHidden
+
+    public void limparCampos() {
+        campoDataInicial.setText("");
+        campoDataFinal.setText("");
+        listaDatas.removeAll();
+    }
 
     public void setListaDataCompras(List<Venda> lista) {
         listaDatas.removeAll();

@@ -19,7 +19,7 @@ public class RealizarVendaJIF extends javax.swing.JInternalFrame implements Focu
 
     private LogEvents logEvents = new LogEvents();
     private VendaDao dao = new VendaDao();
-    private ProdutoDao daoProd = new ProdutoDao();
+    private static ProdutoDao daoProd = new ProdutoDao();
     private MaskFormatter cpfFormatter;
     private boolean camposValidos = true;
     private RealizarVendaListener jInternalListeners = new RealizarVendaListener(this);
@@ -40,12 +40,13 @@ public class RealizarVendaJIF extends javax.swing.JInternalFrame implements Focu
 
     }
 
-    public void setProdutosComboBox() {
+    public static void setProdutosComboBox() {
         List<String> lista = daoProd.getAll();
-        System.out.println("asd");
+
         for (String l : lista) {
             jComboBoxProdutos.addItem(l);
         }
+        
         jComboBoxProdutos.setSelectedIndex(-1);
 
     }
@@ -116,6 +117,13 @@ public class RealizarVendaJIF extends javax.swing.JInternalFrame implements Focu
         btnNovoProduto = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                formComponentHidden(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Realizar Vendas");
@@ -200,12 +208,16 @@ public class RealizarVendaJIF extends javax.swing.JInternalFrame implements Focu
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
+        limparCampos();
+    }//GEN-LAST:event_formComponentHidden
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNovoProduto;
     private javax.swing.JButton jButtonCancelarVenda;
     private javax.swing.JButton jButtonSalvarVenda;
-    private javax.swing.JComboBox<String> jComboBoxProdutos;
+    private static javax.swing.JComboBox<String> jComboBoxProdutos;
     private javax.swing.JFormattedTextField jFormattedTextFieldCPF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelCPF;

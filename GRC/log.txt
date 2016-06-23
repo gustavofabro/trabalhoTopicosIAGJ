@@ -207,3 +207,19 @@ Attempt to insert null into a non-nullable column: column: REFERENCIA table: VEN
 [2016-06-22 20:22:09] Venda realizada:  Sapato
 [2016-06-22 20:23:59] Login realizado pelo usuario: Loja B
 [2016-06-22 20:24:02] Erro ao realizar venda
+[2016-06-23 07:57:50] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-23 07:59:26] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-23 07:59:26] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-23 08:03:19] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-23 08:03:05] Login realizado pelo usuario: Loja B
+[2016-06-23 08:05:57] Login realizado pelo usuario: Loja B
+[2016-06-23 08:12:09] Login realizado pelo usuario: Loja B
+[2016-06-23 08:18:28] Login realizado pelo usuario: Loja B
+[2016-06-23 08:31:29] Login realizado pelo usuario: Loja B
+[2016-06-23 08:31:46] Cadastrado Cliente: João 
+[2016-06-23 08:31:47] Produto salvo: Bojé
+[2016-06-23 08:31:47] Produto salvo: Lápis

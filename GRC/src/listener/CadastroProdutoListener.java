@@ -26,7 +26,7 @@ public class CadastroProdutoListener implements ActionListener {
                     produto.setId_produto(dao.getId());
                     
                     dao.insert(produto); 
-
+                    RealizarVendaJIF.setProdutosComboBox();
                     cadProduto.setVisible(false);
                 }
 

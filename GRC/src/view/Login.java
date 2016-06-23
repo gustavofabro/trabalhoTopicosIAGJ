@@ -83,6 +83,7 @@ public class Login extends JFrame {
 
     public void validarLogin(String usuarioEntrada, char[] senhaEntrada) {
         if (dao.select(usuarioEntrada, new String(senhaEntrada))) {
+           
             warning.setVisible(false); 
             carregarSistema();
             this.dispose();

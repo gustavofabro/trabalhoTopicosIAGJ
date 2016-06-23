@@ -10,7 +10,7 @@ public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
     private String auxReferencia;
     private String[] listReferencias;
 
-    public void apagarCampos() {
+    public void limparCampos() {
         campoReferencia.setText("");
         listaReferencias.removeAll();
     }
@@ -74,6 +74,14 @@ public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
         jSeparator3 = new javax.swing.JSeparator();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setMaximizable(true);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                formComponentHidden(evt);
+            }
+        });
 
         labelReferencia.setText("Referência :");
 
@@ -148,6 +156,10 @@ public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
     private void copiarProcurarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copiarProcurarProdutoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_copiarProcurarProdutoActionPerformed
+
+    private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
+        limparCampos();
+    }//GEN-LAST:event_formComponentHidden
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

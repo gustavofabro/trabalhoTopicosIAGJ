@@ -34,7 +34,6 @@ public class ProcurarClienteListener implements ActionListener {
 
             case "cancelarProcurarCliente":
                 procurarCliente.setVisible(false);
-                procurarCliente.apagarCampos();
                 //System.out.println(e.paramString().substring(e.paramString().indexOf("cmd=")+4, e.paramString().indexOf(",when=")));
                 break;
 

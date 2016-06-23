@@ -28,7 +28,6 @@ public class ProcurarProdutoListener implements ActionListener {
 
             case "cancelarProcurarProduto":
                 procurarProduto.setVisible(false);
-                procurarProduto.apagarCampos();
                 break;
 
         }

@@ -44,6 +44,13 @@ public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements Fo
         jSeparator2 = new javax.swing.JSeparator();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                formComponentHidden(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Cadastro de Produto");
@@ -176,6 +183,10 @@ public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements Fo
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
+        limparCampos();
+    }//GEN-LAST:event_formComponentHidden
+
     public Produto getDadosProduto() {
         if (validarCampos()) {
             Produto produto = new Produto();
@@ -254,6 +265,7 @@ public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements Fo
         jTextFieldTamanho.setText("");
         jTextFieldCor.setText("");
     }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelarProduto;
     private javax.swing.JButton jButtonSalvarProduto;

@@ -16,6 +16,7 @@ public class LoginDao {
     public boolean select(String login, String senha) {
 
         conn = Conexao.getConnection();
+        
         if (conn != null) {
             try {
                 String sql = "select * from usuario"

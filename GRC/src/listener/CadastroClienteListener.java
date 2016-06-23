@@ -37,7 +37,6 @@ public class CadastroClienteListener implements ActionListener {
                 break;
             case "cancelarCliente":
                 cadCliente.setVisible(false);
-                cadCliente.limparCampos();
                 break;
         }
     }
