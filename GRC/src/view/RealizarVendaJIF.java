@@ -42,6 +42,7 @@ public class RealizarVendaJIF extends javax.swing.JInternalFrame implements Focu
 
     public static void setProdutosComboBox() {
         List<String> lista = daoProd.getAll();
+        jComboBoxProdutos.removeAllItems();
 
         for (String l : lista) {
             jComboBoxProdutos.addItem(l);
@@ -174,7 +175,7 @@ public class RealizarVendaJIF extends javax.swing.JInternalFrame implements Focu
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jFormattedTextFieldCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(42, 105, Short.MAX_VALUE))
+                                .addGap(42, 97, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jComboBoxProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

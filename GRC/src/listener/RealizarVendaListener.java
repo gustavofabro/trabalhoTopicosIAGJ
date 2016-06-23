@@ -27,6 +27,7 @@ public class RealizarVendaListener implements ActionListener {
 
             case "salvarVenda":
                 venda = realizarVenda.getDadoVenda();
+                
                 if (venda != null) {
                     if (dao.cpfIsValido(venda.getCpf())) {
                         venda.setIdVenda(dao.getId()); 
@@ -53,6 +54,7 @@ public class RealizarVendaListener implements ActionListener {
                 
             case "novoProduto":
                 TelaPrincipal.novoProduto();
+                break;
             case "cancelarVenda":
                 realizarVenda.setVisible(false);
                 break;

@@ -1,5 +1,6 @@
 package view;
 
+import dao.Conexao;
 import dao.LoginDao;
 import util.LogEvents;
 import java.awt.Color;
@@ -82,18 +83,21 @@ public class Login extends JFrame {
     }
 
     public void validarLogin(String usuarioEntrada, char[] senhaEntrada) {
-        if (dao.select(usuarioEntrada, new String(senhaEntrada))) {
-           
-            warning.setVisible(false); 
-            carregarSistema();
-            this.dispose();
 
-            gravaUsuario(entradaLogin.getText());
+        if (Conexao.getConnection() != null) {
+            if (dao.select(usuarioEntrada, new String(senhaEntrada))) {
 
-            logEvents.gravarLog("Login realizado pelo usuario: "
-                    + entradaLogin.getText());
-        } else {
-            warning.setVisible(true);
+                warning.setVisible(false);
+                carregarSistema();
+                this.dispose();
+
+                gravaUsuario(entradaLogin.getText());
+
+                logEvents.gravarLog("Login realizado pelo usuario: "
+                        + entradaLogin.getText());
+            } else {
+                warning.setVisible(true);
+            }
         }
     }
 
@@ -132,6 +136,12 @@ public class Login extends JFrame {
         }
 
         return linha;
+    }
+
+    public void setFocusSenha() {
+        if (!entradaLogin.getText().equals("")) {
+            entradaSenha.requestFocusInWindow();
+        }
     }
 
     public void carregarSistema() {

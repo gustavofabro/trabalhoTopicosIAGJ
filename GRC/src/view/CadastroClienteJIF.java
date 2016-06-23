@@ -6,7 +6,10 @@ import util.LogEvents;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.text.MaskFormatter;
 import listener.CadastroClienteListener;
 
@@ -22,6 +25,9 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
     private MaskFormatter dataFormatter;
     private MaskFormatter cepFormatter;
 
+    Date date = new Date();
+    DateFormat formattedDate = new SimpleDateFormat("YYYY-MM-dd");
+    
     public CadastroClienteJIF() {
 
         try {
@@ -408,7 +414,8 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
             cliente.setEstado(jTextFieldEstado.getText());
             cliente.setPais(jTextFieldPais.getText());
             cliente.setCep(jFormattedTextFieldCEP.getText());
-
+            cliente.setDataCadastro(formattedDate.format(date)); 
+            
             return cliente;
         } else {
             return null;

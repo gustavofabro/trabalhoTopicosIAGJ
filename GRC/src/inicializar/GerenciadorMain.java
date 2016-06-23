@@ -12,6 +12,7 @@ public class GerenciadorMain {
         telalogin.setResizable(false);
         telalogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         telalogin.setVisible(true);
-	
+        telalogin.setFocusSenha();
+
     }
 }

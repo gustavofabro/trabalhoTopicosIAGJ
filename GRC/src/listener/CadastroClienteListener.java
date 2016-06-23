@@ -26,7 +26,6 @@ public class CadastroClienteListener implements ActionListener {
                 if (cliente != null) {
 
                     cliente.setId_cliente(dao.getId());
-
                     dao.insert(cliente);
 
                     cadCliente.setVisible(false);

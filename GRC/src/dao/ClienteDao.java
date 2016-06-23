@@ -24,8 +24,8 @@ public class ClienteDao {
 
         String sql = "insert into clientes (id_cliente, nome, sobrenome, cpf, email,"
                 + " sexo, nascimento, rua, bairro, cidade, estado, pais,"
-                + "cep, numCasa, telefone) "
-                + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                + "cep, numCasa, telefone, data_cadastro) "
+                + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try {
             ps = conn.prepareStatement(sql);
@@ -35,7 +35,7 @@ public class ClienteDao {
             ps.setString(4, cliente.getCpf());
             ps.setString(5, cliente.getEmail());
             ps.setString(6, cliente.getSexo());
-            ps.setString(7, convertDate(cliente.getNascimento().split("/")));
+            ps.setString(7, convertDateToDB(cliente.getNascimento().split("/")));
             ps.setString(8, cliente.getRua());
             ps.setString(9, cliente.getBairro());
             ps.setString(10, cliente.getCidade());
@@ -44,10 +44,12 @@ public class ClienteDao {
             ps.setString(13, cliente.getCep());
             ps.setString(14, cliente.getNumCasa());
             ps.setString(15, cliente.getTelefone());
+            ps.setString(16, cliente.getdataCadastro());
+
             ps.execute();
 
             conn.commit();
- 
+
             logEvents.gravarLog("Cadastrado Cliente: "
                     + cliente.getNome());
 
@@ -138,7 +140,7 @@ public class ClienteDao {
             ps.setString(2, cliente.getSobreNome());
             ps.setString(3, cliente.getCpf());
             ps.setString(4, cliente.getSexo());
-            ps.setString(5, convertDate(cliente.getNascimento().split("/"))); 
+            ps.setString(5, convertDateToDB(cliente.getNascimento().split("/")));
             ps.setString(6, cliente.getRua());
             ps.setString(7, cliente.getBairro());
             ps.setString(8, cliente.getCidade());
@@ -183,15 +185,28 @@ public class ClienteDao {
             String sql = "select * from clientes where nascimento = ?";
             ps = conn.prepareStatement(sql);
 
-            ps.setString(1, convertDate(nascimento.split("/")));
- 
+            ps.setString(1, convertDateToDB(nascimento.split("/")));
+
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 Cliente cliente = new Cliente();
                 cliente.setId_cliente(rs.getInt(1));
                 cliente.setNome(rs.getString(2));
-                cliente.setSobreNome(rs.getString(3)); 
+                cliente.setSobreNome(rs.getString(3));
+                cliente.setCpf(rs.getString(4));
+                cliente.setEmail(rs.getString(5));
+                cliente.setSexo(rs.getString(6));
+                cliente.setDataNascimento(rs.getString(7));
+                cliente.setRua(rs.getString(8));
+                cliente.setBairro(rs.getString(9));
+                cliente.setCidade(rs.getString(10));
+                cliente.setEstado(rs.getString(11));
+                cliente.setPais(rs.getString(12));
+                cliente.setCep(rs.getString(13));
+                cliente.setNumCasa(rs.getString(14));
+                cliente.setTelefone(rs.getString(15));
+
                 lista.add(cliente);
             }
 
@@ -226,8 +241,8 @@ public class ClienteDao {
 
         return id + 1;
     }
-    
-    public String convertDate(String date[]){
+
+    public String convertDateToDB(String date[]) {
         return date[2] + "-" + date[1] + "-" + date[0];
     }
 }

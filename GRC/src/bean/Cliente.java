@@ -16,6 +16,7 @@ public class Cliente {
     private String cep;
     private String numCasa;
     private String telefone;
+    private String dataCadastro;
 
     public int getId_cliente() {
         return id_cliente;
@@ -144,6 +145,14 @@ public class Cliente {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+    public String getdataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(String cadastroDato) {
+        this.dataCadastro = cadastroDato;
+    } 
 
     @Override
     public String toString() {
