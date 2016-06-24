@@ -293,3 +293,46 @@ socket creation error
 [2016-06-23 16:14:15] Cadastrado Cliente: Thiago
 [2016-06-23 16:16:30] Login realizado pelo usuario: Loja A
 [2016-06-23 16:16:39] Cadastrado Cliente: Joaquina
+[2016-06-23 21:11:52] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-23 21:11:38] Login realizado pelo usuario: Loja A
+[2016-06-23 21:15:03] Login realizado pelo usuario: Loja A
+[2016-06-23 21:19:52] Login realizado pelo usuario: Loja A
+[2016-06-23 21:27:50] Login realizado pelo usuario: Loja A
+[2016-06-23 21:29:36] Login realizado pelo usuario: Loja A
+[2016-06-23 21:32:30] Login realizado pelo usuario: Loja A
+[2016-06-23 21:33:54] Login realizado pelo usuario: Loja A
+[2016-06-23 21:36:32] Login realizado pelo usuario: Loja A
+[2016-06-24 08:26:38] Login realizado pelo usuario: Loja A
+[2016-06-24 08:26:53] Produto salvo: 01
+[2016-06-24 08:26:54] Venda realizada: 01
+[2016-06-24 08:54:19] Login realizado pelo usuario: Loja A
+[2016-06-24 08:55:36] Login realizado pelo usuario: Loja A
+[2016-06-24 08:55:48] Grupo de Produto salvo: Sapatos
+[2016-06-24 08:55:48] Grupo de Produto salvo: Calças
+[2016-06-24 09:51:16] Login realizado pelo usuario: Loja A
+[2016-06-24 09:51:33] Grupo de Produto salvo: Jóias
+[2016-06-24 13:08:29] Login realizado pelo usuario: Loja A
+[2016-06-24 13:08:46] Erro ao realizar venda
+[2016-06-24 13:08:46] Grupo de Produto salvo: Meias
+[2016-06-24 13:10:36] Login realizado pelo usuario: Loja A
+[2016-06-24 13:10:39] Grupo de Produto salvo: TIpo Especial
+[2016-06-24 13:11:54] Login realizado pelo usuario: Loja A
+[2016-06-24 13:12:44] Login realizado pelo usuario: Loja A
+[2016-06-24 13:14:24] Login realizado pelo usuario: Loja A
+[2016-06-24 13:36:56] Login realizado pelo usuario: Loja A
+[2016-06-24 13:37:44] Login realizado pelo usuario: Loja A
+[2016-06-24 13:40:29] Login realizado pelo usuario: Loja A
+[2016-06-24 13:40:38] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-24 16:34:37] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-24 16:36:43] Login realizado pelo usuario: Loja A
+[2016-06-24 16:36:50] Erro ao procurar data compra:
+ Wrong data type: java.lang.NumberFormatException: For input string: "____"
+[2016-06-24 16:36:50] Erro ao procurar data compra:
+ Wrong data type: java.lang.NumberFormatException: For input string: "____"
+[2016-06-24 16:36:50] Erro ao procurar data compra:
+ Wrong data type: java.lang.NumberFormatException: For input string: "____"
+[2016-06-24 16:38:31] Login realizado pelo usuario: Loja A
+[2016-06-24 16:39:56] Login realizado pelo usuario: Loja A
