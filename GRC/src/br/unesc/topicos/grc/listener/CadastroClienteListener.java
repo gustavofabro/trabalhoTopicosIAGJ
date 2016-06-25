@@ -2,9 +2,13 @@ package br.unesc.topicos.grc.listener;
 
 import br.unesc.topicos.grc.bean.Cliente;
 import br.unesc.topicos.grc.dao.ClienteDao;
+import br.unesc.topicos.grc.exceptions.SistemaException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import br.unesc.topicos.grc.view.CadastroClienteJIF;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class CadastroClienteListener implements ActionListener {
 
@@ -24,17 +28,18 @@ public class CadastroClienteListener implements ActionListener {
 
                 if (cliente != null) {
 
-                    cliente.setId_cliente(dao.getId());
-                    dao.insert(cliente);
+                    try {
+                        dao.insert(cliente);
+                    } catch (SistemaException ex) {
+                        JOptionPane.showMessageDialog(null,
+                                ex.getMessage(), "Erro", JOptionPane.OK_OPTION);
+                    }
 
                     cadCliente.setVisible(false);
                     cadCliente.limparCampos();
 
                 }
 
-                break;
-            case "cancelarCliente":
-                cadCliente.setVisible(false);
                 break;
         }
     }

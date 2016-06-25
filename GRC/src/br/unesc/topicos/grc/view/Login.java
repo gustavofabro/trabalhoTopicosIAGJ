@@ -93,8 +93,8 @@ public class Login extends JFrame {
 
                 gravaUsuario(entradaLogin.getText());
 
-                logEvents.gravarLog("Login realizado pelo usuario: "
-                        + entradaLogin.getText());
+             //   logEvents.gravarLog("Login realizado pelo usuario: "
+              //          + entradaLogin.getText());
             } else {
                 warning.setVisible(true);
             }
@@ -114,7 +114,7 @@ public class Login extends JFrame {
             bufferedWriter.close();
             fileWriter.close();
         } catch (IOException ex) {
-            logEvents.gravarLog(ex.getMessage() + "\n");
+         //   logEvents.gravarLog(ex.getMessage() + "\n");
         }
     }
 

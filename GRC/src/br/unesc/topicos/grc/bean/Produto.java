@@ -1,7 +1,7 @@
 package br.unesc.topicos.grc.bean;
 
 public class Produto {
-     private String grupo;
+    private String grupo;
 
     public void setGrupo(String grupo) {
         this.grupo = grupo;

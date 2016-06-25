@@ -1,6 +1,5 @@
 package br.unesc.topicos.grc.bean;
 
-
 public class GrupoProduto {
     private int idGrupoProduto;
     private String nome;
@@ -20,6 +19,4 @@ public class GrupoProduto {
     public void setIdGrupoProduto(int idGrupoProduto) {
         this.idGrupoProduto = idGrupoProduto;
     }
-
-    
 }

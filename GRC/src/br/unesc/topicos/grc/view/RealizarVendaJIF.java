@@ -32,7 +32,7 @@ public class RealizarVendaJIF extends javax.swing.JInternalFrame implements Focu
             cpfFormatter = new MaskFormatter("###.###.###-##"); // o # representa qualquer número
             cpfFormatter.setPlaceholderCharacter('_');
         } catch (ParseException ex) {
-            logEvents.gravarLog(ex.getMessage());
+           // logEvents.gravarLog(ex.getMessage());
         }
         initComponents();
     }

@@ -29,31 +29,13 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
         return convertDate(campoDataFinal.getText().split("/"));
     }
 
-    public void apagarCampos() {
-        campoDataInicial.setText("");
-        listaDatas.removeAll();
-    }
-
-    public String getCompra() {
-        String selection = "Vazio";
-        if (listaDatas.getMaxSelectionIndex() > -1) {
-            selection = listaDatas.getSelectedValue().toString();
-        }
-
-        return (selection);
-    }
-
-    public void procurarDataCompra() {
-        listaDatas.removeAll();
-    }
-
     public DataCompraJIF() {
 
         try {
             dataFormatter = new MaskFormatter("##/##/####");
             dataFormatter.setPlaceholderCharacter('_');
         } catch (ParseException ex) {
-            logEvents.gravarLog(ex.getMessage() + "\n");
+          //  logEvents.gravarLog(ex.getMessage() + "\n");
         }
 
         initComponents();

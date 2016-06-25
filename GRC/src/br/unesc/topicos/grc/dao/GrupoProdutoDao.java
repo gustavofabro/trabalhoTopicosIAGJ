@@ -1,7 +1,7 @@
 package br.unesc.topicos.grc.dao;
 
 import br.unesc.topicos.grc.bean.GrupoProduto;
-import br.unesc.topicos.grc.bean.Produto;
+import br.unesc.topicos.grc.exceptions.SistemaException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,9 +17,12 @@ public class GrupoProdutoDao {
 
     private LogEvents logEvents = new LogEvents();
 
-    public void insert(GrupoProduto grupo) {
+    public void insert(GrupoProduto grupo) throws SistemaException {
+        verificaGrupo(grupo.getNome());
         Connection conn = null;
         PreparedStatement ps = null;
+
+        grupo.setIdGrupoProduto(getId());
 
         conn = Conexao.getConnection();
 
@@ -34,23 +37,21 @@ public class GrupoProdutoDao {
 
             conn.commit();
 
-            logEvents.gravarLog("Grupo de Produto salvo: "
-                    + grupo.getNome());
-
+            // logEvents.gravarLog("Grupo de Produto salvo: "
+            //         + grupo.getNome());
             JOptionPane.showMessageDialog(null, "Grupo de Produto cadastrado com sucesso!");
 
         } catch (SQLException e) {
             System.out.println("ERRO: " + e.getMessage());
 
-            logEvents.gravarLog("Erro ao salvar Grupo de Produto: "
-                    + grupo.getNome() + "\nErro: "
-                    + e.getMessage());
-
+            //   logEvents.gravarLog("Erro ao salvar Grupo de Produto: "
+            //          + grupo.getNome() + "\nErro: "
+            //             + e.getMessage());
             if (conn != null) {
                 try {
                     conn.rollback();
                 } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
+                    //   logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
 
@@ -73,12 +74,11 @@ public class GrupoProdutoDao {
 
     }
 
-    
     public List<String> getAll() {
         List<String> lista = new ArrayList<String>();
         Connection conn = null;
         PreparedStatement ps = null;
-        
+
         try {
             conn = Conexao.getConnection();
             String sql = "select * from grupo";
@@ -89,27 +89,67 @@ public class GrupoProdutoDao {
                 lista.add(rs.getString(2));
             }
         } catch (SQLException e) {
-            logEvents.gravarLog("Erro ao recuperar grupo de produtos do banco: \n"
-                    + e.getMessage());
+            //   logEvents.gravarLog("Erro ao recuperar grupo de produtos do banco: \n"
+            //          + e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (SQLException ex) {
-                   logEvents.gravarLog("Erro interno no banco" + ex.getMessage());
+                    //  logEvents.gravarLog("Erro interno no banco" + ex.getMessage());
                 }
             }
             if (conn != null) {
                 try {
                     conn.close();
                 } catch (SQLException ex) {
-                   logEvents.gravarLog("Erro interno no banco" + ex.getMessage());
+                    //  logEvents.gravarLog("Erro interno no banco" + ex.getMessage());
                 }
             }
         }
         return lista;
     }
-    
+
+    private void verificaGrupo(String nome) throws SistemaException {
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        conn = Conexao.getConnection();
+
+        try {
+            String sql = "select * from grupo where nome = ?";
+
+            ps = conn.prepareStatement(sql);
+
+            ps.setString(1, nome);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                throw new SistemaException("Grupo de Produto já cadastrado");
+            }
+
+        } catch (SQLException ex) {
+            //logEvents.gravarLog("Erro ao validar Referencia: " + ex.getMessage());
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    //logEvents.gravarLog("Erro: " + ex.getMessage());
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    //logEvents.gravarLog("Erro: " + ex.getMessage());
+                }
+            }
+        }
+    }
+
     public int getId() {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -127,10 +167,12 @@ public class GrupoProdutoDao {
 
             while (rs.next()) {
                 id = rs.getInt(1);
+
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClienteDao.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
 
         return id + 1;

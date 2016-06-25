@@ -22,16 +22,6 @@ public class AniversarioListener implements ActionListener {
                     setListaAniversariantes(
                             dao.pesquisaAniversario(buscaAniver.getAniversario()));
             break;
-            
-	    case "copiarPesquisaAniversario":
-		if(!buscaAniver.getAniversario().isEmpty()){
-		}
-		break;
-		
-	    case "cancelar":
-		buscaAniver.setVisible(false);
-		buscaAniver.limparCampos();
-		break;
         }
     }
 }

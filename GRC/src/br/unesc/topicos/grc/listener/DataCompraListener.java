@@ -23,20 +23,6 @@ public class DataCompraListener implements ActionListener {
                     dao.getVendaInDate(dataCompra.getDataInicial(),
                                dataCompra.getDataFinal())
                 );
-
-            case "campoData":
-                dataCompra.procurarDataCompra();
-                break;
-
-            case "copiarDataCompra":
-                if (!dataCompra.getCompra().isEmpty()) {
-                }
-                break;
-
-            case "cancelarDataCompra":
-                dataCompra.setVisible(false);
-                dataCompra.apagarCampos();
-                break;
         }
     }
 }

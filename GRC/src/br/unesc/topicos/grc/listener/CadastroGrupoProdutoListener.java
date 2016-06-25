@@ -2,16 +2,19 @@ package br.unesc.topicos.grc.listener;
 
 import br.unesc.topicos.grc.bean.GrupoProduto;
 import br.unesc.topicos.grc.dao.GrupoProdutoDao;
+import br.unesc.topicos.grc.exceptions.SistemaException;
 import br.unesc.topicos.grc.util.LogEvents;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import br.unesc.topicos.grc.view.CadastroGrupoProdutoJIF;
+import javax.swing.JOptionPane;
 
 public class CadastroGrupoProdutoListener implements ActionListener {
+
     private CadastroGrupoProdutoJIF cadGrupoProd;
     private GrupoProdutoDao dao = new GrupoProdutoDao();
     private GrupoProduto grupoProduto;
-    
+
     public CadastroGrupoProdutoListener(CadastroGrupoProdutoJIF cadGrupoProd) {
         this.cadGrupoProd = cadGrupoProd;
     }
@@ -22,17 +25,19 @@ public class CadastroGrupoProdutoListener implements ActionListener {
             case "salvarNGrupo":
                 grupoProduto = cadGrupoProd.getDadoGrupoProduto();
                 if (grupoProduto != null) {
-                    grupoProduto.setIdGrupoProduto(dao.getId()); 
-                    dao.insert(grupoProduto); 
-                 //   logEvents.gravarLog("Salvo Grupo de Produtos: " 
-                 //           + grupoProduto.getNome());
-                 
+                    try {
+                        dao.insert(grupoProduto);
+                    } catch (SistemaException ex) {
+                        JOptionPane.showMessageDialog(null,
+                                ex.getMessage(), "Erro", JOptionPane.OK_OPTION);
+                    }
+
+//   logEvents.gravarLog("Salvo Grupo de Produtos: " 
+                    //           + grupoProduto.getNome());
                     cadGrupoProd.setVisible(false);
                 }
                 break;
-            case "cancelarNGrupo":
-                cadGrupoProd.setVisible(false);
-                cadGrupoProd.limparCampos();
+
         }
     }
 

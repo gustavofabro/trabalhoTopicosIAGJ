@@ -16,19 +16,7 @@ public class ProcurarProdutoListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
-            case "campoReferencia":
-                procurarProduto.ProcurarReferencia();
-                break;
-
-            case "copiarProcurarProduto":
-                if (!procurarProduto.getReferencia().isEmpty()) {
-                }
-                break;
-
-            case "cancelarProcurarProduto":
-                procurarProduto.setVisible(false);
-                break;
-
+           
         }
     }
 }

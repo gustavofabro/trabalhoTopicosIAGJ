@@ -37,7 +37,7 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
             cpfFormat = new MaskFormatter("###.###.###-##");
             cpfFormat.setPlaceholderCharacter('_');
         } catch (ParseException ex) {
-            logEvents.gravarLog(ex.getMessage());
+           // logEvents.gravarLog(ex.getMessage());
         }
 
         initComponents();
@@ -56,63 +56,6 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
         campoCPF.setText("");
         campoNome.setText("");
         listaNomes.removeAll();
-    }
-
-    public String getNome() {
-        String selection = "Vazio";
-        if (listaNomes.getMaxSelectionIndex() > -1) {
-            selection = listaNomes.getSelectedValue().toString();
-        }
-
-        return selection;
-    }
-
-    public void ProcurarNomeCliente() {
-        auxNome = cliente.getNome();
-        auxCampo = campoNome.getText();
-
-        if (auxNome.contains(auxCampo)) {
-            listNome[listNome.length] = auxNome;
-        }
-
-        addLista();
-    }
-
-    public void ProcurarCPFCliente() {
-        auxCPF = cliente.getCpf();
-        auxCampo = campoCPF.getText();
-
-        if (auxCPF.contains(auxCampo)) {
-            listCPF[listCPF.length] = auxNome;
-        }
-
-        addLista();
-    }
-
-    private void addLista() {
-        listaNomes.removeAll();
-
-        int maxSize = (listCPF.length > listNome.length)
-                ? listCPF.length
-                : listNome.length;
-
-        if (listCPF.length == 0) {
-            listAux = listNome;
-        } else if (listNome.length == 0) {
-            listAux = listCPF;
-        } else {
-            for (int i = 0; i < maxSize; i++) {
-                if (listAux[i] == null || listNome[i] == null) {
-                    break;
-                }
-
-                if (listAux[i].equals(listNome[i])) {
-                    listAux[i] = listNome[i];
-                }
-            }
-        }
-
-        listaNomes.setListData(listAux);
     }
 
     /**

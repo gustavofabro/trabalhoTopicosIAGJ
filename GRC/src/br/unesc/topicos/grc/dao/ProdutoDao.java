@@ -1,6 +1,7 @@
 package br.unesc.topicos.grc.dao;
 
 import br.unesc.topicos.grc.bean.Produto;
+import br.unesc.topicos.grc.exceptions.SistemaException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,9 +17,13 @@ public class ProdutoDao {
 
     private LogEvents logEvents = new LogEvents();
 
-    public void insert(Produto produto) {
+    public void insert(Produto produto) throws SistemaException {
+        verificaReferencia(produto.getReferencia());
+
         Connection conn = null;
         PreparedStatement ps = null;
+
+        produto.setId_produto(getId());
 
         conn = Conexao.getConnection();
 
@@ -38,23 +43,21 @@ public class ProdutoDao {
 
             conn.commit();
 
-            logEvents.gravarLog("Produto salvo: "
-                    + produto.getReferencia());
-
+            //   logEvents.gravarLog("Produto salvo: "
+            //          + produto.getReferencia());
             JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
 
         } catch (SQLException e) {
             System.out.println("ERRO: " + e.getMessage());
 
-            logEvents.gravarLog("Erro ao salvar Produto: "
-                    + produto.getReferencia() + "\nErro: "
-                    + e.getMessage());
-
+            // logEvents.gravarLog("Erro ao salvar Produto: "
+            //         + produto.getReferencia() + "\nErro: "
+            //         + e.getMessage());
             if (conn != null) {
                 try {
                     conn.rollback();
                 } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
+                    //   logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
 
@@ -75,6 +78,45 @@ public class ProdutoDao {
             }
         }
 
+    }
+
+    private void verificaReferencia(String referencia) throws SistemaException {
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        conn = Conexao.getConnection();
+
+        try {
+            String sql = "select * from produto where referencia = ?";
+
+            ps = conn.prepareStatement(sql);
+
+            ps.setString(1, referencia);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                throw new SistemaException("Produto já cadastrado");
+            }
+
+        } catch (SQLException ex) {
+            //logEvents.gravarLog("Erro ao validar Referencia: " + ex.getMessage());
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    //logEvents.gravarLog("Erro: " + ex.getMessage());
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    //logEvents.gravarLog("Erro: " + ex.getMessage());
+                }
+            }
+        }
     }
 
     public void delete(Produto produto) {
@@ -131,25 +173,24 @@ public class ProdutoDao {
 
             ps.execute();
 
-            logEvents.gravarLog("Dados do produto " + produto.getReferencia()
-                    + " atualizados");
-
+            // logEvents.gravarLog("Dados do produto " + produto.getReferencia()
+            //         + " atualizados");
         } catch (SQLException ex) {
-            logEvents.gravarLog("Erro: " + ex.getMessage());
+            //       logEvents.gravarLog("Erro: " + ex.getMessage());
 
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
+                    //  logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
             if (conn != null) {
                 try {
                     conn.close();
                 } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
+                    //   logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
         }
@@ -159,7 +200,7 @@ public class ProdutoDao {
         List<String> lista = new ArrayList<String>();
         Connection conn = null;
         PreparedStatement ps = null;
-        
+
         try {
             conn = Conexao.getConnection();
             String sql = "select * from produto";
@@ -170,27 +211,27 @@ public class ProdutoDao {
                 lista.add(rs.getString(1) + " - " + rs.getString(2));
             }
         } catch (SQLException e) {
-            logEvents.gravarLog("Erro ao recuperar produtos do banco: \n"
-                    + e.getMessage());
+            //   logEvents.gravarLog("Erro ao recuperar produtos do banco: \n"
+            //          + e.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (SQLException ex) {
-                   logEvents.gravarLog("Erro interno no banco" + ex.getMessage());
+                    //   logEvents.gravarLog("Erro interno no banco" + ex.getMessage());
                 }
             }
             if (conn != null) {
                 try {
                     conn.close();
                 } catch (SQLException ex) {
-                   logEvents.gravarLog("Erro interno no banco" + ex.getMessage());
+                    //   logEvents.gravarLog("Erro interno no banco" + ex.getMessage());
                 }
             }
         }
         return lista;
     }
-    
+
     public int getId() {
         Connection conn = null;
         PreparedStatement ps = null;

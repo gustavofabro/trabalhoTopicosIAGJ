@@ -3,7 +3,7 @@ package br.unesc.topicos.grc.listener;
 import br.unesc.topicos.grc.util.LogEvents;
 import br.unesc.topicos.grc.bean.Venda;
 import br.unesc.topicos.grc.dao.VendaDao;
-import br.unesc.topicos.grc.exceptions.ReferenciaInvalidaException;
+import br.unesc.topicos.grc.exceptions.SistemaException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -31,31 +31,15 @@ public class RealizarVendaListener implements ActionListener {
                 if (venda != null) {
                    
                     try{
-                        dao.referenciaIsValida(venda.getReferencia());
-                            
-                        if (dao.cpfIsValido(venda.getCpf())) {
-                            venda.setIdVenda(dao.getId());
-
-                            dao.insert(venda);
-
-                            realizarVenda.setVisible(false);
-                        } else {
-                            int opt = JOptionPane.showConfirmDialog(null,
-                                    "Ciente não cadastrado no sistema."
-                                  + "Cadastrar novo cliente?",
-                                    "CPF inválido", JOptionPane.YES_NO_OPTION);
-
-                            if (opt == 0) {
-                                TelaPrincipal.novoCadastro();
-                            }
-                        }
-                    } catch(ReferenciaInvalidaException ex){
+                        dao.insert(venda);
+                        realizarVenda.setVisible(false);
+                    } catch(SistemaException ex){
                           JOptionPane.showMessageDialog(null,
-                                 ex.getMessage(), "", JOptionPane.YES_NO_OPTION);
+                                 ex.getMessage(), "", JOptionPane.OK_OPTION);
                     }
-                    
+                     
                 } else {
-                    logEvents.gravarLog("Erro ao realizar venda");
+                   // logEvents.gravarLog("Erro ao realizar venda");
                 }
 
                 break;

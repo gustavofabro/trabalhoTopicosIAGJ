@@ -10,10 +10,10 @@ import java.util.Date;
 public class LogEvents {
     private String log = "";
     
-    Date date = new Date();
-    DateFormat formattedDate = new SimpleDateFormat("[YYYY-MM-dd HH:mm:ss] ");
+    private Date date = new Date();
+    private DateFormat formattedDate = new SimpleDateFormat("[YYYY-MM-dd HH:mm:ss] ");
     
-    public void gravarLog(String log) {
+    public void gravarLog(String log) throws IOException {
         this.log = (formattedDate.format(date) + log + "\n");
         
         FileWriter fileWriter = null;
@@ -26,24 +26,24 @@ public class LogEvents {
             bufferedWriter.flush();
 
             System.out.println("Log salvo com sucesso");
-        } catch (IOException ex) {
-            System.out.println("Erro ao salvar o log: " + ex.getMessage());
+//        } catch (IOException ex) {
+//            System.out.println("Erro ao salvar o log: " + ex.getMessage());
         } finally {
             if (bufferedWriter != null) {
-                try {
+//                try {
                     bufferedWriter.close();
-                } catch (IOException ex) {
-                    System.out.println("Erro ao salvar o log: "
-                            + ex.getMessage());
-                }
+//                } catch (IOException ex) {
+//                    System.out.println("Erro ao salvar o log: "
+//                            + ex.getMessage());
+//                }
             }
             if (fileWriter != null) {
-                try {
+//                try {
                     fileWriter.close();
-                } catch (IOException ex) {
-                    System.out.println("Erro ao salvar o log: "
-                            + ex.getMessage());
-                }
+//                } catch (IOException ex) {
+//                    System.out.println("Erro ao salvar o log: "
+//                            + ex.getMessage());
+//                }
             }
         }
     }

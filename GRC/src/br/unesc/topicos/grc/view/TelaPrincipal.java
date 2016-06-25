@@ -32,7 +32,7 @@ public class TelaPrincipal extends JFrame implements ActionListener {
     private final JMenuItem dataCompra;
     private final JMenuItem sobre;
 
-    private Container c;
+    private final Container c;
 
     private final JDesktopPane deskPane;
     private static JInternalFrame cadClienteIFrame;

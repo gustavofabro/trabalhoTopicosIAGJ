@@ -4,7 +4,7 @@ import br.unesc.topicos.grc.bean.Produto;
 import br.unesc.topicos.grc.listener.ProcurarProdutoListener;
 
 public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
-    private ProcurarProdutoListener listener;
+    private final ProcurarProdutoListener listener;
 
     private Produto produto;
     private String auxReferencia;
@@ -15,31 +15,6 @@ public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
         listaReferencias.removeAll();
     }
 
-    public String getReferencia() {
-        String selection = "Vazio";
-        if (listaReferencias.getMaxSelectionIndex() > -1) {
-            selection = listaReferencias.getSelectedValue().toString();
-        }
-
-        return (selection);
-    }
-
-    public void ProcurarReferencia() {
-        listaReferencias.removeAll();
-
-        auxReferencia = campoReferencia.getText();
-        for (int i = 0; i < 10; i++) {
-            if (produto.getReferencia().contains(auxReferencia)) {
-                listReferencias[i] = produto.getReferencia();
-            }
-        }
-
-        listaReferencias.setListData(listReferencias);
-    }
-
-    /**
-     * Creates new form ProcurarProduto
-     */
     public ProcurarProdutoJIF() {
         listener = new ProcurarProdutoListener(this);
 
