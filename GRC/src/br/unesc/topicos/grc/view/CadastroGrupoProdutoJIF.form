@@ -28,15 +28,13 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="jButtonSalvarGrupo" min="-2" pref="95" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButtonCancelarGrupo" min="-2" pref="92" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabelGrupo" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -47,8 +45,8 @@
                               <Component id="jSeparator1" min="-2" pref="97" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jSeparator2" min="-2" pref="109" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jSeparator2" min="-2" pref="115" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -72,11 +70,8 @@
                   <Component id="jLabelGrupo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextFieldGrupo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButtonCancelarGrupo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonSalvarGrupo" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jButtonSalvarGrupo" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -106,14 +101,6 @@
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jButtonSalvarGrupo.addActionListener(jInternalListeners);&#xa;jButtonSalvarGrupo.setActionCommand(&quot;salvarNGrupo&quot;);"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButtonCancelarGrupo">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cancelar"/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jButtonCancelarGrupo.addActionListener(jInternalListeners);&#xa;jButtonCancelarGrupo.setActionCommand(&quot;cancelarNGrupo&quot;);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator2">

@@ -9,8 +9,8 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
   </SyntheticProperties>
   <Events>
-    <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="formComponentShown"/>
     <EventHandler event="componentHidden" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="formComponentHidden"/>
+    <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="formComponentShown"/>
   </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -40,10 +40,8 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="jLabelAviso" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="jButtonSalvarProduto" min="-2" pref="95" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButtonCancelarProduto" min="-2" pref="101" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -87,10 +85,10 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -127,9 +125,8 @@
                   <Component id="jLabelGrupo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jComboBoxGrupo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="20" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButtonCancelarProduto" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonSalvarProduto" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelAviso" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -210,14 +207,6 @@
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jTextFieldCor.addFocusListener(this);"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonCancelarProduto">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cancelar"/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jButtonCancelarProduto.addActionListener(jInternalListeners);&#xa;jButtonCancelarProduto.setActionCommand(&quot;cancelarProduto&quot;);"/>
-      </AuxValues>
-    </Component>
     <Component class="javax.swing.JButton" name="jButtonSalvarProduto">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salvar"/>
@@ -231,7 +220,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="*Preencha todos os campos "/>
+        <Property name="text" type="java.lang.String" value="*Todos os campos s&#xe3;o obrigat&#xf3;rios"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jLabelAviso.setVisible(false);"/>

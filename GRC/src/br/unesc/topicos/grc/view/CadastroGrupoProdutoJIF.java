@@ -22,7 +22,6 @@ public class CadastroGrupoProdutoJIF extends javax.swing.JInternalFrame {
         jLabelGrupo = new javax.swing.JLabel();
         jTextFieldGrupo = new javax.swing.JTextField();
         jButtonSalvarGrupo = new javax.swing.JButton();
-        jButtonCancelarGrupo = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
 
         setClosable(true);
@@ -42,21 +41,15 @@ public class CadastroGrupoProdutoJIF extends javax.swing.JInternalFrame {
         jButtonSalvarGrupo.addActionListener(jInternalListeners);
         jButtonSalvarGrupo.setActionCommand("salvarNGrupo");
 
-        jButtonCancelarGrupo.setText("Cancelar");
-        jButtonCancelarGrupo.addActionListener(jInternalListeners);
-        jButtonCancelarGrupo.setActionCommand("cancelarNGrupo");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonSalvarGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonCancelarGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButtonSalvarGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -69,8 +62,8 @@ public class CadastroGrupoProdutoJIF extends javax.swing.JInternalFrame {
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -86,10 +79,8 @@ public class CadastroGrupoProdutoJIF extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelGrupo)
                     .addComponent(jTextFieldGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonCancelarGrupo)
-                    .addComponent(jButtonSalvarGrupo))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonSalvarGrupo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -128,7 +119,6 @@ public class CadastroGrupoProdutoJIF extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCancelarGrupo;
     private javax.swing.JButton jButtonSalvarGrupo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelGrupo;
