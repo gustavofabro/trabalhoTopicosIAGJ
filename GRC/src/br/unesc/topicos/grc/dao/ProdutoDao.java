@@ -43,21 +43,21 @@ public class ProdutoDao {
 
             conn.commit();
 
-            //   logEvents.gravarLog("Produto salvo: "
-            //          + produto.getReferencia());
+            logEvents.gravarLog("Produto salvo: "
+                    + produto.getReferencia());
             JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
 
         } catch (SQLException e) {
             System.out.println("ERRO: " + e.getMessage());
 
-            // logEvents.gravarLog("Erro ao salvar Produto: "
-            //         + produto.getReferencia() + "\nErro: "
-            //         + e.getMessage());
+            logEvents.gravarLog("Erro ao salvar Produto: "
+                    + produto.getReferencia() + "\nErro: "
+                    + e.getMessage());
             if (conn != null) {
                 try {
                     conn.rollback();
                 } catch (SQLException ex) {
-                    //   logEvents.gravarLog("Erro: " + ex.getMessage());
+                      logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
 
@@ -173,29 +173,75 @@ public class ProdutoDao {
 
             ps.execute();
 
-            // logEvents.gravarLog("Dados do produto " + produto.getReferencia()
-            //         + " atualizados");
+            logEvents.gravarLog("Dados do produto " + produto.getReferencia()
+                     + " atualizados");
         } catch (SQLException ex) {
-            //       logEvents.gravarLog("Erro: " + ex.getMessage());
-
+                 logEvents.gravarLog("Erro: " + ex.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (SQLException ex) {
-                    //  logEvents.gravarLog("Erro: " + ex.getMessage());
+                    logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
             if (conn != null) {
                 try {
                     conn.close();
                 } catch (SQLException ex) {
-                    //   logEvents.gravarLog("Erro: " + ex.getMessage());
+                     logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
         }
     }
 
+     public Produto selectProduto(String referencia) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        try {
+            conn = Conexao.getConnection();
+            String sql = "select * from produto where referencia = ?";
+          
+            ps = conn.prepareStatement(sql);
+
+            ps.setString(1, referencia); 
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                Produto produto = new Produto();
+                
+                produto.setReferencia(rs.getString(2));
+                produto.setDescricao(rs.getString(3));
+                produto.setValor(rs.getDouble(4));
+                produto.setTamanho(rs.getString(5));
+                produto.setCor(rs.getString(6));
+                
+                return produto;
+            }
+        } catch (SQLException e) {
+               logEvents.gravarLog("Erro ao recuperar produto do banco: \n"
+                      + e.getMessage());
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logEvents.gravarLog("Erro interno no banco" + ex.getMessage());
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    logEvents.gravarLog("Erro interno no banco" + ex.getMessage());
+                }
+            }
+        }
+        return null;
+    }
+    
     public List<String> getAll() {
         List<String> lista = new ArrayList<String>();
         Connection conn = null;

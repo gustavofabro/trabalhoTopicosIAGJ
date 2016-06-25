@@ -38,7 +38,7 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
             cepFormatter = new MaskFormatter("#####-###");
             cepFormatter.setPlaceholderCharacter('_');
         } catch (ParseException ex) {
-         //   logEvents.gravarLog(ex.getMessage() + "\n");
+            logEvents.gravarLog(ex.getMessage() + "\n");
         }
 
         initComponents();
@@ -473,13 +473,6 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
             camposValidos = false;
         } else {
             jLabelCPF.setForeground(Color.black);
-        }
-
-        if (jLabelEmail.getText().equals("")) {
-            jLabelEmail.setForeground(Color.red);
-            camposValidos = false;
-        } else {
-            jLabelEmail.setForeground(Color.black);
         }
 
         if (jFormattedTextFieldNasc.getValue() == null) {

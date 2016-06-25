@@ -93,10 +93,11 @@ public class Login extends JFrame {
 
                 gravaUsuario(entradaLogin.getText());
 
-             //   logEvents.gravarLog("Login realizado pelo usuario: "
-              //          + entradaLogin.getText());
+                logEvents.gravarLog("Login realizado pelo usuario: "
+                       + entradaLogin.getText());
             } else {
                 warning.setVisible(true);
+                entradaSenha.setText(""); 
             }
         }
     }

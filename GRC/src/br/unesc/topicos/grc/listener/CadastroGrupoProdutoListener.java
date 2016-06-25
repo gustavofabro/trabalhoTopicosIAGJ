@@ -31,9 +31,7 @@ public class CadastroGrupoProdutoListener implements ActionListener {
                         JOptionPane.showMessageDialog(null,
                                 ex.getMessage(), "Erro", JOptionPane.OK_OPTION);
                     }
-
-//   logEvents.gravarLog("Salvo Grupo de Produtos: " 
-                    //           + grupoProduto.getNome());
+                    
                     cadGrupoProd.setVisible(false);
                 }
                 break;

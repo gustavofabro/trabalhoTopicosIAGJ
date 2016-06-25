@@ -349,3 +349,65 @@ S1000 General error java.lang.RuntimeException: database alias does not exist
 [2016-06-24 19:23:36] Problemas ao conectar no banco de dados
 S1000 General error java.lang.RuntimeException: database alias does not exist
 [2016-06-24 19:23:27] Login realizado pelo usuario: Loja A
+[2016-06-25 11:47:30] Login realizado pelo usuario: Gustavo
+[2016-06-25 11:49:16] Login realizado pelo usuario: Gustavo
+[2016-06-25 11:50:17] Login realizado pelo usuario: Gustavo
+[2016-06-25 11:53:57] Login realizado pelo usuario: Gustavo
+[2016-06-25 11:56:00] Login realizado pelo usuario: Gustavo
+[2016-06-25 12:08:15] Login realizado pelo usuario: Gustavo
+[2016-06-25 12:09:15] Login realizado pelo usuario: Gustavo
+[2016-06-25 12:09:24] Login realizado pelo usuario: Gustavo
+[2016-06-25 12:09:55] Login realizado pelo usuario: Gustavo
+[2016-06-25 12:10:28] Login realizado pelo usuario: Gustavo
+[2016-06-25 12:10:53] Login realizado pelo usuario: Gustavo
+[2016-06-25 12:12:30] Login realizado pelo usuario: Gustavo
+[2016-06-25 12:13:01] Login realizado pelo usuario: Gustavo
+[2016-06-25 12:13:04] Erro ao procurar aniversário: 
+Table not found in statement [select * from clieantes where nascimento like ?]
+[2016-06-25 13:47:18] Login realizado pelo usuario: Gustavo
+[2016-06-25 13:47:23] Erro ao procurar aniversário: 
+Table not found in statement [select * from clieantes where nascimento like ?]
+[2016-06-25 13:48:13] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:00:08] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:00:57] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:03:11] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:05:09] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:07:32] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:18:02] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:18:29] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:24:19] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:26:38] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:31:11] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:32:50] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:35:39] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:36:01] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:38:27] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:41:01] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:41:50] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:43:50] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:44:08] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:44:33] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:44:53] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:45:17] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:45:42] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:48:32] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:53:49] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:57:33] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:59:04] Login realizado pelo usuario: Gustavo
+[2016-06-25 14:59:54] Login realizado pelo usuario: Gustavo
+[2016-06-25 15:03:11] Login realizado pelo usuario: Gustavo
+[2016-06-25 15:03:31] Erro ao procurar data compra:
+ Wrong data type: java.lang.IllegalArgumentException
+[2016-06-25 15:18:05] Login realizado pelo usuario: Gustavo
+[2016-06-25 16:43:13] Login realizado pelo usuario: Gustavo
+[2016-06-25 16:44:43] Login realizado pelo usuario: Gustavo
+[2016-06-25 16:50:30] Login realizado pelo usuario: Gustavo
+[2016-06-25 16:52:03] Login realizado pelo usuario: Gustavo
+[2016-06-25 16:54:06] Login realizado pelo usuario: Gustavo
+[2016-06-25 16:56:03] Login realizado pelo usuario: Gustavo
+[2016-06-25 16:59:02] Login realizado pelo usuario: Gustavo
+[2016-06-25 16:59:06] Produto salvo: 02
+[2016-06-25 17:01:45] Login realizado pelo usuario: Gustavo
+[2016-06-25 17:02:23] Login realizado pelo usuario: Gustavo
+[2016-06-25 17:02:28] Venda realizada: 02
+[2016-06-25 17:05:14] Login realizado pelo usuario: Gustavo

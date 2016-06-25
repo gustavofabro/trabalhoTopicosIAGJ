@@ -20,9 +20,9 @@ public class VendaDao {
     public void insert(Venda venda) throws SistemaException {
         verificaReferencia(venda.getReferencia());
         verificaCpf(venda.getCpf());
-        
-        venda.setIdVenda(getId()); 
-        
+
+        venda.setIdVenda(getId());
+
         Connection conn = null;
         PreparedStatement ps = null;
 
@@ -42,13 +42,14 @@ public class VendaDao {
 
             conn.commit();
 
-//            logEvents.gravarLog("Venda realizada: "
-//                    + venda.getReferencia());
+            logEvents.gravarLog("Venda realizada: "
+                    + venda.getReferencia());
             JOptionPane.showMessageDialog(null, "Venda realizada com sucesso!");
 
         } catch (SQLException ex) {
-            // logEvents.gravarLog("Erro ao realizar venda \n"
-            //        + ex.getMessage());
+            logEvents.gravarLog("Erro ao realizar venda \n"
+                    + ex.getMessage());
+
             JOptionPane.showMessageDialog(null, "",
                     "Erro ao realizar venda", JOptionPane.ERROR_MESSAGE);
 
@@ -57,14 +58,14 @@ public class VendaDao {
                 try {
                     ps.close();
                 } catch (SQLException ex) {
-                    //  logEvents.gravarLog("Erro: " + ex.getMessage());
+                    logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
             if (conn != null) {
                 try {
                     conn.close();
                 } catch (SQLException ex) {
-                    // logEvents.gravarLog("Erro: " + ex.getMessage());
+                    logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
         }
@@ -91,20 +92,20 @@ public class VendaDao {
             }
 
         } catch (SQLException ex) {
-            //logEvents.gravarLog("Erro ao validar CPF: " + ex.getMessage());
+            logEvents.gravarLog("Erro ao validar CPF: " + ex.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (SQLException ex) {
-                    //logEvents.gravarLog("Erro: " + ex.getMessage());
+                    logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
             if (conn != null) {
                 try {
                     conn.close();
                 } catch (SQLException ex) {
-                    //logEvents.gravarLog("Erro: " + ex.getMessage());
+                    logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
         }
@@ -130,20 +131,20 @@ public class VendaDao {
             }
 
         } catch (SQLException ex) {
-            // logEvents.gravarLog("Erro ao validar produto: " + ex.getMessage());
+            logEvents.gravarLog("Erro ao validar produto: " + ex.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (SQLException ex) {
-                    //   logEvents.gravarLog("Erro: " + ex.getMessage());
+                    logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
             if (conn != null) {
                 try {
                     conn.close();
                 } catch (SQLException ex) {
-                    //  logEvents.gravarLog("Erro: " + ex.getMessage());
+                    logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
         }
@@ -175,8 +176,8 @@ public class VendaDao {
             }
 
         } catch (SQLException ex) {
-            // logEvents.gravarLog("Erro ao procurar data compra:\n "
-            //     + ex.getMessage());
+            logEvents.gravarLog("Erro ao procurar data compra:\n "
+                    + ex.getMessage());
         }
 
         return lista;
@@ -201,7 +202,7 @@ public class VendaDao {
             }
 
         } catch (SQLException ex) {
-            //  logEvents.gravarLog("Erro: " + ex.getMessage());
+            logEvents.gravarLog("Erro: " + ex.getMessage());
         }
 
         return id + 1;

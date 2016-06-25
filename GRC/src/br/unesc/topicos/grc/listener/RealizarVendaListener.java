@@ -35,11 +35,11 @@ public class RealizarVendaListener implements ActionListener {
                         realizarVenda.setVisible(false);
                     } catch(SistemaException ex){
                           JOptionPane.showMessageDialog(null,
-                                 ex.getMessage(), "", JOptionPane.OK_OPTION);
+                                 ex.getMessage(), "Erro", JOptionPane.OK_OPTION);
                     }
                      
                 } else {
-                   // logEvents.gravarLog("Erro ao realizar venda");
+                   logEvents.gravarLog("Erro ao realizar venda");
                 }
 
                 break;

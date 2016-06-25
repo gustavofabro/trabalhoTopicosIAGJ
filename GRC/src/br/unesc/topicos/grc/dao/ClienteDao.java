@@ -55,20 +55,20 @@ public class ClienteDao {
 
             conn.commit();
 
-            //   logEvents.gravarLog("Cadastrado Cliente: "
-            //         + cliente.getNome());
+            logEvents.gravarLog("Cadastrado Cliente: "
+                    + cliente.getNome());
             JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
 
         } catch (SQLException e) {
 
-            //  logEvents.gravarLog("Erro ao cadastrar Cliente: "
-            //          + cliente.getNome() + "\nErro: "
-            //         + e.getMessage());
+            logEvents.gravarLog("Erro ao cadastrar Cliente: "
+                    + cliente.getNome() + "\nErro: "
+                    + e.getMessage());
             if (conn != null) {
                 try {
                     conn.rollback();
                 } catch (SQLException ex) {
-                    // logEvents.gravarLog("Erro: " + ex.getMessage());
+                    logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
 
@@ -77,14 +77,14 @@ public class ClienteDao {
                 try {
                     ps.close();
                 } catch (SQLException ex) {
-                    //  logEvents.gravarLog("Erro: " + ex.getMessage());
+                    logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
             if (conn != null) {
                 try {
                     conn.close();
                 } catch (SQLException ex) {
-                    //  logEvents.gravarLog("Erro: " + ex.getMessage());
+                    logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
         }
@@ -111,14 +111,14 @@ public class ClienteDao {
                 try {
                     ps.close();
                 } catch (SQLException ex) {
-                    // logEvents.gravarLog("Erro: " + ex.getMessage());
+                    logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
             if (conn != null) {
                 try {
                     conn.close();
                 } catch (SQLException ex) {
-                    // logEvents.gravarLog("Erro: " + ex.getMessage());
+                    logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
         }
@@ -156,39 +156,83 @@ public class ClienteDao {
             ps.setInt(15, cliente.getId_cliente());
 
         } catch (SQLException ex) {
-            //  logEvents.gravarLog("Erro ao atualizar cliente " + cliente.getNome()
-            //        + "\n" + ex.getMessage());
+            logEvents.gravarLog("Erro ao atualizar cliente " + cliente.getNome()
+                    + "\n" + ex.getMessage());
 
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (SQLException ex) {
-                    //  logEvents.gravarLog("Erro: " + ex.getMessage());
+                    logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
             if (conn != null) {
                 try {
                     conn.close();
                 } catch (SQLException ex) {
-                    //  logEvents.gravarLog("Erro: " + ex.getMessage());
+                    logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
         }
     }
 
-    public List<Cliente> pesquisaAniversario(String nascimento) {
+    public Cliente selectByCpf(String cpf) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        conn = Conexao.getConnection();
+        try {
+            String sql = "select * from clientes where cpf = ?";
+
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, cpf);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Cliente cliente = new Cliente();
+                cliente.setId_cliente(rs.getInt(1));
+                cliente.setNome(rs.getString(2));
+                cliente.setSobreNome(rs.getString(3));
+                cliente.setCpf(rs.getString(4));
+                cliente.setEmail(rs.getString(5));
+                cliente.setSexo(rs.getString(6));
+                cliente.setDataNascimento(rs.getString(7));
+                cliente.setRua(rs.getString(8));
+                cliente.setBairro(rs.getString(9));
+                cliente.setCidade(rs.getString(10));
+                cliente.setEstado(rs.getString(11));
+                cliente.setPais(rs.getString(12));
+                cliente.setCep(rs.getString(13));
+                cliente.setNumCasa(rs.getString(14));
+                cliente.setTelefone(rs.getString(15));
+                cliente.setDataCadastro(rs.getString(16));
+
+                return cliente;
+            }
+
+        } catch (SQLException ex) {
+            logEvents.gravarLog("Erro ao procurar Cliente: \n"
+                    + ex.getMessage());
+        }
+        return null;
+    }
+
+    public List<Cliente> pesquisaAniversario(String[] dados) {
         List<Cliente> lista = new ArrayList<Cliente>();
 
         Connection conn = null;
         PreparedStatement ps = null;
+
         conn = Conexao.getConnection();
 
-        try {
-            String sql = "select * from clientes where nascimento = ?";
-            ps = conn.prepareStatement(sql);
+        String dataPesquisa = "'____-" + dados[1] + "-" + dados[0] + "'";
+        System.out.println("Like: " + dataPesquisa);
 
-            ps.setString(1, convertDateToDB(nascimento.split("/")));
+        try {
+            String sql = "select * from clientes where nascimento like " + dataPesquisa;
+
+            ps = conn.prepareStatement(sql);
 
             ResultSet rs = ps.executeQuery();
 
@@ -215,7 +259,8 @@ public class ClienteDao {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
+            logEvents.gravarLog("Erro ao procurar aniversário: \n"
+                    + ex.getMessage());
         }
 
         return lista;
@@ -241,20 +286,20 @@ public class ClienteDao {
             }
 
         } catch (SQLException ex) {
-            //logEvents.gravarLog("Erro ao validar CPF: " + ex.getMessage());
+            logEvents.gravarLog("Erro ao validar CPF: " + ex.getMessage());
         } finally {
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (SQLException ex) {
-                    //logEvents.gravarLog("Erro: " + ex.getMessage());
+                    logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
             if (conn != null) {
                 try {
                     conn.close();
                 } catch (SQLException ex) {
-                    //logEvents.gravarLog("Erro: " + ex.getMessage());
+                    logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
         }
@@ -279,7 +324,7 @@ public class ClienteDao {
             }
 
         } catch (SQLException ex) {
-            // logEvents.gravarLog("Erro: " + ex.getMessage());
+            logEvents.gravarLog("Erro: " + ex.getMessage());
         }
 
         return id + 1;

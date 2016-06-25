@@ -17,7 +17,9 @@ public class ProcurarClienteListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
-
+            case "procurarCliente":
+                
+                break;
        
         }
     }

@@ -33,20 +33,20 @@ public class LoginDao {
                 return rs.next();
 
             } catch (SQLException ex) {
-              //  logEvents.gravarLog("Erro ao fazer login: " + ex.getMessage());
+                logEvents.gravarLog("Erro ao validar login: " + ex.getMessage());
             } finally {
                 if (ps != null) {
                     try {
                         ps.close();
                     } catch (SQLException ex) {
-                     //   logEvents.gravarLog("Erro: " + ex.getMessage());
+                        logEvents.gravarLog("Erro: " + ex.getMessage());
                     }
                 }
                 if (conn != null) {
                     try {
                         conn.close();
                     } catch (SQLException ex) {
-                      //  logEvents.gravarLog("Erro: " + ex.getMessage());
+                        logEvents.gravarLog("Erro: " + ex.getMessage());
                     }
                 }
             }

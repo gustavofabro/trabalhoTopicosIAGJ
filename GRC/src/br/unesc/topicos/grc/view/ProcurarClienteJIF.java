@@ -6,12 +6,6 @@ import javax.swing.text.MaskFormatter;
 import br.unesc.topicos.grc.listener.ProcurarClienteListener;
 import br.unesc.topicos.grc.util.LogEvents;
 
-/**
- *
- * @author gustavo
- * @mod juanvmr
- * @implementation juanvmr
- */
 public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
 
     private LogEvents logEvents = new LogEvents();
@@ -27,9 +21,6 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
     private String auxCPF;
     private String auxCampo;
 
-    /**
-     * Creates new form ProcurarCliente
-     */
     public ProcurarClienteJIF() {
         listener = new ProcurarClienteListener(this);
 
@@ -37,19 +28,10 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
             cpfFormat = new MaskFormatter("###.###.###-##");
             cpfFormat.setPlaceholderCharacter('_');
         } catch (ParseException ex) {
-           // logEvents.gravarLog(ex.getMessage());
+           logEvents.gravarLog(ex.getMessage());
         }
 
         initComponents();
-
-        campoNome.setActionCommand("campoNome");
-        campoCPF.setActionCommand("campoCPF");
-        copiarProcurarCliente.setActionCommand("copiarProcurarCliente");
-        cancelarProcurarCliente.setActionCommand("cancelarProcurarCliente");
-        campoNome.addActionListener(listener);
-        campoCPF.addActionListener(listener);
-        copiarProcurarCliente.addActionListener(listener);
-        cancelarProcurarCliente.addActionListener(listener);
     }
 
     public void limparCampos() {
@@ -81,7 +63,7 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        copiarProcurarCliente = new javax.swing.JButton();
+        btnProduto = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
@@ -158,7 +140,8 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setText("Procurar Cliente");
 
-        copiarProcurarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unesc/grc/topicos/layout/account-search.png"))); // NOI18N
+        btnProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unesc/grc/topicos/layout/account-search.png"))); // NOI18N
+        btnProduto.setActionCommand("procurarCliente");
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setText("Nome:");
@@ -208,16 +191,14 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel9)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel23)
-                                    .addComponent(jLabel22))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(jLabel22))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel27)
                         .addGap(80, 80, 80))
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -367,7 +348,7 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
-                        .addComponent(copiarProcurarCliente)
+                        .addComponent(btnProduto)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -396,7 +377,7 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(copiarProcurarCliente)
+                        .addComponent(btnProduto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
@@ -417,9 +398,9 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnProduto;
     private javax.swing.JFormattedTextField campoCPF;
     private javax.swing.JTextField campoNome;
-    private javax.swing.JButton copiarProcurarCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

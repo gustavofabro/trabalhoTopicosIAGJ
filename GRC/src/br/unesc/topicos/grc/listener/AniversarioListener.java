@@ -20,7 +20,8 @@ public class AniversarioListener implements ActionListener {
                 
             buscaAniver.
                     setListaAniversariantes(
-                            dao.pesquisaAniversario(buscaAniver.getAniversario()));
+                            dao.pesquisaAniversario(
+                                    buscaAniver.getDadosAniversario()));
             break;
         }
     }

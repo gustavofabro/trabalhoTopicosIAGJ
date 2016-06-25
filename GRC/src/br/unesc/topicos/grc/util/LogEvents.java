@@ -6,16 +6,20 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class LogEvents {
+
     private String log = "";
-    
+
     private Date date = new Date();
     private DateFormat formattedDate = new SimpleDateFormat("[YYYY-MM-dd HH:mm:ss] ");
-    
-    public void gravarLog(String log) throws IOException {
+
+    public void gravarLog(String log) {
         this.log = (formattedDate.format(date) + log + "\n");
-        
+
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
 
@@ -24,28 +28,28 @@ public class LogEvents {
             bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.write(this.log);
             bufferedWriter.flush();
-
-            System.out.println("Log salvo com sucesso");
-//        } catch (IOException ex) {
-//            System.out.println("Erro ao salvar o log: " + ex.getMessage());
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "",
+                    "Erro ao salvar log do sistema!", JOptionPane.ERROR_MESSAGE);
         } finally {
             if (bufferedWriter != null) {
-//                try {
+                try {
                     bufferedWriter.close();
-//                } catch (IOException ex) {
-//                    System.out.println("Erro ao salvar o log: "
-//                            + ex.getMessage());
-//                }
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(null, "",
+                            "Erro ao salvar log do sistema!", JOptionPane.ERROR_MESSAGE);
+                }
             }
+
             if (fileWriter != null) {
-//                try {
+                try {
                     fileWriter.close();
-//                } catch (IOException ex) {
-//                    System.out.println("Erro ao salvar o log: "
-//                            + ex.getMessage());
-//                }
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(null, "",
+                            "Erro ao salvar log do sistema!", JOptionPane.ERROR_MESSAGE);
+                }
             }
         }
-    }
 
+    }
 }
