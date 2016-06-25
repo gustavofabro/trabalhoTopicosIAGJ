@@ -39,7 +39,6 @@ public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements Fo
         jTextFieldDescricao = new javax.swing.JTextField();
         jTextFieldTamanho = new javax.swing.JTextField();
         jTextFieldCor = new javax.swing.JTextField();
-        jButtonCancelarProduto = new javax.swing.JButton();
         jButtonSalvarProduto = new javax.swing.JButton();
         jLabelAviso = new javax.swing.JLabel();
         jTextFieldValor = new FormattedTextFields();
@@ -49,11 +48,11 @@ public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements Fo
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                formComponentShown(evt);
-            }
             public void componentHidden(java.awt.event.ComponentEvent evt) {
                 formComponentHidden(evt);
+            }
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
             }
         });
 
@@ -83,16 +82,12 @@ public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements Fo
 
         jTextFieldCor.addFocusListener(this);
 
-        jButtonCancelarProduto.setText("Cancelar");
-        jButtonCancelarProduto.addActionListener(jInternalListeners);
-        jButtonCancelarProduto.setActionCommand("cancelarProduto");
-
         jButtonSalvarProduto.setText("Salvar");
         jButtonSalvarProduto.addActionListener(jInternalListeners);
         jButtonSalvarProduto.setActionCommand("salvarProduto");
 
         jLabelAviso.setForeground(new java.awt.Color(255, 0, 0));
-        jLabelAviso.setText("*Preencha todos os campos ");
+        jLabelAviso.setText("*Todos os campos são obrigatórios");
         jLabelAviso.setVisible(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -111,10 +106,8 @@ public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements Fo
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelAviso)
-                        .addGap(67, 67, 67)
-                        .addComponent(jButtonSalvarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonCancelarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonSalvarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -146,8 +139,8 @@ public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements Fo
                                     .addComponent(jLabelGrupo)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jComboBoxGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(37, 37, 37)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,9 +170,8 @@ public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements Fo
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelGrupo)
                     .addComponent(jComboBoxGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonCancelarProduto)
                     .addComponent(jButtonSalvarProduto)
                     .addComponent(jLabelAviso))
                 .addGap(5, 5, 5))
@@ -286,7 +278,6 @@ public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements Fo
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCancelarProduto;
     private javax.swing.JButton jButtonSalvarProduto;
     private javax.swing.JComboBox<String> jComboBoxGrupo;
     private javax.swing.JLabel jLabel1;

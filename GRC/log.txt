@@ -336,3 +336,16 @@ socket creation error
  Wrong data type: java.lang.NumberFormatException: For input string: "____"
 [2016-06-24 16:38:31] Login realizado pelo usuario: Loja A
 [2016-06-24 16:39:56] Login realizado pelo usuario: Loja A
+[2016-06-24 19:14:39] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-24 19:15:50] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-24 19:20:30] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-24 19:21:36] Problemas ao conectar no banco de dados
+S1000 General error java.lang.RuntimeException: database alias does not exist
+[2016-06-24 19:21:36] Problemas ao conectar no banco de dados
+S1000 General error java.lang.RuntimeException: database alias does not exist
+[2016-06-24 19:23:36] Problemas ao conectar no banco de dados
+S1000 General error java.lang.RuntimeException: database alias does not exist
+[2016-06-24 19:23:27] Login realizado pelo usuario: Loja A
