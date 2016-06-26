@@ -13,7 +13,6 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -22,8 +21,8 @@ import javax.swing.JTextField;
 
 public class Login extends JFrame {
 
-    private LoginDao dao = new LoginDao();
-    private LogEvents logEvents = new LogEvents();
+    private final LoginDao dao = new LoginDao();
+    private final LogEvents logEvents = new LogEvents();
     private JTextField entradaLogin;
     private final JPasswordField entradaSenha;
     private final JLabel usuarioLabel;

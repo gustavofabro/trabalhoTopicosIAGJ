@@ -106,13 +106,13 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
 
         jLabel7.setText("Data:");
 
-        labelReferencia.setText("jLabel8");
+        labelReferencia.setText("                 ");
 
-        labelProduto.setText("jLabel9");
+        labelProduto.setText("                 ");
 
-        labelCliente.setText("labe");
+        labelCliente.setText("               ");
 
-        labelData.setText("jLabel11");
+        labelData.setText("                    ");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -249,10 +249,10 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
     private void listaVendasValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaVendasValueChanged
         Venda venda = (Venda) listaVendas.getSelectedValue();
         Cliente cliente = daoCliente.selectByCpf(venda.getCpf());
-        Produto produto = daoProduto.selectProduto(venda.getReferencia());
+        List<Produto> produto = daoProduto.selectProduto(venda.getReferencia(), "referencia");
 
         labelReferencia.setText(venda.getReferencia());
-        labelProduto.setText(produto.getDescricao());
+        labelProduto.setText(produto.get(0).getDescricao()); 
         labelCliente.setText(cliente.getNome());
         labelData.setText(venda.getDate());
 

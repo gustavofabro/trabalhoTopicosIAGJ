@@ -273,22 +273,22 @@
             </Component>
             <Component class="javax.swing.JLabel" name="labelReferencia">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel8"/>
+                <Property name="text" type="java.lang.String" value="                 "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labelProduto">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel9"/>
+                <Property name="text" type="java.lang.String" value="                 "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labelCliente">
               <Properties>
-                <Property name="text" type="java.lang.String" value="labe"/>
+                <Property name="text" type="java.lang.String" value="               "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labelData">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel11"/>
+                <Property name="text" type="java.lang.String" value="                    "/>
               </Properties>
             </Component>
           </SubComponents>

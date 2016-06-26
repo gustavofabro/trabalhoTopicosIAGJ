@@ -60,4 +60,9 @@ public class Produto {
     public void setCor(String cor) {
         this.cor = cor;
     }
+
+    @Override
+    public String toString() {
+        return referencia + " - " + descricao;
+    }
 }

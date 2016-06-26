@@ -411,3 +411,24 @@ Table not found in statement [select * from clieantes where nascimento like ?]
 [2016-06-25 17:02:23] Login realizado pelo usuario: Gustavo
 [2016-06-25 17:02:28] Venda realizada: 02
 [2016-06-25 17:05:14] Login realizado pelo usuario: Gustavo
+[2016-06-26 10:09:33] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-26 10:09:30] Login realizado pelo usuario: Gustavo
+[2016-06-26 10:12:45] Login realizado pelo usuario: Gustavo
+[2016-06-26 10:12:56] Erro ao procurar data compra:
+ Wrong data type: java.lang.IllegalArgumentException
+[2016-06-26 10:19:42] Login realizado pelo usuario: Gustavo
+[2016-06-26 10:56:35] Login realizado pelo usuario: Gustavo
+[2016-06-26 11:24:17] Login realizado pelo usuario: Gustavo
+[2016-06-26 11:24:24] Erro ao recuperar produto do banco: 
+Unexpected token: = in statement [select * from produto where referencia like = %?%]
+[2016-06-26 11:26:26] Login realizado pelo usuario: Gustavo
+[2016-06-26 11:26:43] Erro ao recuperar produto do banco: 
+Unexpected token: = in statement [select * from produto where referencia like = %?%]
+[2016-06-26 11:27:33] Login realizado pelo usuario: Gustavo
+[2016-06-26 11:27:38] Erro ao recuperar produto do banco: 
+Unexpected token: = in statement [select * from produto where referencia like = %?%]
+[2016-06-26 11:30:27] Login realizado pelo usuario: Gustavo
+[2016-06-26 11:31:11] Login realizado pelo usuario: Gustavo
+[2016-06-26 11:32:06] Login realizado pelo usuario: Gustavo
+[2016-06-26 11:33:15] Login realizado pelo usuario: Gustavo
