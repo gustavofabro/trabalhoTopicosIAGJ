@@ -1,5 +1,6 @@
 package br.unesc.topicos.grc.dao;
 
+import br.unesc.topicos.grc.bean.Cliente;
 import br.unesc.topicos.grc.bean.Produto;
 import br.unesc.topicos.grc.exceptions.SistemaException;
 import java.sql.Connection;
@@ -28,7 +29,7 @@ public class ProdutoDao {
         conn = Conexao.getConnection();
 
         String sql = "insert into produto (id_produto ,referencia, descricao, valor,"
-                + "tamanho, cor) values(?,?,?,?,?,?)";
+                + "tamanho, cor, grupo) values(?,?,?,?,?,?,?)";
 
         try {
             ps = conn.prepareStatement(sql);
@@ -38,6 +39,7 @@ public class ProdutoDao {
             ps.setDouble(4, produto.getValor());
             ps.setString(5, produto.getTamanho());
             ps.setString(6, produto.getCor());
+            ps.setString(7, produto.getGrupo());
 
             ps.execute();
 
@@ -48,8 +50,6 @@ public class ProdutoDao {
             JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
 
         } catch (SQLException e) {
-            System.out.println("ERRO: " + e.getMessage());
-
             logEvents.gravarLog("Erro ao salvar Produto: "
                     + produto.getReferencia() + "\nErro: "
                     + e.getMessage());
@@ -66,14 +66,14 @@ public class ProdutoDao {
                 try {
                     ps.close();
                 } catch (SQLException ex) {
-                    System.out.println("ERRO: " + ex.getMessage());
+                    logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
             if (conn != null) {
                 try {
                     conn.close();
                 } catch (SQLException ex) {
-                    System.out.println("ERRO: " + ex.getMessage());
+                    logEvents.gravarLog("Erro: " + ex.getMessage());
                 }
             }
         }
@@ -93,9 +93,24 @@ public class ProdutoDao {
 
             ps.execute();
             conn.commit();
+            System.out.println(produto.getId_produto());
+
+            logEvents.gravarLog("Produto deletado: "
+                    + produto.getReferencia() + " - "
+                    + produto.getDescricao());
+
+            JOptionPane.showMessageDialog(null, "\"" + produto.getReferencia() + " - "
+                    + produto.getDescricao() + "\" deletado com sucesso!");
 
         } catch (SQLException ex) {
 
+            logEvents.gravarLog("Erro ao deletar o produto: "
+                    + produto.getReferencia() + "\nErro: "
+                    + ex.getMessage());
+
+            JOptionPane.showMessageDialog(null, "Erro ao deletar o produto: "
+                    + produto.getReferencia() + produto.getReferencia()
+            );
         } finally {
             if (ps != null) {
                 try {
@@ -114,14 +129,16 @@ public class ProdutoDao {
         }
     }
 
-    public void update(Produto produto) {
+    public void update(Produto produto) throws SistemaException {
+        //verificaReferencia(produto.getReferencia());
+
         Connection conn = null;
         PreparedStatement ps = null;
 
         conn = Conexao.getConnection();
 
         String sql = "update produto set referencia = ?, descricao = ?, "
-                + "valor = ?, tamanho = ?, cor = ? where id_produto = ?";
+                + "valor = ?, tamanho = ?, cor = ?, grupo = ? where id_produto = ?";
 
         try {
             ps = conn.prepareStatement(sql);
@@ -130,7 +147,8 @@ public class ProdutoDao {
             ps.setDouble(3, produto.getValor());
             ps.setString(4, produto.getTamanho());
             ps.setString(5, produto.getCor());
-            ps.setInt(6, produto.getId_produto());
+            ps.setString(6, produto.getGrupo()); 
+            ps.setInt(7, produto.getId_produto());
 
             ps.execute();
 
@@ -200,34 +218,31 @@ public class ProdutoDao {
         PreparedStatement ps = null;
         List<Produto> lista = new ArrayList<Produto>();
         String produtoPesquisa = "'%" + valor + "%'";
-        
-        System.out.println("PP: " + produtoPesquisa);
-        System.out.println("Valor: " + valor);
-        System.out.println("By: " + by);
-        
+
         try {
             conn = Conexao.getConnection();
-            String sql = "select * from produto where " + by + " like " + produtoPesquisa; 
-            System.out.println("sql = " + sql); 
-            
+            String sql = "select * from produto where upper (" + by + ") like upper(" + produtoPesquisa + ")";
+
             ps = conn.prepareStatement(sql);
 
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 Produto produto = new Produto();
-
+                produto.setId_produto(rs.getInt(1));
                 produto.setReferencia(rs.getString(2));
                 produto.setDescricao(rs.getString(3));
                 produto.setValor(rs.getDouble(4));
                 produto.setTamanho(rs.getString(5));
                 produto.setCor(rs.getString(6));
-                
+                produto.setGrupo(rs.getString(7));
+
                 lista.add(produto);
-               
+
             }
-            
+
             return lista;
+
         } catch (SQLException e) {
             logEvents.gravarLog("Erro ao recuperar produto do banco: \n"
                     + e.getMessage());

@@ -432,3 +432,76 @@ Unexpected token: = in statement [select * from produto where referencia like = 
 [2016-06-26 11:31:11] Login realizado pelo usuario: Gustavo
 [2016-06-26 11:32:06] Login realizado pelo usuario: Gustavo
 [2016-06-26 11:33:15] Login realizado pelo usuario: Gustavo
+[2016-06-27 13:26:05] Login realizado pelo usuario: Gustavo
+[2016-06-27 13:26:16] Grupo de Produto salvo: Jóias
+[2016-06-27 13:50:24] Login realizado pelo usuario: Gustavo
+[2016-06-27 13:51:20] Login realizado pelo usuario: Gustavo
+[2016-06-27 13:52:13] Login realizado pelo usuario: Gustavo
+[2016-06-27 13:52:57] Login realizado pelo usuario: Gustavo
+[2016-06-27 13:53:30] Login realizado pelo usuario: Gustavo
+[2016-06-27 13:53:56] Login realizado pelo usuario: Gustavo
+[2016-06-27 14:03:36] Login realizado pelo usuario: Gustavo
+[2016-06-27 14:15:30] Login realizado pelo usuario: Gustavo
+[2016-06-27 14:18:20] Login realizado pelo usuario: Gustavo
+[2016-06-27 14:19:53] Login realizado pelo usuario: Gustavo
+[2016-06-27 14:19:57] Produto salvo: A12
+[2016-06-27 14:21:18] Login realizado pelo usuario: Gustavo
+[2016-06-27 14:21:22] Produto salvo: 01
+[2016-06-27 14:26:53] Login realizado pelo usuario: Gustavo
+[2016-06-27 14:26:57] Produto salvo: 0123
+[2016-06-27 14:29:16] Login realizado pelo usuario: Gustavo
+[2016-06-27 14:29:20] Produto deletado: A12 - Anel Ouro 18k
+[2016-06-27 14:32:32] Login realizado pelo usuario: Gustavo
+[2016-06-27 14:50:57] Login realizado pelo usuario: Gustavo
+[2016-06-27 14:51:48] Login realizado pelo usuario: Gustavo
+[2016-06-27 14:52:11] Login realizado pelo usuario: Gustavo
+[2016-06-27 14:55:44] Login realizado pelo usuario: Gustavo
+[2016-06-27 14:56:26] Login realizado pelo usuario: Gustavo
+[2016-06-27 14:57:09] Login realizado pelo usuario: Gustavo
+[2016-06-27 14:57:23] Login realizado pelo usuario: Gustavo
+[2016-06-27 15:07:42] Login realizado pelo usuario: Gustavo
+[2016-06-27 15:31:30] Login realizado pelo usuario: Gustavo
+[2016-06-27 15:36:32] Login realizado pelo usuario: Gustavo
+[2016-06-27 15:41:07] Login realizado pelo usuario: Gustavo
+[2016-06-27 15:42:48] Login realizado pelo usuario: Gustavo
+[2016-06-27 15:43:26] Login realizado pelo usuario: Gustavo
+[2016-06-27 15:46:07] Login realizado pelo usuario: Gustavo
+[2016-06-27 15:47:48] Login realizado pelo usuario: Gustavo
+[2016-06-27 15:57:46] Login realizado pelo usuario: Gustavo
+[2016-06-27 16:05:49] Login realizado pelo usuario: Gustavo
+[2016-06-27 16:08:52] Login realizado pelo usuario: Gustavo
+[2016-06-27 16:08:56] Cadastrado Cliente: Thiago
+[2016-06-27 16:14:03] Login realizado pelo usuario: Gustavo
+[2016-06-27 16:14:07] Dados do produto 01 atualizados
+[2016-06-27 16:16:24] Login realizado pelo usuario: Gustavo
+[2016-06-27 16:16:27] Dados do produto 0123 atualizados
+[2016-06-27 16:17:56] Login realizado pelo usuario: Gustavo
+[2016-06-27 16:18:40] Login realizado pelo usuario: Gustavo
+[2016-06-27 16:19:24] Login realizado pelo usuario: Gustavo
+[2016-06-27 16:19:59] Login realizado pelo usuario: Gustavo
+[2016-06-27 16:20:03] Dados do produto 01 atualizados
+[2016-06-27 16:20:03] Dados do produto 02 atualizados
+[2016-06-27 16:20:03] Dados do produto 02 atualizados
+[2016-06-27 16:20:03] Dados do produto 02 atualizados
+[2016-06-27 16:20:03] Dados do produto 02 atualizados
+[2016-06-27 16:23:05] Login realizado pelo usuario: Gustavo
+[2016-06-27 16:23:11] Dados do produto 0123 atualizados
+[2016-06-27 16:27:29] Login realizado pelo usuario: Gustavo
+[2016-06-27 16:30:13] Login realizado pelo usuario: Gustavo
+[2016-06-27 16:30:35] Login realizado pelo usuario: Gustavo
+[2016-06-27 16:30:41] Dados do produto 02 atualizados
+[2016-06-27 16:30:41] Dados do produto 0123 atualizados
+[2016-06-27 16:30:41] Dados do produto 01 atualizados
+[2016-06-27 16:30:41] Produto deletado: 01 - Boné RockStar
+[2016-06-27 16:36:05] Login realizado pelo usuario: Gustavo
+[2016-06-27 16:36:09] Dados do produto 02 atualizados
+[2016-06-27 16:36:09] Dados do produto 02 atualizados
+[2016-06-27 16:37:16] Login realizado pelo usuario: Gustavo
+[2016-06-27 16:37:19] Dados do produto 02 atualizados
+[2016-06-27 16:37:19] Dados do produto 02 atualizados
+[2016-06-27 16:40:28] Login realizado pelo usuario: Gustavo
+[2016-06-27 16:40:32] Dados do produto 02 atualizados
+[2016-06-27 16:40:32] Dados do produto 02 atualizados
+[2016-06-27 16:43:20] Login realizado pelo usuario: Gustavo
+[2016-06-27 16:48:00] Login realizado pelo usuario: Gustavo
+[2016-06-27 16:48:03] Dados do produto 0123 atualizados

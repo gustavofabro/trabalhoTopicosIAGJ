@@ -93,7 +93,7 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
         jLabel3.setText("Data final:");
 
         btnProcurar.setActionCommand("procurarDataCompra");
-        btnProcurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unesc/grc/topicos/layout/account-search.png"))); // NOI18N
+        btnProcurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unesc/topicos/grc/layout/account-search.png"))); // NOI18N
         btnProcurar.addActionListener(listener);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados da compra"));
@@ -254,12 +254,12 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
         Venda venda = (Venda) listaVendas.getSelectedValue();
         Cliente cliente = daoCliente.selectByCpf(venda.getCpf());
         List<Produto> produto = daoProduto.selectProduto(venda.getReferencia(), "referencia");
-
+            
         labelReferencia.setText(venda.getReferencia());
         labelProduto.setText(produto.get(0).getDescricao()); 
         labelCliente.setText(cliente.getNome());
         labelData.setText(venda.getDate());
-
+        
     }//GEN-LAST:event_listaVendasValueChanged
 
     public void limparCampos() {
