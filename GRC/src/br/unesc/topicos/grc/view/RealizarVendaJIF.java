@@ -105,7 +105,7 @@ public class RealizarVendaJIF extends javax.swing.JInternalFrame implements Focu
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setText("Realizar Vendas");
 
         jLabelReferencia.setText("Referência");
