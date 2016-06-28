@@ -27,6 +27,9 @@ public class ProcurarProdutoListener implements ActionListener {
         String[] valores = procurarProduto.getDadosProcura();
         procurarProduto.setListaProdutos(
                 dao.selectProduto(valores[0], valores[1]));
+        
+        procurarProduto.camposEnables(false);
+
     }
 
     @Override
@@ -34,6 +37,7 @@ public class ProcurarProdutoListener implements ActionListener {
         switch (e.getActionCommand()) {
             case "procurarProduto":
                 atualizarLista();
+                procurarProduto.pesquisarActions();
                 break;
 
             case "deletarProduto":
@@ -46,17 +50,27 @@ public class ProcurarProdutoListener implements ActionListener {
                 break;
 
             case "editarProduto":
-                Produto produto = procurarProduto.editarSalvarProduto();
+                procurarProduto.camposEnables(true);
                 procurarProduto.setComboBox(daoGrupo.getAll());
+
+                break;
+            case "salvarAlteracoes":
+                Produto produto = procurarProduto.salvar();
+
                 if (produto != null) {
                     try {
                         dao.update(produto);
+                        procurarProduto.limparCampos(false);
+                        atualizarLista();
+
                     } catch (SistemaException ex) {
-                         JOptionPane.showMessageDialog(null,
+                        JOptionPane.showMessageDialog(null,
                                 ex.getMessage(), "Erro", JOptionPane.OK_OPTION);
                     }
 
                 }
+                break;
+
         }
     }
 }

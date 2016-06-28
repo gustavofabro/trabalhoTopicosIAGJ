@@ -33,7 +33,7 @@ public class Login extends JFrame {
     private final Container c;
 
     public Login() {
-        super("GRC Login (BETA)");
+        super("GRC Login");
 
         entradaLogin = new JTextField();
         entradaSenha = new JPasswordField();

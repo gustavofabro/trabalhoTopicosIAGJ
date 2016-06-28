@@ -138,7 +138,7 @@ public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements Fo
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabelGrupo)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jComboBoxGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jComboBoxGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -263,7 +263,7 @@ public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements Fo
         List<String> lista = dao.getAll();
         jComboBoxGrupo.setSelectedIndex(-1);
         jComboBoxGrupo.removeAllItems();
-        System.out.println("aaaaaaaa");
+
         for (String l : lista) {
             jComboBoxGrupo.addItem(l);
         }

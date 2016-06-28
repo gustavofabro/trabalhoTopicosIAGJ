@@ -505,3 +505,291 @@ Unexpected token: = in statement [select * from produto where referencia like = 
 [2016-06-27 16:43:20] Login realizado pelo usuario: Gustavo
 [2016-06-27 16:48:00] Login realizado pelo usuario: Gustavo
 [2016-06-27 16:48:03] Dados do produto 0123 atualizados
+[2016-06-27 21:23:34] Login realizado pelo usuario: Gustavo
+[2016-06-27 22:05:11] Login realizado pelo usuario: Gustavo
+[2016-06-27 22:05:20] Grupo de Produto salvo: Jaqueta
+[2016-06-27 22:05:20] Dados do produto 02 atualizados
+[2016-06-27 22:07:57] Login realizado pelo usuario: Gustavo
+[2016-06-27 22:08:01] Erro ao procurar data compra:
+ Wrong data type: java.lang.NumberFormatException: For input string: "____"
+[2016-06-27 22:13:22] Login realizado pelo usuario: Gustavo
+[2016-06-27 22:13:25] Dados do produto 01 atualizados
+[2016-06-27 22:13:25] Dados do produto A01 atualizados
+[2016-06-27 22:16:39] Login realizado pelo usuario: Gustavo
+[2016-06-27 22:17:21] Login realizado pelo usuario: Gustavo
+[2016-06-27 22:18:24] Login realizado pelo usuario: Gustavo
+[2016-06-27 22:26:04] Login realizado pelo usuario: Gustavo
+[2016-06-27 22:55:51] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-27 22:57:32] Login realizado pelo usuario: Gustavo
+[2016-06-27 23:01:55] Login realizado pelo usuario: Gustavo
+[2016-06-27 23:03:35] Login realizado pelo usuario: Gustavo
+[2016-06-27 23:07:10] Login realizado pelo usuario: Gustavo
+[2016-06-28 07:52:27] Login realizado pelo usuario: Gustavo
+[2016-06-28 07:53:09] Erro ao recuperar produto do banco: 
+Column not found: 7
+[2016-06-28 07:53:09] Erro ao recuperar produto do banco: 
+Column not found: 7
+[2016-06-28 07:53:09] Erro ao recuperar produto do banco: 
+Column not found: 7
+[2016-06-28 07:53:09] Erro ao recuperar produto do banco: 
+Column not found: GRUPO in statement [select * from produto where upper (grupo) like upper('%J%')]
+[2016-06-28 07:57:23] Login realizado pelo usuario: Gustavo
+[2016-06-28 07:57:37] Erro ao recuperar produto do banco: 
+Column not found: 7
+[2016-06-28 07:58:43] Login realizado pelo usuario: Gustavo
+[2016-06-28 07:58:56] Erro ao recuperar produto do banco: 
+Column not found: 7
+[2016-06-28 07:58:56] Erro ao recuperar produto do banco: 
+Column not found: 7
+[2016-06-28 07:58:56] Erro ao recuperar produto do banco: 
+Column not found: 7
+[2016-06-28 07:58:56] Erro ao recuperar produto do banco: 
+Column not found: 7
+[2016-06-28 07:58:56] Erro ao recuperar produto do banco: 
+Column not found: 7
+[2016-06-28 07:58:56] Erro ao recuperar produto do banco: 
+Column not found: 7
+[2016-06-28 07:58:56] Erro ao recuperar produto do banco: 
+Column not found: 7
+[2016-06-28 08:13:05] Login realizado pelo usuario: Gustavo
+[2016-06-28 08:19:20] Login realizado pelo usuario: Gustavo
+[2016-06-28 08:19:33] Dados do produto 02 atualizados
+[2016-06-28 08:19:33] Dados do produto 01 atualizados
+[2016-06-28 08:19:33] Dados do produto 02 atualizados
+[2016-06-28 08:19:33] Dados do produto 02 atualizados
+[2016-06-28 08:19:33] Dados do produto 01 atualizados
+[2016-06-28 08:19:33] Produto salvo: 01
+[2016-06-28 08:24:52] Login realizado pelo usuario: Gustavo
+[2016-06-28 08:25:06] Dados do produto 01 atualizados
+[2016-06-28 08:25:06] Dados do produto 02 atualizados
+[2016-06-28 08:25:06] Dados do produto 02 atualizados
+[2016-06-28 08:25:06] Dados do produto 02 atualizados
+[2016-06-28 08:25:06] Produto salvo: 02
+[2016-06-28 08:26:40] Login realizado pelo usuario: Gustavo
+[2016-06-28 08:32:37] Login realizado pelo usuario: Gustavo
+[2016-06-28 08:33:21] Login realizado pelo usuario: Gustavo
+[2016-06-28 08:33:34] Dados do produto 88 atualizados
+[2016-06-28 08:37:16] Login realizado pelo usuario: Gustavo
+[2016-06-28 08:37:29] Dados do produto 02 atualizados
+[2016-06-28 08:37:29] Dados do produto 88 atualizados
+[2016-06-28 08:40:18] Login realizado pelo usuario: Gustavo
+[2016-06-28 08:40:43] Login realizado pelo usuario: Gustavo
+[2016-06-28 08:40:56] Produto deletado: 88 - 1
+[2016-06-28 08:42:28] Login realizado pelo usuario: Gustavo
+[2016-06-28 08:42:41] Dados do produto 02 atualizados
+[2016-06-28 08:42:41] Dados do produto 02 atualizados
+[2016-06-28 08:42:41] Dados do produto 01 atualizados
+[2016-06-28 10:13:32] Login realizado pelo usuario: Gustavo
+[2016-06-28 10:13:56] Dados do produto 01 atualizados
+[2016-06-28 10:13:56] Dados do produto 01 atualizados
+[2016-06-28 10:13:56] Dados do produto 88 atualizados
+[2016-06-28 10:21:03] Login realizado pelo usuario: Gustavo
+[2016-06-28 10:21:18] Produto deletado: 88 - Bone dos bons
+[2016-06-28 13:16:03] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-28 13:13:12] Login realizado pelo usuario: Gustavo
+[2016-06-28 13:30:46] Dados do produto 88 atualizados
+[2016-06-28 13:36:12] Login realizado pelo usuario: Gustavo
+[2016-06-28 13:36:16] Dados do produto 9 atualizados
+[2016-06-28 13:36:16] Dados do produto 88 atualizados
+[2016-06-28 13:37:55] Login realizado pelo usuario: Gustavo
+[2016-06-28 13:38:00] Dados do produto 01 atualizados
+[2016-06-28 13:38:00] Dados do produto 88 atualizados
+[2016-06-28 13:42:53] Login realizado pelo usuario: Gustavo
+[2016-06-28 13:42:56] Dados do produto 01 atualizados
+[2016-06-28 13:44:15] Login realizado pelo usuario: Gustavo
+[2016-06-28 13:44:20] Dados do produto 01 atualizados
+[2016-06-28 13:44:20] Dados do produto 8 atualizados
+[2016-06-28 13:44:20] Dados do produto 8 atualizados
+[2016-06-28 13:44:20] Dados do produto 8 atualizados
+[2016-06-28 13:44:20] Dados do produto 01 atualizados
+[2016-06-28 13:54:02] Login realizado pelo usuario: Gustavo
+[2016-06-28 13:54:05] Dados do produto 8 atualizados
+[2016-06-28 13:44:20] Dados do produto 8 atualizados
+[2016-06-28 13:44:20] Dados do produto 01 atualizados
+[2016-06-28 14:00:37] Login realizado pelo usuario: Gustavo
+[2016-06-28 14:00:40] Dados do produto 01 atualizados
+[2016-06-28 14:00:40] Dados do produto 8 atualizados
+[2016-06-28 14:00:40] Dados do produto 01 atualizados
+[2016-06-28 14:00:40] Dados do produto 8 atualizados
+[2016-06-28 14:06:30] Login realizado pelo usuario: Gustavo
+[2016-06-28 14:06:33] Dados do produto 01 atualizados
+[2016-06-28 14:06:33] Dados do produto 01 atualizados
+[2016-06-28 14:06:33] Dados do produto 8 atualizados
+[2016-06-28 14:07:46] Login realizado pelo usuario: Gustavo
+[2016-06-28 14:07:49] Dados do produto 01 atualizados
+[2016-06-28 14:08:26] Login realizado pelo usuario: Gustavo
+[2016-06-28 14:08:30] Dados do produto 01 atualizados
+[2016-06-28 14:08:30] Dados do produto 01 atualizados
+[2016-06-28 14:08:30] Dados do produto 01 atualizados
+[2016-06-28 14:09:49] Login realizado pelo usuario: Gustavo
+[2016-06-28 14:09:53] Dados do produto 8 atualizados
+[2016-06-28 14:09:53] Dados do produto 8 atualizados
+[2016-06-28 14:09:53] Dados do produto 01 atualizados
+[2016-06-28 14:11:20] Login realizado pelo usuario: Gustavo
+[2016-06-28 14:11:24] Dados do produto 8 atualizados
+[2016-06-28 14:11:24] Dados do produto 8 atualizados
+[2016-06-28 14:12:56] Login realizado pelo usuario: Gustavo
+[2016-06-28 14:13:01] Dados do produto 01 atualizados
+[2016-06-28 14:13:01] Dados do produto 01 atualizados
+[2016-06-28 14:13:01] Dados do produto 8 atualizados
+[2016-06-28 14:13:01] Dados do produto 8 atualizados
+[2016-06-28 14:13:01] Dados do produto 01 atualizados
+[2016-06-28 14:13:01] Dados do produto 8 atualizados
+[2016-06-28 14:13:01] Dados do produto 8 atualizados
+[2016-06-28 14:13:01] Dados do produto 8 atualizados
+[2016-06-28 14:15:33] Login realizado pelo usuario: Gustavo
+[2016-06-28 14:15:37] Dados do produto 01 atualizados
+[2016-06-28 14:15:37] Dados do produto 8 atualizados
+[2016-06-28 14:19:06] Login realizado pelo usuario: Gustavo
+[2016-06-28 14:19:10] Dados do produto 01 atualizados
+[2016-06-28 14:20:24] Login realizado pelo usuario: Gustavo
+[2016-06-28 14:24:31] Login realizado pelo usuario: Gustavo
+[2016-06-28 14:24:35] Dados do produto 8 atualizados
+[2016-06-28 14:24:35] Dados do produto 8 atualizados
+[2016-06-28 14:24:35] Dados do produto 8 atualizados
+[2016-06-28 14:24:35] Dados do produto 8 atualizados
+[2016-06-28 14:24:35] Dados do produto 01 atualizados
+[2016-06-28 14:34:13] Login realizado pelo usuario: Gustavo
+[2016-06-28 14:36:52] Login realizado pelo usuario: Gustavo
+[2016-06-28 14:42:00] Login realizado pelo usuario: Gustavo
+[2016-06-28 14:43:14] Login realizado pelo usuario: Gustavo
+[2016-06-28 14:51:55] Login realizado pelo usuario: Gustavo
+[2016-06-28 15:05:26] Login realizado pelo usuario: Gustavo
+[2016-06-28 15:26:42] Login realizado pelo usuario: Gustavo
+[2016-06-28 15:27:27] Login realizado pelo usuario: Gustavo
+[2016-06-28 15:27:30] Erro ao recuperar cliente do banco: 
+Column not found: UPPER in statement [select * from clientes where upper nome like upper  '%% and cpf like '%___.___.___-__%']
+[2016-06-28 15:30:06] Login realizado pelo usuario: Gustavo
+[2016-06-28 15:30:09] Erro ao recuperar cliente do banco: 
+Column not found: UPPER in statement [select * from clientes where upper nome like upper ('%%') and cpf like '%%']
+[2016-06-28 15:32:25] Login realizado pelo usuario: Gustavo
+[2016-06-28 15:32:28] Erro ao recuperar cliente do banco: 
+Column not found: UPPER in statement [select * from clientes where upper nome like upper ('%%')]
+[2016-06-28 15:33:12] Login realizado pelo usuario: Gustavo
+[2016-06-28 15:38:49] Login realizado pelo usuario: Gustavo
+[2016-06-28 16:11:53] Login realizado pelo usuario: Gustavo
+[2016-06-28 16:11:57] Dados do produto 8 atualizados
+[2016-06-28 16:11:57] Dados do produto 8 atualizados
+[2016-06-28 16:11:57] Dados do produto 01 atualizados
+[2016-06-28 16:13:24] Login realizado pelo usuario: Gustavo
+[2016-06-28 16:13:28] Dados do produto 8 atualizados
+[2016-06-28 16:13:28] Dados do produto 8 atualizados
+[2016-06-28 16:14:22] Login realizado pelo usuario: Gustavo
+[2016-06-28 16:14:25] Dados do produto 8 atualizados
+[2016-06-28 16:16:49] Login realizado pelo usuario: Gustavo
+[2016-06-28 16:16:53] Dados do produto 8 atualizados
+[2016-06-28 16:19:05] Login realizado pelo usuario: Gustavo
+[2016-06-28 16:19:32] Login realizado pelo usuario: Gustavo
+[2016-06-28 16:19:35] Dados do produto 8 atualizados
+[2016-06-28 16:20:30] Login realizado pelo usuario: Gustavo
+[2016-06-28 16:20:33] Dados do produto 01 atualizados
+[2016-06-28 16:20:33] Dados do produto 01 atualizados
+[2016-06-28 16:20:33] Dados do produto 8 atualizados
+[2016-06-28 16:20:33] Dados do produto 8 atualizados
+[2016-06-28 16:22:24] Login realizado pelo usuario: Gustavo
+[2016-06-28 16:22:27] Dados do produto 8 atualizados
+[2016-06-28 16:24:07] Login realizado pelo usuario: Gustavo
+[2016-06-28 16:24:54] Login realizado pelo usuario: Gustavo
+[2016-06-28 16:26:30] Login realizado pelo usuario: Gustavo
+[2016-06-28 16:26:33] Dados do produto 01 atualizados
+[2016-06-28 16:27:43] Login realizado pelo usuario: Gustavo
+[2016-06-28 16:27:47] Dados do produto 01 atualizados
+[2016-06-28 16:28:13] Login realizado pelo usuario: Gustavo
+[2016-06-28 16:28:16] Dados do produto 01 atualizados
+[2016-06-28 16:28:16] Dados do produto 8 atualizados
+[2016-06-28 16:30:55] Login realizado pelo usuario: Gustavo
+[2016-06-28 16:30:57] Dados do produto 01 atualizados
+[2016-06-28 16:30:57] Dados do produto 01 atualizados
+[2016-06-28 16:30:57] Dados do produto 01 atualizados
+[2016-06-28 16:56:05] Login realizado pelo usuario: Gustavo
+[2016-06-28 16:58:27] Login realizado pelo usuario: Gustavo
+[2016-06-28 17:00:03] Login realizado pelo usuario: Gustavo
+[2016-06-28 17:01:48] Login realizado pelo usuario: Gustavo
+[2016-06-28 17:01:55] Dados do produto 01 atualizados
+[2016-06-28 17:03:02] Login realizado pelo usuario: Gustavo
+[2016-06-28 17:03:43] Login realizado pelo usuario: Gustavo
+[2016-06-28 17:05:16] Login realizado pelo usuario: Gustavo
+[2016-06-28 17:06:34] Login realizado pelo usuario: Gustavo
+[2016-06-28 17:06:37] Erro ao atualizar cliente Maria
+Invalid argument in JDBC call: parameter index out of range: 14
+[2016-06-28 17:06:37] Erro ao atualizar cliente Maria
+Invalid argument in JDBC call: parameter index out of range: 14
+[2016-06-28 17:59:18] Login realizado pelo usuario: Gustavo
+[2016-06-28 17:59:23] Erro ao atualizar cliente Gustavo
+Wrong data type: java.lang.NumberFormatException: For input string: "077.937.179-88"
+[2016-06-28 18:11:23] Login realizado pelo usuario: Gustavo
+[2016-06-28 18:13:56] Login realizado pelo usuario: Gustavo
+[2016-06-28 18:16:33] Login realizado pelo usuario: Gustavo
+[2016-06-28 18:22:09] Login realizado pelo usuario: Gustavo
+[2016-06-28 18:22:12] Erro ao atualizar cliente Jorge
+Attempt to insert null into a non-nullable column: column: CIDADE table: CLIENTES in statement [update clientes set nome = ?, sobrenome = ?, cpf = ?, email = ?, sexo = ?, nascimento = ?, rua = ?,bairro = ?, cidade = ?, estado = ?, pais = ?,cep = ?, numCasa = ?, telefone = ? where id_cliente = ?]
+[2016-06-28 18:22:49] Login realizado pelo usuario: Gustavo
+[2016-06-28 18:22:56] Erro ao atualizar cliente Gustavo
+Attempt to insert null into a non-nullable column: column: CIDADE table: CLIENTES in statement [update clientes set nome = ?, sobrenome = ?, cpf = ?, email = ?, sexo = ?, nascimento = ?, rua = ?,bairro = ?, cidade = ?, estado = ?, pais = ?,cep = ?, numCasa = ?, telefone = ? where id_cliente = ?]
+[2016-06-28 18:33:26] Login realizado pelo usuario: Gustavo
+[2016-06-28 18:35:01] Login realizado pelo usuario: Gustavo
+[2016-06-28 18:37:13] Login realizado pelo usuario: Gustavo
+[2016-06-28 18:38:22] Login realizado pelo usuario: Gustavo
+[2016-06-28 18:56:16] Login realizado pelo usuario: Gustavo
+[2016-06-28 18:58:31] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:00:53] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:01:36] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:03:09] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:03:28] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:04:35] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:05:34] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:06:02] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:08:18] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:09:05] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:12:06] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:12:33] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:14:42] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:21:36] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:30:08] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:30:56] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:31:30] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:32:58] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:34:42] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:35:26] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:37:35] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:38:12] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:38:55] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:40:00] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:40:19] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:40:38] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:40:58] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:41:35] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:42:48] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:43:23] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:43:44] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:44:51] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:45:10] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:47:38] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:49:35] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:49:54] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:50:14] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:51:01] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:51:32] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:52:45] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:53:43] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:53:59] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:54:17] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:54:37] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:55:17] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:55:37] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:55:59] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:58:01] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:59:16] Login realizado pelo usuario: Gustavo
+[2016-06-28 19:59:19] Produto salvo: C02
+[2016-06-28 19:59:20] Dados do produto C02 atualizados
+[2016-06-28 19:59:20] Dados do produto C02 atualizados
+[2016-06-28 20:02:48] Login realizado pelo usuario: Gustavo
+[2016-06-28 20:04:00] Login realizado pelo usuario: Gustavo
+[2016-06-28 20:06:15] Login realizado pelo usuario: Gustavo
+[2016-06-28 20:06:40] Login realizado pelo usuario: Gustavo
+[2016-06-28 20:10:31] Login realizado pelo usuario: Gustavo
+[2016-06-28 20:10:55] Login realizado pelo usuario: Gustavo
+[2016-06-28 20:11:20] Login realizado pelo usuario: Gustavo
+[2016-06-28 20:11:44] Login realizado pelo usuario: Gustavo

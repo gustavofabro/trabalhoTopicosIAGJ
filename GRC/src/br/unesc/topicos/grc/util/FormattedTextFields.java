@@ -11,7 +11,7 @@ public class FormattedTextFields extends JTextField {
         addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-                if (!("" + e.getKeyChar()).matches("[0-9]")) {
+                if (!("" + e.getKeyChar()).matches("[0-9]*\\.?[0-9]*")) {
                     e.consume();
                 }
                 

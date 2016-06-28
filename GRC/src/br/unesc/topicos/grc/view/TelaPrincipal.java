@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -44,15 +45,21 @@ public class TelaPrincipal extends JFrame implements ActionListener {
     private final JInternalFrame aniversarioIFrame;
     private final JInternalFrame dataCompraIFrame;
 
-    // private JPanel logoPanel;
+    private JLabel logoPanel = new JLabel();
     // private final ImageIcon logoGRC;
     public TelaPrincipal() {
 
         super("GRC");
         c = getContentPane();
         deskPane = new JDesktopPane();
-        sobreInfo = "GRC - Tópicos I";
-
+        sobreInfo = "GRC - Gestão do relacionamento com o cliente \n\nTrabalho "
+                + "desenvolvido aplicando o conceito \nde MDI (Multiple "
+                + "Document Interface), para a disciplina"
+                + "\nde Tópicos Especiais 1.\n\nEquipe:\nAlini Eynm\nGustavo Fabro";
+       // logoPanel.setBounds(512, 362, 100, 100);
+      //  logoPanel.setIcon(new 
+      //      ImageIcon("/br/unesc/topicos/grc/layout/border-color.png")); 
+        
         //JInternals Frames
         cadClienteIFrame = new CadastroClienteJIF();
         cadProdutoIFrame = new CadastroProdutoJIF();
@@ -120,7 +127,8 @@ public class TelaPrincipal extends JFrame implements ActionListener {
         deskPane.add(aniversarioIFrame);
         deskPane.add(dataCompraIFrame);
 
-        add(deskPane);
+        c.add(deskPane);
+    //    c.add(logoPanel);
 
     }
 
@@ -154,7 +162,8 @@ public class TelaPrincipal extends JFrame implements ActionListener {
                 break;
             case "Sobre":
 
-                JOptionPane.showMessageDialog(this, sobreInfo);
+                JOptionPane.showMessageDialog(this, sobreInfo, "Sobre",
+                        JOptionPane.INFORMATION_MESSAGE);
         }
     }
 

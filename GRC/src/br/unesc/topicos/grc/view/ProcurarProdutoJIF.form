@@ -75,7 +75,11 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabelAviso" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabelAviso" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="btnSalvar" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -120,6 +124,7 @@
                   <Component id="btnEditar" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
                   <Component id="btnExcluir" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
                   <Component id="jLabelAviso" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSalvar" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
@@ -352,15 +357,6 @@
         <Property name="text" type="java.lang.String" value="Grupo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnEditar">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/br/unesc/topicos/grc/layout/border-color.png"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Editar" postCode="btnEditar.addActionListener(listener);&#xa;&#xa;btnEditar.setActionCommand(&quot;editarProduto&quot;);"/>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="btnExcluir">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -373,6 +369,15 @@
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnExcluir.setActionCommand(&quot;deletarProduto&quot;);&#xa;btnExcluir.addActionListener(listener);"/>
       </AuxValues>
     </Component>
+    <Component class="javax.swing.JButton" name="btnEditar">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/br/unesc/topicos/grc/layout/border-color.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Editar" postCode="btnEditar.addActionListener(listener);&#xa;&#xa;btnEditar.setActionCommand(&quot;editarProduto&quot;);"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JLabel" name="jLabelAviso">
       <Properties>
         <Property name="text" type="java.lang.String" value="Preencha todos os campos!"/>
@@ -380,6 +385,15 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jLabelAviso.setVisible(false);"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnSalvar">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/br/unesc/topicos/grc/layout/content-save.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Salvar Altera&#xe7;&#xf5;es" postCode="btnSalvar.addActionListener(listener);&#xa;btnSalvar.setActionCommand(&quot;salvarAlteracoes&quot;);"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

@@ -1,6 +1,7 @@
 package br.unesc.topicos.grc.dao;
 
 import br.unesc.topicos.grc.bean.Cliente;
+import br.unesc.topicos.grc.bean.Produto;
 import br.unesc.topicos.grc.exceptions.SistemaException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -132,9 +133,9 @@ public class ClienteDao {
         conn = Conexao.getConnection();
 
         String sql = "update clientes set nome = ?, sobrenome = ?, "
-                + "cpf = ?, sexo = ?, nascimento = ?, rua = ?,"
+                + "cpf = ?, email = ?, sexo = ?, nascimento = ?, rua = ?,"
                 + "bairro = ?, cidade = ?, estado = ?, pais = ?,"
-                + "cep = ?, numCasa = ?, telefone = ? where cpf = id_cliente";
+                + "cep = ?, numCasa = ?, telefone = ? where id_cliente = ?";
 
         try {
             ps = conn.prepareStatement(sql);
@@ -142,19 +143,25 @@ public class ClienteDao {
             ps.setString(1, cliente.getNome());
             ps.setString(2, cliente.getSobreNome());
             ps.setString(3, cliente.getCpf());
-            ps.setString(4, cliente.getSexo());
-            ps.setString(5, convertDateToDB(cliente.getNascimento().split("/")));
-            ps.setString(6, cliente.getRua());
-            ps.setString(7, cliente.getBairro());
-            ps.setString(8, cliente.getCidade());
-            ps.setString(9, cliente.getEstado());
-            ps.setString(10, cliente.getPais());
-            ps.setString(11, cliente.getCep());
-            ps.setString(12, cliente.getNumCasa());
-            ps.setString(13, cliente.getTelefone());
-            ps.setString(14, cliente.getCpf());
+            ps.setString(4, cliente.getEmail());
+            ps.setString(5, cliente.getSexo());
+            ps.setString(6, convertDateToDB(cliente.getNascimento().split("/")));
+            ps.setString(7, cliente.getRua());
+            ps.setString(8, cliente.getBairro());
+            ps.setString(9, cliente.getCidade());
+            ps.setString(10, cliente.getEstado());
+            ps.setString(11, cliente.getPais());
+            ps.setString(12, cliente.getCep());
+            ps.setString(13, cliente.getNumCasa());
+            ps.setString(14, cliente.getTelefone());
             ps.setInt(15, cliente.getId_cliente());
-
+            
+            ps.execute();
+            conn.commit();
+            
+            System.out.println("Cliente: " + cliente.getNome()); 
+            System.out.println("id: " + cliente.getId_cliente());
+            
         } catch (SQLException ex) {
             logEvents.gravarLog("Erro ao atualizar cliente " + cliente.getNome()
                     + "\n" + ex.getMessage());
@@ -303,6 +310,67 @@ public class ClienteDao {
                 }
             }
         }
+    }
+
+    public List<Cliente> selectCliente(String nome, String cpf) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        List<Cliente> lista = new ArrayList<Cliente>();
+
+        try {
+            conn = Conexao.getConnection();
+            String sql = "select * from clientes where upper (nome) "
+                    + "like upper ('%" + nome + "%')"
+                    + " and cpf like '%" + cpf + "%'";
+
+            ps = conn.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Cliente cliente = new Cliente();
+                cliente.setId_cliente(rs.getInt(1));
+                cliente.setNome(rs.getString(2));
+                cliente.setSobreNome(rs.getString(3));
+                cliente.setCpf(rs.getString(4));
+                cliente.setEmail(rs.getString(5));
+                cliente.setSexo(rs.getString(6));
+                cliente.setDataNascimento(rs.getString(7));
+                cliente.setRua(rs.getString(8));
+                cliente.setBairro(rs.getString(9));
+                cliente.setCidade(rs.getString(10));
+                cliente.setEstado(rs.getString(11));
+                cliente.setPais(rs.getString(12));
+                cliente.setCep(rs.getString(13));
+                cliente.setNumCasa(rs.getString(14));
+                cliente.setTelefone(rs.getString(15));
+                cliente.setDataCadastro(rs.getString(16));
+
+                lista.add(cliente);
+            }
+
+            return lista;
+
+        } catch (SQLException e) {
+            logEvents.gravarLog("Erro ao recuperar cliente do banco: \n"
+                    + e.getMessage());
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    logEvents.gravarLog("Erro interno no banco" + ex.getMessage());
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    logEvents.gravarLog("Erro interno no banco" + ex.getMessage());
+                }
+            }
+        }
+        return null;
     }
 
     private int getId() {

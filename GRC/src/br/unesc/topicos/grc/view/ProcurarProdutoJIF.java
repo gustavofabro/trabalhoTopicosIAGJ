@@ -10,15 +10,166 @@ import javax.swing.JOptionPane;
 public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
 
     private final ProcurarProdutoListener listener = new ProcurarProdutoListener(this);
-
     private Produto produto;
-    private String auxReferencia;
-    private String[] listReferencias;
-    private boolean isEditando = false;
     private boolean camposValidos;
 
     public ProcurarProdutoJIF() {
         initComponents();
+        getRootPane().setDefaultButton(btnProcurar);
+
+    }
+
+    public boolean confirmarExclusao() {
+        int opc = 0;
+        if (produto != null) {
+            opc = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja deletar \""
+                    + produto.getReferencia() + "-" + produto.getDescricao() + "\""
+                    + "?", "Confirmar exclusão", JOptionPane.YES_NO_OPTION);
+
+        }
+
+        return opc == 0;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setComboBox(List<String> lista) {
+        jComboBoxGrupo.removeAllItems();
+
+        for (String l : lista) {
+            jComboBoxGrupo.addItem(l);
+        }
+
+    }
+
+    public void camposEnables(boolean state) {
+        btnExcluir.setEnabled(!state);
+        btnEditar.setEnabled(!state);
+        btnSalvar.setEnabled(state);
+
+        textReferencia.setEditable(state);
+        textDescricao.setEditable(state);
+        textValor.setEditable(state);
+        textTamanho.setEditable(state);
+        textCor.setEditable(state);
+        jComboBoxGrupo.setEditable(state);
+        jComboBoxGrupo.setEnabled(state);
+    }
+
+    public void editarProduto() {
+        camposEnables(true);
+    }
+
+    public void pesquisarActions() {
+        btnExcluir.setEnabled(false);
+        btnEditar.setEnabled(false);
+        btnSalvar.setEnabled(false);
+    }
+
+    public Produto salvar() {
+        if (!validarCampos()) {
+            return null;
+        }
+
+        jLabelAviso.setVisible(false);
+
+        Produto produtoUpdate = new Produto();
+
+        produtoUpdate.setId_produto(produto.getId_produto());
+        produtoUpdate.setDescricao(textDescricao.getText());
+        produtoUpdate.setReferencia(textReferencia.getText());
+        produtoUpdate.setValor(Double.parseDouble(textValor.getText()));
+        produtoUpdate.setTamanho(textTamanho.getText());
+        produtoUpdate.setCor(textCor.getText());
+        produtoUpdate.setGrupo((String) jComboBoxGrupo.getSelectedItem());
+
+        return produtoUpdate;
+    }
+
+    public String[] getDadosProcura() {
+        String selection;
+
+        if (jRadioButtonRefe.isSelected()) {
+            selection = "referencia";
+        } else if (jRadioButtonNome.isSelected()) {
+            selection = "descricao";
+        } else {
+            selection = "grupo";
+        }
+
+        return new String[]{campoProcura.getText(), selection};
+    }
+
+    public void setListaProdutos(List<Produto> lista) {
+        listaProdutos.setListData(
+                new Vector(new Vector(lista)));
+
+        btnEditar.setEnabled(false);
+        btnExcluir.setEnabled(false);
+    }
+
+    public void limparCampos(boolean clearList) {
+        if (clearList) {
+            listaProdutos.setListData(new String[0]);
+            jRadioButtonRefe.setSelected(true);
+            campoProcura.setText("");
+        }
+
+        textReferencia.setText("");
+        textDescricao.setText("");
+        textValor.setText("");
+        textTamanho.setText("");
+        textCor.setText("");
+        jComboBoxGrupo.setSelectedIndex(-1);
+    }
+
+    public boolean validarCampos() {
+        camposValidos = true;
+
+        if (textReferencia.getText().equals("")) {
+            labelReferencia.setForeground(Color.red);
+            camposValidos = false;
+        } else {
+            labelReferencia.setForeground(Color.black);
+        }
+
+        if (textValor.getText().equals("")) {
+            labelValor.setForeground(Color.red);
+            camposValidos = false;
+        } else {
+            labelValor.setForeground(Color.black);
+        }
+
+        if (textDescricao.getText().equals("")) {
+            labelDescricao.setForeground(Color.red);
+            camposValidos = false;
+        } else {
+            labelDescricao.setForeground(Color.black);
+        }
+
+        if (textTamanho.getText().equals("")) {
+            labelTamanho.setForeground(Color.red);
+            camposValidos = false;
+        } else {
+            labelTamanho.setForeground(Color.black);
+        }
+
+        if (textCor.getText().equals("")) {
+            labelCor.setForeground(Color.red);
+            camposValidos = false;
+        } else {
+            labelCor.setForeground(Color.black);
+        }
+
+        if (!camposValidos) {
+            jLabelAviso.setVisible(true);
+        } else {
+            jLabelAviso.setVisible(false);
+        }
+
+        return camposValidos;
     }
 
     /**
@@ -56,9 +207,10 @@ public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
         textCor = new javax.swing.JTextField();
         jComboBoxGrupo = new javax.swing.JComboBox<>();
         jRadioButtonGrupo = new javax.swing.JRadioButton();
-        btnEditar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
         jLabelAviso = new javax.swing.JLabel();
+        btnSalvar = new javax.swing.JButton();
 
         grupoFiltro.add(jRadioButtonRefe);
         grupoFiltro.add(jRadioButtonNome);
@@ -185,6 +337,12 @@ public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
 
         jRadioButtonGrupo.setText("Grupo");
 
+        btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unesc/topicos/grc/layout/delete-forever.png"))); // NOI18N
+        btnExcluir.setText("Excluir");
+        btnExcluir.setEnabled(false);
+        btnExcluir.setActionCommand("deletarProduto");
+        btnExcluir.addActionListener(listener);
+
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unesc/topicos/grc/layout/border-color.png"))); // NOI18N
         btnEditar.setText("Editar");
         btnEditar.addActionListener(listener);
@@ -192,14 +350,14 @@ public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
         btnEditar.setActionCommand("editarProduto");
         btnEditar.setEnabled(false);
 
-        btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unesc/topicos/grc/layout/delete-forever.png"))); // NOI18N
-        btnExcluir.setText("Excluir");
-        btnExcluir.setEnabled(false);
-        btnExcluir.setActionCommand("deletarProduto");
-        btnExcluir.addActionListener(listener);
-
         jLabelAviso.setText("Preencha todos os campos!");
         jLabelAviso.setVisible(false);
+
+        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unesc/topicos/grc/layout/content-save.png"))); // NOI18N
+        btnSalvar.setText("Salvar Alterações");
+        btnSalvar.addActionListener(listener);
+        btnSalvar.setActionCommand("salvarAlteracoes");
+        btnSalvar.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -239,7 +397,10 @@ public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
                                         .addComponent(btnExcluir)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabelAviso)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabelAviso)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnSalvar))
                                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -272,54 +433,17 @@ public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelAviso))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabelAviso)
+                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 61, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public String[] getDadosProcura() {
-        String selection;
-
-        if (jRadioButtonRefe.isSelected()) {
-            selection = "referencia";
-        } else if (jRadioButtonNome.isSelected()) {
-            selection = "descricao";
-        } else {
-            selection = "grupo";
-        }
-
-        return new String[]{campoProcura.getText(), selection};
-    }
-
-    public void setListaProdutos(List<Produto> lista) {
-        isEditando = false;
-
-        listaProdutos.setListData(
-                new Vector(new Vector(lista)));
-    }
-
-    public void limparCampos() {
-        listaProdutos.setListData(new String[0]);
-
-        jRadioButtonRefe.setSelected(true);
-        textReferencia.setText("");
-        textDescricao.setText("");
-        textValor.setText("");
-        textTamanho.setText("");
-        textCor.setText("");
-        //  textGrupo.setText("");
-        jComboBoxGrupo.setSelectedIndex(-1);
-        campoProcura.setText("");
-
-        btnEditar.setEnabled(false);
-        btnExcluir.setEnabled(false);
-
-    }
 
     private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
-        limparCampos();
+        limparCampos(true);
     }//GEN-LAST:event_formComponentHidden
 
     private void listaProdutosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaProdutosValueChanged
@@ -338,127 +462,11 @@ public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_listaProdutosValueChanged
 
-    public boolean confirmarExclusao() {
-        int opc = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja deletar \""
-                + produto.getReferencia() + "-" + produto.getDescricao() + "\""
-                + "?", "Confirmar exclusão", JOptionPane.YES_NO_OPTION);
-
-        return opc == 0;
-    }
-
-    public Produto getProduto() {
-        return produto;
-    }
-
-    public void setComboBox(List<String> lista) {
-        jComboBoxGrupo.removeAllItems();
-
-        if (isEditando) {
-            for (String l : lista) {
-                jComboBoxGrupo.addItem(l);
-            }
-        }
-    }
-
-    public Produto editarSalvarProduto() {
-        boolean labelState = false;
-
-        isEditando = !isEditando;
-
-        if (!isEditando) {
-            if (!validarCampos()) {
-                return null;
-            }
-        }
-
-        labelState = isEditando;
-
-        btnExcluir.setEnabled(!labelState);
-
-        textReferencia.setEditable(labelState);
-        textDescricao.setEditable(labelState);
-        textValor.setEditable(labelState);
-        textTamanho.setEditable(labelState);
-        textCor.setEditable(labelState);
-        jComboBoxGrupo.setEditable(labelState);
-        jComboBoxGrupo.setEnabled(labelState);
-
-        if (!isEditando) {
-            btnEditar.setText("Editar");
-            jLabelAviso.setVisible(false);
-
-            produto.setDescricao(textDescricao.getText());
-            produto.setReferencia(textReferencia.getText());
-            produto.setValor(Double.parseDouble(textValor.getText()));
-            produto.setTamanho(textTamanho.getText());
-            produto.setCor(textCor.getText());
-            produto.setGrupo((String) jComboBoxGrupo.getSelectedItem());
-
-            return produto;
-        } else {
-            btnEditar.setText("Salvar");
-        }
-
-        return null;
-    }
-
-    public boolean validarCampos() {
-        camposValidos = true;
-
-        if (textReferencia.getText().equals("")) {
-            labelReferencia.setForeground(Color.red);
-            camposValidos = false;
-        } else {
-            labelReferencia.setForeground(Color.black);
-        }
-
-        if (textValor.getText().equals("")) {
-            labelValor.setForeground(Color.red);
-            camposValidos = false;
-        } else {
-            labelValor.setForeground(Color.black);
-        }
-
-        if (textDescricao.getText().equals("")) {
-            labelDescricao.setForeground(Color.red);
-            camposValidos = false;
-        } else {
-            labelDescricao.setForeground(Color.black);
-        }
-
-        if (textTamanho.getText().equals("")) {
-            labelTamanho.setForeground(Color.red);
-            camposValidos = false;
-        } else {
-            labelTamanho.setForeground(Color.black);
-        }
-
-        if (textCor.getText().equals("")) {
-            labelCor.setForeground(Color.red);
-            camposValidos = false;
-        } else {
-            labelCor.setForeground(Color.black);
-        }
-
-        //    if (jComboBoxGrupo.getSelectedIndex() == -1) {
-        //      jLabelGrupo.setForeground(Color.red);
-        //    camposValidos = false;
-        //} else {
-        //    jLabelGrupo.setForeground(Color.black);
-        // }
-        if (!camposValidos) {
-            jLabelAviso.setVisible(true);
-        } else {
-            jLabelAviso.setVisible(false);
-        }
-
-        return camposValidos;
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnProcurar;
+    private javax.swing.JButton btnSalvar;
     private javax.swing.JTextField campoProcura;
     private javax.swing.ButtonGroup grupoFiltro;
     private javax.swing.JComboBox<String> jComboBoxGrupo;

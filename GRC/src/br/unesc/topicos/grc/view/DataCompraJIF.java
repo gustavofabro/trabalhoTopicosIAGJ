@@ -257,15 +257,15 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
             
         labelReferencia.setText(venda.getReferencia());
         labelProduto.setText(produto.get(0).getDescricao()); 
-        labelCliente.setText(cliente.getNome());
+        labelCliente.setText(cliente != null? cliente.getNome() : "Cliente não cadastrado");
         labelData.setText(venda.getDate());
         
     }//GEN-LAST:event_listaVendasValueChanged
 
     public void limparCampos() {
-        campoDataInicial.setText("");
-        campoDataFinal.setText("");
-        listaVendas.removeAll();
+        campoDataInicial.setValue(null);
+        campoDataFinal.setValue(null);
+        listaVendas.setListData(new String[0]);
     }
 
     public void setListaDataCompras(List<Venda> lista) {

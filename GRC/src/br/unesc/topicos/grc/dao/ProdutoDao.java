@@ -19,7 +19,7 @@ public class ProdutoDao {
     private LogEvents logEvents = new LogEvents();
 
     public void insert(Produto produto) throws SistemaException {
-        verificaReferencia(produto.getReferencia());
+        verificaReferencia(produto, false);
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -108,9 +108,10 @@ public class ProdutoDao {
                     + produto.getReferencia() + "\nErro: "
                     + ex.getMessage());
 
-            JOptionPane.showMessageDialog(null, "Erro ao deletar o produto: "
-                    + produto.getReferencia() + produto.getReferencia()
-            );
+            JOptionPane.showMessageDialog(null, "Erro", "Erro ao deletar o produto: "
+                    + produto.getReferencia() + produto.getDescricao(),
+                    JOptionPane.ERROR_MESSAGE);
+
         } finally {
             if (ps != null) {
                 try {
@@ -130,7 +131,7 @@ public class ProdutoDao {
     }
 
     public void update(Produto produto) throws SistemaException {
-        //verificaReferencia(produto.getReferencia());
+        verificaReferencia(produto, true);
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -147,14 +148,24 @@ public class ProdutoDao {
             ps.setDouble(3, produto.getValor());
             ps.setString(4, produto.getTamanho());
             ps.setString(5, produto.getCor());
-            ps.setString(6, produto.getGrupo()); 
+            ps.setString(6, produto.getGrupo());
             ps.setInt(7, produto.getId_produto());
 
             ps.execute();
+            conn.commit();
 
             logEvents.gravarLog("Dados do produto " + produto.getReferencia()
                     + " atualizados");
+
+            JOptionPane.showMessageDialog(null,
+                    "Dados do produto " + produto.getReferencia()
+                    + " atualizados");
+
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro", "Erro ao atualizar"
+                    + " o produto: " + produto.getReferencia() + produto.getDescricao(),
+                    JOptionPane.ERROR_MESSAGE);
+
             logEvents.gravarLog("Erro: " + ex.getMessage());
         } finally {
             if (ps != null) {
@@ -174,7 +185,7 @@ public class ProdutoDao {
         }
     }
 
-    private void verificaReferencia(String referencia) throws SistemaException {
+    private void verificaReferencia(Produto produto, boolean isAtualizando) throws SistemaException {
         Connection conn = null;
         PreparedStatement ps = null;
 
@@ -185,15 +196,24 @@ public class ProdutoDao {
 
             ps = conn.prepareStatement(sql);
 
-            ps.setString(1, referencia);
+            ps.setString(1, produto.getReferencia());
 
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                throw new SistemaException("Produto já cadastrado");
+                if (!isAtualizando) {
+                    throw new SistemaException("Produto já cadastrado");
+                } else if (!rs.getString(1).equals("" + produto.getId_produto())) {
+                    throw new SistemaException("Produto já cadastrado");
+                }
+
             }
 
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro",
+                    "Erro ao validar Referencia: " + ex.getMessage(),
+                    JOptionPane.ERROR_MESSAGE);
+
             logEvents.gravarLog("Erro ao validar Referencia: " + ex.getMessage());
         } finally {
             if (ps != null) {
@@ -238,12 +258,12 @@ public class ProdutoDao {
                 produto.setGrupo(rs.getString(7));
 
                 lista.add(produto);
-
             }
 
             return lista;
 
         } catch (SQLException e) {
+            
             logEvents.gravarLog("Erro ao recuperar produto do banco: \n"
                     + e.getMessage());
         } finally {

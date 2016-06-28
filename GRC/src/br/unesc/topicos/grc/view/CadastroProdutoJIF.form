@@ -81,7 +81,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabelGrupo" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jComboBoxGrupo" min="-2" pref="82" max="-2" attributes="0"/>
+                                  <Component id="jComboBoxGrupo" min="-2" pref="117" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>

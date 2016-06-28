@@ -542,14 +542,14 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
             jLabelSobrenome.setForeground(Color.black);
         }
 
-        if (jFormattedTextFieldCPF.getValue() == null) {
+        if (!jFormattedTextFieldCPF.isEditValid()) {
             jLabelCPF.setForeground(Color.red);
             camposValidos = false;
         } else {
             jLabelCPF.setForeground(Color.black);
         }
 
-        if (jFormattedTextFieldNasc.getValue() == null) {
+        if (!jFormattedTextFieldNasc.isEditValid()) {
             jLabelNasc.setForeground(Color.red);
             camposValidos = false;
         } else {
@@ -613,7 +613,7 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
             jLabelPais.setForeground(Color.black);
         }
 
-        if (jFormattedTextFieldCEP.getValue() == null) {
+        if (!jFormattedTextFieldCEP.isEditValid()) {
             jLabelCep.setForeground(Color.red);
             camposValidos = false;
         } else {
@@ -656,8 +656,8 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
     public void limparCampos() {
         jTextFieldNome.setText("");
         jTextFieldSobrenome.setText("");
-        jFormattedTextFieldCPF.setText("");
-        jFormattedTextFieldNasc.setText("");
+        jFormattedTextFieldCPF.setValue(null);
+        jFormattedTextFieldNasc.setValue(null);
         jTextFieldEmail.setText("");
         jTextFieldTel.setText("");
         radioButtonFeminino.setSelected(false);
@@ -668,7 +668,7 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
         jTextFieldCidade.setText("");
         jTextFieldEstado.setText("");
         jTextFieldPais.setText("");
-        jFormattedTextFieldCEP.setText("");
+        jFormattedTextFieldCEP.setValue(null);
 
     }
 
