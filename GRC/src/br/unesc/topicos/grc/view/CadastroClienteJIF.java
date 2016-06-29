@@ -197,6 +197,7 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
 
         jLabelCep.setText("CEP:");
 
+        salvarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unesc/topicos/grc/layout/content-save.png"))); // NOI18N
         salvarCliente.setText("Salvar");
         salvarCliente.addActionListener(jInternalListeners);
         salvarCliente.setActionCommand("salvarCliente");
@@ -488,7 +489,7 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
                     .addComponent(jTextFieldPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelPais)
                     .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelAviso)
                     .addComponent(salvarCliente))

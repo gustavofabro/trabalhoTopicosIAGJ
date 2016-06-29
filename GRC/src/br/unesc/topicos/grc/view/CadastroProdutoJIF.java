@@ -82,6 +82,7 @@ public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements Fo
 
         jTextFieldCor.addFocusListener(this);
 
+        jButtonSalvarProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unesc/topicos/grc/layout/content-save.png"))); // NOI18N
         jButtonSalvarProduto.setText("Salvar");
         jButtonSalvarProduto.addActionListener(jInternalListeners);
         jButtonSalvarProduto.setActionCommand("salvarProduto");

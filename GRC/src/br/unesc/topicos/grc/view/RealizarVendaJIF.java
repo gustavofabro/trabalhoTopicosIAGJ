@@ -112,6 +112,7 @@ public class RealizarVendaJIF extends javax.swing.JInternalFrame implements Focu
 
         jLabelCPF.setText("CPF Cliente:");
 
+        jButtonSalvarVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unesc/topicos/grc/layout/content-save.png"))); // NOI18N
         jButtonSalvarVenda.setText("Salvar");
         jButtonSalvarVenda.addActionListener(jInternalListeners);
         jButtonSalvarVenda.setActionCommand("salvarVenda");
@@ -165,7 +166,7 @@ public class RealizarVendaJIF extends javax.swing.JInternalFrame implements Focu
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelCPF)
                     .addComponent(jFormattedTextFieldCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(jButtonSalvarVenda)
                 .addContainerGap())
         );

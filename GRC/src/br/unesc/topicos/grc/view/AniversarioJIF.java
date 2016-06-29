@@ -36,7 +36,7 @@ public class AniversarioJIF extends javax.swing.JInternalFrame {
 
     public void setListaAniversariantes(List<Cliente> lista) {
         listaAniversarios.removeAll();
-     
+
         listaAniversarios.setListData(
                 new Vector(new Vector(lista)));
     }
@@ -64,12 +64,12 @@ public class AniversarioJIF extends javax.swing.JInternalFrame {
         jComboBoxDia.setSelectedIndex(-1);
         jComboBoxMes.setSelectedIndex(-1);
         listaAniversarios.removeAll();
-        
-        labelNome.setText(""); 
+        listaAniversarios.setListData(new String[0]);
+        labelNome.setText("");
         labelCpf.setText("");
-        labelDataC.setText(""); 
+        labelDataC.setText("");
         labelTel.setText("");
-        labelEmail.setText(""); 
+        labelEmail.setText("");
     }
 
     /**
@@ -126,7 +126,7 @@ public class AniversarioJIF extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel2.setText("Pesquisa Aniversário");
 
-        btnProcurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unesc/grc/topicos/layout/account-search.png"))); // NOI18N
+        btnProcurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unesc/topicos/grc/layout/account-search.png"))); // NOI18N
         btnProcurar.setMinimumSize(new java.awt.Dimension(48, 48));
         btnProcurar.setActionCommand("procurar");
         btnProcurar.addActionListener(jInternalListeners);
@@ -302,8 +302,8 @@ jPanel2Layout.setHorizontalGroup(
             labelCpf.setText(cliente.getCpf());
             labelDataC.setText(convertDate(cliente.getDataCadastro().split("-")));
             labelTel.setText(cliente.getTelefone());
-            labelEmail.setText(cliente.getEmail().equals("")?
-                    "E-mail não cadastrado" : cliente.getEmail());  
+            labelEmail.setText(cliente.getEmail().equals("")
+                    ? "E-mail não cadastrado" : cliente.getEmail());
         }
     }//GEN-LAST:event_listaAniversariosValueChanged
 

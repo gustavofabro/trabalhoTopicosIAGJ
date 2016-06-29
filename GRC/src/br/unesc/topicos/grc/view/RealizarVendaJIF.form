@@ -87,7 +87,7 @@
                   <Component id="jLabelCPF" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jFormattedTextFieldCPF" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="20" max="32767" attributes="0"/>
+              <EmptySpace pref="17" max="32767" attributes="0"/>
               <Component id="jButtonSalvarVenda" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -124,6 +124,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonSalvarVenda">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/br/unesc/topicos/grc/layout/content-save.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Salvar"/>
       </Properties>
       <AuxValues>

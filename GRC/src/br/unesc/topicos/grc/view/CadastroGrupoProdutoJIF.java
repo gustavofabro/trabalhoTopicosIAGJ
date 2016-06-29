@@ -37,6 +37,7 @@ public class CadastroGrupoProdutoJIF extends javax.swing.JInternalFrame {
 
         jLabelGrupo.setText("Novo Grupo:");
 
+        jButtonSalvarGrupo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/unesc/topicos/grc/layout/content-save.png"))); // NOI18N
         jButtonSalvarGrupo.setText("Salvar");
         jButtonSalvarGrupo.addActionListener(jInternalListeners);
         jButtonSalvarGrupo.setActionCommand("salvarNGrupo");

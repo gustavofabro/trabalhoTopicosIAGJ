@@ -793,3 +793,5 @@ Attempt to insert null into a non-nullable column: column: CIDADE table: CLIENTE
 [2016-06-28 20:10:55] Login realizado pelo usuario: Gustavo
 [2016-06-28 20:11:20] Login realizado pelo usuario: Gustavo
 [2016-06-28 20:11:44] Login realizado pelo usuario: Gustavo
+[2016-06-29 16:04:44] Problemas ao conectar no banco de dados
+socket creation error
