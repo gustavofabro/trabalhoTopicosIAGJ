@@ -30,13 +30,13 @@ public class CadastroClienteListener implements ActionListener {
 
                     try {
                         dao.insert(cliente);
+
+                        cadCliente.setVisible(false);
+                        cadCliente.limparCampos();
                     } catch (SistemaException ex) {
                         JOptionPane.showMessageDialog(null,
                                 ex.getMessage(), "Erro", JOptionPane.OK_OPTION);
                     }
-
-                    cadCliente.setVisible(false);
-                    cadCliente.limparCampos();
 
                 }
 

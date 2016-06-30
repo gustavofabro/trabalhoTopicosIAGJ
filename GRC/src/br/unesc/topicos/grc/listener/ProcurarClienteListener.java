@@ -55,7 +55,7 @@ public class ProcurarClienteListener implements ActionListener {
 
                 if (cliente != null) {
                     dao.update(cliente);
-                    procurarCliente.limparCampos(false);
+                    procurarCliente.limparCampos(false, false);
                     procurarCliente.disableButtons();
                     atualizarLista();
 

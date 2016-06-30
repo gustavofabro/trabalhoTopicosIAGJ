@@ -46,7 +46,7 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
         jTextFieldBairro.addFocusListener(this);
         jTextFieldNum.addFocusListener(this);
         jTextFieldCidade.addFocusListener(this);
-        jTextFieldEstado.addFocusListener(this);
+        jComboBoxEstado.addFocusListener(this);
         jTextFieldNome.addFocusListener(this);
         jTextFieldPais.addFocusListener(this);
         jTextFieldRua.addFocusListener(this);
@@ -88,7 +88,6 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
         jTextFieldRua = new javax.swing.JTextField();
         jTextFieldBairro = new javax.swing.JTextField();
         jTextFieldCidade = new javax.swing.JTextField();
-        jTextFieldEstado = new javax.swing.JTextField();
         jTextFieldPais = new javax.swing.JTextField();
         radioButtonFeminino = new javax.swing.JRadioButton();
         radioButtonMasculino = new javax.swing.JRadioButton();
@@ -114,6 +113,7 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jComboBoxEstado = new javax.swing.JComboBox<>();
 
         jPasswordField1.setText("jPasswordField1");
 
@@ -224,8 +224,6 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
             }
         });
 
-        jTextFieldEstado.addFocusListener(this);
-
         jTextFieldPais.addFocusListener(this);
 
         radioButtonFeminino.setText("Feminimo");
@@ -295,6 +293,32 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
         jLabel13.setForeground(new java.awt.Color(255, 0, 0));
         jLabel13.setText("*");
 
+        jComboBoxEstado.setModel(
+            new javax.swing.DefaultComboBoxModel<>(
+                new String[]
+                { "AC", "AL", "AP", "AM", "BA", "CE",
+                    "DF",
+                    "ES",
+                    "GO",
+                    "MA",
+                    "MT",
+                    "MS",
+                    "MG",
+                    "PA",
+                    "PB",
+                    "PR",
+                    "PE",
+                    "PI",
+                    "RJ",
+                    "RN",
+                    "RS",
+                    "RO",
+                    "RR",
+                    "SC",
+                    "SP",
+                    "SE",
+                    "TO"}));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -327,7 +351,9 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
                                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(207, 207, 207)
+                                        .addGap(4, 4, 4)
+                                        .addComponent(jComboBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(136, 136, 136)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabelCep)
@@ -349,9 +375,7 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldEstado, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldPais)))
+                                .addComponent(jTextFieldPais, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelSexo)
@@ -479,17 +503,17 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelEstado)
-                    .addComponent(jTextFieldEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelCep)
                     .addComponent(jFormattedTextFieldCEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
-                    .addComponent(jLabel11))
+                    .addComponent(jLabel11)
+                    .addComponent(jComboBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelPais)
                     .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelAviso)
                     .addComponent(salvarCliente))
@@ -515,7 +539,7 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
             cliente.setBairro(jTextFieldBairro.getText());
             cliente.setNumCasa(jTextFieldNum.getText());
             cliente.setCidade(jTextFieldCidade.getText());
-            cliente.setEstado(jTextFieldEstado.getText());
+            cliente.setEstado((String)jComboBoxEstado.getSelectedItem());
             cliente.setPais(jTextFieldPais.getText());
             cliente.setCep(jFormattedTextFieldCEP.getText());
             cliente.setDataCadastro(formattedDate.format(date)); 
@@ -600,7 +624,7 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
             jLabelCidade.setForeground(Color.black);
         }
 
-        if (jTextFieldEstado.getText().equals("")) {
+        if (jComboBoxEstado.getSelectedIndex() == -1) {
             jLabelEstado.setForeground(Color.red);
             camposValidos = false;
         } else {
@@ -667,7 +691,7 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
         jTextFieldBairro.setText("");
         jTextFieldNum.setText("");
         jTextFieldCidade.setText("");
-        jTextFieldEstado.setText("");
+        jComboBoxEstado.setSelectedIndex(-1); 
         jTextFieldPais.setText("");
         jFormattedTextFieldCEP.setValue(null);
 
@@ -685,6 +709,7 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> jComboBoxEstado;
     private javax.swing.JFormattedTextField jFormattedTextFieldCEP;
     private javax.swing.JFormattedTextField jFormattedTextFieldCPF;
     private javax.swing.JFormattedTextField jFormattedTextFieldNasc;
@@ -731,7 +756,6 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
     private javax.swing.JTextField jTextFieldBairro;
     private javax.swing.JTextField jTextFieldCidade;
     private javax.swing.JTextField jTextFieldEmail;
-    private javax.swing.JTextField jTextFieldEstado;
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldNum;
     private javax.swing.JTextField jTextFieldPais;

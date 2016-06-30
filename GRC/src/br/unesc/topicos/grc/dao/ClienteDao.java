@@ -28,7 +28,7 @@ public class ClienteDao {
 
         conn = Conexao.getConnection();
 
-        String sql = "insert into clientes (id_cliente, nome, sobrenome, cpf, email,"
+        String sql = "insert into cliente (id_cliente, nome, sobrenome, cpf, email,"
                 + " sexo, nascimento, rua, bairro, cidade, estado, pais,"
                 + "cep, numCasa, telefone, data_cadastro) "
                 + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -98,7 +98,7 @@ public class ClienteDao {
         conn = Conexao.getConnection();
 
         try {
-            String sql = "delete from clientes where id_cliente = ?";
+            String sql = "delete from cliente where id_cliente = ?";
             ps = conn.prepareStatement(sql);
             ps.setInt(1, cliente.getId_cliente());
 
@@ -132,7 +132,7 @@ public class ClienteDao {
 
         conn = Conexao.getConnection();
 
-        String sql = "update clientes set nome = ?, sobrenome = ?, "
+        String sql = "update cliente set nome = ?, sobrenome = ?, "
                 + "cpf = ?, email = ?, sexo = ?, nascimento = ?, rua = ?,"
                 + "bairro = ?, cidade = ?, estado = ?, pais = ?,"
                 + "cep = ?, numCasa = ?, telefone = ? where id_cliente = ?";
@@ -189,7 +189,7 @@ public class ClienteDao {
         PreparedStatement ps = null;
         conn = Conexao.getConnection();
         try {
-            String sql = "select * from clientes where cpf = ?";
+            String sql = "select * from cliente where cpf = ?";
 
             ps = conn.prepareStatement(sql);
             ps.setString(1, cpf);
@@ -237,7 +237,7 @@ public class ClienteDao {
         System.out.println("Like: " + dataPesquisa);
 
         try {
-            String sql = "select * from clientes where nascimento like " + dataPesquisa;
+            String sql = "select * from cliente where nascimento like " + dataPesquisa;
 
             ps = conn.prepareStatement(sql);
 
@@ -280,7 +280,7 @@ public class ClienteDao {
         conn = Conexao.getConnection();
 
         try {
-            String sql = "select * from clientes where cpf = ?";
+            String sql = "select * from cliente where cpf = ?";
 
             ps = conn.prepareStatement(sql);
 
@@ -319,7 +319,7 @@ public class ClienteDao {
 
         try {
             conn = Conexao.getConnection();
-            String sql = "select * from clientes where upper (nome) "
+            String sql = "select * from cliente where upper (nome) "
                     + "like upper ('%" + nome + "%')"
                     + " and cpf like '%" + cpf + "%'";
 
@@ -381,7 +381,7 @@ public class ClienteDao {
         conn = Conexao.getConnection();
 
         try {
-            String sql = "select max(id_cliente) from clientes";
+            String sql = "select max(id_cliente) from cliente";
 
             ps = conn.prepareStatement(sql);
 

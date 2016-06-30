@@ -795,3 +795,21 @@ Attempt to insert null into a non-nullable column: column: CIDADE table: CLIENTE
 [2016-06-28 20:11:44] Login realizado pelo usuario: Gustavo
 [2016-06-29 16:04:44] Problemas ao conectar no banco de dados
 socket creation error
+[2016-06-30 15:35:58] Login realizado pelo usuario: Gustavo
+[2016-06-30 15:36:01] Erro ao cadastrar Cliente: Gustavo
+Erro: Column count does not match in statement [insert into cliente (id_cliente, nome, sobrenome, cpf, email, sexo, nascimento, rua, bairro, cidade, estado, pais,cep, numCasa, telefone, data_cadastro) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)]
+[2016-06-30 15:36:01] Cadastrado Cliente: Gustavo
+[2016-06-30 15:41:34] Login realizado pelo usuario: Gustavo
+[2016-06-30 15:49:23] Login realizado pelo usuario: Gustavo
+[2016-06-30 15:49:26] Cadastrado Cliente: uhasuhsa
+[2016-06-30 15:52:09] Login realizado pelo usuario: Gustavo
+[2016-06-30 15:52:11] Cadastrado Cliente: 123
+[2016-06-30 15:56:15] Login realizado pelo usuario: Gustavo
+[2016-06-30 16:00:42] Login realizado pelo usuario: Gustavo
+[2016-06-30 16:02:55] Login realizado pelo usuario: Gustavo
+[2016-06-30 16:04:28] Login realizado pelo usuario: Gustavo
+[2016-06-30 16:05:49] Login realizado pelo usuario: Gustavo
+[2016-06-30 16:06:26] Login realizado pelo usuario: Gustavo
+[2016-06-30 16:07:19] Login realizado pelo usuario: Gustavo
+[2016-06-30 16:08:08] Login realizado pelo usuario: Gustavo
+[2016-06-30 16:11:34] Login realizado pelo usuario: Gustavo
