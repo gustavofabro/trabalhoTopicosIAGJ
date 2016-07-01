@@ -6,6 +6,8 @@ import br.unesc.topicos.grc.util.LogEvents;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -13,6 +15,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URL;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -78,7 +81,6 @@ public class Login extends JFrame {
         });
 
         getRootPane().setDefaultButton(btnEntrar);
-
     }
 
     public void validarLogin(String usuarioEntrada, char[] senhaEntrada) {
@@ -93,10 +95,10 @@ public class Login extends JFrame {
                 gravaUsuario(entradaLogin.getText());
 
                 logEvents.gravarLog("Login realizado pelo usuario: "
-                       + entradaLogin.getText());
+                        + entradaLogin.getText());
             } else {
                 warning.setVisible(true);
-                entradaSenha.setText(""); 
+                entradaSenha.setText("");
             }
         }
     }
@@ -114,7 +116,7 @@ public class Login extends JFrame {
             bufferedWriter.close();
             fileWriter.close();
         } catch (IOException ex) {
-         //   logEvents.gravarLog(ex.getMessage() + "\n");
+            //   logEvents.gravarLog(ex.getMessage() + "\n");
         }
     }
 

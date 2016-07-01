@@ -813,3 +813,34 @@ Erro: Column count does not match in statement [insert into cliente (id_cliente,
 [2016-06-30 16:07:19] Login realizado pelo usuario: Gustavo
 [2016-06-30 16:08:08] Login realizado pelo usuario: Gustavo
 [2016-06-30 16:11:34] Login realizado pelo usuario: Gustavo
+[2016-06-30 20:42:03] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-30 20:41:59] Login realizado pelo usuario: Gustavo
+[2016-06-30 20:42:46] Login realizado pelo usuario: Gustavo
+[2016-06-30 20:45:15] Login realizado pelo usuario: Gustavo
+[2016-06-30 20:48:57] Login realizado pelo usuario: Gustavo
+[2016-06-30 20:50:06] Login realizado pelo usuario: Gustavo
+[2016-06-30 20:51:25] Login realizado pelo usuario: Gustavo
+[2016-06-30 20:51:30] Erro ao validar CPF: Table not found in statement [select * from clientes where cpf = ?]
+[2016-06-30 20:51:30] Venda realizada: 8
+[2016-06-30 20:51:30] Dados do produto C02 atualizados
+[2016-06-30 21:01:52] Login realizado pelo usuario: Gustavo
+[2016-06-30 21:01:55] Grupo de Produto salvo: Bone
+[2016-06-30 21:01:55] Produto salvo: sd
+[2016-06-30 21:01:55] Produto salvo: sad
+[2016-06-30 21:01:55] Produto deletado: 01 - Tênis Nike 
+[2016-06-30 21:01:55] Produto deletado: C02 - Calça Leg Flicks
+[2016-06-30 21:01:55] Produto deletado: sad - asd
+[2016-06-30 21:01:55] Produto deletado: sd - asd
+[2016-06-30 21:01:55] Produto deletado: 8 - Jaqueta
+[2016-06-30 21:11:31] Login realizado pelo usuario: Alini
+[2016-06-30 21:12:21] Login realizado pelo usuario: Alini
+[2016-06-30 21:12:28] Erro ao realizar venda
+[2016-06-30 21:24:25] Login realizado pelo usuario: Alini
+[2016-06-30 21:24:29] Grupo de Produto salvo: Calça
+[2016-06-30 21:24:29] Produto salvo: 02
+[2016-06-30 21:24:29] Erro ao validar CPF: Table not found in statement [select * from clientes where cpf = ?]
+[2016-06-30 21:24:29] Venda realizada: 02
+[2016-06-30 21:24:30] Erro ao procurar data compra:
+ Wrong data type: java.lang.NumberFormatException: For input string: "____"
+[2016-06-30 21:42:53] Login realizado pelo usuario: Alini

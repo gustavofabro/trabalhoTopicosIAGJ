@@ -55,8 +55,9 @@ public class TelaPrincipal extends JFrame implements ActionListener {
         sobreInfo = "GRC - Gestão do relacionamento com o cliente \n\nTrabalho "
                 + "desenvolvido aplicando o conceito \nde MDI (Multiple "
                 + "Document Interface), para a disciplina"
-                + "\nde Tópicos Especiais 1.\n\nEquipe:\nAlini Eynm\nGustavo Fabro";
-       // logoPanel.setBounds(512, 362, 100, 100);
+                + "\nde Tópicos Especiais 1.\n\nEquipe:\nAlini Eyng\nGustavo Fabro";
+       
+    // logoPanel.setBounds(512, 362, 100, 100);
       //  logoPanel.setIcon(new 
       //      ImageIcon("/br/unesc/topicos/grc/layout/border-color.png")); 
         

@@ -65,13 +65,7 @@ public class RealizarVendaJIF extends javax.swing.JInternalFrame implements Focu
         } else {
             jLabelReferencia.setForeground(Color.black);
         }
-        if (jFormattedTextFieldCPF.getValue() == null) {
-            jLabelCPF.setForeground(Color.red);
-            camposValidos = false;
-        } else {
-            jLabelCPF.setForeground(Color.black);
-        }
-
+     
         return camposValidos;
 
     }

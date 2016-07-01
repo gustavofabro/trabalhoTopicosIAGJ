@@ -21,7 +21,7 @@ public class ProcurarClienteListener implements ActionListener {
 
     public void atualizarLista() {
         String[] valores = procurarCliente.getDadosProcura();
-        procurarCliente.setListaProdutos(
+        procurarCliente.setListaClientes(
                 dao.selectCliente(valores[0], valores[1]));
 
         procurarCliente.camposEnables(false);
