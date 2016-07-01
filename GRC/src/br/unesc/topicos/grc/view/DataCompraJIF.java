@@ -245,11 +245,11 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public String getDataInicial() {
-        return convertDate(campoDataInicial.getText().split("/"));
+        return convertDateToDb(campoDataInicial.getText().split("/"));
     }
 
     public String getDataFinal() {
-        return convertDate(campoDataFinal.getText().split("/"));
+        return convertDateToDb(campoDataFinal.getText().split("/"));
     }
 
     private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
@@ -264,7 +264,7 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
         labelReferencia.setText(venda.getReferencia());
         labelProduto.setText(produto.get(0).getDescricao()); 
         labelCliente.setText(cliente != null? cliente.getNome() : "Cliente não cadastrado");
-        labelData.setText(venda.getDate());
+        labelData.setText(convertDateToUser(venda.getDate().split("-"))); 
         
     }//GEN-LAST:event_listaVendasValueChanged
 
@@ -285,8 +285,12 @@ public class DataCompraJIF extends javax.swing.JInternalFrame {
                 new Vector(new Vector(lista)));
     }
 
-    public String convertDate(String date[]) {
+    public String convertDateToDb(String date[]) {
         return date[2] + "-" + date[1] + "-" + date[0];
+    }
+    
+     public String convertDateToUser(String[] data) {
+        return data[2] + "/" + data[1] + "/" + data[0];
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnProcurar;

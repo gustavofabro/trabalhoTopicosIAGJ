@@ -217,7 +217,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="*Todos os campos s&#xe3;o obrigat&#xf3;rios"/>
+        <Property name="text" type="java.lang.String" value="Campos com &quot;*&quot; s&#xe3;o obrigat&#xf3;rios"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jLabelAviso.setVisible(false);"/>

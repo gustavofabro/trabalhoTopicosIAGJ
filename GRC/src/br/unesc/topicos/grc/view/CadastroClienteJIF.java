@@ -27,7 +27,7 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
 
     Date date = new Date();
     DateFormat formattedDate = new SimpleDateFormat("YYYY-MM-dd");
-    
+
     public CadastroClienteJIF() {
 
         try {
@@ -245,7 +245,7 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
         jFormattedTextFieldCEP.addFocusListener(this);
 
         jLabelAviso.setForeground(new java.awt.Color(255, 0, 0));
-        jLabelAviso.setText("*Campos Obrigatórios");
+        jLabelAviso.setText("Campos com \"*\" são obrigatórios");
         jLabelAviso.setVisible(false);
 
         jLabelTel.setText("Telefone:");
@@ -539,15 +539,50 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
             cliente.setBairro(jTextFieldBairro.getText());
             cliente.setNumCasa(jTextFieldNum.getText());
             cliente.setCidade(jTextFieldCidade.getText());
-            cliente.setEstado((String)jComboBoxEstado.getSelectedItem());
+            cliente.setEstado((String) jComboBoxEstado.getSelectedItem());
             cliente.setPais(jTextFieldPais.getText());
             cliente.setCep(jFormattedTextFieldCEP.getText());
-            cliente.setDataCadastro(formattedDate.format(date)); 
-            
+            cliente.setDataCadastro(formattedDate.format(date));
+
             return cliente;
         } else {
             return null;
         }
+    }
+
+    public void limparCampos() {
+        jTextFieldNome.setText("");
+        jTextFieldSobrenome.setText("");
+        jFormattedTextFieldCPF.setValue(null);
+        jFormattedTextFieldNasc.setValue(null);
+        jTextFieldEmail.setText("");
+        jTextFieldTel.setText("");
+        radioButtonFeminino.setSelected(false);
+        radioButtonMasculino.setSelected(false);
+        jTextFieldRua.setText("");
+        jTextFieldBairro.setText("");
+        jTextFieldNum.setText("");
+        jTextFieldCidade.setText("");
+        jComboBoxEstado.setSelectedIndex(-1);
+        jTextFieldPais.setText("");
+        jFormattedTextFieldCEP.setValue(null);
+
+        jLabelNome.setForeground(Color.black);
+        jLabelSobrenome.setForeground(Color.black);
+        jLabelCPF.setForeground(Color.black);
+        jLabelNasc.setForeground(Color.black);
+        jLabelTel.setForeground(Color.black);
+        jLabelSexo.setForeground(Color.black);
+        jLabelRua.setForeground(Color.black);
+        jLabelBairro.setForeground(Color.black);
+        jLabelNumero.setForeground(Color.black);
+        jLabelCidade.setForeground(Color.black);
+        jLabelEstado.setForeground(Color.black);
+        jLabelPais.setForeground(Color.black);
+        jLabelCep.setForeground(Color.black);
+
+        jLabelAviso.setVisible(false);
+
     }
 
     public boolean validarCampos() {
@@ -644,13 +679,9 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
         } else {
             jLabelCep.setForeground(Color.black);
         }
-
-        if (!camposValidos) {
-            jLabelAviso.setVisible(true);
-        } else {
-            jLabelAviso.setVisible(false);
-        }
-
+   
+        jLabelAviso.setVisible(!camposValidos);
+   
         return camposValidos;
     }
 
@@ -677,25 +708,6 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
     private void jTextFieldCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCidadeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCidadeActionPerformed
-
-    public void limparCampos() {
-        jTextFieldNome.setText("");
-        jTextFieldSobrenome.setText("");
-        jFormattedTextFieldCPF.setValue(null);
-        jFormattedTextFieldNasc.setValue(null);
-        jTextFieldEmail.setText("");
-        jTextFieldTel.setText("");
-        radioButtonFeminino.setSelected(false);
-        radioButtonMasculino.setSelected(false);
-        jTextFieldRua.setText("");
-        jTextFieldBairro.setText("");
-        jTextFieldNum.setText("");
-        jTextFieldCidade.setText("");
-        jComboBoxEstado.setSelectedIndex(-1); 
-        jTextFieldPais.setText("");
-        jFormattedTextFieldCEP.setValue(null);
-
-    }
 
     @Override
     public void focusGained(FocusEvent e) {

@@ -864,3 +864,25 @@ socket creation error
 [2016-06-30 23:25:58] Login realizado pelo usuario: Alini
 [2016-06-30 23:27:04] Login realizado pelo usuario: Alini
 [2016-06-30 23:28:12] Login realizado pelo usuario: Alini
+[2016-07-01 00:17:45] Problemas ao conectar no banco de dados
+socket creation error
+[2016-07-01 00:17:42] Login realizado pelo usuario: Alini
+[2016-07-01 00:24:57] Login realizado pelo usuario: Alini
+[2016-07-01 00:26:13] Login realizado pelo usuario: Alini
+[2016-07-01 00:26:16] Erro ao realizar venda
+[2016-07-01 00:26:16] Erro ao realizar venda
+[2016-07-01 00:30:32] Login realizado pelo usuario: Alini
+[2016-07-01 00:30:38] Erro ao realizar venda
+[2016-07-01 00:31:36] Login realizado pelo usuario: Alini
+[2016-07-01 00:35:30] Login realizado pelo usuario: Alini
+[2016-07-01 00:36:28] Login realizado pelo usuario: Alini
+[2016-07-01 00:36:49] Login realizado pelo usuario: Alini
+[2016-07-01 00:37:21] Login realizado pelo usuario: Alini
+[2016-07-01 00:38:12] Login realizado pelo usuario: Alini
+[2016-07-01 00:38:39] Login realizado pelo usuario: Alini
+[2016-07-01 00:39:18] Login realizado pelo usuario: Alini
+[2016-07-01 00:39:56] Login realizado pelo usuario: Alini
+[2016-07-01 00:40:48] Login realizado pelo usuario: Alini
+[2016-07-01 00:41:07] Login realizado pelo usuario: Alini
+[2016-07-01 00:44:07] Login realizado pelo usuario: Alini
+[2016-07-01 00:50:59] Login realizado pelo usuario: Alini

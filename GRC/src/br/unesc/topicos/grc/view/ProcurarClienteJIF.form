@@ -166,7 +166,7 @@
                   <Component id="jPanelDados" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnSalvar" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelAviso" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -216,6 +216,7 @@
     <Component class="javax.swing.JFormattedTextField" name="campoCPF">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(cpfFormatter)"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="campoCPF.setFocusLostBehavior(JFormattedTextField.COMMIT);"/>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
       </AuxValues>
     </Component>

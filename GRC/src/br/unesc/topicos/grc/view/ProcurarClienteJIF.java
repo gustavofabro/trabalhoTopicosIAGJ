@@ -8,6 +8,7 @@ import br.unesc.topicos.grc.util.LogEvents;
 import java.awt.Color;
 import java.util.List;
 import java.util.Vector;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 
 public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
@@ -376,6 +377,8 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
             }
         });
         jScrollPane2.setViewportView(listaClientes);
+
+        campoCPF.setFocusLostBehavior(JFormattedTextField.COMMIT);
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setText("Procurar Cliente");
@@ -781,7 +784,7 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
                         .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addComponent(jPanelDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(btnSalvar)
                 .addComponent(jLabelAviso))
             .addGap(15, 15, 15))

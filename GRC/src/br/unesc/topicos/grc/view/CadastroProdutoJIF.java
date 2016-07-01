@@ -88,7 +88,7 @@ public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements Fo
         jButtonSalvarProduto.setActionCommand("salvarProduto");
 
         jLabelAviso.setForeground(new java.awt.Color(255, 0, 0));
-        jLabelAviso.setText("*Todos os campos são obrigatórios");
+        jLabelAviso.setText("Campos com \"*\" são obrigatórios");
         jLabelAviso.setVisible(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -247,11 +247,7 @@ public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements Fo
             jLabelGrupo.setForeground(Color.black);
         }
 
-        if (!camposValidos) {
-            jLabelAviso.setVisible(true);
-        } else {
-            jLabelAviso.setVisible(false);
-        }
+        jLabelAviso.setVisible(!camposValidos);     
 
         return camposValidos;
     }
@@ -272,6 +268,15 @@ public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements Fo
         jTextFieldDescricao.setText("");
         jTextFieldTamanho.setText("");
         jTextFieldCor.setText("");
+
+        jLabelReferencia.setForeground(Color.black);
+        jLabelValor.setForeground(Color.black);
+        jLabelDescricao.setForeground(Color.black);
+        jLabelTamanho.setForeground(Color.black);
+        jLabelCor.setForeground(Color.black);
+        jLabelGrupo.setForeground(Color.black);
+        jLabelAviso.setVisible(false);
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

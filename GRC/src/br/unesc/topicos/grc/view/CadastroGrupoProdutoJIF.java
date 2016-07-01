@@ -23,6 +23,7 @@ public class CadastroGrupoProdutoJIF extends javax.swing.JInternalFrame {
         jTextFieldGrupo = new javax.swing.JTextField();
         jButtonSalvarGrupo = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
+        jLabelAviso = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -42,26 +43,33 @@ public class CadastroGrupoProdutoJIF extends javax.swing.JInternalFrame {
         jButtonSalvarGrupo.addActionListener(jInternalListeners);
         jButtonSalvarGrupo.setActionCommand("salvarNGrupo");
 
+        jLabelAviso.setForeground(new java.awt.Color(255, 0, 0));
+        jLabelAviso.setText("Campos com \"*\" são obrigatórios");
+        jLabelAviso.setVisible(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelGrupo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 101, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonSalvarGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelGrupo)
+                        .addGap(4, 4, 4)
+                        .addComponent(jTextFieldGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 109, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabelAviso)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonSalvarGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -76,8 +84,10 @@ public class CadastroGrupoProdutoJIF extends javax.swing.JInternalFrame {
                     .addComponent(jLabelGrupo)
                     .addComponent(jTextFieldGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
-                .addComponent(jButtonSalvarGrupo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonSalvarGrupo)
+                    .addComponent(jLabelAviso))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -104,19 +114,27 @@ public class CadastroGrupoProdutoJIF extends javax.swing.JInternalFrame {
         if (jTextFieldGrupo.getText().equals("")) {
             jLabelGrupo.setForeground(Color.red);
             camposValidos = false;
-
+        } else {
+            jLabelGrupo.setForeground(Color.black);
         }
+
+        jLabelAviso.setVisible(!camposValidos);
+
         return camposValidos;
     }
-    
+
     public void limparCampos() {
-       jTextFieldGrupo.setText(""); 
+        jTextFieldGrupo.setText("");
+        jLabelGrupo.setForeground(Color.black);
+        jLabelAviso.setVisible(false);
+
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonSalvarGrupo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelAviso;
     private javax.swing.JLabel jLabelGrupo;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
