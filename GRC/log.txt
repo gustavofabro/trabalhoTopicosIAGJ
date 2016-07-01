@@ -1007,3 +1007,20 @@ socket creation error
 [2016-07-01 15:54:14] Login realizado pelo usuario: Alini
 [2016-07-01 15:54:22] Cadastrado Cliente: a
 [2016-07-01 15:56:08] Login realizado pelo usuario: Alini
+[2016-07-01 16:22:00] Problemas ao conectar no banco de dados
+socket creation error
+[2016-07-01 16:21:18] Login realizado pelo usuario: Alini
+[2016-07-01 16:22:55] Cadastrado Cliente: Aline
+[2016-07-01 16:22:55] Cadastrado Cliente: Heraldo José
+[2016-07-01 16:22:55] Cadastrado Cliente: Caroline
+[2016-07-01 16:22:55] Produto salvo: C001
+[2016-07-01 16:22:55] Produto salvo: C002
+[2016-07-01 16:22:55] Produto salvo: C003
+[2016-07-01 16:22:55] Produto salvo: CA01
+[2016-07-01 16:22:55] Produto salvo: CA02
+[2016-07-01 16:22:55] Produto salvo: CA03
+[2016-07-01 16:22:55] Produto salvo: CI01
+[2016-07-01 16:22:55] Produto salvo: S001
+[2016-07-01 16:22:55] Produto salvo: SA02
+[2016-07-01 16:22:55] Produto salvo: TO01
+[2016-07-01 16:22:55] Dados do produto SA02 atualizados

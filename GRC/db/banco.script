@@ -11,6 +11,8 @@ SET WRITE_DELAY 10
 SET SCHEMA PUBLIC
 INSERT INTO USUARIO VALUES(1,'Alini','alini123')
 INSERT INTO USUARIO VALUES(2,'Gustavo','gustavo123')
+INSERT INTO VENDA VALUES(1,'a','___.___.___-__','2016-07-01')
+INSERT INTO VENDA VALUES(2,'a','077.937.179-88','2016-07-01')
 INSERT INTO GRUPO VALUES(1,'Cal\u00e7a')
 INSERT INTO GRUPO VALUES(2,'Cigarrete')
 INSERT INTO GRUPO VALUES(3,'Top')
@@ -26,4 +28,4 @@ INSERT INTO CLIENTE VALUES(10,'Ant\u00f4nio','Luiz','887.662.321-11','antonio@uo
 INSERT INTO CLIENTE VALUES(12,'Jo\u00e3o ','Paulo','777.666.555-44','jp12@hotmail.com','M','1990-02-18','Carlos Sampaio','S\u00e3o Luiz','Crici\u00fama','SC','Brasil','82322-222','231','88776655','2009-02-11')
 INSERT INTO CLIENTE VALUES(13,'Maria','Citadim','112.233.344-42','maria_citadim@gmail.com','F','1992-02-10','Cairu','Centro','Lauro M\u00fcller','SC','Brasil','88880-000','321','99332244','2001-10-30')
 INSERT INTO CLIENTE VALUES(14,'Thiago','Monteiro','123.455.221-11','thiago@uol.com','M','2000-05-14','Centro','Castelinho','Caxias do Sul','SC','Brasil','11223-333','1002','90883222','2016-07-19')
-INSERT INTO CLIENTE VALUES(15,'Joaquina','Vieira da Rosa','122.223.333-33','joaquina@vieira.com.br','F','2002-05-14','Cairu','Centro','Urussanga','DF','Brasil','88880-222','11','99332211','2016-06-23')
+INSERT INTO CLIENTE VALUES(15,'Joaquina','Vieira da Rosa','122.223.333-33','joaquina@vieira.com.br','F','2002-05-14','Cairu','Centro','Urussanga','GO','Brasil','88880-222','11','99332211','2016-06-23')
