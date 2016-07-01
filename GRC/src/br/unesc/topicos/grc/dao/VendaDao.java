@@ -8,13 +8,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import br.unesc.topicos.grc.util.LogEvents;
 
 public class VendaDao {
 
+    Connection conn = null;
+    PreparedStatement ps = null;
+    
     private LogEvents logEvents = new LogEvents();
 
     public void insert(Venda venda) throws SistemaException {
@@ -22,9 +23,6 @@ public class VendaDao {
         verificaCpf(venda.getCpf());
 
         venda.setIdVenda(getId());
-
-        Connection conn = null;
-        PreparedStatement ps = null;
 
         conn = Conexao.getConnection();
 
@@ -54,28 +52,12 @@ public class VendaDao {
                     "Erro ao realizar venda", JOptionPane.ERROR_MESSAGE);
 
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
-                }
-            }
+            finalizaVars();
         }
 
     }
 
     private void verificaCpf(String cpf) throws SistemaException {
-        Connection conn = null;
-        PreparedStatement ps = null;
-
         conn = Conexao.getConnection();
 
         try {
@@ -94,27 +76,11 @@ public class VendaDao {
         } catch (SQLException ex) {
             logEvents.gravarLog("Erro ao validar CPF: " + ex.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
-                }
-            }
+            finalizaVars();
         }
     }
 
     private void verificaReferencia(String referencia) throws SistemaException {
-        Connection conn = null;
-        PreparedStatement ps = null;
-
         conn = Conexao.getConnection();
 
         try {
@@ -133,28 +99,13 @@ public class VendaDao {
         } catch (SQLException ex) {
             logEvents.gravarLog("Erro ao validar produto: " + ex.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
-                }
-            }
+            finalizaVars();
         }
     }
 
     public List<Venda> getVendaInDate(String dataInicial, String dataFinal) {
         List<Venda> lista = new ArrayList<Venda>();
 
-        Connection conn = null;
-        PreparedStatement ps = null;
         conn = Conexao.getConnection();
 
         try {
@@ -178,14 +129,14 @@ public class VendaDao {
         } catch (SQLException ex) {
             logEvents.gravarLog("Erro ao procurar data compra:\n "
                     + ex.getMessage());
+        } finally {
+            finalizaVars();
         }
 
         return lista;
     }
 
-    public int getId() {
-        Connection conn = null;
-        PreparedStatement ps = null;
+    private int getId() {
         int id = 0;
 
         conn = Conexao.getConnection();
@@ -208,4 +159,23 @@ public class VendaDao {
         return id + 1;
     }
 
+    private void finalizaVars() {
+        if (ps != null) {
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                logEvents.gravarLog("Erro: " + ex.getMessage());
+            }
+        }
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                logEvents.gravarLog("Erro: " + ex.getMessage());
+            }
+        }
+        
+        ps = null;
+        conn= null;
+    }
 }

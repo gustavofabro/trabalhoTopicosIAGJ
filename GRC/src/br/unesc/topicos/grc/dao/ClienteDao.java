@@ -1,7 +1,6 @@
 package br.unesc.topicos.grc.dao;
 
 import br.unesc.topicos.grc.bean.Cliente;
-import br.unesc.topicos.grc.bean.Produto;
 import br.unesc.topicos.grc.exceptions.SistemaException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,18 +8,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import br.unesc.topicos.grc.util.LogEvents;
 
 public class ClienteDao {
 
     private LogEvents logEvents = new LogEvents();
+    private Connection conn = null;
+    private PreparedStatement ps = null;
 
     public void insert(Cliente cliente) throws SistemaException {
-        Connection conn = null;
-        PreparedStatement ps = null;
 
         verificaCpf(cliente.getCpf());
 
@@ -58,9 +55,15 @@ public class ClienteDao {
 
             logEvents.gravarLog("Cadastrado Cliente: "
                     + cliente.getNome());
-            JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
+
+            JOptionPane.showMessageDialog(null, "Cliente \""
+                    + cliente.getNome() + " " + cliente.getSobreNome()
+                    + "\" cadastrado com sucesso!");
 
         } catch (SQLException e) {
+
+            JOptionPane.showMessageDialog(null,"Erro ao cadastrar Cliente: "
+                    + cliente.getNome(), "Erro", JOptionPane.ERROR_MESSAGE);
 
             logEvents.gravarLog("Erro ao cadastrar Cliente: "
                     + cliente.getNome() + "\nErro: "
@@ -74,26 +77,11 @@ public class ClienteDao {
             }
 
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
-                }
-            }
+            finalizaVars();
         }
     }
 
     public void delete(Cliente cliente) {
-        Connection conn = null;
-        PreparedStatement ps = null;
 
         conn = Conexao.getConnection();
 
@@ -108,27 +96,12 @@ public class ClienteDao {
         } catch (SQLException ex) {
 
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
-                }
-            }
+            finalizaVars();
         }
 
     }
 
     public void update(Cliente cliente) {
-        Connection conn = null;
-        PreparedStatement ps = null;
 
         conn = Conexao.getConnection();
 
@@ -155,38 +128,24 @@ public class ClienteDao {
             ps.setString(13, cliente.getNumCasa());
             ps.setString(14, cliente.getTelefone());
             ps.setInt(15, cliente.getId_cliente());
-            
+
             ps.execute();
             conn.commit();
-            
-            System.out.println("Cliente: " + cliente.getNome()); 
-            System.out.println("id: " + cliente.getId_cliente());
-            
+
+            JOptionPane.showMessageDialog(null,
+                    "Dados do Cliente " + cliente.getNome() + " " + cliente.getSobreNome()
+                    + " atualizados!");
         } catch (SQLException ex) {
             logEvents.gravarLog("Erro ao atualizar cliente " + cliente.getNome()
                     + "\n" + ex.getMessage());
 
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
-                }
-            }
+            finalizaVars();
         }
     }
 
     public Cliente selectByCpf(String cpf) {
-        Connection conn = null;
-        PreparedStatement ps = null;
+
         conn = Conexao.getConnection();
         try {
             String sql = "select * from cliente where cpf = ?";
@@ -221,15 +180,15 @@ public class ClienteDao {
         } catch (SQLException ex) {
             logEvents.gravarLog("Erro ao procurar Cliente: \n"
                     + ex.getMessage());
+        } finally {
+            finalizaVars();
         }
+
         return null;
     }
 
     public List<Cliente> pesquisaAniversario(String[] dados) {
         List<Cliente> lista = new ArrayList<Cliente>();
-
-        Connection conn = null;
-        PreparedStatement ps = null;
 
         conn = Conexao.getConnection();
 
@@ -268,15 +227,14 @@ public class ClienteDao {
         } catch (SQLException ex) {
             logEvents.gravarLog("Erro ao procurar aniversário: \n"
                     + ex.getMessage());
+        } finally {
+            finalizaVars();
         }
 
         return lista;
     }
 
     private void verificaCpf(String cpf) throws SistemaException {
-        Connection conn = null;
-        PreparedStatement ps = null;
-
         conn = Conexao.getConnection();
 
         try {
@@ -295,26 +253,12 @@ public class ClienteDao {
         } catch (SQLException ex) {
             logEvents.gravarLog("Erro ao validar CPF: " + ex.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
-                }
-            }
+            finalizaVars();
         }
     }
 
     public List<Cliente> selectCliente(String nome, String cpf) {
-        Connection conn = null;
-        PreparedStatement ps = null;
+
         List<Cliente> lista = new ArrayList<Cliente>();
 
         try {
@@ -355,27 +299,12 @@ public class ClienteDao {
             logEvents.gravarLog("Erro ao recuperar cliente do banco: \n"
                     + e.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro interno no banco" + ex.getMessage());
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro interno no banco" + ex.getMessage());
-                }
-            }
+            finalizaVars();
         }
         return null;
     }
 
     private int getId() {
-        Connection conn = null;
-        PreparedStatement ps = null;
         int id = 0;
 
         conn = Conexao.getConnection();
@@ -400,5 +329,25 @@ public class ClienteDao {
 
     public String convertDateToDB(String date[]) {
         return date[2] + "-" + date[1] + "-" + date[0];
+    }
+
+    private void finalizaVars() {
+        if (ps != null) {
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                logEvents.gravarLog("Erro: " + ex.getMessage());
+            }
+        }
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                logEvents.gravarLog("Erro: " + ex.getMessage());
+            }
+        }
+
+        ps = null;
+        conn = null;
     }
 }

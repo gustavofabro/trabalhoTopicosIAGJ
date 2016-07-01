@@ -44,12 +44,6 @@ public class RealizarVendaListener implements ActionListener {
 
                 break;
 
-            case "novoProduto":
-                TelaPrincipal.novoProduto();
-                break;
-            case "cancelarVenda":
-                realizarVenda.setVisible(false);
-                break;
         }
     }
 

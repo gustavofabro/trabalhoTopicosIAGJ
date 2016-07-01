@@ -52,6 +52,9 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
         jTextFieldRua.addFocusListener(this);
         jTextFieldSobrenome.addFocusListener(this);
         jTextFieldEmail.addFocusListener(this);
+
+        getRootPane().setDefaultButton(salvarCliente);
+
     }
 
     @SuppressWarnings("unchecked")
@@ -679,9 +682,9 @@ public class CadastroClienteJIF extends javax.swing.JInternalFrame implements Fo
         } else {
             jLabelCep.setForeground(Color.black);
         }
-   
+
         jLabelAviso.setVisible(!camposValidos);
-   
+
         return camposValidos;
     }
 

@@ -3,7 +3,6 @@ package br.unesc.topicos.grc.listener;
 import br.unesc.topicos.grc.bean.GrupoProduto;
 import br.unesc.topicos.grc.dao.GrupoProdutoDao;
 import br.unesc.topicos.grc.exceptions.SistemaException;
-import br.unesc.topicos.grc.util.LogEvents;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import br.unesc.topicos.grc.view.CadastroGrupoProdutoJIF;

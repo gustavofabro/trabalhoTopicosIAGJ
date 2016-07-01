@@ -6,8 +6,6 @@ import br.unesc.topicos.grc.util.LogEvents;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -15,10 +13,10 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.URL;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -80,6 +78,15 @@ public class Login extends JFrame {
             }
         });
 
+        btnAjuda.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "Contato:\n"
+                        + "gustavofabro.f@gmail.com\nalinimeyng@hotmail.com",
+                        "Ajuda", JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
+
         getRootPane().setDefaultButton(btnEntrar);
     }
 
@@ -116,7 +123,7 @@ public class Login extends JFrame {
             bufferedWriter.close();
             fileWriter.close();
         } catch (IOException ex) {
-            //   logEvents.gravarLog(ex.getMessage() + "\n");
+               logEvents.gravarLog(ex.getMessage() + "\n");
         }
     }
 

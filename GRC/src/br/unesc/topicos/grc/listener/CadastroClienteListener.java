@@ -6,8 +6,6 @@ import br.unesc.topicos.grc.exceptions.SistemaException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import br.unesc.topicos.grc.view.CadastroClienteJIF;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class CadastroClienteListener implements ActionListener {

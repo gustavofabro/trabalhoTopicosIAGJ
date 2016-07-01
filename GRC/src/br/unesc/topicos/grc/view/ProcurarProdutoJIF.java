@@ -16,7 +16,6 @@ public class ProcurarProdutoJIF extends javax.swing.JInternalFrame {
     public ProcurarProdutoJIF() {
         initComponents();
         getRootPane().setDefaultButton(btnProcurar);
-
     }
 
     public boolean confirmarExclusao() {

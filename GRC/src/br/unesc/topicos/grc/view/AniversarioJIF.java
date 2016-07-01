@@ -5,7 +5,6 @@ import br.unesc.topicos.grc.dao.ClienteDao;
 import java.text.ParseException;
 import java.util.List;
 import java.util.Vector;
-import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 import br.unesc.topicos.grc.listener.AniversarioListener;
 import br.unesc.topicos.grc.util.LogEvents;
@@ -15,11 +14,6 @@ public class AniversarioJIF extends javax.swing.JInternalFrame {
     private LogEvents logEvents = new LogEvents();
     private AniversarioListener jInternalListeners = new AniversarioListener(this);
     private MaskFormatter dataFormatter;
-    private ClienteDao dao = new ClienteDao();
-
-    private Cliente cliente;
-    private String auxAniversario;
-    private String[] listAniversario;
 
     public AniversarioJIF() {
 
@@ -66,11 +60,15 @@ public class AniversarioJIF extends javax.swing.JInternalFrame {
         listaAniversarios.removeAll();
         listaAniversarios.setListData(new String[0]);
         labelNome.setText("");
-        jLabelNascimento.setText(""); 
+        jLabelNascimento.setText("");
         labelCpf.setText("");
         labelDataC.setText("");
         labelTel.setText("");
         labelEmail.setText("");
+    }
+
+    public String convertDate(String[] data) {
+        return data[2] + "/" + data[1] + "/" + data[0];
     }
 
     /**
@@ -329,10 +327,6 @@ jPanel2Layout.setHorizontalGroup(
     private void btnProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcurarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnProcurarActionPerformed
-
-    public String convertDate(String[] data) {
-        return data[2] + "/" + data[1] + "/" + data[0];
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnProcurar;

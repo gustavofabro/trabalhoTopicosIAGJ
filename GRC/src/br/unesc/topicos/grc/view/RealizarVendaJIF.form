@@ -28,19 +28,23 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="jLabelAviso" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jButtonSalvarVenda" min="-2" pref="118" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabelCPF" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelReferencia" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelCPF" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jTextFieldReferencia" max="32767" attributes="0"/>
-                  <Component id="jFormattedTextFieldCPF" pref="221" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jFormattedTextFieldCPF" min="-2" pref="221" max="-2" attributes="0"/>
+                  <Component id="jTextFieldReferencia" min="-2" pref="221" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
@@ -66,6 +70,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelReferencia" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                   <Component id="jTextFieldReferencia" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -73,8 +78,11 @@
                   <Component id="jFormattedTextFieldCPF" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-              <Component id="jButtonSalvarVenda" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jButtonSalvarVenda" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelAviso" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="15" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -92,7 +100,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelReferencia">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Refer&#xea;ncia"/>
+        <Property name="text" type="java.lang.String" value="Refer&#xea;ncia:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelCPF">
@@ -103,6 +111,7 @@
     <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldCPF">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(cpfFormatter)"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jFormattedTextFieldCPF.addFocusListener(this);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonSalvarVenda">
@@ -117,8 +126,30 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldReferencia">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jTextFieldReferencia.addFocusListener(this);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator3">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel13">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="*"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelAviso">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Campos com &quot;*&quot; s&#xe3;o obrigat&#xf3;rios"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jLabelAviso.setVisible(false);"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

@@ -1,6 +1,5 @@
 package br.unesc.topicos.grc.dao;
 
-import br.unesc.topicos.grc.bean.Cliente;
 import br.unesc.topicos.grc.bean.Produto;
 import br.unesc.topicos.grc.exceptions.SistemaException;
 import java.sql.Connection;
@@ -16,13 +15,12 @@ import br.unesc.topicos.grc.util.LogEvents;
 
 public class ProdutoDao {
 
+    private Connection conn = null;
+    private PreparedStatement ps = null;
     private LogEvents logEvents = new LogEvents();
 
     public void insert(Produto produto) throws SistemaException {
         verificaReferencia(produto, false);
-
-        Connection conn = null;
-        PreparedStatement ps = null;
 
         produto.setId_produto(getId());
 
@@ -47,9 +45,14 @@ public class ProdutoDao {
 
             logEvents.gravarLog("Produto salvo: "
                     + produto.getReferencia());
-            JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
+            JOptionPane.showMessageDialog(null, "Produto \"" + produto.getDescricao()
+                    + "\" cadastrado com sucesso!");
 
         } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao salvar o "
+                    + "produto \"" + produto.getDescricao()
+                    + "\" no banco");
+
             logEvents.gravarLog("Erro ao salvar Produto: "
                     + produto.getReferencia() + "\nErro: "
                     + e.getMessage());
@@ -62,27 +65,12 @@ public class ProdutoDao {
             }
 
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
-                }
-            }
+            finalizaVars();
         }
 
     }
 
     public void delete(Produto produto) {
-        Connection conn = null;
-        PreparedStatement ps = null;
 
         conn = Conexao.getConnection();
 
@@ -113,28 +101,12 @@ public class ProdutoDao {
                     JOptionPane.ERROR_MESSAGE);
 
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
-                }
-            }
+            finalizaVars();
         }
     }
 
     public void update(Produto produto) throws SistemaException {
         verificaReferencia(produto, true);
-
-        Connection conn = null;
-        PreparedStatement ps = null;
 
         conn = Conexao.getConnection();
 
@@ -168,26 +140,11 @@ public class ProdutoDao {
 
             logEvents.gravarLog("Erro: " + ex.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
-                }
-            }
+            finalizaVars();
         }
     }
 
     private void verificaReferencia(Produto produto, boolean isAtualizando) throws SistemaException {
-        Connection conn = null;
-        PreparedStatement ps = null;
 
         conn = Conexao.getConnection();
 
@@ -216,26 +173,11 @@ public class ProdutoDao {
 
             logEvents.gravarLog("Erro ao validar Referencia: " + ex.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro: " + ex.getMessage());
-                }
-            }
+            finalizaVars();
         }
     }
 
     public List<Produto> selectProduto(String valor, String by) {
-        Connection conn = null;
-        PreparedStatement ps = null;
         List<Produto> lista = new ArrayList<Produto>();
         String produtoPesquisa = "'%" + valor + "%'";
 
@@ -263,32 +205,17 @@ public class ProdutoDao {
             return lista;
 
         } catch (SQLException e) {
-            
+
             logEvents.gravarLog("Erro ao recuperar produto do banco: \n"
                     + e.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro interno no banco" + ex.getMessage());
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException ex) {
-                    logEvents.gravarLog("Erro interno no banco" + ex.getMessage());
-                }
-            }
+            finalizaVars();
         }
         return null;
     }
 
     public List<String> getAll() {
         List<String> lista = new ArrayList<String>();
-        Connection conn = null;
-        PreparedStatement ps = null;
 
         try {
             conn = Conexao.getConnection();
@@ -300,31 +227,15 @@ public class ProdutoDao {
                 lista.add(rs.getString(1) + " - " + rs.getString(2));
             }
         } catch (SQLException e) {
-            //   logEvents.gravarLog("Erro ao recuperar produtos do banco: \n"
-            //          + e.getMessage());
+            logEvents.gravarLog("Erro ao recuperar produtos do banco: \n"
+                    + e.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException ex) {
-                    //   logEvents.gravarLog("Erro interno no banco" + ex.getMessage());
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException ex) {
-                    //   logEvents.gravarLog("Erro interno no banco" + ex.getMessage());
-                }
-            }
+            finalizaVars();
         }
         return lista;
     }
 
-    public int getId() {
-        Connection conn = null;
-        PreparedStatement ps = null;
-
+    private int getId() {
         int id = 0;
 
         conn = Conexao.getConnection();
@@ -345,5 +256,25 @@ public class ProdutoDao {
         }
 
         return id + 1;
+    }
+
+    private void finalizaVars() {
+        if (ps != null) {
+            try {
+                ps.close();
+            } catch (SQLException ex) {
+                logEvents.gravarLog("Erro: " + ex.getMessage());
+            }
+        }
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                logEvents.gravarLog("Erro: " + ex.getMessage());
+            }
+        }
+
+        ps = null;
+        conn = null;
     }
 }

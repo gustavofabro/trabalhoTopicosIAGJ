@@ -886,3 +886,124 @@ socket creation error
 [2016-07-01 00:41:07] Login realizado pelo usuario: Alini
 [2016-07-01 00:44:07] Login realizado pelo usuario: Alini
 [2016-07-01 00:50:59] Login realizado pelo usuario: Alini
+[2016-07-01 07:48:01] Problemas ao conectar no banco de dados
+socket creation error
+[2016-07-01 07:47:47] Login realizado pelo usuario: Alini
+[2016-07-01 07:48:11] Produto salvo: 01
+[2016-07-01 07:48:12] Dados do produto 01 atualizados
+[2016-07-01 07:51:02] Login realizado pelo usuario: Alini
+[2016-07-01 07:51:18] Produto deletado: 01 - Carro
+[2016-07-01 07:58:30] Login realizado pelo usuario: Alini
+[2016-07-01 07:58:44] Grupo de Produto salvo: Carro
+[2016-07-01 07:58:44] Grupo de Produto salvo: Ac
+[2016-07-01 08:11:01] Login realizado pelo usuario: Alini
+[2016-07-01 08:11:13] Cadastrado Cliente: asd
+[2016-07-01 08:11:13] Produto salvo: 1
+[2016-07-01 08:11:13] Produto deletado: 1 - 1
+[2016-07-01 08:11:14] Erro ao realizar venda
+[2016-07-01 13:21:29] Problemas ao conectar no banco de dados
+socket creation error
+[2016-07-01 13:22:01] Problemas ao conectar no banco de dados
+socket creation error
+[2016-07-01 13:21:57] Login realizado pelo usuario: Alini
+[2016-07-01 13:23:26] Login realizado pelo usuario: Alini
+[2016-07-01 13:23:31] Produto salvo: oo
+[2016-07-01 13:23:31] Produto salvo: dd
+[2016-07-01 13:23:31] Produto deletado: oo - aa
+[2016-07-01 13:23:31] Produto deletado: dd - dd
+[2016-07-01 13:27:36] Login realizado pelo usuario: Alini
+[2016-07-01 13:28:25] Produto salvo: asd
+[2016-07-01 13:28:25] Produto deletado: asd - 11
+[2016-07-01 13:28:25] Produto salvo: aa
+[2016-07-01 13:28:25] Produto deletado: aa - asd
+[2016-07-01 13:28:25] Erro ao procurar data compra:
+ Wrong data type: java.lang.NumberFormatException: For input string: "____"
+[2016-07-01 13:32:27] Login realizado pelo usuario: Alini
+[2016-07-01 13:32:30] Erro ao realizar venda
+[2016-07-01 13:32:30] Produto salvo: a
+[2016-07-01 13:32:30] Erro ao validar CPF: Table not found in statement [select * from clientes where cpf = ?]
+[2016-07-01 13:32:30] Venda realizada: a
+[2016-07-01 13:32:30] Erro ao validar CPF: Table not found in statement [select * from clientes where cpf = ?]
+[2016-07-01 13:32:30] Venda realizada: a
+[2016-07-01 13:35:21] Login realizado pelo usuario: Alini
+[2016-07-01 13:39:54] Login realizado pelo usuario: Alini
+[2016-07-01 13:39:57] Erro ao realizar venda
+[2016-07-01 13:41:25] Login realizado pelo usuario: Alini
+[2016-07-01 13:41:29] Erro ao realizar venda
+[2016-07-01 13:43:25] Login realizado pelo usuario: Alini
+[2016-07-01 14:23:16] Login realizado pelo usuario: Alini
+[2016-07-01 14:23:41] Login realizado pelo usuario: Alini
+[2016-07-01 14:24:09] Login realizado pelo usuario: Alini
+[2016-07-01 14:33:11] Login realizado pelo usuario: Alini
+[2016-07-01 14:33:37] Login realizado pelo usuario: Alini
+[2016-07-01 14:34:18] Login realizado pelo usuario: Alini
+[2016-07-01 14:35:07] Login realizado pelo usuario: Alini
+[2016-07-01 14:36:13] Login realizado pelo usuario: Alini
+[2016-07-01 14:36:39] Login realizado pelo usuario: Alini
+[2016-07-01 14:37:04] Login realizado pelo usuario: Alini
+[2016-07-01 14:38:15] Login realizado pelo usuario: Alini
+[2016-07-01 14:38:36] Login realizado pelo usuario: Alini
+[2016-07-01 14:40:13] Login realizado pelo usuario: Alini
+[2016-07-01 14:47:42] Login realizado pelo usuario: Alini
+[2016-07-01 14:48:48] Login realizado pelo usuario: Alini
+[2016-07-01 14:49:05] Login realizado pelo usuario: Alini
+[2016-07-01 14:49:23] Login realizado pelo usuario: Alini
+[2016-07-01 14:55:41] Login realizado pelo usuario: Alini
+[2016-07-01 15:03:11] Login realizado pelo usuario: Alini
+[2016-07-01 15:03:58] Login realizado pelo usuario: Alini
+[2016-07-01 15:06:25] Login realizado pelo usuario: Alini
+[2016-07-01 15:08:18] Login realizado pelo usuario: Alini
+[2016-07-01 15:08:29] Login realizado pelo usuario: Alini
+[2016-07-01 15:09:14] Login realizado pelo usuario: Alini
+[2016-07-01 15:09:28] Login realizado pelo usuario: Alini
+[2016-07-01 15:09:32] Erro ao realizar venda
+[2016-07-01 15:10:16] Login realizado pelo usuario: Alini
+[2016-07-01 15:11:07] Login realizado pelo usuario: Alini
+[2016-07-01 15:11:24] Login realizado pelo usuario: Alini
+[2016-07-01 15:11:41] Login realizado pelo usuario: Alini
+[2016-07-01 15:11:53] Login realizado pelo usuario: Alini
+[2016-07-01 15:12:12] Login realizado pelo usuario: Alini
+[2016-07-01 15:12:24] Login realizado pelo usuario: Alini
+[2016-07-01 15:12:36] Login realizado pelo usuario: Alini
+[2016-07-01 15:13:27] Login realizado pelo usuario: Alini
+[2016-07-01 15:16:16] Login realizado pelo usuario: Alini
+[2016-07-01 15:16:31] Login realizado pelo usuario: Alini
+[2016-07-01 15:16:46] Login realizado pelo usuario: Alini
+[2016-07-01 15:17:10] Login realizado pelo usuario: Alini
+[2016-07-01 15:17:25] Login realizado pelo usuario: Alini
+[2016-07-01 15:17:55] Login realizado pelo usuario: Alini
+[2016-07-01 15:18:15] Login realizado pelo usuario: Alini
+[2016-07-01 15:18:35] Login realizado pelo usuario: Alini
+[2016-07-01 15:18:49] Login realizado pelo usuario: Alini
+[2016-07-01 15:19:03] Login realizado pelo usuario: Alini
+[2016-07-01 15:19:17] Login realizado pelo usuario: Alini
+[2016-07-01 15:19:30] Login realizado pelo usuario: Alini
+[2016-07-01 15:19:41] Login realizado pelo usuario: Alini
+[2016-07-01 15:20:13] Login realizado pelo usuario: Alini
+[2016-07-01 15:20:30] Login realizado pelo usuario: Alini
+[2016-07-01 15:21:21] Login realizado pelo usuario: Alini
+[2016-07-01 15:27:38] Login realizado pelo usuario: Alini
+[2016-07-01 15:28:42] Login realizado pelo usuario: Alini
+[2016-07-01 15:31:03] Login realizado pelo usuario: Alini
+[2016-07-01 15:32:15] Login realizado pelo usuario: Alini
+[2016-07-01 15:33:47] Login realizado pelo usuario: Alini
+[2016-07-01 15:34:00] Login realizado pelo usuario: Alini
+[2016-07-01 15:35:38] Login realizado pelo usuario: Alini
+[2016-07-01 15:36:53] Login realizado pelo usuario: Alini
+[2016-07-01 15:37:49] Login realizado pelo usuario: Alini
+[2016-07-01 15:38:36] Login realizado pelo usuario: Alini
+[2016-07-01 15:38:46] Login realizado pelo usuario: Alini
+[2016-07-01 15:38:54] Login realizado pelo usuario: Alini
+[2016-07-01 15:39:03] Login realizado pelo usuario: Alini
+[2016-07-01 15:39:12] Login realizado pelo usuario: Alini
+[2016-07-01 15:41:23] Login realizado pelo usuario: Alini
+[2016-07-01 15:43:35] Login realizado pelo usuario: Alini
+[2016-07-01 15:46:14] Login realizado pelo usuario: Alini
+[2016-07-01 15:49:00] Login realizado pelo usuario: Alini
+[2016-07-01 15:50:34] Login realizado pelo usuario: Alini
+[2016-07-01 15:51:54] Login realizado pelo usuario: Alini
+[2016-07-01 15:51:58] Produto deletado: a - a
+[2016-07-01 15:53:24] Login realizado pelo usuario: Alini
+[2016-07-01 15:54:14] Login realizado pelo usuario: Alini
+[2016-07-01 15:54:22] Cadastrado Cliente: a
+[2016-07-01 15:56:08] Login realizado pelo usuario: Alini

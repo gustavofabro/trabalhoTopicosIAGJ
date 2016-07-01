@@ -1,14 +1,10 @@
 package br.unesc.topicos.grc.listener;
 
 import br.unesc.topicos.grc.bean.Cliente;
-import br.unesc.topicos.grc.bean.Produto;
 import br.unesc.topicos.grc.dao.ClienteDao;
-import br.unesc.topicos.grc.exceptions.SistemaException;
-import br.unesc.topicos.grc.util.LogEvents;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import br.unesc.topicos.grc.view.ProcurarClienteJIF;
-import javax.swing.JOptionPane;
 
 public class ProcurarClienteListener implements ActionListener {
 
@@ -58,7 +54,6 @@ public class ProcurarClienteListener implements ActionListener {
                     procurarCliente.limparCampos(false, false);
                     procurarCliente.disableButtons();
                     atualizarLista();
-
                 }
                 break;
 

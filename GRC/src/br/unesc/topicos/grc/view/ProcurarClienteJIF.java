@@ -483,6 +483,7 @@ public class ProcurarClienteJIF extends javax.swing.JInternalFrame {
                 "SE",
                 "TO"}));
     jComboBoxEstado.setEnabled(false);
+    jComboBoxEstado.setSelectedIndex(-1);
 
     javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
     jPanelDados.setLayout(jPanelDadosLayout);

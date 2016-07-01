@@ -7,8 +7,8 @@ import br.unesc.topicos.grc.view.DataCompraJIF;
 
 public class DataCompraListener implements ActionListener {
 
-    private VendaDao dao = new VendaDao();
     private DataCompraJIF dataCompra;
+    private VendaDao dao = new VendaDao();
 
     public DataCompraListener(DataCompraJIF dataCompra) {
         this.dataCompra = dataCompra;
@@ -18,10 +18,10 @@ public class DataCompraListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "procurarDataCompra":
-                
+
                 dataCompra.setListaDataCompras(
-                    dao.getVendaInDate(dataCompra.getDataInicial(),
-                               dataCompra.getDataFinal())
+                        dao.getVendaInDate(dataCompra.getDataInicial(),
+                                dataCompra.getDataFinal())
                 );
         }
     }

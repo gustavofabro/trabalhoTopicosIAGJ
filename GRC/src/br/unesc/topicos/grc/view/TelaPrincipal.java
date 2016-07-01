@@ -1,13 +1,13 @@
-
 package br.unesc.topicos.grc.view;
 
 import java.awt.Container;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -36,8 +36,8 @@ public class TelaPrincipal extends JFrame implements ActionListener {
     private final Container c;
 
     private final JDesktopPane deskPane;
-    private static JInternalFrame cadClienteIFrame;
-    private static JInternalFrame cadProdutoIFrame;
+    private final JInternalFrame cadClienteIFrame;
+    private final JInternalFrame cadProdutoIFrame;
     private final JInternalFrame cadGrupoProdIFrame;
     private final JInternalFrame procurarClienteIFrame;
     private final JInternalFrame procurarProdutoIFrame;
@@ -45,22 +45,26 @@ public class TelaPrincipal extends JFrame implements ActionListener {
     private final JInternalFrame aniversarioIFrame;
     private final JInternalFrame dataCompraIFrame;
 
-    private JLabel logoPanel = new JLabel();
-    // private final ImageIcon logoGRC;
     public TelaPrincipal() {
 
         super("GRC");
+
         c = getContentPane();
-        deskPane = new JDesktopPane();
+        deskPane = new JDesktopPane() {
+            @Override
+            public void paintComponent(Graphics g) {
+                ImageIcon img = new ImageIcon(
+                        getClass().getResource("/br/unesc/topicos/grc/layout/logoN.png"));
+                super.paintComponent(g);
+                g.drawImage(img.getImage(), getWidth() / 5, getHeight() / 3, null);
+            }
+        };
+
         sobreInfo = "GRC - Gestão do relacionamento com o cliente \n\nTrabalho "
                 + "desenvolvido aplicando o conceito \nde MDI (Multiple "
                 + "Document Interface), para a disciplina"
                 + "\nde Tópicos Especiais 1.\n\nEquipe:\nAlini Eyng\nGustavo Fabro";
-       
-    // logoPanel.setBounds(512, 362, 100, 100);
-      //  logoPanel.setIcon(new 
-      //      ImageIcon("/br/unesc/topicos/grc/layout/border-color.png")); 
-        
+
         //JInternals Frames
         cadClienteIFrame = new CadastroClienteJIF();
         cadProdutoIFrame = new CadastroProdutoJIF();
@@ -129,8 +133,6 @@ public class TelaPrincipal extends JFrame implements ActionListener {
         deskPane.add(dataCompraIFrame);
 
         c.add(deskPane);
-    //    c.add(logoPanel);
-
     }
 
     @Override
@@ -166,13 +168,5 @@ public class TelaPrincipal extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, sobreInfo, "Sobre",
                         JOptionPane.INFORMATION_MESSAGE);
         }
-    }
-
-    public static void novoCadastro() {
-        cadClienteIFrame.setVisible(true);
-    }
-
-    public static void novoProduto() {
-        cadProdutoIFrame.setVisible(true);
     }
 }

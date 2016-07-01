@@ -1,6 +1,5 @@
 package br.unesc.topicos.grc.view;
 
-import br.unesc.topicos.grc.bean.GrupoProduto;
 import br.unesc.topicos.grc.util.FormattedTextFields;
 import br.unesc.topicos.grc.bean.Produto;
 import br.unesc.topicos.grc.dao.GrupoProdutoDao;
@@ -8,18 +7,18 @@ import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.util.List;
-import javax.swing.text.MaskFormatter;
 import br.unesc.topicos.grc.listener.CadastroProdutoListener;
 
 public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements FocusListener {
 
     private CadastroProdutoListener jInternalListeners = new CadastroProdutoListener(this);
-    private MaskFormatter valorFormatter;
     private boolean camposValidos = true;
     private GrupoProdutoDao dao = new GrupoProdutoDao();
 
     public CadastroProdutoJIF() {
         initComponents();
+        getRootPane().setDefaultButton(jButtonSalvarProduto);
+
     }
 
     @SuppressWarnings("unchecked")
@@ -247,7 +246,7 @@ public class CadastroProdutoJIF extends javax.swing.JInternalFrame implements Fo
             jLabelGrupo.setForeground(Color.black);
         }
 
-        jLabelAviso.setVisible(!camposValidos);     
+        jLabelAviso.setVisible(!camposValidos);
 
         return camposValidos;
     }

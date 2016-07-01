@@ -4,7 +4,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JTextField;
 
-
 public class FormattedTextFields extends JTextField {
     //somente números
     public FormattedTextFields() {
