@@ -844,3 +844,23 @@ socket creation error
 [2016-06-30 21:24:30] Erro ao procurar data compra:
  Wrong data type: java.lang.NumberFormatException: For input string: "____"
 [2016-06-30 21:42:53] Login realizado pelo usuario: Alini
+[2016-06-30 21:52:30] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-30 21:52:23] Login realizado pelo usuario: Alini
+[2016-06-30 21:56:03] Login realizado pelo usuario: Alini
+[2016-06-30 23:17:49] Problemas ao conectar no banco de dados
+socket creation error
+[2016-06-30 23:17:44] Login realizado pelo usuario: Alini
+[2016-06-30 23:18:15] Grupo de Produto salvo: Cigarrete
+[2016-06-30 23:18:15] Grupo de Produto salvo: Top
+[2016-06-30 23:18:15] Grupo de Produto salvo: Baby T-Shirt
+[2016-06-30 23:18:15] Grupo de Produto salvo: Short
+[2016-06-30 23:18:15] Grupo de Produto salvo: Saia
+[2016-06-30 23:18:15] Grupo de Produto salvo: Vestido
+[2016-06-30 23:18:15] Grupo de Produto salvo: Camisa
+[2016-06-30 23:18:15] Grupo de Produto salvo: Regata
+[2016-06-30 23:18:15] Grupo de Produto salvo: Bermuda
+[2016-06-30 23:25:06] Login realizado pelo usuario: Alini
+[2016-06-30 23:25:58] Login realizado pelo usuario: Alini
+[2016-06-30 23:27:04] Login realizado pelo usuario: Alini
+[2016-06-30 23:28:12] Login realizado pelo usuario: Alini
